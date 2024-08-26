@@ -5,6 +5,21 @@
     overflow-x: hidden;
     font-family: $fnt-admin;
 }
+
+.content {
+    position: absolute;
+    width: calc(100% - 300px);
+    top: 60px;
+    left: 300px;
+    min-height: 100vh;
+    background: $clr-white;
+    transition: 0.5s;
+
+    &.active {
+        width: calc(100% - 80px);
+        left: 80px;
+    }
+}
 // Responsive Design styles
 
 @media (max-width: 991px) {

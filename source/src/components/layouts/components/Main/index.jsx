@@ -1,11 +1,6 @@
-import useToggleNavigation from '~/components/hooks/useToggleNavigation ';
 import './Main.scss';
-import OrderDetailList from '../OrderDetailList';
-import Card from '../Card';
 
 const Main = () => {
-    useToggleNavigation();
-
     return (
         <div className="main">
             <div className="topbar flex flex-between">
@@ -24,9 +19,6 @@ const Main = () => {
                     <img src="/user_logo.jpg" alt="logo_user" />
                 </div>
             </div>
-
-            <Card />
-            <OrderDetailList />
         </div>
     );
 };

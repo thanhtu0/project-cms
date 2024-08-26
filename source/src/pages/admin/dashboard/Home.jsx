@@ -1,9 +1,11 @@
-import Main from '../../../components/layouts/components/Main';
+import Card from '~/components/layouts/components/Card';
+import OrderDetailList from '~/components/layouts/components/OrderDetailList';
 
 const Home = () => {
     return (
         <div>
-            <Main />
+            <Card />
+            <OrderDetailList />
         </div>
     );
 };
