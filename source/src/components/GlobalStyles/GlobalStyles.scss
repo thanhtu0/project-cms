@@ -1,0 +1,284 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Lexend:wght@100..900&family=Montserrat:wght@100..900&display=swap');
+
+// variables
+$clr-black: #1a1a1a;
+$clr-white: #ffffff;
+$clr-gray-f1: #f1f1f1;
+$clr-gray-9a: #9a9a9a;
+
+$fnt-base: 'Lexend', sans-serif;
+$fnt-logo: 'Germania One', system-ui;
+$transition: all 300ms linear;
+
+// global styles & resets
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html {
+    font-size: 10px;
+}
+body {
+    font-family: $fnt-base;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    text-rendering: optimizeSpeed;
+    color: $clr-black;
+    overflow-y: overlay;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: unset;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+}
+img {
+    width: 100%;
+    display: block;
+}
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+button {
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 1.4rem;
+}
+input,
+textarea,
+select {
+    outline: 0;
+    border: none;
+    resize: none;
+    font-family: inherit;
+    font-size: 1.4rem;
+}
+
+/* custom utility classes */
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* flexbox and grid */
+.flex {
+    display: flex;
+    align-items: center;
+
+    &-column {
+        flex-direction: column;
+    }
+    &-center {
+        justify-content: center;
+    }
+    &-between {
+        justify-content: space-between;
+    }
+    &-start {
+        justify-content: flex-start;
+    }
+    &-end {
+        justify-content: flex-end;
+    }
+}
+
+.grid {
+    display: grid;
+}
+
+/* height and width */
+.h-100 {
+    height: 100%;
+}
+.w-100 {
+    width: 100%;
+}
+
+/* text align and transformation */
+.text {
+    &-center {
+        text-align: center;
+    }
+    &-start {
+        text-align: left;
+    }
+    &-end {
+        text-align: right;
+    }
+    &-justify {
+        text-align: justify;
+    }
+    &-uppercase {
+        text-transform: uppercase;
+    }
+    &-capitalize {
+        text-transform: capitalize;
+    }
+    &-black {
+        color: $clr-black;
+    }
+    &-white {
+        color: $clr-white;
+    }
+    &-gray-f1 {
+        color: $clr-gray-f1;
+    }
+    &-gray-9a {
+        color: $clr-gray-9a;
+    }
+}
+
+.bg {
+    &-black {
+        background-color: $clr-black;
+    }
+    &-white {
+        background-color: $clr-white;
+    }
+    &-gray-f1 {
+        background-color: $clr-gray-f1;
+    }
+    &-gray-a9 {
+        background-color: $clr-gray-9a;
+    }
+}
+
+/* font weights */
+.fw {
+    &-1 {
+        font-weight: 100;
+    }
+    &-2 {
+        font-weight: 200;
+    }
+    &-3 {
+        font-weight: 300;
+    }
+    &-4 {
+        font-weight: 400;
+    }
+    &-5 {
+        font-weight: 500;
+    }
+    &-6 {
+        font-weight: 600;
+    }
+    &-7 {
+        font-weight: 700;
+    }
+    &-8 {
+        font-weight: 800;
+    }
+    &-9 {
+        font-weight: 900;
+    }
+}
+
+/* common font sizes */
+.fs {
+    &-13 {
+        font-size: 13px;
+    }
+    &-14 {
+        font-size: 14px;
+    }
+    &-15 {
+        font-size: 15px;
+    }
+    &-16 {
+        font-size: 16px;
+    }
+    &-17 {
+        font-size: 17px;
+    }
+    &-18 {
+        font-size: 18px;
+    }
+    &-19 {
+        font-size: 19px;
+    }
+    &-20 {
+        font-size: 20px;
+    }
+    &-21 {
+        font-size: 21px;
+    }
+    &-22 {
+        font-size: 22px;
+    }
+    &-23 {
+        font-size: 23px;
+    }
+    &-24 {
+        font-size: 24px;
+    }
+    &-25 {
+        font-size: 25px;
+    }
+    &-26 {
+        font-size: 26px;
+    }
+}
+
+/* letter spacing */
+.ls-1 {
+    letter-spacing: 1px;
+}
+.ls-2 {
+    letter-spacing: 2px;
+}
+
+/* margin and padding */
+.mx-auto {
+    margin-right: auto;
+    margin-left: auto;
+}
+.py-5 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* animation and transition stopper */
+.resize-animation-stopper * {
+    animation: none !important;
+    transition: none !important;
+}
+
+// section
+.section-title {
+    padding: 16px 0;
+    & * {
+        font-size: 26px;
+    }
+}
+
+// breadcrumb
+.breadcrumb {
+    padding: 12px 0;
+    color: $clr-gray-9a;
+    &-separator {
+        margin: 0 8px;
+    }
+}

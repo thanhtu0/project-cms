@@ -1,0 +1,305 @@
+{
+	"information": [
+		{
+			"titles": [{ "title": "About" }, { "title": "Store" }, { "title": "We accept" }, { "title": "Social App" }],
+			"links": [
+				[
+					{ "link": "About us" },
+					{ "link": "We'r hiring" },
+					{ "link": "Support" },
+					{ "link": "Find store" },
+					{ "link": "Shipment" },
+					{ "link": "Payment" },
+					{ "link": "Gift card" },
+					{ "link": "Return" },
+					{ "link": "Help" }
+				],
+				[
+					{ "companyName": "cordes" },
+					{ "telephone": "(239) 555-0108" },
+					{ "email": "ex@mail.com" },
+					{ "address": "3891 Ranch view Dr.Richardson, California" }
+				],
+				[{ "link": "Amex" }, { "link": "Credit card" }],
+				[
+					{ "facebook": "https://www.facebook.com/ThanhTu03012002" },
+					{ "instagram": "https://www.instagram.com" },
+					{ "github": "https://github.com/thanhtu0" },
+					{ "twitter": "https://x.com/home" },
+					{ "snapchat": "https://www.snapchat.com/" },
+					{ "linkedin": "https://www.snapchat.com/" }
+				]
+			]
+		}
+	],
+	"employees": [
+		{
+			"id": 1,
+			"fullName": "Lưu Lê Thanh Tú",
+			"birthDate": "2002-03-01T12:00:00",
+			"gender": "Male",
+			"address": "123 ABC Street, District 1, Hue City",
+			"email": "luulethanhtu@example.com",
+			"password": "123456",
+			"photo": "employee_1.jpg",
+			"position": "Permanent",
+			"isWorking": true
+		},
+		{
+			"id": 2,
+			"fullName": "Lê Anh Hai",
+			"birthDate": "2001-04-15T09:00:00",
+			"gender": "Male",
+			"address": "456 XYZ Street, District 3, Hue City",
+			"email": "nguyendangkhoa@example.com",
+			"password": "123456",
+			"photo": "employee_2.jpg",
+			"position": "Trainee",
+			"isWorking": true
+		},
+		{
+			"id": 3,
+			"fullName": "Lê Anh Hào",
+			"birthDate": "2003-05-20T11:45:00",
+			"gender": "Male",
+			"address": "789 DEF Street, District 5, Hue City",
+			"email": "leanhminh@example.com",
+			"password": "123456",
+			"photo": "employee_3.jpg",
+			"position": "Permanent",
+			"isWorking": false
+		},
+		{
+			"id": 4,
+			"fullName": "Võ Văn Tèo",
+			"birthDate": "2000-06-30T08:30:00",
+			"gender": "Male",
+			"address": "101 GHI Street, District 2, Hue City",
+			"email": "vominhquang@example.com",
+			"password": "123456",
+			"photo": "employee_4.jpg",
+			"position": "Trainee",
+			"isWorking": true
+		},
+		{
+			"id": 5,
+			"fullName": "Lê Anh Tú",
+			"birthDate": "2002-07-25T14:15:00",
+			"gender": "Male",
+			"address": "202 JKL Street, District 10, Hue City",
+			"email": "leanhtu@example.com",
+			"password": "123456",
+			"photo": "employee_5.jpg",
+			"position": "Permanent",
+			"isWorking": true
+		}
+	],
+	"categories": [
+		{
+			"id": 1,
+			"categoryName": "Men",
+			"description": "Clothing and accessories for men"
+		},
+		{
+			"id": 2,
+			"categoryName": "Women",
+			"description": "Clothing and accessories for women"
+		}
+	],
+	"subcategories": [
+		{
+			"id": 1,
+			"name": "Clothing"
+		},
+		{
+			"id": 2,
+			"name": "Shoes"
+		},
+		{
+			"id": 3,
+			"name": "Accessories"
+		},
+		{
+			"id": 4,
+			"name": "Skateboard"
+		},
+		{
+			"id": 5,
+			"name": "Route One"
+		},
+		{
+			"id": 6,
+			"name": "Brand"
+		},
+		{
+			"id": 7,
+			"name": "Launches"
+		},
+		{
+			"id": 8,
+			"name": "Sale"
+		}
+	],
+	"products": [
+		{
+			"id": 1,
+			"liked": false,
+			"name": "Globe Sabre Skate Shoes - Black...",
+			"title": "Globe Sabre Skate Shoes - Black...",
+			"price": "84.99",
+			"sold": "1114 sold",
+			"image": "men/product_1.png",
+			"categoryId": 1
+		},
+		{
+			"id": 2,
+			"liked": false,
+			"name": "'Birdhouse Armanto Favorites...",
+			"title": "'Birdhouse Armanto Favorites...",
+			"price": "79.95",
+			"sold": "123 sold",
+			"image": "men/product_2.png",
+			"categoryId": 1
+		},
+		{
+			"id": 3,
+			"liked": true,
+			"name": "Thrasher Flame Logo Snapback",
+			"title": "Thrasher Flame Logo Snapback",
+			"price": "64.99",
+			"sold": "1233 sold",
+			"image": "men/product_3.png",
+			"categoryId": 1
+		},
+		{
+			"id": 4,
+			"liked": false,
+			"name": "Pull On Chino Short - Coconut Milk",
+			"title": "Pull On Chino Short - Coconut Milk",
+			"price": "47.99",
+			"sold": "1214 sold",
+			"image": "men/product_4.png",
+			"categoryId": 1
+		},
+		{
+			"id": 5,
+			"liked": false,
+			"name": "Stage 3 Complete Skateboard",
+			"title": "Stage 3 Complete Skateboard",
+			"price": "59.99",
+			"sold": "764 sold",
+			"image": "men/product_5.png",
+			"categoryId": 1
+		},
+		{
+			"id": 6,
+			"liked": false,
+			"name": "Herschel Supply Co. Settlement...",
+			"title": "Herschel Supply Co. Settlement...",
+			"price": "59.99",
+			"sold": "1573 sold",
+			"image": "men/product_6.png",
+			"categoryId": 1
+		},
+		{
+			"id": 7,
+			"liked": false,
+			"name": "REKD Elite 2.0 Helmet - Blue",
+			"title": "REKD Elite 2.0 Helmet - Blue",
+			"price": "34.95",
+			"sold": "364 sold",
+			"image": "men/product_7.png",
+			"categoryId": 1
+		},
+		{
+			"id": 8,
+			"liked": false,
+			"name": "Element Cookie Skateboard...",
+			"title": "Element Cookie Skateboard...",
+			"price": "64.99",
+			"sold": "245 sold",
+			"image": "men/product_8.png",
+			"categoryId": 1
+		},
+		{
+			"id": 9,
+			"liked": false,
+			"name": "Thrasher Flame Logo Snapback",
+			"title": "Thrasher Flame Logo Snapback",
+			"price": "64.99",
+			"sold": "1233 sold",
+			"image": "women/product_1.png",
+			"categoryId": 2
+		},
+		{
+			"id": 10,
+			"liked": true,
+			"name": "Birdhouse Armanto Favorites...",
+			"title": "Birdhouse Armanto Favorites...",
+			"price": "79.95",
+			"sold": "123 sold",
+			"image": "women/product_2.png",
+			"categoryId": 2
+		},
+		{
+			"id": 11,
+			"liked": false,
+			"name": "Globe Surplus Skate Shoes",
+			"title": "Globe Surplus Skate Shoes",
+			"price": "54.99",
+			"sold": "1114 sold",
+			"image": "women/product_3.png",
+			"categoryId": 2
+		},
+		{
+			"id": 12,
+			"liked": false,
+			"name": "Pull On Chino Short - Coconut Milk",
+			"title": "Pull On Chino Short - Coconut Milk",
+			"price": "47.99",
+			"sold": "1214 sold",
+			"image": "women/product_4.png",
+			"categoryId": 2
+		},
+		{
+			"id": 13,
+			"liked": false,
+			"name": "Stage 3 Complete Skateboard",
+			"title": "Stage 3 Complete Skateboard",
+			"price": "59.99",
+			"sold": "764 sold",
+			"image": "women/product_5.png",
+			"categoryId": 2
+		},
+		{
+			"id": 14,
+			"liked": false,
+			"name": "Herschel Supply Co. Settlement...",
+			"title": "Herschel Supply Co. Settlement...",
+			"price": "59.99",
+			"sold": "1573 sold",
+			"image": "women/product_6.png",
+			"categoryId": 2
+		},
+		{
+			"id": 15,
+			"liked": true,
+			"name": "REKD Elite 2.0 Helmet - Blue",
+			"title": "REKD Elite 2.0 Helmet - Blue",
+			"price": "34.95",
+			"sold": "364 sold",
+			"image": "women/product_7.png",
+			"categoryId": 2
+		},
+		{
+			"id": 16,
+			"liked": false,
+			"name": "Element Cookie Skateboard...",
+			"title": "Element Cookie Skateboard...",
+			"price": "64.99",
+			"sold": "245 sold",
+			"image": "women/product_8.png",
+			"categoryId": 2
+		}
+	]
+}
