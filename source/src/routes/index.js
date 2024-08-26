@@ -1,17 +1,25 @@
-import { Home, Information, ProductDetail, Wishlist } from '~/pages/user';
-
+// Pages
+import { Home } from '~/pages/user';
+import { AdminHome } from '~/pages/admin';
 import NotFound from '~/pages/NotFound';
+import { ForgotPassword, Login, Register } from '~/pages/account';
+
+// Layouts
+import { AdminLayout, ProductDetail } from '~/components/layouts';
+
 // Public routes
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/information', component: Information },
-    { path: '/products:id', component: ProductDetail },
-    { path: '/wishlist', component: Wishlist },
+    { path: '/product/:{id}', component: Home, layout: ProductDetail },
+    { path: '/login', component: Login },
+    { path: '/register', component: Register },
+    { path: '/password_reset', component: ForgotPassword },
 
     // Not found
-    { path: '/error', component: NotFound },
+    { path: '*', component: NotFound },
 ];
 
-const privateRoutes = [];
+// Private routes
+const privateRoutes = [{ path: '/admin', component: AdminHome, layout: AdminLayout }];
 
 export { publicRoutes, privateRoutes };
