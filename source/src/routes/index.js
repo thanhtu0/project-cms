@@ -6,6 +6,7 @@ import { ForgotPassword, Login, Register } from '~/pages/account';
 
 // Layouts
 import { AdminLayout, ProductDetail } from '~/components/layouts';
+import ProductList from '~/pages/admin/products/ProductList';
 
 // Public routes
 const publicRoutes = [
@@ -20,6 +21,9 @@ const publicRoutes = [
 ];
 
 // Private routes
-const privateRoutes = [{ path: '/admin', component: AdminHome, layout: AdminLayout }];
+const privateRoutes = [
+    { path: '/admin', component: AdminHome, layout: AdminLayout },
+    { path: '/admin/products', component: ProductList, layout: AdminLayout },
+];
 
 export { publicRoutes, privateRoutes };

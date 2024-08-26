@@ -1,0 +1,50 @@
+@import '../../../GlobalStyles/GlobalStyles.scss';
+
+.cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+
+    .card {
+        position: relative;
+        background: $clr-white;
+        padding: 30px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+
+        .numbers {
+            position: relative;
+            font-weight: 500;
+            font-size: 4rem;
+            color: $clr-black;
+        }
+
+        .cardName {
+            color: $clr-black-2;
+            font-size: 1.76rem;
+            margin-top: 5px;
+        }
+
+        .iconBx {
+            font-size: 5.6rem;
+            color: $clr-black-2;
+        }
+
+        &:hover {
+            background: $clr-black-1;
+
+            .numbers,
+            .cardName,
+            .iconBx {
+                color: $clr-white;
+            }
+        }
+    }
+}
