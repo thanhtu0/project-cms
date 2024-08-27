@@ -20,6 +20,7 @@
         left: 80px;
     }
 }
+
 // Responsive Design styles
 
 @media (max-width: 991px) {
@@ -39,6 +40,13 @@
     }
     .cardBox {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .content {
+        width: 100%;
+        left: 0;
+    }
+    .content.active {
+        left: 300px;
     }
 }
 
@@ -76,7 +84,8 @@
     .toggle {
         z-index: 10001;
     }
-    .main.active .toggle {
+    .main.active .toggle,
+    .content.active .toggle {
         background-color: transparent;
         color: $clr-white;
         position: fixed;

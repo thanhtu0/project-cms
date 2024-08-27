@@ -98,12 +98,14 @@
 		{
 			"id": 1,
 			"categoryName": "Men",
-			"description": "Clothing and accessories for men"
+			"description": "Clothing and accessories for men",
+			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8]
 		},
 		{
 			"id": 2,
 			"categoryName": "Women",
-			"description": "Clothing and accessories for women"
+			"description": "Clothing and accessories for women",
+			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		}
 	],
 	"subcategories": [
@@ -138,6 +140,18 @@
 		{
 			"id": 8,
 			"name": "Sale"
+		},
+		{
+			"id": 9,
+			"name": "Dress"
+		},
+		{
+			"id": 10,
+			"name": "Children"
+		},
+		{
+			"id": 11,
+			"name": "Other"
 		}
 	],
 	"products": [

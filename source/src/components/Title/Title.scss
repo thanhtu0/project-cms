@@ -1,0 +1,11 @@
+@import '../GlobalStyles/GlobalStyles.scss';
+.title-content {
+    height: 50px;
+    margin-bottom: 15px;
+    padding: 10px 0 0 20px;
+    .text {
+        max-width: 350px;
+        min-height: 40px;
+        line-height: 40px;
+    }
+}
