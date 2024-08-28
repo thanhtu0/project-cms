@@ -16,7 +16,8 @@ import { CreateEmployee, EditEmployee, EmployeeList } from '~/pages/admin/employ
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/product/:{id}', component: Home, layout: ProductDetail },
-    { path: '/auth', component: Authentication, layout: null },
+    { path: '/signin', component: Authentication, layout: null },
+    { path: '/signup', component: Authentication, layout: null },
     { path: '/password_reset', component: ForgotPassword },
 
     // Not found

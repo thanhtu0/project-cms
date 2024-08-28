@@ -1,16 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Authentication.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Authentication = () => {
     const [isSignUpMode, setIsSignUpMode] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (location.pathname === '/signup') {
+            setIsSignUpMode(true);
+        } else {
+            setIsSignUpMode(false);
+        }
+    }, [location]);
 
     const handleSignUpClick = () => {
         setIsSignUpMode(true);
+        navigate('/signup');
     };
 
     const handleSignInClick = () => {
         setIsSignUpMode(false);
+        navigate('/signin');
     };
 
     return (
