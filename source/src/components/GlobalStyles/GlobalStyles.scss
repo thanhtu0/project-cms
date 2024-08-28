@@ -14,6 +14,12 @@ $clr-gray: #f5f5f5;
 $clr-black-1: #222;
 $clr-black-2: #999;
 
+// variables login
+$clr-bg-primary: #76c9f3;
+$clr-bg-secondary: #b5e4fc;
+$clr-bg-hover: #d6f0ff;
+$clr-btn: #2de1ec;
+
 // variables button
 $clr-primary: #007bff;
 $bg-primary: #0056b3;
@@ -82,7 +88,8 @@ button {
 input,
 textarea,
 select {
-    outline: 0;
+    outline: none;
+    background: none;
     border: none;
     resize: none;
     font-family: inherit;
@@ -91,11 +98,9 @@ select {
 
 /* custom utility classes */
 .container {
-    // max-width: 1320px;
     position: relative;
     width: 100%;
     margin: 0 auto;
-    // padding: 0 2rem;
 }
 
 /* flexbox and grid */
@@ -357,6 +362,7 @@ select {
         background: #1795ce;
     }
 }
+
 // button and color
 .btn {
     display: inline-block;

@@ -1,0 +1,309 @@
+@import '../../components/GlobalStyles/GlobalStyles.scss';
+
+.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: $clr-black-2;
+    transition: transform 1s ease-in-out;
+
+    &.sign-up-mode {
+        .auth-form::before {
+            transform: translateX(0);
+        }
+
+        .right-panel {
+            transform: translateX(200%);
+        }
+
+        .left-panel {
+            transform: translateX(0);
+        }
+
+        form.sign-in-form {
+            opacity: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        form.sign-up-form {
+            opacity: 1;
+            pointer-events: all;
+            z-index: 1;
+        }
+    }
+}
+
+.auth-form {
+    position: relative;
+    width: 70vw;
+    height: 80vh;
+    background: $clr-white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 1s ease-in-out;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(-45deg, $clr-bg-hover, $clr-bg-primary);
+        z-index: 6;
+        transform: translateX(100%);
+        transition: transform 1s ease-in-out;
+    }
+}
+
+.signin-signup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 5;
+
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 40%;
+        min-height: 238px;
+        padding: 0 10px;
+
+        .title-auth {
+            font-size: 35px;
+            color: $clr-bg-primary;
+        }
+
+        .input-field {
+            width: 100%;
+            height: 50px;
+            background: $clr-bg;
+            margin: 10px 0;
+            border: 2px solid $clr-bg-primary;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+
+            ion-icon {
+                flex: 1;
+                text-align: center;
+                color: $clr-black-2;
+                font-size: 24px;
+            }
+
+            input {
+                flex: 5;
+                width: 100%;
+                font-size: 18px;
+                font-weight: 600;
+                color: $clr-gray-9a;
+                background: transparent;
+                border: none;
+                outline: none;
+                padding: 0 10px;
+            }
+        }
+
+        .btn-auth {
+            width: 150px;
+            height: 50px;
+            border: none;
+            border-radius: 50px;
+            background: $clr-bg-primary;
+            color: $clr-white;
+            font-weight: 600;
+            margin: 10px 0;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            &:hover {
+                background: $clr-btn;
+            }
+        }
+
+        .social-text {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $clr-gray-9a;
+                border: 1px solid $clr-gray-9a;
+                border-radius: 50px;
+                margin: 0 5px;
+                cursor: pointer;
+
+                &:hover {
+                    color: $clr-btn;
+                    border-color: $clr-btn;
+                }
+            }
+        }
+    }
+}
+
+.panels-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 35%;
+        min-width: 238px;
+        padding: 0 10px;
+        text-align: center;
+        z-index: 6;
+
+        .panel-content {
+            color: $clr-white;
+            transition: 1.1s ease-in-out;
+            transition-delay: 0.5s;
+
+            h3 {
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            p {
+                font-size: 15px;
+                padding: 10px 0;
+            }
+
+            .btn-auth {
+                width: 150px;
+                height: 50px;
+                border: none;
+                border-radius: 50px;
+                background: $clr-bg-primary;
+                color: $clr-white;
+                font-weight: 600;
+                margin: 10px 0;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                &:hover {
+                    background: $clr-btn;
+                }
+            }
+        }
+
+        .image {
+            width: 300px;
+            height: 250px;
+            transition: 1.1s ease-in-out;
+            transition-delay: 0.4s;
+        }
+    }
+}
+
+.left-panel {
+    transform: translateX(-200%);
+}
+
+.right-panel {
+    transform: translateX(0);
+}
+
+.account-text {
+    display: none;
+    font-size: 16px;
+    color: $clr-gray-9a;
+
+    a {
+        color: $clr-bg-primary;
+        font-weight: bold;
+
+        &:hover {
+            color: $clr-primary;
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .auth {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .auth-form {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .signin-signup form {
+        width: 80%;
+    }
+
+    .panels-container .panel {
+        width: 90%;
+        min-width: unset;
+    }
+
+    .panels-container .panel .image {
+        width: 250px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 568px) {
+    .auth-form::before {
+        display: none;
+    }
+
+    form.sign-up-form {
+        display: none;
+    }
+
+    .auth.sign-up-mode form.sign-up-form {
+        display: flex;
+        opacity: 1;
+    }
+
+    .auth.sign-up-mode form.sign-in-form {
+        display: none;
+    }
+
+    .panels-container {
+        display: none;
+    }
+
+    .account-text {
+        display: initial;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+    }
+}

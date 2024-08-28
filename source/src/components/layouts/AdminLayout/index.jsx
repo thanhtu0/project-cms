@@ -11,8 +11,8 @@ const AdminLayout = ({ children }) => {
             <div className="container">
                 <Navigation />
                 <Main />
-                <div className="content">{children}</div>
             </div>
+            <div className="content">{children}</div>
         </div>
     );
 };
