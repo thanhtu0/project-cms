@@ -1,50 +1,91 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Title from '~/components/Title';
 
 const EmployeeList = () => {
-    const employees = [1, 2, 3, 4, 5, 6, 7];
+    const [employees, setEmployees] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [totalItems, setTotalItems] = useState(0);
+    const itemsPerPage = 10;
+
+    const getEmployees = (page = 1) => {
+        fetch(`http://localhost:4000/employees?_page=${page}&_limit=${itemsPerPage}`)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then((data) => {
+                setEmployees(data);
+                setTotalItems(data.length);
+                setTotalPages(Math.ceil(data.length / itemsPerPage));
+            })
+            .catch((error) => {
+                alert('Unable to get the data');
+            });
+    };
+
+    useEffect(() => {
+        getEmployees(currentPage);
+    }, [currentPage]);
+
+    const handlePageChange = (newPage) => {
+        if (newPage < 1 || newPage > totalPages) return;
+        setCurrentPage(newPage);
+    };
+
     return (
         <>
             <div className="list">
                 <div className="list__header">
                     <Title text="Employees List" />
                     <div className="list__btn-group">
-                        <Link to="*" className="btn btn-outline-primary">
+                        <button onClick={() => getEmployees(currentPage)} className="btn btn-outline-primary">
                             Refresh Employee
-                        </Link>
-                        <Link to="/admin/category/create" className="btn btn-primary">
+                        </button>
+                        <Link to="/admin/employee/create" className="btn btn-primary">
                             Create Employee
                         </Link>
                     </div>
                 </div>
                 <div className="list__title">
-                    <p>There are 10 employees. Currently on page 10 of 10 total pages.</p>
+                    <p>
+                        There are {totalItems} employees. Currently on page {currentPage} of {totalPages} total pages.
+                    </p>
                 </div>
                 <div className="list__employee">
-                    {employees.map((employee, index) => (
-                        <div key={index} className="card">
+                    {employees.map((employee) => (
+                        <div key={employee.id} className="card">
                             <div className="profile">
                                 <div className="title">
                                     <div className="left_title">
-                                        <h4>Lưu Lê Thanh Tú</h4>
+                                        <h4>{employee.fullName}</h4>
                                     </div>
                                     <div className="right_title">
-                                        <Link className="btn-xs btn-primary">
+                                        <Link
+                                            className="btn-xs btn-primary"
+                                            to={'/admin/employees/edit/' + employee.id}
+                                        >
                                             <ion-icon name="create-outline"></ion-icon>
                                         </Link>
-                                        <Link className="btn-xs btn-warning">
+                                        <Link
+                                            className="btn-xs btn-warning"
+                                            to={'/admin/employees/reset-password/' + employee.id}
+                                        >
                                             <ion-icon name="key-outline"></ion-icon>
                                         </Link>
-                                        <Link className="btn-xs btn-danger">
+                                        <button type="button" className="btn-xs btn-danger">
                                             <ion-icon name="trash-outline"></ion-icon>
-                                        </Link>
+                                        </button>
                                     </div>
                                 </div>
                                 <div className="body">
                                     <div className="left-info">
                                         <img
-                                            src="/logo_1.png"
-                                            alt="Images employee"
+                                            src={`/path/to/images/${employee.photo}`}
+                                            alt="Employee"
                                             className="img-responsive profile-user-img"
                                         />
                                     </div>
@@ -52,14 +93,27 @@ const EmployeeList = () => {
                                         <ul>
                                             <li>
                                                 <ion-icon name="calendar-outline"></ion-icon>
-                                                03/01/2002
+                                                {new Date(employee.birthDate).toLocaleDateString()}
                                             </li>
                                             <li>
-                                                <ion-icon name="call-outline"></ion-icon> 0932547683
+                                                <ion-icon name="call-outline"></ion-icon>
+                                                {employee.phone ? (
+                                                    employee.phone
+                                                ) : (
+                                                    <>
+                                                        Pending update
+                                                        <span
+                                                            className="info-icon"
+                                                            value="You haven't added this information."
+                                                        >
+                                                            i
+                                                        </span>
+                                                    </>
+                                                )}
                                             </li>
-                                            <li className="email">
-                                                <ion-icon name="mail-outline"></ion-icon>
-                                                thanhtuluu0301@gmail.com
+                                            <li>
+                                                <ion-icon name="mail-outline"></ion-icon> <br />
+                                                {employee.email}
                                             </li>
                                         </ul>
                                     </div>
@@ -67,6 +121,17 @@ const EmployeeList = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className="list__pagination">
+                    <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+                        Previous
+                    </button>
+                    <span>
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+                        Next
+                    </button>
                 </div>
             </div>
         </>

@@ -402,9 +402,8 @@ select {
         font-size: 1.6rem;
     }
     &-xs {
-        padding: 0.1rem 0.5rem;
+        padding: 0.1rem 0.4rem;
         font-size: 1.4rem;
-        line-height: 1.5;
         border-radius: 0.3rem;
     }
     &-sm {
@@ -555,22 +554,23 @@ select {
     }
 
     &__employee {
+        position: relative;
+        padding: 20px;
         width: 100%;
         margin-top: 10px;
-        height: 100vh;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
 
         .card {
+            position: relative;
+            background: $clr-gray-f1;
+            width: auto;
             height: 225px;
             display: flex;
             flex-direction: column;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            border-top: 5px solid rgba(0, 0, 0, 0.15);
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-radius: 10px;
+            border-top: 5px solid rgba(0, 0, 0, 0.1);
 
             .profile {
                 display: flex;
@@ -583,12 +583,13 @@ select {
                     align-items: center;
                     height: 40px;
                     padding: 0 15px;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
                     .left_title {
                         flex: 0 0 66.67%;
                         h4 {
                             margin: 0;
-                            font-size: 1.6rem;
+                            font-size: 1.8rem;
                             font-weight: 500;
                         }
                     }
@@ -598,6 +599,10 @@ select {
                         display: flex;
                         justify-content: flex-end;
                         gap: 10px;
+
+                        ion-icon {
+                            font-size: 1.6rem;
+                        }
                     }
                 }
 
@@ -645,14 +650,42 @@ select {
                                 margin-bottom: -1px;
                                 background-color: $clr-white;
                                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
                                 ion-icon {
                                     margin-right: 10px;
                                 }
-                            }
-                            .email {
-                                white-space: nowrap;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
+
+                                .info-icon {
+                                    display: inline-block;
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: 50%;
+                                    background-color: $clr-white;
+                                    color: $clr-warning-dark;
+                                    font-size: 12px;
+                                    font-weight: bold;
+                                    text-align: center;
+                                    line-height: 16px;
+                                    margin-left: 5px;
+                                    cursor: help;
+                                    border: 1px solid $clr-warning;
+                                    position: relative;
+
+                                    &:hover::after {
+                                        content: attr(value);
+                                        position: absolute;
+                                        background-color: $clr-warning-light;
+                                        color: $clr-black-2;
+                                        padding: 5px;
+                                        border-radius: 4px;
+                                        white-space: nowrap;
+                                        font-size: 12px;
+                                        bottom: -30px;
+                                        top: 20px;
+                                        left: -100px;
+                                        z-index: 10;
+                                    }
+                                }
                             }
                         }
                     }

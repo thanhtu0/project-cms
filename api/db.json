@@ -39,10 +39,10 @@
 			"birthDate": "2002-03-01T12:00:00",
 			"gender": "Male",
 			"address": "123 ABC Street, District 1, Hue City",
+			"phone": "093 254 7683",
 			"email": "luulethanhtu@example.com",
 			"password": "123456",
 			"photo": "employee_1.jpg",
-			"position": "Permanent",
 			"isWorking": true
 		},
 		{
@@ -51,10 +51,10 @@
 			"birthDate": "2001-04-15T09:00:00",
 			"gender": "Male",
 			"address": "456 XYZ Street, District 3, Hue City",
+			"phone": "",
 			"email": "nguyendangkhoa@example.com",
 			"password": "123456",
 			"photo": "employee_2.jpg",
-			"position": "Trainee",
 			"isWorking": true
 		},
 		{
@@ -63,10 +63,10 @@
 			"birthDate": "2003-05-20T11:45:00",
 			"gender": "Male",
 			"address": "789 DEF Street, District 5, Hue City",
+			"phone": "093 254 442",
 			"email": "leanhminh@example.com",
 			"password": "123456",
 			"photo": "employee_3.jpg",
-			"position": "Permanent",
 			"isWorking": false
 		},
 		{
@@ -75,10 +75,10 @@
 			"birthDate": "2000-06-30T08:30:00",
 			"gender": "Male",
 			"address": "101 GHI Street, District 2, Hue City",
+			"phone": "123 456 789",
 			"email": "vominhquang@example.com",
 			"password": "123456",
 			"photo": "employee_4.jpg",
-			"position": "Trainee",
 			"isWorking": true
 		},
 		{
@@ -87,10 +87,10 @@
 			"birthDate": "2002-07-25T14:15:00",
 			"gender": "Male",
 			"address": "202 JKL Street, District 10, Hue City",
+			"phone": "123 456 789",
 			"email": "leanhtu@example.com",
 			"password": "123456",
 			"photo": "employee_5.jpg",
-			"position": "Permanent",
 			"isWorking": true
 		}
 	],
