@@ -1,0 +1,81 @@
+@import 'variables';
+
+// button
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    border-radius: 0.6rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    &-icon {
+        margin-left: 5px;
+        font-size: 1.6rem;
+        padding: 8px;
+    }
+    &-xs {
+        padding: 0.2rem 0.4rem;
+        font-size: 1.4rem;
+        border-radius: 0.3rem;
+    }
+    &-primary {
+        color: $clr-white;
+        background-color: $clr-primary-light;
+        border-color: $clr-primary;
+        &:hover {
+            color: $clr-white;
+            background-color: $clr-primary-dark;
+            border-color: $clr-primary-dark-deep;
+        }
+    }
+    &-info {
+        color: $clr-white;
+        background-color: $clr-info-light;
+        border-color: $clr-info;
+
+        &:hover {
+            color: $clr-white;
+            background-color: $clr-info-dark;
+            border-color: $clr-info-deep;
+        }
+    }
+    &-warning {
+        color: $clr-white;
+        background-color: $clr-warning-light;
+        border-color: $clr-warning;
+
+        &:hover {
+            color: $clr-white;
+            background-color: $clr-warning-dark;
+            border-color: $clr-warning-deep;
+        }
+    }
+    &-danger {
+        color: $clr-white;
+        background-color: $clr-danger-light;
+        border-color: $clr-danger;
+
+        &:hover {
+            color: $clr-white;
+            background-color: $clr-danger-dark;
+            border-color: $clr-danger-deep;
+        }
+    }
+    &-outline-primary {
+        color: $clr-primary-light;
+        background-color: transparent;
+        background-image: none;
+        border-color: $clr-primary;
+        &:hover {
+            color: $clr-white;
+            background-color: $clr-primary;
+            border-color: $clr-primary;
+        }
+    }
+}

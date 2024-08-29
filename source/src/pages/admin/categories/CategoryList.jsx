@@ -68,7 +68,7 @@ const CategoryList = () => {
                         {categories.map((category) => (
                             <tr key={category.id}>
                                 <td>{category.id}</td>
-                                <td>{category.categoryName}</td>
+                                <td>{category.name}</td>
                                 <td>{category.description}</td>
                                 <td
                                     style={{

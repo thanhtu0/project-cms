@@ -1,26 +1,29 @@
 {
-	"information": [
+	"contact": [
 		{
 			"titles": [{ "title": "About" }, { "title": "Store" }, { "title": "We accept" }, { "title": "Social App" }],
 			"links": [
 				[
-					{ "link": "About us" },
-					{ "link": "We'r hiring" },
-					{ "link": "Support" },
-					{ "link": "Find store" },
-					{ "link": "Shipment" },
-					{ "link": "Payment" },
-					{ "link": "Gift card" },
-					{ "link": "Return" },
-					{ "link": "Help" }
+					{ "name": "About us", "link": "" },
+					{ "name": "We'r hiring", "link": "" },
+					{ "name": "Support", "link": "" },
+					{ "name": "Find store", "link": "" },
+					{ "name": "Shipment", "link": "" },
+					{ "name": "Payment", "link": "" },
+					{ "name": "Gift card", "link": "" },
+					{ "name": "Return", "link": "" },
+					{ "name": "Help", "link": "" }
 				],
 				[
-					{ "companyName": "cordes" },
+					{ "companyName": "codes" },
 					{ "telephone": "(239) 555-0108" },
 					{ "email": "ex@mail.com" },
 					{ "address": "3891 Ranch view Dr.Richardson, California" }
 				],
-				[{ "link": "Amex" }, { "link": "Credit card" }],
+				[
+					{ "name": "Amex", "link": "" },
+					{ "name": "Credit card", "link": "" }
+				],
 				[
 					{ "facebook": "https://www.facebook.com/ThanhTu03012002" },
 					{ "instagram": "https://www.instagram.com" },
@@ -97,13 +100,13 @@
 	"categories": [
 		{
 			"id": 1,
-			"categoryName": "Men",
+			"name": "Men",
 			"description": "Clothing and accessories for men",
 			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8]
 		},
 		{
 			"id": 2,
-			"categoryName": "Women",
+			"name": "Women",
 			"description": "Clothing and accessories for women",
 			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		}

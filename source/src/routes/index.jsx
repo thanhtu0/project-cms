@@ -16,17 +16,18 @@ import { CreateEmployee, EditEmployee, EmployeeList } from '~/pages/admin/employ
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/product/:{id}', component: Home, layout: ProductDetail },
-    { path: '/signin', component: Authentication, layout: null },
-    { path: '/signup', component: Authentication, layout: null },
+    { path: '/login', component: Authentication, layout: null },
+    { path: '/register', component: Authentication, layout: null },
     { path: '/password_reset', component: ForgotPassword },
 
     // Not found
-    { path: '*', component: NotFound },
+    { path: '*', component: NotFound, layout: null },
 ];
 
 // Private routes
 const privateRoutes = [
     { path: '/admin', component: AdminHome, layout: AdminLayout },
+    { path: '/admin/*', component: NotFound, layout: AdminLayout },
 
     { path: '/admin/products', component: ProductList, layout: AdminLayout },
     { path: '/admin/products/create', component: CreateProduct, layout: AdminLayout },

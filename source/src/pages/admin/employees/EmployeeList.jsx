@@ -84,9 +84,9 @@ const EmployeeList = () => {
                                 <div className="body">
                                     <div className="left-info">
                                         <img
-                                            src={`/path/to/images/${employee.photo}`}
-                                            alt="Employee"
+                                            src={`http://localhost:4000/images/` + employee.imageFilename}
                                             className="img-responsive profile-user-img"
+                                            alt="..."
                                         />
                                     </div>
                                     <div className="right-info">

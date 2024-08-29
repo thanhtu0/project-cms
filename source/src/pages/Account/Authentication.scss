@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: $clr-black-2;
+    background: linear-gradient(in oklab, $clr-auth-secondary, $clr-auth-primary);
     transition: transform 1s ease-in-out;
 
     &.sign-up-mode {
@@ -52,14 +52,14 @@
         left: -50%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(-45deg, $clr-bg-hover, $clr-bg-primary);
+        background: linear-gradient(-45deg, $clr-auth-hover, $clr-auth-primary);
         z-index: 6;
         transform: translateX(100%);
         transition: transform 1s ease-in-out;
     }
 }
 
-.signin-signup {
+.login-register {
     position: absolute;
     top: 0;
     left: 0;
@@ -81,7 +81,7 @@
 
         .title-auth {
             font-size: 35px;
-            color: $clr-bg-primary;
+            color: $clr-auth-primary;
         }
 
         .input-field {
@@ -89,7 +89,7 @@
             height: 50px;
             background: $clr-bg;
             margin: 10px 0;
-            border: 2px solid $clr-bg-primary;
+            border: 2px solid $clr-auth-primary;
             border-radius: 50px;
             display: flex;
             align-items: center;
@@ -119,7 +119,7 @@
             height: 50px;
             border: none;
             border-radius: 50px;
-            background: $clr-bg-primary;
+            background: $clr-auth-primary;
             color: $clr-white;
             font-weight: 600;
             margin: 10px 0;
@@ -127,7 +127,7 @@
             cursor: pointer;
 
             &:hover {
-                background: $clr-btn;
+                background: $clr-auth-btn;
             }
         }
 
@@ -153,8 +153,8 @@
                 cursor: pointer;
 
                 &:hover {
-                    color: $clr-btn;
-                    border-color: $clr-btn;
+                    color: $clr-auth-btn;
+                    border-color: $clr-auth-btn;
                 }
             }
         }
@@ -202,7 +202,7 @@
                 height: 50px;
                 border: none;
                 border-radius: 50px;
-                background: $clr-bg-primary;
+                background: $clr-auth-primary;
                 color: $clr-white;
                 font-weight: 600;
                 margin: 10px 0;
@@ -210,7 +210,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background: $clr-btn;
+                    background: $clr-auth-btn;
                 }
             }
         }
@@ -238,7 +238,7 @@
     color: $clr-gray-9a;
 
     a {
-        color: $clr-bg-primary;
+        color: $clr-auth-primary;
         font-weight: bold;
 
         &:hover {
@@ -259,7 +259,7 @@
         height: 90vh;
     }
 
-    .signin-signup form {
+    .login-register form {
         width: 80%;
     }
 

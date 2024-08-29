@@ -3,33 +3,33 @@ import './Authentication.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Authentication = () => {
-    const [isSignUpMode, setIsSignUpMode] = useState(false);
+    const [isregisterMode, setIsregisterMode] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (location.pathname === '/signup') {
-            setIsSignUpMode(true);
+        if (location.pathname === '/register') {
+            setIsregisterMode(true);
         } else {
-            setIsSignUpMode(false);
+            setIsregisterMode(false);
         }
     }, [location]);
 
-    const handleSignUpClick = () => {
-        setIsSignUpMode(true);
-        navigate('/signup');
+    const handleregisterClick = () => {
+        setIsregisterMode(true);
+        navigate('/register');
     };
 
-    const handleSignInClick = () => {
-        setIsSignUpMode(false);
-        navigate('/signin');
+    const handleloginClick = () => {
+        setIsregisterMode(false);
+        navigate('/login');
     };
 
     return (
-        <div className={`auth ${isSignUpMode ? 'sign-up-mode' : ''}`}>
+        <div className={`auth ${isregisterMode ? 'sign-up-mode' : ''}`}>
             <div className="auth-form">
-                <div className="signin-signup">
-                    <form action="" className={`sign-in-form ${isSignUpMode ? 'hidden' : ''}`}>
+                <div className="login-register">
+                    <form action="" className={`sign-in-form ${isregisterMode ? 'hidden' : ''}`}>
                         <h2 className="title-auth">Sign in</h2>
                         <div className="input-field">
                             <ion-icon name="person"></ion-icon>
@@ -59,13 +59,13 @@ const Authentication = () => {
                         </div>
                         <p className="account-text">
                             Don't have an account?
-                            <Link to="#" id="sign-up-btn2" onClick={handleSignUpClick}>
+                            <Link to="#" id="sign-up-btn2" onClick={handleregisterClick}>
                                 Sign up
                             </Link>
                         </p>
                     </form>
 
-                    <form action="" className={`sign-up-form ${isSignUpMode ? '' : 'hidden'}`}>
+                    <form action="" className={`sign-up-form ${isregisterMode ? '' : 'hidden'}`}>
                         <h2 className="title-auth">Sign up</h2>
                         <div className="input-field">
                             <ion-icon name="person"></ion-icon>
@@ -85,22 +85,22 @@ const Authentication = () => {
                         <input type="submit" value="Sign up" className="btn-auth" />
                         <p className="social-text">Or Sign in with social platform</p>
                         <div className="social-media">
-                            <a href="*" className="social-icon">
+                            <a href="*" className="social-icon facebook">
                                 <ion-icon name="logo-facebook"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon">
+                            <a href="*" className="social-icon twitter">
                                 <ion-icon name="logo-twitter"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon">
+                            <a href="*" className="social-icon google">
                                 <ion-icon name="logo-google"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon">
+                            <a href="*" className="social-icon linkedin">
                                 <ion-icon name="logo-linkedin"></ion-icon>
                             </a>
                         </div>
                         <p className="account-text">
                             Already have an account?
-                            <Link to="#" id="sign-in-btn2" onClick={handleSignInClick}>
+                            <Link to="#" id="sign-in-btn2" onClick={handleloginClick}>
                                 Sign in
                             </Link>
                         </p>
@@ -115,11 +115,11 @@ const Authentication = () => {
                                 explicabo expedita sit in at ullam reprehenderit perferendis aperiam placeat provident
                                 deserunt quos animi totam, amet voluptatem nobis.
                             </p>
-                            <button className="btn-auth" onClick={handleSignInClick}>
+                            <button className="btn-auth" onClick={handleloginClick}>
                                 Sign in
                             </button>
                         </div>
-                        <img src="/signin.png" alt="" className="image" />
+                        <img src="/login.png" alt="" className="image" />
                     </div>
 
                     <div className="panel right-panel">
@@ -130,11 +130,11 @@ const Authentication = () => {
                                 explicabo expedita sit in at ullam reprehenderit perferendis aperiam placeat provident
                                 deserunt quos animi totam, amet voluptatem nobis.
                             </p>
-                            <button className="btn-auth" onClick={handleSignUpClick}>
+                            <button className="btn-auth" onClick={handleregisterClick}>
                                 Sign up
                             </button>
                         </div>
-                        <img src="/signup.png" alt="" className="image" />
+                        <img src="/register.png" alt="" className="image" />
                     </div>
                 </div>
             </div>
