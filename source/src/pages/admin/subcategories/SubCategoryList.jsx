@@ -56,7 +56,8 @@ const SubCategoryList = () => {
                 </div>
                 <div className="list__title">
                     <p>
-                        There are {totalItems} items. Currently on page {currentPage} of {totalPages} total pages.
+                        There are {totalItems} sub categories. Currently on page {currentPage} of {totalPages} total
+                        pages.
                     </p>
                 </div>
                 <table className="list__table">
