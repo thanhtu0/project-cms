@@ -16,7 +16,7 @@ const ProductList = () => {
     const itemsPerPage = 10;
 
     const getProducts = (page = 1) => {
-        let url = `http://localhost:4000/products?_page=${page}&_limit=${itemsPerPage}`;
+        let url = `http://localhost:4000/products?`;
         if (selectedBrand) url += `&brand=${selectedBrand}`;
         if (selectedCategory) url += `&category=${selectedCategory}`;
         if (selectedSubcategory) url += `&subcategory=${selectedSubcategory}`;
@@ -26,15 +26,19 @@ const ProductList = () => {
                 if (response.ok) {
                     return response.json();
                 }
-                throw new Error();
+                throw new Error('Failed to fetch data');
             })
             .then((data) => {
-                setProducts(data);
+                const startIndex = (page - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const paginatedData = data.slice(startIndex, endIndex);
+
+                setProducts(paginatedData);
                 setTotalItems(data.length);
                 setTotalPages(Math.ceil(data.length / itemsPerPage));
             })
             .catch((error) => {
-                alert('Unable to get the data');
+                console.error(error);
             });
     };
 
@@ -126,10 +130,10 @@ const ProductList = () => {
                     <tbody>
                         {products.map((product) => (
                             <tr key={product.id}>
-                                <td>
+                                <td style={{ width: '150px', height: 'auto' }}>
                                     <img
-                                        src={'http://localhost:4000/images/' + product.imageFilename}
-                                        width="100"
+                                        src={`http://localhost:4000/images/products/${product.imageFilename}`}
+                                        className="img-responsive"
                                         alt="..."
                                     />
                                 </td>
