@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Title from '~/components/Title';
 
 const CategoryList = () => {
@@ -8,6 +8,8 @@ const CategoryList = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 10;
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const getCategories = (page = 1) => {
         fetch(`http://localhost:4000/categories`)
@@ -32,8 +34,27 @@ const CategoryList = () => {
     };
 
     useEffect(() => {
+        const query = new URLSearchParams(location.search);
+        const pageFromUrl = parseInt(query.get('page'), 10);
+
+        if (pageFromUrl && pageFromUrl > 0) {
+            setCurrentPage(pageFromUrl);
+        } else {
+            setCurrentPage(1);
+        }
+    }, [location.search]);
+
+    useEffect(() => {
         getCategories(currentPage);
     }, [currentPage]);
+
+    useEffect(() => {
+        if (currentPage === 1) {
+            navigate('/admin/categories', { replace: true });
+        } else {
+            navigate(`/admin/categories?page=${currentPage}`, { replace: true });
+        }
+    }, [currentPage, navigate]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -96,17 +117,19 @@ const CategoryList = () => {
                         ))}
                     </tbody>
                 </table>
-                <div className="list__pagination">
-                    <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
-                        Previous
-                    </button>
-                    <span>
-                        Page {currentPage} of {totalPages}
-                    </span>
-                    <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-                        Next
-                    </button>
-                </div>
+                {totalPages > 1 && (
+                    <div className="list__pagination">
+                        <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+                            Previous
+                        </button>
+                        <span>
+                            Page {currentPage} of {totalPages}
+                        </span>
+                        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+                            Next
+                        </button>
+                    </div>
+                )}
             </div>
         </>
     );

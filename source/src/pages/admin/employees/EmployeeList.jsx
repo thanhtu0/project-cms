@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Title from '~/components/Title';
 
 const EmployeeList = () => {
@@ -8,9 +8,11 @@ const EmployeeList = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [totalItems, setTotalItems] = useState(0);
     const itemsPerPage = 9;
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const getEmployees = (page = 1) => {
-        fetch(`http://localhost:4000/employees?`)
+        fetch(`http://localhost:4000/employees`)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
@@ -32,8 +34,27 @@ const EmployeeList = () => {
     };
 
     useEffect(() => {
+        const query = new URLSearchParams(location.search);
+        const pageFromUrl = parseInt(query.get('page'), 10);
+
+        if (pageFromUrl && pageFromUrl > 0) {
+            setCurrentPage(pageFromUrl);
+        } else {
+            setCurrentPage(1);
+        }
+    }, [location.search]);
+
+    useEffect(() => {
         getEmployees(currentPage);
     }, [currentPage]);
+
+    useEffect(() => {
+        if (currentPage === 1) {
+            navigate('/admin/employees', { replace: true });
+        } else {
+            navigate(`/admin/employees?page=${currentPage}`, { replace: true });
+        }
+    }, [currentPage, navigate]);
 
     const handlePageChange = (newPage) => {
         if (newPage > 0 && newPage <= totalPages) {
@@ -127,17 +148,19 @@ const EmployeeList = () => {
                         </div>
                     ))}
                 </div>
-                <div className="list__pagination">
-                    <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
-                        Previous
-                    </button>
-                    <span>
-                        Page {currentPage} of {totalPages}
-                    </span>
-                    <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-                        Next
-                    </button>
-                </div>
+                {totalPages > 1 && (
+                    <div className="list__pagination">
+                        <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+                            Previous
+                        </button>
+                        <span>
+                            Page {currentPage} of {totalPages}
+                        </span>
+                        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+                            Next
+                        </button>
+                    </div>
+                )}
             </div>
         </>
     );

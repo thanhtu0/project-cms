@@ -29,54 +29,33 @@ const storage = multer.diskStorage({
 	},
 });
 
-const upload = multer({ storage: storage });
-
 const bodyParser = multer({ storage: storage }).any();
 
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(bodyParser);
+server.post('/categories', (req, res, next) => {
+	let hasErrors = false;
+	let errors = {};
 
-// 	let date = new Date();
-// 	req.body.createdAt = date.toISOString();
+	if (req.body.name.length < 2) {
+		hasErrors = true;
+		errors.name = 'The name length should be at least 2 characters';
+	}
+	if (req.body.description.length < 10) {
+		hasErrors = true;
+		errors.brand = 'The description length should be at least 2 characters';
+	}
 
-// 	if (req.body.price) {
-// 		req.body.price = Number(req.body.price);
-// 	}
+	if (hasErrors) {
+		// return bad request (400) with validationnode cls errors
+		res.status(400).jsonp(errors);
+		return;
+	}
 
-// 	let hasErrors = false;
-// 	let errors = {};
-
-// 	if (req.body.name.length < 2) {
-// 		hasErrors = true;
-// 		errors.name = 'The name length should be at least 2 characters';
-// 	}
-// 	if (req.body.brand.length < 2) {
-// 		hasErrors = true;
-// 		errors.brand = 'The brand length should be at least 2 characters';
-// 	}
-// 	if (req.body.category.length < 2) {
-// 		hasErrors = true;
-// 		errors.category = 'The category length should be at least 2 characters';
-// 	}
-// 	if (req.body.price.length < 2) {
-// 		hasErrors = true;
-// 		errors.price = 'The price is not valid';
-// 	}
-// 	if (req.body.description.length < 10) {
-// 		hasErrors = true;
-// 		errors.price = 'The description length should be at least 10 characters';
-// 	}
-
-// 	if (hasErrors) {
-// 		// return bad request (400) with validation errors
-// 		res.status(400).jsonp(errors);
-// 		return;
-// 	}
-
-// 	// Continue to JSON Server router
-// 	next();
-// });
+	// Continue to JSON Server router
+	next();
+});
 
 // Use default router
 server.use(router);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Title from '~/components/Title';
 
 const ProductList = () => {
@@ -14,9 +14,11 @@ const ProductList = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedSubcategory, setSelectedSubcategory] = useState('');
     const itemsPerPage = 10;
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const getProducts = (page = 1) => {
-        let url = `http://localhost:4000/products?`;
+        let url = `http://localhost:4000/products`;
         if (selectedBrand) url += `&brand=${selectedBrand}`;
         if (selectedCategory) url += `&category=${selectedCategory}`;
         if (selectedSubcategory) url += `&subcategory=${selectedSubcategory}`;
@@ -43,8 +45,27 @@ const ProductList = () => {
     };
 
     useEffect(() => {
+        const query = new URLSearchParams(location.search);
+        const pageFromUrl = parseInt(query.get('page'), 10);
+
+        if (pageFromUrl && pageFromUrl > 0) {
+            setCurrentPage(pageFromUrl);
+        } else {
+            setCurrentPage(1);
+        }
+    }, [location.search]);
+
+    useEffect(() => {
         getProducts(currentPage);
     }, [currentPage, selectedBrand, selectedCategory, selectedSubcategory]);
+
+    useEffect(() => {
+        if (currentPage === 1) {
+            navigate('/admin/products', { replace: true });
+        } else {
+            navigate(`/admin/products?page=${currentPage}`, { replace: true });
+        }
+    }, [currentPage, navigate]);
 
     useEffect(() => {
         // Fetch brands
@@ -161,17 +182,19 @@ const ProductList = () => {
                         ))}
                     </tbody>
                 </table>
-                <div className="list__pagination">
-                    <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
-                        Previous
-                    </button>
-                    <span>
-                        Page {currentPage} of {totalPages}
-                    </span>
-                    <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-                        Next
-                    </button>
-                </div>
+                {totalPages > 1 && (
+                    <div className="list__pagination">
+                        <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+                            Previous
+                        </button>
+                        <span>
+                            Page {currentPage} of {totalPages}
+                        </span>
+                        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+                            Next
+                        </button>
+                    </div>
+                )}
             </div>
         </>
     );
