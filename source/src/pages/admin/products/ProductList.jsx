@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Title from '~/components/Title';
+import { ListHeader, ListTitle } from '~/components/List';
+import Pagination from '~/components/Pagination';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
@@ -91,25 +92,21 @@ const ProductList = () => {
         setCurrentPage(newPage);
     };
 
+    const handleRefresh = () => {
+        // Logic để refresh products
+    };
+
     return (
         <>
             <div className="list">
-                <div className="list__header">
-                    <Title text="Products List" />
-                    <div className="list__btn-group">
-                        <Link to="*" className="btn btn-outline-primary">
-                            Refresh Product
-                        </Link>
-                        <Link to="/admin/product/create" className="btn btn-primary">
-                            Create Product
-                        </Link>
-                    </div>
-                </div>
-                <div className="list__title">
-                    <p>
-                        There are {totalItems} products. Currently on page {currentPage} of {totalPages} total pages.
-                    </p>
-                </div>
+                <ListHeader
+                    title="Products List"
+                    refreshHandler={handleRefresh}
+                    createLink="/admin/product/create"
+                    refreshLabel="Refresh Product"
+                    createLabel="Create Product"
+                />
+                <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
                 <div className="list__filters">
                     <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
                         <option value="">Select Category</option>
@@ -183,17 +180,7 @@ const ProductList = () => {
                     </tbody>
                 </table>
                 {totalPages > 1 && (
-                    <div className="list__pagination">
-                        <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
-                            Previous
-                        </button>
-                        <span>
-                            Page {currentPage} of {totalPages}
-                        </span>
-                        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-                            Next
-                        </button>
-                    </div>
+                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
                 )}
             </div>
         </>

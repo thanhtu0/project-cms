@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Title from '~/components/Title';
+import { ListHeader, ListTitle } from '~/components/List';
+import Pagination from '~/components/Pagination';
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
@@ -62,25 +63,21 @@ const EmployeeList = () => {
         }
     };
 
+    const handleRefresh = () => {
+        // Logic để refresh employee
+    };
+
     return (
         <>
             <div className="list">
-                <div className="list__header">
-                    <Title text="Employees List" />
-                    <div className="list__btn-group">
-                        <button onClick={() => getEmployees(currentPage)} className="btn btn-outline-primary">
-                            Refresh Employee
-                        </button>
-                        <Link to="/admin/employee/create" className="btn btn-primary">
-                            Create Employee
-                        </Link>
-                    </div>
-                </div>
-                <div className="list__title">
-                    <p>
-                        There are {totalItems} employees. Currently on page {currentPage} of {totalPages} total pages.
-                    </p>
-                </div>
+                <ListHeader
+                    title="Products List"
+                    refreshHandler={handleRefresh}
+                    createLink="/admin/employee/create"
+                    refreshLabel="Refresh Employee"
+                    createLabel="Create Employee"
+                />
+                <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
                 <div className="list__employee">
                     {employees.map((employee) => (
                         <div key={employee.id} className="card">
@@ -149,17 +146,7 @@ const EmployeeList = () => {
                     ))}
                 </div>
                 {totalPages > 1 && (
-                    <div className="list__pagination">
-                        <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
-                            Previous
-                        </button>
-                        <span>
-                            Page {currentPage} of {totalPages}
-                        </span>
-                        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-                            Next
-                        </button>
-                    </div>
+                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
                 )}
             </div>
         </>
