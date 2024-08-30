@@ -7,23 +7,27 @@ const EmployeeList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [totalItems, setTotalItems] = useState(0);
-    const itemsPerPage = 10;
+    const itemsPerPage = 9;
 
     const getEmployees = (page = 1) => {
-        fetch(`http://localhost:4000/employees?_page=${page}&_limit=${itemsPerPage}`)
+        fetch(`http://localhost:4000/employees?`)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
                 }
-                throw new Error('Network response was not ok.');
+                throw new Error('Failed to fetch data');
             })
             .then((data) => {
-                setEmployees(data);
+                const startIndex = (page - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const paginatedData = data.slice(startIndex, endIndex);
+
+                setEmployees(paginatedData);
                 setTotalItems(data.length);
                 setTotalPages(Math.ceil(data.length / itemsPerPage));
             })
             .catch((error) => {
-                alert('Unable to get the data');
+                console.error(error);
             });
     };
 
@@ -32,8 +36,9 @@ const EmployeeList = () => {
     }, [currentPage]);
 
     const handlePageChange = (newPage) => {
-        if (newPage < 1 || newPage > totalPages) return;
-        setCurrentPage(newPage);
+        if (newPage > 0 && newPage <= totalPages) {
+            setCurrentPage(newPage);
+        }
     };
 
     return (
@@ -84,9 +89,9 @@ const EmployeeList = () => {
                                 <div className="body">
                                     <div className="left-info">
                                         <img
-                                            src={`http://localhost:4000/images/` + employee.imageFilename}
+                                            src={`http://localhost:4000/images/employees/${employee.imageFilename}`}
                                             className="img-responsive profile-user-img"
-                                            alt="..."
+                                            alt={employee.fullName}
                                         />
                                     </div>
                                     <div className="right-info">

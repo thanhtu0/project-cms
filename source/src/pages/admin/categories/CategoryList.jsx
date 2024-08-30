@@ -10,20 +10,24 @@ const CategoryList = () => {
     const itemsPerPage = 10;
 
     const getCategories = (page = 1) => {
-        fetch(`http://localhost:4000/categories?_page=${page}&_limit=${itemsPerPage}`)
+        fetch(`http://localhost:4000/categories`)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
                 }
-                throw new Error();
+                throw new Error('Failed to fetch data');
             })
             .then((data) => {
-                setCategories(data);
+                const startIndex = (page - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const paginatedData = data.slice(startIndex, endIndex);
+
+                setCategories(paginatedData);
                 setTotalItems(data.length);
                 setTotalPages(Math.ceil(data.length / itemsPerPage));
             })
             .catch((error) => {
-                alert('Unable to get the data');
+                console.error(error);
             });
     };
 
@@ -32,7 +36,9 @@ const CategoryList = () => {
     }, [currentPage]);
 
     const handlePageChange = (newPage) => {
-        setCurrentPage(newPage);
+        if (newPage > 0 && newPage <= totalPages) {
+            setCurrentPage(newPage);
+        }
     };
 
     return (
