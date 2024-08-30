@@ -7,6 +7,7 @@
 @import 'utilities';
 @import 'section';
 @import 'breadcrumb';
+@import 'error';
 
 // global styles & resets
 *,
@@ -55,6 +56,10 @@ img {
 }
 .img-responsive {
     display: block;
+    max-width: 100%;
+    height: auto;
+}
+.img-fluid {
     max-width: 100%;
     height: auto;
 }
