@@ -1,5 +1,6 @@
-import usePaginatedData from '~/components/hooks/usePaginatedData';
+import { useDeleteModal, usePaginatedData } from '~/components/hooks';
 import { ListHeader, ListTable, ListTitle } from '~/components/List';
+import { ConfirmModal } from '~/components/Modal';
 import Pagination from '~/components/Pagination';
 
 const BrandList = () => {
@@ -12,6 +13,14 @@ const BrandList = () => {
         handleRefresh,
     } = usePaginatedData('http://localhost:4000/brands');
 
+    const {
+        showModal,
+        selectedItem: selectedBrand,
+        handleShowModal,
+        handleCloseModal,
+        handleConfirmDelete,
+    } = useDeleteModal('http://localhost:4000/brands', handleRefresh);
+
     return (
         <div className="list">
             <ListHeader
@@ -22,7 +31,6 @@ const BrandList = () => {
                 createLabel="Create Brand"
             />
             <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
-
             <ListTable
                 headers={['ID', 'Image', 'Brand Name']}
                 data={brands}
@@ -42,10 +50,16 @@ const BrandList = () => {
                     </>
                 )}
             />
-
             {totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             )}
+            <ConfirmModal
+                show={showModal}
+                onClose={handleCloseModal}
+                onConfirm={handleConfirmDelete}
+                title="Confirm Deletion"
+                message={`Are you sure you want to delete brand ${selectedBrand?.name}?`}
+            />
         </div>
     );
 };

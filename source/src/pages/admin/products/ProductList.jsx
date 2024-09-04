@@ -112,7 +112,9 @@ const ProductList = () => {
                     refreshLabel="Refresh Product"
                     createLabel="Create Product"
                 />
+
                 <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
+
                 <div className="list__filters">
                     <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
                         <option value="">Select Category</option>
@@ -139,52 +141,56 @@ const ProductList = () => {
                         ))}
                     </select>
                 </div>
-                <table className="list__table">
-                    <thead>
-                        <tr>
-                            <td>Image</td>
-                            <td>Product Name</td>
-                            <td>Product Title</td>
-                            <td>Price</td>
-                            <td>Sold</td>
-                            <td>Actions</td>
-                        </tr>
-                    </thead>
 
-                    <tbody>
-                        {products.map((product) => (
-                            <tr key={product.id}>
-                                <td style={{ width: '150px', height: 'auto' }}>
-                                    <img
-                                        src={`http://localhost:4000/images/products/${product.imageFilename}`}
-                                        className="img-responsive"
-                                        alt="..."
-                                    />
-                                </td>
-                                <td>{product.name}</td>
-                                <td className="text-center">{product.title}</td>
-                                <td className="text-center">$ {product.price}</td>
-                                <td className="text-center">{product.sold}</td>
-                                <td
-                                    style={{
-                                        width: '10px',
-                                        whiteSpace: 'nowrap',
-                                    }}
-                                >
-                                    <Link
-                                        className="btn btn-primary btn-icon"
-                                        to={'/admin/products/edit/' + product.id}
-                                    >
-                                        <ion-icon name="create-outline"></ion-icon>
-                                    </Link>
-                                    <button type="button" className="btn btn-danger btn-icon">
-                                        <ion-icon name="trash-outline"></ion-icon>
-                                    </button>
-                                </td>
+                <div className="list__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Image</td>
+                                <td>Product Name</td>
+                                <td>Product Title</td>
+                                <td>Price</td>
+                                <td>Sold</td>
+                                <td>Actions</td>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody>
+                            {products.map((product) => (
+                                <tr key={product.id}>
+                                    <td style={{ width: '150px', height: 'auto' }}>
+                                        <img
+                                            src={`http://localhost:4000/images/products/${product.imageFilename}`}
+                                            className="img-responsive"
+                                            alt="..."
+                                        />
+                                    </td>
+                                    <td>{product.name}</td>
+                                    <td className="text-center">{product.title}</td>
+                                    <td className="text-center">$ {product.price}</td>
+                                    <td className="text-center">{product.sold}</td>
+                                    <td
+                                        style={{
+                                            width: '10px',
+                                            whiteSpace: 'nowrap',
+                                        }}
+                                    >
+                                        <Link
+                                            className="btn btn-primary btn-icon"
+                                            to={'/admin/products/edit/' + product.id}
+                                        >
+                                            <ion-icon name="create-outline"></ion-icon>
+                                        </Link>
+                                        <button type="button" className="btn btn-danger btn-icon">
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
                 {totalPages > 1 && (
                     <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
                 )}

@@ -1,5 +1,7 @@
 const jsonServer = require('json-server');
 const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
@@ -10,16 +12,22 @@ server.use(middlewares);
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		let uploadPath = 'public/images/';
-		if (req.body.type === 'product') {
-			uploadPath += req.body.category === 'men' ? 'products/men' : 'products/women';
-		} else if (req.body.type === 'employee') {
-			uploadPath += 'employees';
-		} else if (req.body.type === 'customer') {
-			uploadPath += 'customers';
-		} else if (req.body.type === 'brands') {
-			uploadPath += 'brands';
-		} else {
-			uploadPath += 'default';
+		switch (req.body.type) {
+			case 'product':
+				uploadPath += req.body.category === 'men' ? 'products/men/' : 'products/women/';
+				break;
+			case 'employee':
+				uploadPath += 'employees/';
+				break;
+			case 'customer':
+				uploadPath += 'customers/';
+				break;
+			case 'brand':
+				uploadPath += 'brands/';
+				break;
+			default:
+				uploadPath += 'default/';
+				break;
 		}
 		cb(null, uploadPath);
 	},
@@ -56,6 +64,23 @@ server.post('/categories', (req, res, next) => {
 	}
 
 	// Continue to JSON Server router
+	next();
+});
+
+server.post('/brands', (req, res, next) => {
+	let hasErrors = false;
+	let errors = {};
+
+	if (req.body.name.length < 2) {
+		hasErrors = true;
+		errors.name = 'The name length should be at least 2 characters';
+	}
+
+	if (hasErrors) {
+		res.status(400).jsonp(errors);
+		return;
+	}
+
 	next();
 });
 

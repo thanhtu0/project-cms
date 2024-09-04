@@ -1,5 +1,6 @@
-import usePaginatedData from '~/components/hooks/usePaginatedData';
+import { useDeleteModal, usePaginatedData } from '~/components/hooks';
 import { ListHeader, ListTable, ListTitle } from '~/components/List';
+import { ConfirmModal } from '~/components/Modal';
 import Pagination from '~/components/Pagination';
 
 const SubCategoryList = () => {
@@ -12,6 +13,13 @@ const SubCategoryList = () => {
         handleRefresh,
     } = usePaginatedData('http://localhost:4000/subcategories');
 
+    const {
+        showModal,
+        selectedItem: selectedSubCategory,
+        handleShowModal,
+        handleCloseModal,
+        handleConfirmDelete,
+    } = useDeleteModal('http://localhost:4000/subcategories', handleRefresh);
     return (
         <>
             <div className="list">
@@ -23,7 +31,6 @@ const SubCategoryList = () => {
                     createLabel="Create SubCategory"
                 />
                 <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
-
                 <ListTable
                     headers={['ID', 'SubCategory Name']}
                     data={subcategories}
@@ -36,10 +43,16 @@ const SubCategoryList = () => {
                         </>
                     )}
                 />
-
                 {totalPages > 1 && (
                     <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
                 )}
+                <ConfirmModal
+                    show={showModal}
+                    onClose={handleCloseModal}
+                    onConfirm={handleConfirmDelete}
+                    title="Confirm Deletion"
+                    message={`Are you sure you want to delete subcategory ${selectedSubCategory?.name}?`}
+                />
             </div>
         </>
     );
