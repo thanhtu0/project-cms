@@ -16,6 +16,8 @@ const storage = multer.diskStorage({
 			uploadPath += 'employees';
 		} else if (req.body.type === 'customer') {
 			uploadPath += 'customers';
+		} else if (req.body.type === 'brands') {
+			uploadPath += 'brands';
 		} else {
 			uploadPath += 'default';
 		}
@@ -44,7 +46,7 @@ server.post('/categories', (req, res, next) => {
 	}
 	if (req.body.description.length < 10) {
 		hasErrors = true;
-		errors.brand = 'The description length should be at least 2 characters';
+		errors.description = 'The description length should be at least 2 characters';
 	}
 
 	if (hasErrors) {

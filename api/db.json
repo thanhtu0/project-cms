@@ -182,118 +182,21 @@
 		}
 	],
 	"categories": [
-		{
-			"id": 1,
-			"name": "Men",
-			"description": "Clothing and accessories for men",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8]
-		},
-		{
-			"id": 2,
-			"name": "Women",
-			"description": "Clothing and accessories for women",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-		},
-		{
-			"id": 3,
-			"name": "Other",
-			"description": "Clothing and accessories for men",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8]
-		},
-		{
-			"id": 4,
-			"name": "Child",
-			"description": "Clothing and accessories for women",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-		},
-		{
-			"id": 5,
-			"name": "Older",
-			"description": "Clothing and accessories for men",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8]
-		},
-		{
-			"id": 6,
-			"name": "Young Man",
-			"description": "Clothing and accessories for women",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-		},
-		{
-			"id": 7,
-			"name": "Women",
-			"description": "Clothing and accessories for women",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-		},
-		{
-			"id": 8,
-			"name": "Other",
-			"description": "Clothing and accessories for men",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8]
-		},
-		{
-			"id": 9,
-			"name": "Child",
-			"description": "Clothing and accessories for women",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-		},
-		{
-			"id": 10,
-			"name": "Older",
-			"description": "Clothing and accessories for men",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8]
-		},
-		{
-			"id": 11,
-			"name": "Young Man",
-			"description": "Clothing and accessories for women",
-			"subcategoryIds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-		}
+		{ "id": 1, "name": "Men", "description": "Clothing and accessories for men" },
+		{ "id": 2, "name": "Women", "description": "Clothing and accessories for women" }
 	],
 	"subcategories": [
-		{
-			"id": 1,
-			"name": "Clothing"
-		},
-		{
-			"id": 2,
-			"name": "Shoes"
-		},
-		{
-			"id": 3,
-			"name": "Accessories"
-		},
-		{
-			"id": 4,
-			"name": "Skateboard"
-		},
-		{
-			"id": 5,
-			"name": "Route One"
-		},
-		{
-			"id": 6,
-			"name": "Brand"
-		},
-		{
-			"id": 7,
-			"name": "Launches"
-		},
-		{
-			"id": 8,
-			"name": "Sale"
-		},
-		{
-			"id": 9,
-			"name": "Dress"
-		},
-		{
-			"id": 10,
-			"name": "Children"
-		},
-		{
-			"id": 11,
-			"name": "Other"
-		}
+		{ "id": 1, "name": "Clothing", "categoryIds": [1, 2] },
+		{ "id": 2, "name": "Shoes", "categoryIds": [1, 2] },
+		{ "id": 3, "name": "Accessories", "categoryIds": [1, 2] },
+		{ "id": 4, "name": "Skateboard", "categoryIds": [1, 2] },
+		{ "id": 5, "name": "Route One", "categoryIds": [1, 2] },
+		{ "id": 6, "name": "Brand", "categoryIds": [1, 2] },
+		{ "id": 7, "name": "Launches", "categoryIds": [1, 2] },
+		{ "id": 8, "name": "Sale", "categoryIds": [1, 2] },
+		{ "id": 9, "name": "Dress", "categoryIds": [2] },
+		{ "id": 10, "name": "Children", "categoryIds": [1, 2] },
+		{ "id": 11, "name": "Other", "categoryIds": [1, 2] }
 	],
 	"products": [
 		{
@@ -457,5 +360,12 @@
 			"categoryId": 2
 		}
 	],
-	"brands": [{ "id": 1, "name": "nike", "imageFilename": "nike.png" }]
+	"brands": [
+		{ "id": 1, "name": "Nike", "imageFilename": "nike.png" },
+		{ "id": 2, "name": "Adidas", "imageFilename": "adidas.png" },
+		{ "id": 3, "name": "Route One", "imageFilename": "route_one.png" },
+		{ "id": 4, "name": "Vans", "imageFilename": "vans.png" },
+		{ "id": 5, "name": "Carhartt", "imageFilename": "carhartt.png" },
+		{ "id": 6, "name": "Santa Cruz", "imageFilename": "santa_cruz.png" }
+	]
 }

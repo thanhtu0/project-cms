@@ -11,6 +11,7 @@ import { CreateInfo, EditInfo, InfoList } from '~/pages/admin/information';
 import { CategoryList, CreateCategory, EditCategory } from '~/pages/admin/categories';
 import { CreateSubCategory, EditSubCategory, SubCategoryList } from '~/pages/admin/subcategories';
 import { CreateEmployee, EditEmployee, EmployeeList } from '~/pages/admin/employees';
+import { BrandList, CreateBrand, EditBrand } from '~/pages/admin/brands';
 
 // Public routes
 const publicRoutes = [
@@ -30,12 +31,16 @@ const privateRoutes = [
     { path: '/admin/*', component: NotFound, layout: AdminLayout },
 
     { path: '/admin/products', component: ProductList, layout: AdminLayout },
-    { path: '/admin/products/create', component: CreateProduct, layout: AdminLayout },
-    { path: '/admin/products/edit/:id', component: EditProduct, layout: AdminLayout },
+    { path: '/admin/product/create', component: CreateProduct, layout: AdminLayout },
+    { path: '/admin/product/edit/:id', component: EditProduct, layout: AdminLayout },
 
     { path: '/admin/info', component: InfoList, layout: AdminLayout },
     { path: '/admin/info/create', component: CreateInfo, layout: AdminLayout },
     { path: '/admin/info/edit/:id', component: EditInfo, layout: AdminLayout },
+
+    { path: '/admin/brands', component: BrandList, layout: AdminLayout },
+    { path: '/admin/brand/create', component: CreateBrand, layout: AdminLayout },
+    { path: '/admin/brand/:id', component: EditBrand, layout: AdminLayout },
 
     { path: '/admin/categories', component: CategoryList, layout: AdminLayout },
     { path: '/admin/category/create', component: CreateCategory, layout: AdminLayout },

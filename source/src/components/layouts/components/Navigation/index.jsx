@@ -17,6 +17,7 @@ const Navigation = () => {
                         { to: '/admin', icon: 'home-outline', title: 'Dashboard' },
                         { to: '/admin/customers', icon: 'people-outline', title: 'Customers' },
                         { to: '/admin/employees', icon: 'people-circle-outline', title: 'Employees' },
+                        { to: '/admin/brands', icon: 'basket-outline', title: 'Brands' },
                         { to: '/admin/categories', icon: 'albums-outline', title: 'Categories' },
                         { to: '/admin/subcategories', icon: 'grid-outline', title: 'SubCategories' },
                         { to: '/admin/products', icon: 'shirt-outline', title: 'Products' },
