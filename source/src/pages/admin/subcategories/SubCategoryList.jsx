@@ -1,77 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import usePaginatedData from '~/components/hooks/usePaginatedData';
 import { ListHeader, ListTitle } from '~/components/List';
 import Pagination from '~/components/Pagination';
 
 const SubCategoryList = () => {
-    const [subcategories, setSubCategories] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-    const [totalItems, setTotalItems] = useState(0);
-    const itemsPerPage = 10;
-    const navigate = useNavigate();
-    const location = useLocation();
-
-    const getSubCategories = (page = 1) => {
-        fetch('http://localhost:4000/subcategories')
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Failed to fetch data');
-            })
-            .then((data) => {
-                const startIndex = (page - 1) * itemsPerPage;
-                const endIndex = startIndex + itemsPerPage;
-                const paginatedData = data.slice(startIndex, endIndex);
-
-                setSubCategories(paginatedData);
-                setTotalItems(data.length);
-                setTotalPages(Math.ceil(data.length / itemsPerPage));
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    };
-
-    useEffect(() => {
-        const query = new URLSearchParams(location.search);
-        const pageFromUrl = parseInt(query.get('page'), 10);
-
-        if (pageFromUrl && pageFromUrl > 0) {
-            setCurrentPage(pageFromUrl);
-        } else {
-            setCurrentPage(1);
-        }
-    }, [location.search]);
-
-    useEffect(() => {
-        getSubCategories(currentPage);
-    }, [currentPage]);
-
-    useEffect(() => {
-        if (currentPage === 1) {
-            navigate('/admin/subcategories', { replace: true });
-        } else {
-            navigate(`/admin/subcategories?page=${currentPage}`, { replace: true });
-        }
-    }, [currentPage, navigate]);
-
-    const handlePageChange = (newPage) => {
-        if (newPage > 0 && newPage <= totalPages) {
-            setCurrentPage(newPage);
-        }
-    };
-
-    const handleRefresh = () => {
-        // Logic để refresh SubCategories
-    };
+    const {
+        data: subcategories,
+        currentPage,
+        totalPages,
+        totalItems,
+        handlePageChange,
+        handleRefresh,
+    } = usePaginatedData('http://localhost:4000/subcategories');
 
     return (
         <>
             <div className="list">
                 <ListHeader
-                    title="Products List"
+                    title="SubCategories List"
                     refreshHandler={handleRefresh}
                     createLink="/admin/product/create"
                     refreshLabel="Refresh SubCategory"

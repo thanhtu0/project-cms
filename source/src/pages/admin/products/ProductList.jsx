@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ListHeader, ListTitle } from '~/components/List';
 import Pagination from '~/components/Pagination';
@@ -18,32 +18,36 @@ const ProductList = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const getProducts = (page = 1) => {
-        let url = `http://localhost:4000/products`;
-        if (selectedBrand) url += `&brand=${selectedBrand}`;
-        if (selectedCategory) url += `&category=${selectedCategory}`;
-        if (selectedSubcategory) url += `&subcategory=${selectedSubcategory}`;
+    const getProducts = useCallback(
+        (page = 1) => {
+            const randomParam = `?_=${new Date().getTime()}`;
+            let url = `http://localhost:4000/products${randomParam}`;
+            if (selectedBrand) url += `&brand=${selectedBrand}`;
+            if (selectedCategory) url += `&category=${selectedCategory}`;
+            if (selectedSubcategory) url += `&subcategory=${selectedSubcategory}`;
 
-        fetch(url)
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Failed to fetch data');
-            })
-            .then((data) => {
-                const startIndex = (page - 1) * itemsPerPage;
-                const endIndex = startIndex + itemsPerPage;
-                const paginatedData = data.slice(startIndex, endIndex);
+            fetch(url)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Failed to fetch data');
+                })
+                .then((data) => {
+                    const startIndex = (page - 1) * itemsPerPage;
+                    const endIndex = startIndex + itemsPerPage;
+                    const paginatedData = data.slice(startIndex, endIndex);
 
-                setProducts(paginatedData);
-                setTotalItems(data.length);
-                setTotalPages(Math.ceil(data.length / itemsPerPage));
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    };
+                    setProducts(paginatedData);
+                    setTotalItems(data.length);
+                    setTotalPages(Math.ceil(data.length / itemsPerPage));
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+        [selectedBrand, selectedCategory, selectedSubcategory, itemsPerPage],
+    );
 
     useEffect(() => {
         const query = new URLSearchParams(location.search);
@@ -58,7 +62,7 @@ const ProductList = () => {
 
     useEffect(() => {
         getProducts(currentPage);
-    }, [currentPage, selectedBrand, selectedCategory, selectedSubcategory]);
+    }, [currentPage, getProducts]);
 
     useEffect(() => {
         if (currentPage === 1) {
@@ -69,23 +73,24 @@ const ProductList = () => {
     }, [currentPage, navigate]);
 
     useEffect(() => {
-        // Fetch brands
-        fetch('http://localhost:4000/brands')
-            .then((response) => response.json())
-            .then((data) => setBrands(data))
-            .catch((error) => console.error('Unable to fetch brands'));
+        // Fetch brands, categories, and subcategories
+        const fetchData = async () => {
+            try {
+                const [brandsData, categoriesData, subcategoriesData] = await Promise.all([
+                    fetch('http://localhost:4000/brands').then((res) => res.json()),
+                    fetch('http://localhost:4000/categories').then((res) => res.json()),
+                    fetch('http://localhost:4000/subcategories').then((res) => res.json()),
+                ]);
 
-        // Fetch categories
-        fetch('http://localhost:4000/categories')
-            .then((response) => response.json())
-            .then((data) => setCategories(data))
-            .catch((error) => console.error('Unable to fetch categories'));
+                setBrands(brandsData);
+                setCategories(categoriesData);
+                setSubcategories(subcategoriesData);
+            } catch (error) {
+                console.error('Unable to fetch data', error);
+            }
+        };
 
-        // Fetch subcategories
-        fetch('http://localhost:4000/subcategories')
-            .then((response) => response.json())
-            .then((data) => setSubcategories(data))
-            .catch((error) => console.error('Unable to fetch subcategories'));
+        fetchData();
     }, []);
 
     const handlePageChange = (newPage) => {
@@ -93,7 +98,8 @@ const ProductList = () => {
     };
 
     const handleRefresh = () => {
-        // Logic để refresh products
+        setProducts([]);
+        getProducts(currentPage);
     };
 
     return (
