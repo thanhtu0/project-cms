@@ -78,4 +78,27 @@
             border-color: $clr-primary;
         }
     }
+    &-outline-success {
+        color: $clr-success-deep;
+        background-color: transparent;
+        background-image: none;
+        border-color: $clr-success-light;
+        &:hover {
+            color: $clr-white;
+            background-color: $clr-success-dark;
+            border-color: $clr-success-deep;
+        }
+    }
+    &-outline-default {
+        color: $clr-outline-default-deep;
+        background-color: transparent;
+        background-image: none;
+        border-color: $clr-outline-default;
+
+        &:hover {
+            color: $clr-white;
+            background-color: $clr-outline-default;
+            border-color: $clr-outline-default;
+        }
+    }
 }
