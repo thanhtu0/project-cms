@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import usePaginatedData from '~/components/hooks/usePaginatedData';
 import { ListHeader, ListTable, ListTitle } from '~/components/List';
-import ConfirmModal from '~/components/Modal/ConfirmModal';
 import Pagination from '~/components/Pagination';
 
 const BrandList = () => {
@@ -13,39 +11,6 @@ const BrandList = () => {
         handlePageChange,
         handleRefresh,
     } = usePaginatedData('http://localhost:4000/brands');
-
-    const [showModal, setShowModal] = useState(false);
-    const [selectedBrand, setSelectedBrand] = useState(null);
-
-    const handleShowModal = (brand) => {
-        setSelectedBrand(brand);
-        setShowModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-        setSelectedBrand(null);
-    };
-
-    const handleConfirmDelete = async () => {
-        if (selectedBrand) {
-            try {
-                const response = await fetch(`http://localhost:4000/brands/${selectedBrand.id}`, {
-                    method: 'DELETE',
-                });
-
-                if (response.ok) {
-                    handleRefresh(); // Refresh the list after deletion
-                } else {
-                    alert('Unable to delete the category!');
-                }
-            } catch (error) {
-                alert('Unable to connect to the server!');
-            } finally {
-                handleCloseModal();
-            }
-        }
-    };
 
     return (
         <div className="list">
@@ -81,13 +46,6 @@ const BrandList = () => {
             {totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             )}
-            <ConfirmModal
-                show={showModal}
-                onClose={handleCloseModal}
-                onConfirm={handleConfirmDelete}
-                title="Confirm Deletion"
-                message={`Are you sure you want to delete brand ${selectedBrand?.name}?`}
-            />
         </div>
     );
 };

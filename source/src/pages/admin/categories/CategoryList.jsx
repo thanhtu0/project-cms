@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 import usePaginatedData from '~/components/hooks/usePaginatedData';
-import { ListHeader, ListTitle } from '~/components/List';
+import { ListHeader, ListTable, ListTitle } from '~/components/List';
 import Pagination from '~/components/Pagination';
 
 const CategoryList = () => {
@@ -14,57 +13,34 @@ const CategoryList = () => {
     } = usePaginatedData('http://localhost:4000/categories');
 
     return (
-        <>
-            <div className="list">
-                <ListHeader
-                    title="Categories List"
-                    refreshHandler={handleRefresh}
-                    createLink="/admin/product/create"
-                    refreshLabel="Refresh Category"
-                    createLabel="Create Category"
-                />
-                <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
-                <table className="list__table">
-                    <thead>
-                        <tr>
-                            <td>ID</td>
-                            <td>Category Name</td>
-                            <td>Category Description</td>
-                            <td>Actions</td>
-                        </tr>
-                    </thead>
+        <div className="list">
+            <ListHeader
+                title="Categories List"
+                refreshHandler={handleRefresh}
+                createLink="/admin/category/create"
+                refreshLabel="Refresh Category"
+                createLabel="Create Category"
+            />
+            <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
 
-                    <tbody>
-                        {categories.map((category) => (
-                            <tr key={category.id}>
-                                <td>{category.id}</td>
-                                <td>{category.name}</td>
-                                <td>{category.description}</td>
-                                <td
-                                    style={{
-                                        width: '10px',
-                                        whiteSpace: 'nowrap',
-                                    }}
-                                >
-                                    <Link
-                                        className="btn btn-primary btn-icon"
-                                        to={'/admin/categories/edit/' + category.id}
-                                    >
-                                        <ion-icon name="create-outline"></ion-icon>
-                                    </Link>
-                                    <button type="button" className="btn btn-danger btn-icon">
-                                        <ion-icon name="trash-outline"></ion-icon>
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                {totalPages > 1 && (
-                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+            <ListTable
+                headers={['ID', 'Category Name', 'Category Description']}
+                data={categories}
+                onEdit={(category) => `/admin/category/${category.id}`}
+                onDelete={handleShowModal}
+                renderRow={(category) => (
+                    <>
+                        <td>{category.id}</td>
+                        <td>{category.name}</td>
+                        <td>{category.description}</td>
+                    </>
                 )}
-            </div>
-        </>
+            />
+
+            {totalPages > 1 && (
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+            )}
+        </div>
     );
 };
 
