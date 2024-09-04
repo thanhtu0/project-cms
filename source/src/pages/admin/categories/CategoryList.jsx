@@ -1,7 +1,7 @@
+import { ListHeader, ListTable, ListTitle } from '~/components/common/List';
+import { ConfirmModal } from '~/components/common/Modal';
+import Pagination from '~/components/common/Pagination';
 import { useDeleteModal, usePaginatedData } from '~/components/hooks';
-import { ListHeader, ListTable, ListTitle } from '~/components/List';
-import { ConfirmModal } from '~/components/Modal';
-import Pagination from '~/components/Pagination';
 
 const CategoryList = () => {
     const {

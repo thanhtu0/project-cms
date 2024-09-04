@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import usePaginatedData from '~/components/hooks/usePaginatedData';
-import { ListHeader, ListTitle } from '~/components/List';
-import Pagination from '~/components/Pagination';
+import { ListHeader, ListTitle } from '~/components/common/List';
+import Pagination from '~/components/common/Pagination';
+import { usePaginatedData } from '~/components/hooks';
 
 const EmployeeList = () => {
     const itemsPerPage = 9;

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ListHeader, ListTitle } from '~/components/List';
-import Pagination from '~/components/Pagination';
+import { ListHeader, ListTitle } from '~/components/common/List';
+import Pagination from '~/components/common/Pagination';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);

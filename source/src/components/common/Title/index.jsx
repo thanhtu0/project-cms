@@ -1,4 +1,3 @@
-import './Title.scss';
 const Title = ({ text }) => {
     return (
         <div className="title-content">

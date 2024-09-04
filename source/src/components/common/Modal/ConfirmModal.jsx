@@ -1,4 +1,4 @@
-import '../GlobalStyles/_modal.scss';
+import '../../styles/_modal.scss';
 
 const Modal = ({ show, onClose, onConfirm, title, message }) => {
     if (!show) return null;

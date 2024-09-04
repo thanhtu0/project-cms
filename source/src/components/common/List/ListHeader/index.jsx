@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Title from '~/components/Title';
+import Title from '../../Title';
 
 const ListHeader = ({ title, refreshHandler, refreshLabel = 'Refresh', createLink, createLabel = 'Create' }) => {
     return (

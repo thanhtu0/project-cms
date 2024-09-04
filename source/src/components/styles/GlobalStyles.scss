@@ -7,7 +7,9 @@
 @import 'utilities';
 @import 'section';
 @import 'breadcrumb';
+@import 'title';
 @import 'error';
+@import 'image';
 
 // global styles & resets
 *,
@@ -44,40 +46,6 @@ h5,
 h6 {
     letter-spacing: var(--spacing);
     text-transform: capitalize;
-}
-img {
-    width: 100%;
-    display: block;
-}
-.img-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.img-responsive {
-    max-width: 100%;
-    height: auto;
-}
-.img-fluid {
-    max-width: 100%;
-    height: auto;
-}
-.image-preview {
-    margin-top: 10px;
-}
-.image-preview img {
-    max-width: 100%;
-    height: auto;
-}
-.logo {
-    border: 1px solid $clr-black-2;
-    border-radius: 4px;
-    padding: 5px;
-    width: 150px;
-
-    &:hover {
-        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-    }
 }
 button {
     cursor: pointer;
