@@ -32,7 +32,7 @@ const SubCategoryList = () => {
                 />
                 <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
                 <ListTable
-                    headers={['ID', 'SubCategory Name']}
+                    headers={['ID', 'SubCategory Name', 'SubCategory Description']}
                     data={subcategories}
                     onEdit={(subcategory) => `/admin/subcategory/${subcategory.id}`}
                     onDelete={handleShowModal}
@@ -40,10 +40,11 @@ const SubCategoryList = () => {
                         <>
                             <td>{subcategory.id}</td>
                             <td>{subcategory.name}</td>
+                            <td>{subcategory.description}</td>
                         </>
                     )}
                 />
-                {totalPages > 1 && (
+                {totalPages > 1 && subcategories.length >= 10 && (
                     <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
                 )}
                 <ConfirmModal

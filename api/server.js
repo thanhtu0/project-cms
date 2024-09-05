@@ -9,41 +9,69 @@ const middlewares = jsonServer.defaults();
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
 
+// Multer storage configuration
+// const storage = multer.diskStorage({
+// 	destination: function (req, file, cb) {
+// 		let uploadPath = 'public/images/';
+// 		const type = req.body.type;
+
+// 		if (!type) {
+// 			console.log('Type is missing');
+// 			cb(new Error('Invalid type or missing directory'));
+// 			return;
+// 		}
+
+// 		switch (type) {
+// 			case 'brand':
+// 				uploadPath += 'brands/';
+// 				break;
+// 			// case 'employee':
+// 			// 	uploadPath += 'employees/';
+// 			// 	break;
+// 			// case 'product':
+// 			// 	uploadPath += req.body.category === 'men' ? 'products/men/' : 'products/women/';
+// 			// 	break;
+// 			// case 'customer':
+// 			// 	uploadPath += 'customers/';
+// 			// 	break;
+// 			default:
+// 				console.log(`Invalid type: ${type}`);
+// 				cb(new Error('Invalid type or missing directory')); // Return error if type is invalid
+// 				return;
+// 		}
+
+// 		// Ensure the directory exists
+// 		if (!fs.existsSync(uploadPath)) {
+// 			fs.mkdirSync(uploadPath, { recursive: true });
+// 		}
+
+// 		console.log(`Upload path: ${uploadPath}`);
+// 		cb(null, uploadPath);
+// 	},
+// 	// Determine the filename
+// 	filename: function (req, file, cb) {
+// 		let imageFilename = file.originalname;
+// 		req.body.imageFilename = imageFilename; // Store filename in body
+// 		cb(null, imageFilename); // Pass the filename to multer
+// 	},
+// });
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		let uploadPath = 'public/images/';
-		switch (req.body.type) {
-			case 'product':
-				uploadPath += req.body.category === 'men' ? 'products/men/' : 'products/women/';
-				break;
-			case 'employee':
-				uploadPath += 'employees/';
-				break;
-			case 'customer':
-				uploadPath += 'customers/';
-				break;
-			case 'brand':
-				uploadPath += 'brands/';
-				break;
-			default:
-				uploadPath += 'default/';
-				break;
-		}
-		cb(null, uploadPath);
+		cb(null, 'public/images/');
 	},
 	filename: function (req, file, cb) {
-		let date = new Date();
-		let imageFilename = date.getTime() + '_' + file.originalname;
-		req.body.imageFilename = imageFilename;
-		cb(null, imageFilename);
+		cb(null, file.originalname);
 	},
 });
 
+// Create multer instance with the defined storage
 const bodyParser = multer({ storage: storage }).any();
 
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(bodyParser);
+
+// Validation middleware for '/categories'
 server.post('/categories', (req, res, next) => {
 	let hasErrors = false;
 	let errors = {};
@@ -58,16 +86,81 @@ server.post('/categories', (req, res, next) => {
 	}
 
 	if (hasErrors) {
-		// return bad request (400) with validationnode cls errors
 		res.status(400).jsonp(errors);
 		return;
 	}
 
-	// Continue to JSON Server router
+	next();
+});
+// Validation middleware for PATCH on '/categories/:id'
+server.patch('/categories/:id', (req, res, next) => {
+	let hasErrors = false;
+	let errors = {};
+
+	if (req.body.name.length < 2) {
+		hasErrors = true;
+		errors.name = 'The name length should be at least 2 characters';
+	}
+	if (req.body.description.length < 10) {
+		hasErrors = true;
+		errors.description = 'The description length should be at least 10 characters';
+	}
+
+	if (hasErrors) {
+		res.status(400).jsonp(errors);
+		return;
+	}
+
 	next();
 });
 
+// Validation middleware for '/subcategories'
+server.post('/subcategories', (req, res, next) => {
+	let hasErrors = false;
+	let errors = {};
+
+	if (req.body.name.length < 2) {
+		hasErrors = true;
+		errors.name = 'The name length should be at least 2 characters';
+	}
+	if (req.body.description.length < 10) {
+		hasErrors = true;
+		errors.description = 'The description length should be at least 10 characters';
+	}
+
+	if (hasErrors) {
+		res.status(400).jsonp(errors);
+		return;
+	}
+
+	next();
+});
+// Validation middleware for PATCH on '/subcategories/:id'
+server.patch('/subcategories/:id', (req, res, next) => {
+	let hasErrors = false;
+	let errors = {};
+
+	if (req.body.name.length < 2) {
+		hasErrors = true;
+		errors.name = 'The name length should be at least 2 characters';
+	}
+	if (req.body.description.length < 10) {
+		hasErrors = true;
+		errors.description = 'The description length should be at least 10 characters';
+	}
+
+	if (hasErrors) {
+		res.status(400).jsonp(errors);
+		return;
+	}
+
+	next();
+});
+
+// Validation middleware for '/brands'
 server.post('/brands', (req, res, next) => {
+	console.log('Request body:', req.body);
+
 	let hasErrors = false;
 	let errors = {};
 

@@ -257,95 +257,78 @@
       "id": 2,
       "name": "Women",
       "description": "Clothing and accessories for women"
+    },
+    {
+      "name": "Unisex",
+      "description": "Both  Men and Women are wearing",
+      "id": 3
     }
   ],
   "subcategories": [
     {
       "id": 1,
       "name": "Clothing",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Apparel including shirts, pants, jackets, and more."
     },
     {
       "id": 2,
       "name": "Shoes",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Footwear including sneakers, skate shoes, boots, and more."
     },
     {
       "id": 3,
       "name": "Accessories",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Accessories like hats, belts, bags, and more."
     },
     {
       "id": 4,
       "name": "Skateboard",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Skateboards, decks, wheels, trucks, and other skateboarding gear."
     },
     {
       "id": 5,
       "name": "Route One",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Exclusive Route One products and collaborations."
     },
     {
       "id": 6,
       "name": "Brand",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Branded products from various well-known manufacturers."
     },
     {
       "id": 7,
       "name": "Launches",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Latest product releases and limited-edition items."
     },
     {
       "id": 8,
       "name": "Sale",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Discounted items and clearance products."
     },
     {
       "id": 9,
       "name": "Dress",
-      "categoryIds": [
-        2
-      ]
+      "description": "Dresses and formal wear for various occasions."
     },
     {
       "id": 10,
       "name": "Children",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Products specifically designed for children, including clothing and accessories."
     },
     {
       "id": 11,
       "name": "Other",
-      "categoryIds": [
-        1,
-        2
-      ]
+      "description": "Miscellaneous items that do not fall into other categories."
+    },
+    {
+      "name": "Socks",
+      "description": "Different styles of socks for casual, sports, and formal wear.",
+      "id": 12
+    },
+    {
+      "name": "Bags",
+      "description": "Backpacks, handbags, and other types of bags.",
+      "id": 13
     }
   ],
   "products": [
@@ -357,7 +340,8 @@
       "price": "84.99",
       "sold": "1114 sold",
       "imageFilename": "men/product_1.png",
-      "categoryId": 1
+      "categoryId": 1,
+      "subcategoryId": 2
     },
     {
       "id": 2,
@@ -367,7 +351,8 @@
       "price": "79.95",
       "sold": "123 sold",
       "imageFilename": "men/product_2.png",
-      "categoryId": 1
+      "categoryId": 1,
+      "subcategoryId": 4
     },
     {
       "id": 3,
@@ -377,7 +362,8 @@
       "price": "64.99",
       "sold": "1233 sold",
       "imageFilename": "men/product_3.png",
-      "categoryId": 1
+      "categoryId": 1,
+      "subcategoryId": 3
     },
     {
       "id": 4,
@@ -387,7 +373,8 @@
       "price": "47.99",
       "sold": "1214 sold",
       "imageFilename": "men/product_4.png",
-      "categoryId": 1
+      "categoryId": 1,
+      "subcategoryId": 1
     },
     {
       "id": 5,
@@ -397,7 +384,8 @@
       "price": "59.99",
       "sold": "764 sold",
       "imageFilename": "men/product_5.png",
-      "categoryId": 1
+      "categoryId": 1,
+      "subcategoryId": 4
     },
     {
       "id": 6,
@@ -407,7 +395,8 @@
       "price": "59.99",
       "sold": "1573 sold",
       "imageFilename": "men/product_6.png",
-      "categoryId": 1
+      "categoryId": 1,
+      "subcategoryId": 3
     },
     {
       "id": 7,
@@ -417,7 +406,8 @@
       "price": "34.95",
       "sold": "364 sold",
       "imageFilename": "men/product_7.png",
-      "categoryId": 1
+      "categoryId": 1,
+      "subcategoryId": 3
     },
     {
       "id": 8,
@@ -427,7 +417,8 @@
       "price": "64.99",
       "sold": "245 sold",
       "imageFilename": "men/product_8.png",
-      "categoryId": 1
+      "categoryId": 1,
+      "subcategoryId": 4
     },
     {
       "id": 9,
@@ -437,7 +428,8 @@
       "price": "64.99",
       "sold": "1233 sold",
       "imageFilename": "women/product_1.png",
-      "categoryId": 2
+      "categoryId": 2,
+      "subcategoryId": 1
     },
     {
       "id": 10,
@@ -447,7 +439,8 @@
       "price": "79.95",
       "sold": "123 sold",
       "imageFilename": "women/product_2.png",
-      "categoryId": 2
+      "categoryId": 2,
+      "subcategoryId": 4
     },
     {
       "id": 11,
@@ -457,7 +450,8 @@
       "price": "54.99",
       "sold": "1114 sold",
       "imageFilename": "women/product_3.png",
-      "categoryId": 2
+      "categoryId": 2,
+      "subcategoryId": 1
     },
     {
       "id": 12,
@@ -467,7 +461,8 @@
       "price": "47.99",
       "sold": "1214 sold",
       "imageFilename": "women/product_4.png",
-      "categoryId": 2
+      "categoryId": 2,
+      "subcategoryId": 3
     },
     {
       "id": 13,
@@ -477,7 +472,8 @@
       "price": "59.99",
       "sold": "764 sold",
       "imageFilename": "women/product_5.png",
-      "categoryId": 2
+      "categoryId": 2,
+      "subcategoryId": 4
     },
     {
       "id": 14,
@@ -487,7 +483,8 @@
       "price": "59.99",
       "sold": "1573 sold",
       "imageFilename": "women/product_6.png",
-      "categoryId": 2
+      "categoryId": 2,
+      "subcategoryId": 3
     },
     {
       "id": 15,
@@ -497,7 +494,8 @@
       "price": "34.95",
       "sold": "364 sold",
       "imageFilename": "women/product_7.png",
-      "categoryId": 2
+      "categoryId": 2,
+      "subcategoryId": 3
     },
     {
       "id": 16,
@@ -507,7 +505,8 @@
       "price": "64.99",
       "sold": "245 sold",
       "imageFilename": "women/product_8.png",
-      "categoryId": 2
+      "categoryId": 2,
+      "subcategoryId": 1
     }
   ],
   "brands": [
@@ -540,6 +539,10 @@
       "id": 6,
       "name": "Santa Cruz",
       "imageFilename": "santa_cruz.png"
+    },
+    {
+      "name": "converse",
+      "id": 7
     }
   ]
 }
