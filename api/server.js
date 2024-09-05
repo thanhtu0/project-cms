@@ -10,57 +10,48 @@ const middlewares = jsonServer.defaults();
 server.use(middlewares);
 
 // Multer storage configuration
-// const storage = multer.diskStorage({
-// 	destination: function (req, file, cb) {
-// 		let uploadPath = 'public/images/';
-// 		const type = req.body.type;
-
-// 		if (!type) {
-// 			console.log('Type is missing');
-// 			cb(new Error('Invalid type or missing directory'));
-// 			return;
-// 		}
-
-// 		switch (type) {
-// 			case 'brand':
-// 				uploadPath += 'brands/';
-// 				break;
-// 			// case 'employee':
-// 			// 	uploadPath += 'employees/';
-// 			// 	break;
-// 			// case 'product':
-// 			// 	uploadPath += req.body.category === 'men' ? 'products/men/' : 'products/women/';
-// 			// 	break;
-// 			// case 'customer':
-// 			// 	uploadPath += 'customers/';
-// 			// 	break;
-// 			default:
-// 				console.log(`Invalid type: ${type}`);
-// 				cb(new Error('Invalid type or missing directory')); // Return error if type is invalid
-// 				return;
-// 		}
-
-// 		// Ensure the directory exists
-// 		if (!fs.existsSync(uploadPath)) {
-// 			fs.mkdirSync(uploadPath, { recursive: true });
-// 		}
-
-// 		console.log(`Upload path: ${uploadPath}`);
-// 		cb(null, uploadPath);
-// 	},
-// 	// Determine the filename
-// 	filename: function (req, file, cb) {
-// 		let imageFilename = file.originalname;
-// 		req.body.imageFilename = imageFilename; // Store filename in body
-// 		cb(null, imageFilename); // Pass the filename to multer
-// 	},
-// });
 const storage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, 'public/images/');
+	destination: (req, file, cb) => {
+		let uploadPath = 'public/images/';
+		const type = req.body.type;
+
+		// Ensure type is provided
+		if (!type) {
+			console.error('Type is missing in the request body.');
+			return cb(new Error('Invalid type or missing directory'));
+		}
+
+		// Determine the upload path based on the type
+		switch (type) {
+			case 'brand':
+				uploadPath += 'brands/';
+				break;
+			case 'employee':
+				uploadPath += 'employees/';
+				break;
+			case 'product':
+				uploadPath += req.body.category === 'men' ? 'products/men/' : 'products/women/';
+				break;
+			case 'customer':
+				uploadPath += 'customers/';
+				break;
+			default:
+				console.log(`Invalid type: ${type}`);
+				return cb(new Error('Invalid type or missing directory'));
+		}
+
+		// Ensure the directory exists
+		if (!fs.existsSync(uploadPath)) {
+			fs.mkdirSync(uploadPath, { recursive: true });
+		}
+
+		console.log(`Upload path: ${uploadPath}`);
+		cb(null, uploadPath);
 	},
-	filename: function (req, file, cb) {
-		cb(null, file.originalname);
+	filename: (req, file, cb) => {
+		const imageFilename = file.originalname;
+		req.body.imageFilename = imageFilename;
+		cb(null, imageFilename);
 	},
 });
 
@@ -159,6 +150,25 @@ server.patch('/subcategories/:id', (req, res, next) => {
 
 // Validation middleware for '/brands'
 server.post('/brands', (req, res, next) => {
+	console.log('Request body:', req.body);
+
+	let hasErrors = false;
+	let errors = {};
+
+	if (req.body.name.length < 2) {
+		hasErrors = true;
+		errors.name = 'The name length should be at least 2 characters';
+	}
+
+	if (hasErrors) {
+		res.status(400).jsonp(errors);
+		return;
+	}
+
+	next();
+});
+// Validation middleware for PATCH on '/brands/:id'
+server.patch('/brands/:id', (req, res, next) => {
 	console.log('Request body:', req.body);
 
 	let hasErrors = false;

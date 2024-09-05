@@ -44,7 +44,7 @@ const SubCategoryList = () => {
                         </>
                     )}
                 />
-                {totalPages > 1 && subcategories.length >= 10 && (
+                {totalPages > 1 && (
                     <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
                 )}
                 <ConfirmModal

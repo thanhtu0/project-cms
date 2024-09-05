@@ -533,7 +533,8 @@
     {
       "id": 5,
       "name": "Carhartt",
-      "imageFilename": "carhartt.png"
+      "imageFilename": "carhartt.png",
+      "type": "brand"
     },
     {
       "id": 6,
@@ -541,8 +542,16 @@
       "imageFilename": "santa_cruz.png"
     },
     {
+      "type": "brand",
+      "name": "Kavu",
+      "imageFilename": "kavu.png",
+      "id": 8
+    },
+    {
+      "type": "brand",
       "name": "converse",
-      "id": 7
+      "imageFilename": "converse.png",
+      "id": 9
     }
   ]
 }
