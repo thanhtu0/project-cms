@@ -4,7 +4,7 @@ const Modal = ({ show, onClose, onConfirm, title, message }) => {
     if (!show) return null;
 
     return (
-        <div className="modal-overlay flex flex-center">
+        <div className="modal-overlay flex flex-center" aria-hidden={!show}>
             <div className="modal-content bg-white p-2">
                 <div className="modal-header flex flex-between">
                     <h2>{title}</h2>

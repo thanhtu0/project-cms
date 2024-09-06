@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-const useDeleteModal = (apiUrl, handleRefresh) => {
+const useDeleteModal = (apiUrl, handleRefresh, successMessage, errorMessage) => {
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
@@ -22,12 +23,13 @@ const useDeleteModal = (apiUrl, handleRefresh) => {
                 });
 
                 if (response.ok) {
-                    handleRefresh(); // Refresh the list after deletion
+                    handleRefresh();
+                    toast.success(successMessage || 'Item deleted successfully!');
                 } else {
-                    alert('Unable to delete the item!');
+                    toast.error(errorMessage || 'Unable to delete the item!');
                 }
             } catch (error) {
-                alert('Unable to connect to the server!');
+                toast.error(errorMessage || 'Unable to connect to the server!');
             } finally {
                 handleCloseModal();
             }

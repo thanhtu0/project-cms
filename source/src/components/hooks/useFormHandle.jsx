@@ -1,0 +1,45 @@
+// hooks/useFormHandler.js
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const useFormHandler = (endpoint, id, redirectPath, title) => {
+    const [validationErrors, setValidationErrors] = useState({});
+    const navigate = useNavigate();
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const item = Object.fromEntries(formData.entries());
+
+        if (!item.name || !item.description) {
+            setValidationErrors({
+                name: !item.name ? 'Name is required' : '',
+                description: !item.description ? 'Description is required' : '',
+            });
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://localhost:4000/${endpoint}/${id}`, {
+                method: 'PATCH',
+                body: formData,
+            });
+
+            if (response.ok) {
+                navigate(redirectPath);
+            } else if (response.status === 400) {
+                const data = await response.json();
+                setValidationErrors(data);
+            } else {
+                alert(`Unable to update the ${title.toLowerCase()}!`);
+            }
+        } catch (error) {
+            alert('Unable to connect to the server!');
+        }
+    }
+
+    return { handleSubmit, validationErrors };
+};
+
+export default useFormHandler;

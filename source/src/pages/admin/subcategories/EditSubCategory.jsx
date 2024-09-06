@@ -1,4 +1,4 @@
-import { EditItem } from '~/components/admin';
+import EditItem from '~/components/admin/EditItem';
 import { SubCategoryForm } from '~/components/common/Form';
 
 const EditSubCategory = () => {

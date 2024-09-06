@@ -19,7 +19,12 @@ const BrandList = () => {
         handleShowModal,
         handleCloseModal,
         handleConfirmDelete,
-    } = useDeleteModal('http://localhost:4000/brands', handleRefresh);
+    } = useDeleteModal(
+        'http://localhost:4000/brands',
+        handleRefresh,
+        'Brand deleted successfully!',
+        'Unable to delete the brand!',
+    );
 
     return (
         <div className="list">
@@ -43,7 +48,7 @@ const BrandList = () => {
                             <img
                                 src={`http://localhost:4000/images/brands/${brand.imageFilename}`}
                                 className="img-fluid img-cover"
-                                alt="..."
+                                alt={`Brand ${brand.name}`}
                             />
                         </td>
                         <td>{brand.name}</td>

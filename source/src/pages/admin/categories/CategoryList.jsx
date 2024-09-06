@@ -19,7 +19,12 @@ const CategoryList = () => {
         handleShowModal,
         handleCloseModal,
         handleConfirmDelete,
-    } = useDeleteModal('http://localhost:4000/categories', handleRefresh);
+    } = useDeleteModal(
+        'http://localhost:4000/categories',
+        handleRefresh,
+        'Category deleted successfully!',
+        'Unable to delete the category!',
+    );
 
     return (
         <div className="list">
