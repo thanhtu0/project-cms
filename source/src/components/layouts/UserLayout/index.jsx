@@ -1,11 +1,12 @@
 import { Banner, Brand, Footer, Header } from '../components';
+import './UserLayout.scss';
 
 const UserLayout = ({ children }) => {
     return (
-        <div>
+        <div className="user_wrapper flex">
             <Header />
-            <div className="container">
-                <div className="content">
+            <div className="user_wrapper__container">
+                <div className="user_wrapper__content">
                     <Banner />
                     <Brand />
                     {children}

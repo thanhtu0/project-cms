@@ -1,3 +1,4 @@
+import { user_logo } from '~/components/utils/images';
 import './NewCustomer.scss';
 const NewCustomer = () => {
     return (
@@ -6,12 +7,12 @@ const NewCustomer = () => {
                 <h2>Recent Customers</h2>
             </div>
 
-            <table className='w-100'>
+            <table className="w-100">
                 <tbody>
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
-                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
+                                <img className="position-relative top-0 left-0 w-100 h-100" src={user_logo} alt="" />
                             </div>
                         </td>
                         <td>
@@ -25,7 +26,7 @@ const NewCustomer = () => {
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
-                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
+                                <img className="position-relative top-0 left-0 w-100 h-100" src={user_logo} alt="" />
                             </div>
                         </td>
                         <td>
@@ -39,7 +40,7 @@ const NewCustomer = () => {
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
-                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
+                                <img className="position-relative top-0 left-0 w-100 h-100" src={user_logo} alt="" />
                             </div>
                         </td>
                         <td>
@@ -53,7 +54,7 @@ const NewCustomer = () => {
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
-                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
+                                <img className="position-relative top-0 left-0 w-100 h-100" src={user_logo} alt="" />
                             </div>
                         </td>
                         <td>
@@ -67,7 +68,7 @@ const NewCustomer = () => {
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
-                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
+                                <img className="position-relative top-0 left-0 w-100 h-100" src={user_logo} alt="" />
                             </div>
                         </td>
                         <td>
@@ -81,7 +82,7 @@ const NewCustomer = () => {
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
-                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
+                                <img className="position-relative top-0 left-0 w-100 h-100" src={user_logo} alt="" />
                             </div>
                         </td>
                         <td>
@@ -95,7 +96,7 @@ const NewCustomer = () => {
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
-                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
+                                <img className="position-relative top-0 left-0 w-100 h-100" src={user_logo} alt="" />
                             </div>
                         </td>
                         <td>
@@ -109,7 +110,7 @@ const NewCustomer = () => {
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
-                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
+                                <img className="position-relative top-0 left-0 w-100 h-100" src={user_logo} alt="" />
                             </div>
                         </td>
                         <td>

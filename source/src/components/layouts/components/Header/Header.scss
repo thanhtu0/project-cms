@@ -1,0 +1,137 @@
+@import '../../../styles/GlobalStyles.scss';
+
+.header {
+    min-width: 1440px;
+    height: 202px;
+
+    .info-header {
+        padding: 0 2rem;
+        height: 32px;
+
+        .left-info,
+        .right-info,
+        .phone,
+        .address {
+            display: flex;
+            align-items: center;
+        }
+
+        .address {
+            margin-left: 3rem;
+        }
+
+        .right-info .icon {
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        .right-info {
+            margin-left: 300px;
+        }
+    }
+
+    .info-navigation {
+        height: 12rem;
+        padding: 1rem 12rem;
+
+        .logo-text {
+            font-family: $fnt-logo;
+            width: 12rem;
+            height: 5rem;
+            line-height: 5rem;
+        }
+
+        nav {
+            ul {
+                width: 17rem;
+                height: 12rem;
+                background-color: $clr-white-fc;
+
+                li {
+                    position: relative;
+                    height: 2rem;
+
+                    a {
+                        color: inherit;
+                    }
+
+                    &.active {
+                        font-weight: normal;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            bottom: -5px;
+                            width: 100%;
+                            height: 2px;
+                            background-color: $clr-black;
+                        }
+                    }
+                }
+            }
+        }
+
+        .account {
+            height: 35px;
+
+            .account-text {
+                .up {
+                    a {
+                        color: $clr-black;
+                        transition: font-size 0.3s ease-in-out;
+
+                        &:hover {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+
+                .down {
+                    cursor: pointer;
+                    p {
+                        margin-top: 2px;
+                        margin-right: 6px;
+                        transition: font-size 0.3s ease-in-out;
+
+                        &:hover {
+                            font-size: 1.5rem;
+                        }
+                    }
+
+                    .icon {
+                        transition: font-size 0.3s ease-in-out;
+
+                        &:hover {
+                            font-size: 1.7rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .wishlist {
+            width: 90px;
+
+            a {
+                transition: font-size 0.3s ease-in-out;
+
+                &:hover {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        .cart {
+            width: 70px;
+
+            a {
+                transition: font-size 0.3s ease-in-out;
+
+                &:hover {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}

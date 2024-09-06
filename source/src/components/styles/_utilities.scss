@@ -100,6 +100,9 @@
     &-between {
         justify-content: space-between;
     }
+    &-around {
+        justify-content: space-around;
+    }
     &-start {
         justify-content: flex-start;
     }
@@ -122,17 +125,26 @@
 .w-30 {
     width: 300px;
 }
+.h-2 {
+    height: 2rem;
+}
+.h-34 {
+    height: 3.4rem;
+}
 .h-4 {
-    height: 40px;
+    height: 4rem;
+}
+.h-5 {
+    height: 5rem;
 }
 .h-6 {
-    height: 60px;
+    height: 6rem;
 }
 .w-4 {
-    width: 40px;
+    width: 4rem;
 }
 .w-6 {
-    width: 60px;
+    width: 6rem;
 }
 
 /* text align and transformation */
@@ -191,6 +203,9 @@
     &-white {
         background-color: $clr-white;
     }
+    &-white-fc {
+        background-color: $clr-white-fc;
+    }
     &-gray-f1 {
         background-color: $clr-gray-f1;
     }
@@ -238,6 +253,12 @@
 
 /* common font sizes */
 .fs {
+    &-10 {
+        font-size: 1rem;
+    }
+    &-12 {
+        font-size: 1.2rem;
+    }
     &-13 {
         font-size: 1.3rem;
     }
@@ -286,6 +307,9 @@
     &-40 {
         font-size: 4rem;
     }
+    &-43 {
+        font-size: 4.3rem;
+    }
     &-56 {
         font-size: 5.6rem;
     }
@@ -301,6 +325,9 @@
 /* Line height*/
 .lh-1 {
     line-height: 1rem;
+}
+.lh-15 {
+    line-height: 1.5rem;
 }
 .lh-2 {
     line-height: 2rem;
@@ -337,6 +364,9 @@
 .ml-2 {
     margin-left: 2rem;
 }
+.mr-2 {
+    margin-right: 2rem;
+}
 .mx-1 {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -353,11 +383,17 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+.p-1 {
+    padding: 1rem;
+}
 .p-2 {
     padding: 2rem;
 }
 .p-3 {
     padding: 3rem;
+}
+.p-5 {
+    padding: 5rem;
 }
 .pt-1 {
     padding-top: 1rem;

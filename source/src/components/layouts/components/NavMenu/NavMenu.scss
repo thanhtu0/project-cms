@@ -1,0 +1,54 @@
+@import '../../../styles/GlobalStyles.scss';
+.menu-bar {
+    width: 991px;
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        li {
+            position: relative;
+            margin: 0 15px;
+            min-width: 90px;
+
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -15px;
+                width: 1px;
+                height: 50%;
+                background-color: #e1e1e1;
+                transform: translateY(-50%);
+            }
+
+            a {
+                &:hover {
+                    font-size: 1.3rem;
+                    color: $clr-primary;
+                }
+            }
+
+            &.more-subcategory {
+                cursor: pointer;
+                color: $clr-primary;
+
+                &:hover .tooltip {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                .tooltip {
+                    visibility: hidden;
+                    border-radius: 5px;
+                    padding: 5px;
+                    bottom: 125%;
+                    margin-left: -60px;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
