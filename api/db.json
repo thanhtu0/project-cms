@@ -1,557 +1,401 @@
 {
-  "contact": [
-    {
-      "titles": [
-        {
-          "title": "About"
-        },
-        {
-          "title": "Store"
-        },
-        {
-          "title": "We accept"
-        },
-        {
-          "title": "Social App"
-        }
-      ],
-      "links": [
-        [
-          {
-            "name": "About us",
-            "link": ""
-          },
-          {
-            "name": "We'r hiring",
-            "link": ""
-          },
-          {
-            "name": "Support",
-            "link": ""
-          },
-          {
-            "name": "Find store",
-            "link": ""
-          },
-          {
-            "name": "Shipment",
-            "link": ""
-          },
-          {
-            "name": "Payment",
-            "link": ""
-          },
-          {
-            "name": "Gift card",
-            "link": ""
-          },
-          {
-            "name": "Return",
-            "link": ""
-          },
-          {
-            "name": "Help",
-            "link": ""
-          }
-        ],
-        [
-          {
-            "companyName": "codes"
-          },
-          {
-            "telephone": "(239) 555-0108"
-          },
-          {
-            "email": "ex@mail.com"
-          },
-          {
-            "address": "3891 Ranch view Dr.Richardson, California"
-          }
-        ],
-        [
-          {
-            "name": "Amex",
-            "link": ""
-          },
-          {
-            "name": "Credit card",
-            "link": ""
-          }
-        ],
-        [
-          {
-            "facebook": "https://www.facebook.com/ThanhTu03012002"
-          },
-          {
-            "instagram": "https://www.instagram.com"
-          },
-          {
-            "github": "https://github.com/thanhtu0"
-          },
-          {
-            "twitter": "https://x.com/home"
-          },
-          {
-            "snapchat": "https://www.snapchat.com/"
-          },
-          {
-            "linkedin": "https://www.snapchat.com/"
-          }
-        ]
-      ]
-    }
-  ],
-  "employees": [
-    {
-      "id": 1,
-      "fullName": "Lưu Lê Thanh Tú",
-      "birthDate": "2002-03-01T12:00:00",
-      "gender": "Male",
-      "address": "123 ABC Street, District 1, Hue City",
-      "phone": "093 254 7683",
-      "email": "thanhtu@example.com",
-      "password": "123456",
-      "imageFilename": "employee_1.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 2,
-      "fullName": "Lê Anh Hai",
-      "birthDate": "2001-04-15T09:00:00",
-      "gender": "Male",
-      "address": "456 XYZ Street, District 3, Hue City",
-      "phone": "0932547816",
-      "email": "khoa@example.com",
-      "password": "123456",
-      "imageFilename": "employee_2.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 3,
-      "fullName": "Lê Anh Hào",
-      "birthDate": "2003-05-20T11:45:00",
-      "gender": "Male",
-      "address": "789 DEF Street, District 5, Hue City",
-      "phone": "093 254 442",
-      "email": "minh@example.com",
-      "password": "123456",
-      "imageFilename": "employee_3.jpg",
-      "isWorking": false
-    },
-    {
-      "id": 4,
-      "fullName": "Võ Văn Tèo",
-      "birthDate": "2000-06-30T08:30:00",
-      "gender": "Male",
-      "address": "101 GHI Street, District 2, Hue City",
-      "phone": "123 456 789",
-      "email": "minhquang@example.com",
-      "password": "123456",
-      "imageFilename": "employee_4.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 5,
-      "fullName": "Lê Anh Tú",
-      "birthDate": "2002-07-25T14:15:00",
-      "gender": "Male",
-      "address": "202 JKL Street, District 10, Hue City",
-      "phone": "123 456 789",
-      "email": "leanhtu@example.com",
-      "password": "123456",
-      "imageFilename": "employee_5.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 6,
-      "fullName": "Lê Thị Thu Thủy Tha Tha",
-      "birthDate": "2002-07-25T14:15:00",
-      "gender": "Female",
-      "address": "202 JKL Street, District 10, Hue City",
-      "phone": "123 456 789",
-      "email": "leanhtu@example.com",
-      "password": "123456",
-      "imageFilename": "employee_1.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 7,
-      "fullName": "Bruno Fernandes",
-      "birthDate": "1994-09-21",
-      "gender": "Male",
-      "address": "Maia, Bồ Đào Nha",
-      "phone": "123 456 789",
-      "email": "man_united@example.com",
-      "password": "123456",
-      "imageFilename": "mu_bruno_fernandes.png",
-      "isWorking": true
-    },
-    {
-      "id": 8,
-      "fullName": "Marcus Rashford",
-      "birthDate": "1997-10-31",
-      "gender": "Male",
-      "address": "Wythenshawe, Manchester, Anh",
-      "phone": "123 456 789",
-      "email": "man_united@example.com",
-      "password": "123456",
-      "imageFilename": "mu_marcus_rashford.png",
-      "isWorking": true
-    },
-    {
-      "id": 9,
-      "fullName": "Antony Dos Santos",
-      "birthDate": "2000-02-24",
-      "gender": "Male",
-      "address": "Osasco, São Paulo, Brasil",
-      "phone": "123 456 789",
-      "email": "man_united@example.com",
-      "password": "123456",
-      "imageFilename": "mu_antony.png",
-      "isWorking": true
-    },
-    {
-      "id": 10,
-      "fullName": "Micky van de Ven",
-      "birthDate": "2001-04-19",
-      "gender": "Male",
-      "address": "Wormer, Hà Lan",
-      "phone": "987654321",
-      "email": "the_spurs@example.com",
-      "password": "123456",
-      "imageFilename": "tot_micky_van_de_ven.png",
-      "isWorking": true
-    },
-    {
-      "id": 11,
-      "fullName": "Son Heung Min",
-      "birthDate": "1992-07-08",
-      "gender": "Male",
-      "address": "Wythenshawe, Chuncheon, Gangwon, Hàn Quốc",
-      "phone": "987 654 321",
-      "email": "the_spurs@example.com",
-      "password": "123456",
-      "imageFilename": "tot_son_heung_min.png",
-      "isWorking": true
-    },
-    {
-      "id": 12,
-      "fullName": "Yves Bissouma",
-      "birthDate": "1996-08-30",
-      "gender": "Male",
-      "address": "Redbridge, Anh",
-      "phone": "987 654 321",
-      "email": "the_spurs@example.com",
-      "password": "123456",
-      "imageFilename": "tot_yves_bissouma.png",
-      "isWorking": true
-    }
-  ],
-  "categories": [
-    {
-      "id": 1,
-      "name": "Men",
-      "description": "Clothing and accessories for men"
-    },
-    {
-      "id": 2,
-      "name": "Women",
-      "description": "Clothing and accessories for women"
-    },
-    {
-      "name": "Unisex",
-      "description": "Both  Men and Women are wearing",
-      "id": 3
-    }
-  ],
-  "subcategories": [
-    {
-      "id": 1,
-      "name": "Clothing",
-      "description": "Apparel including shirts, pants, jackets, and more."
-    },
-    {
-      "id": 2,
-      "name": "Shoes",
-      "description": "Footwear including sneakers, skate shoes, boots, and more."
-    },
-    {
-      "id": 3,
-      "name": "Accessories",
-      "description": "Accessories like hats, belts, bags, and more."
-    },
-    {
-      "id": 4,
-      "name": "Skateboard",
-      "description": "Skateboards, decks, wheels, trucks, and other skateboarding gear."
-    },
-    {
-      "id": 5,
-      "name": "Route One",
-      "description": "Exclusive Route One products and collaborations."
-    },
-    {
-      "id": 6,
-      "name": "Brand",
-      "description": "Branded products from various well-known manufacturers."
-    },
-    {
-      "id": 7,
-      "name": "Launches",
-      "description": "Latest product releases and limited-edition items."
-    },
-    {
-      "id": 8,
-      "name": "Sale",
-      "description": "Discounted items and clearance products."
-    },
-    {
-      "id": 9,
-      "name": "Dress",
-      "description": "Dresses and formal wear for various occasions."
-    },
-    {
-      "id": 10,
-      "name": "Children",
-      "description": "Products specifically designed for children, including clothing and accessories."
-    },
-    {
-      "id": 11,
-      "name": "Other",
-      "description": "Miscellaneous items that do not fall into other categories."
-    },
-    {
-      "name": "Socks",
-      "description": "Different styles of socks for casual, sports, and formal wear.",
-      "id": 12
-    },
-    {
-      "name": "Bags",
-      "description": "Backpacks, handbags, and other types of bags.",
-      "id": 13
-    }
-  ],
-  "products": [
-    {
-      "id": 1,
-      "liked": false,
-      "name": "Globe Sabre Skate Shoes - Black...",
-      "title": "Globe Sabre Skate Shoes - Black...",
-      "price": "84.99",
-      "sold": "1114 sold",
-      "imageFilename": "men/product_1.png",
-      "categoryId": 1,
-      "subcategoryId": 2
-    },
-    {
-      "id": 2,
-      "liked": false,
-      "name": "'Birdhouse Armanto Favorites...",
-      "title": "'Birdhouse Armanto Favorites...",
-      "price": "79.95",
-      "sold": "123 sold",
-      "imageFilename": "men/product_2.png",
-      "categoryId": 1,
-      "subcategoryId": 4
-    },
-    {
-      "id": 3,
-      "liked": true,
-      "name": "Thrasher Flame Logo Snapback",
-      "title": "Thrasher Flame Logo Snapback",
-      "price": "64.99",
-      "sold": "1233 sold",
-      "imageFilename": "men/product_3.png",
-      "categoryId": 1,
-      "subcategoryId": 3
-    },
-    {
-      "id": 4,
-      "liked": false,
-      "name": "Pull On Chino Short - Coconut Milk",
-      "title": "Pull On Chino Short - Coconut Milk",
-      "price": "47.99",
-      "sold": "1214 sold",
-      "imageFilename": "men/product_4.png",
-      "categoryId": 1,
-      "subcategoryId": 1
-    },
-    {
-      "id": 5,
-      "liked": false,
-      "name": "Stage 3 Complete Skateboard",
-      "title": "Stage 3 Complete Skateboard",
-      "price": "59.99",
-      "sold": "764 sold",
-      "imageFilename": "men/product_5.png",
-      "categoryId": 1,
-      "subcategoryId": 4
-    },
-    {
-      "id": 6,
-      "liked": false,
-      "name": "Herschel Supply Co. Settlement...",
-      "title": "Herschel Supply Co. Settlement...",
-      "price": "59.99",
-      "sold": "1573 sold",
-      "imageFilename": "men/product_6.png",
-      "categoryId": 1,
-      "subcategoryId": 3
-    },
-    {
-      "id": 7,
-      "liked": false,
-      "name": "REKD Elite 2.0 Helmet - Blue",
-      "title": "REKD Elite 2.0 Helmet - Blue",
-      "price": "34.95",
-      "sold": "364 sold",
-      "imageFilename": "men/product_7.png",
-      "categoryId": 1,
-      "subcategoryId": 3
-    },
-    {
-      "id": 8,
-      "liked": false,
-      "name": "Element Cookie Skateboard...",
-      "title": "Element Cookie Skateboard...",
-      "price": "64.99",
-      "sold": "245 sold",
-      "imageFilename": "men/product_8.png",
-      "categoryId": 1,
-      "subcategoryId": 4
-    },
-    {
-      "id": 9,
-      "liked": false,
-      "name": "Thrasher Flame Logo Snapback",
-      "title": "Thrasher Flame Logo Snapback",
-      "price": "64.99",
-      "sold": "1233 sold",
-      "imageFilename": "women/product_1.png",
-      "categoryId": 2,
-      "subcategoryId": 1
-    },
-    {
-      "id": 10,
-      "liked": true,
-      "name": "Birdhouse Armanto Favorites...",
-      "title": "Birdhouse Armanto Favorites...",
-      "price": "79.95",
-      "sold": "123 sold",
-      "imageFilename": "women/product_2.png",
-      "categoryId": 2,
-      "subcategoryId": 4
-    },
-    {
-      "id": 11,
-      "liked": false,
-      "name": "Globe Surplus Skate Shoes",
-      "title": "Globe Surplus Skate Shoes",
-      "price": "54.99",
-      "sold": "1114 sold",
-      "imageFilename": "women/product_3.png",
-      "categoryId": 2,
-      "subcategoryId": 1
-    },
-    {
-      "id": 12,
-      "liked": false,
-      "name": "Pull On Chino Short - Coconut Milk",
-      "title": "Pull On Chino Short - Coconut Milk",
-      "price": "47.99",
-      "sold": "1214 sold",
-      "imageFilename": "women/product_4.png",
-      "categoryId": 2,
-      "subcategoryId": 3
-    },
-    {
-      "id": 13,
-      "liked": false,
-      "name": "Stage 3 Complete Skateboard",
-      "title": "Stage 3 Complete Skateboard",
-      "price": "59.99",
-      "sold": "764 sold",
-      "imageFilename": "women/product_5.png",
-      "categoryId": 2,
-      "subcategoryId": 4
-    },
-    {
-      "id": 14,
-      "liked": false,
-      "name": "Herschel Supply Co. Settlement...",
-      "title": "Herschel Supply Co. Settlement...",
-      "price": "59.99",
-      "sold": "1573 sold",
-      "imageFilename": "women/product_6.png",
-      "categoryId": 2,
-      "subcategoryId": 3
-    },
-    {
-      "id": 15,
-      "liked": true,
-      "name": "REKD Elite 2.0 Helmet - Blue",
-      "title": "REKD Elite 2.0 Helmet - Blue",
-      "price": "34.95",
-      "sold": "364 sold",
-      "imageFilename": "women/product_7.png",
-      "categoryId": 2,
-      "subcategoryId": 3
-    },
-    {
-      "id": 16,
-      "liked": false,
-      "name": "Element Cookie Skateboard...",
-      "title": "Element Cookie Skateboard...",
-      "price": "64.99",
-      "sold": "245 sold",
-      "imageFilename": "women/product_8.png",
-      "categoryId": 2,
-      "subcategoryId": 1
-    }
-  ],
-  "brands": [
-    {
-      "id": 1,
-      "name": "Nike",
-      "imageFilename": "nike.png"
-    },
-    {
-      "id": 2,
-      "name": "Adidas",
-      "imageFilename": "adidas.png"
-    },
-    {
-      "id": 3,
-      "name": "Route One",
-      "imageFilename": "route_one.png"
-    },
-    {
-      "id": 4,
-      "name": "Vans",
-      "imageFilename": "vans.png"
-    },
-    {
-      "id": 5,
-      "name": "Carhartt",
-      "imageFilename": "carhartt.png",
-      "type": "brand"
-    },
-    {
-      "id": 6,
-      "name": "Santa Cruz",
-      "imageFilename": "santa_cruz.png"
-    },
-    {
-      "type": "brand",
-      "name": "Kavu",
-      "imageFilename": "kavu.png",
-      "id": 8
-    },
-    {
-      "type": "brand",
-      "name": "converse",
-      "imageFilename": "converse.png",
-      "id": 9
-    }
-  ]
+	"contact": [
+		{
+			"companyName": "codes",
+			"telephone": "(239) 555-0108",
+			"email": "ex@mail.com",
+			"address": "3891 Ranch view Dr.Richardson, California"
+		}
+	],
+	"employees": [
+		{
+			"id": 1,
+			"fullName": "Lưu Lê Thanh Tú",
+			"birthDate": "2002-03-01T12:00:00",
+			"gender": "Male",
+			"address": "123 ABC Street, District 1, Hue City",
+			"phone": "093 254 7683",
+			"email": "thanhtu@example.com",
+			"password": "123456",
+			"imageFilename": "employee_1.jpg",
+			"isWorking": true
+		},
+		{
+			"id": 2,
+			"fullName": "Lê Anh Hai",
+			"birthDate": "2001-04-15T09:00:00",
+			"gender": "Male",
+			"address": "456 XYZ Street, District 3, Hue City",
+			"phone": "0932547816",
+			"email": "khoa@example.com",
+			"password": "123456",
+			"imageFilename": "employee_2.jpg",
+			"isWorking": true
+		},
+		{
+			"id": 3,
+			"fullName": "Lê Anh Hào",
+			"birthDate": "2003-05-20T11:45:00",
+			"gender": "Male",
+			"address": "789 DEF Street, District 5, Hue City",
+			"phone": "093 254 442",
+			"email": "minh@example.com",
+			"password": "123456",
+			"imageFilename": "employee_3.jpg",
+			"isWorking": false
+		},
+		{
+			"id": 4,
+			"fullName": "Võ Văn Tèo",
+			"birthDate": "2000-06-30T08:30:00",
+			"gender": "Male",
+			"address": "101 GHI Street, District 2, Hue City",
+			"phone": "123 456 789",
+			"email": "minhquang@example.com",
+			"password": "123456",
+			"imageFilename": "employee_4.jpg",
+			"isWorking": true
+		},
+		{
+			"id": 5,
+			"fullName": "Lê Anh Tú",
+			"birthDate": "2002-07-25T14:15:00",
+			"gender": "Male",
+			"address": "202 JKL Street, District 10, Hue City",
+			"phone": "123 456 789",
+			"email": "leanhtu@example.com",
+			"password": "123456",
+			"imageFilename": "employee_5.jpg",
+			"isWorking": true
+		},
+		{
+			"id": 6,
+			"fullName": "Lê Thị Thu Thủy Tha Tha",
+			"birthDate": "2002-07-25T14:15:00",
+			"gender": "Female",
+			"address": "202 JKL Street, District 10, Hue City",
+			"phone": "123 456 789",
+			"email": "leanhtu@example.com",
+			"password": "123456",
+			"imageFilename": "employee_1.jpg",
+			"isWorking": true
+		},
+		{
+			"id": 7,
+			"fullName": "Bruno Fernandes",
+			"birthDate": "1994-09-21",
+			"gender": "Male",
+			"address": "Maia, Bồ Đào Nha",
+			"phone": "123 456 789",
+			"email": "man_united@example.com",
+			"password": "123456",
+			"imageFilename": "mu_bruno_fernandes.png",
+			"isWorking": true
+		},
+		{
+			"id": 8,
+			"fullName": "Marcus Rashford",
+			"birthDate": "1997-10-31",
+			"gender": "Male",
+			"address": "Wythenshawe, Manchester, Anh",
+			"phone": "123 456 789",
+			"email": "man_united@example.com",
+			"password": "123456",
+			"imageFilename": "mu_marcus_rashford.png",
+			"isWorking": true
+		},
+		{
+			"id": 9,
+			"fullName": "Antony Dos Santos",
+			"birthDate": "2000-02-24",
+			"gender": "Male",
+			"address": "Osasco, São Paulo, Brasil",
+			"phone": "123 456 789",
+			"email": "man_united@example.com",
+			"password": "123456",
+			"imageFilename": "mu_antony.png",
+			"isWorking": true
+		},
+		{
+			"id": 10,
+			"fullName": "Micky van de Ven",
+			"birthDate": "2001-04-19",
+			"gender": "Male",
+			"address": "Wormer, Hà Lan",
+			"phone": "987654321",
+			"email": "the_spurs@example.com",
+			"password": "123456",
+			"imageFilename": "tot_micky_van_de_ven.png",
+			"isWorking": true
+		},
+		{
+			"id": 11,
+			"fullName": "Son Heung Min",
+			"birthDate": "1992-07-08",
+			"gender": "Male",
+			"address": "Wythenshawe, Chuncheon, Gangwon, Hàn Quốc",
+			"phone": "987 654 321",
+			"email": "the_spurs@example.com",
+			"password": "123456",
+			"imageFilename": "tot_son_heung_min.png",
+			"isWorking": true
+		},
+		{
+			"id": 12,
+			"fullName": "Yves Bissouma",
+			"birthDate": "1996-08-30",
+			"gender": "Male",
+			"address": "Redbridge, Anh",
+			"phone": "987 654 321",
+			"email": "the_spurs@example.com",
+			"password": "123456",
+			"imageFilename": "tot_yves_bissouma.png",
+			"isWorking": true
+		}
+	],
+	"categories": [
+		{ "id": 1, "name": "Men", "description": "Clothing and accessories for men" },
+		{ "id": 2, "name": "Women", "description": "Clothing and accessories for women" }
+	],
+	"subcategories": [
+		{ "id": 1, "name": "New in", "description": "" },
+		{ "id": 2, "name": "Clothing", "description": "Apparel including shirts, pants, jackets, and more." },
+		{ "id": 3, "name": "Shoes", "description": "Footwear including sneakers, skate shoes, boots, and more." },
+		{ "id": 4, "name": "Accessories", "description": "Accessories like hats, belts, bags, and more." },
+		{
+			"id": 5,
+			"name": "Skateboard",
+			"description": "Skateboards, decks, wheels, trucks, and other skateboarding gear."
+		},
+		{ "id": 6, "name": "Route One", "description": "Exclusive Route One products and collaborations." },
+		{ "id": 7, "name": "Brand", "description": "Branded products from various well-known manufacturers." },
+		{ "id": 8, "name": "Launches", "description": "Latest product releases and limited-edition items." },
+		{ "id": 9, "name": "Sale", "description": "Discounted items and clearance products." },
+		{ "id": 10, "name": "Dress", "description": "Dresses and formal wear for various occasions." },
+		{
+			"id": 11,
+			"name": "Children",
+			"description": "Products specifically designed for children, including clothing and accessories."
+		},
+		{ "id": 12, "name": "Other", "description": "Miscellaneous items that do not fall into other categories." },
+		{ "id": 13, "name": "Socks", "description": "Different styles of socks for casual, sports, and formal wear." },
+		{ "id": 14, "name": "Bags", "description": "Backpacks, handbags, and other types of bags." }
+	],
+	"products": [
+		{
+			"id": 1,
+			"liked": false,
+			"name": "Globe Sabre Skate Shoes - Black...",
+			"title": "Globe Sabre Skate Shoes - Black...",
+			"price": "84.99",
+			"sold": "1114 sold",
+			"imageFilename": "men/product_1.png",
+			"categoryId": 1,
+			"subcategoryId": 2
+		},
+		{
+			"id": 2,
+			"liked": false,
+			"name": "'Birdhouse Armanto Favorites...",
+			"title": "'Birdhouse Armanto Favorites...",
+			"price": "79.95",
+			"sold": "123 sold",
+			"imageFilename": "men/product_2.png",
+			"categoryId": 1,
+			"subcategoryId": 4
+		},
+		{
+			"id": 3,
+			"liked": true,
+			"name": "Thrasher Flame Logo Snapback",
+			"title": "Thrasher Flame Logo Snapback",
+			"price": "64.99",
+			"sold": "1233 sold",
+			"imageFilename": "men/product_3.png",
+			"categoryId": 1,
+			"subcategoryId": 3
+		},
+		{
+			"id": 4,
+			"liked": false,
+			"name": "Pull On Chino Short - Coconut Milk",
+			"title": "Pull On Chino Short - Coconut Milk",
+			"price": "47.99",
+			"sold": "1214 sold",
+			"imageFilename": "men/product_4.png",
+			"categoryId": 1,
+			"subcategoryId": 1
+		},
+		{
+			"id": 5,
+			"liked": false,
+			"name": "Stage 3 Complete Skateboard",
+			"title": "Stage 3 Complete Skateboard",
+			"price": "59.99",
+			"sold": "764 sold",
+			"imageFilename": "men/product_5.png",
+			"categoryId": 1,
+			"subcategoryId": 4
+		},
+		{
+			"id": 6,
+			"liked": false,
+			"name": "Herschel Supply Co. Settlement...",
+			"title": "Herschel Supply Co. Settlement...",
+			"price": "59.99",
+			"sold": "1573 sold",
+			"imageFilename": "men/product_6.png",
+			"categoryId": 1,
+			"subcategoryId": 3
+		},
+		{
+			"id": 7,
+			"liked": false,
+			"name": "REKD Elite 2.0 Helmet - Blue",
+			"title": "REKD Elite 2.0 Helmet - Blue",
+			"price": "34.95",
+			"sold": "364 sold",
+			"imageFilename": "men/product_7.png",
+			"categoryId": 1,
+			"subcategoryId": 3
+		},
+		{
+			"id": 8,
+			"liked": false,
+			"name": "Element Cookie Skateboard...",
+			"title": "Element Cookie Skateboard...",
+			"price": "64.99",
+			"sold": "245 sold",
+			"imageFilename": "men/product_8.png",
+			"categoryId": 1,
+			"subcategoryId": 4
+		},
+		{
+			"id": 9,
+			"liked": false,
+			"name": "Thrasher Flame Logo Snapback",
+			"title": "Thrasher Flame Logo Snapback",
+			"price": "64.99",
+			"sold": "1233 sold",
+			"imageFilename": "women/product_1.png",
+			"categoryId": 2,
+			"subcategoryId": 1
+		},
+		{
+			"id": 10,
+			"liked": true,
+			"name": "Birdhouse Armanto Favorites...",
+			"title": "Birdhouse Armanto Favorites...",
+			"price": "79.95",
+			"sold": "123 sold",
+			"imageFilename": "women/product_2.png",
+			"categoryId": 2,
+			"subcategoryId": 4
+		},
+		{
+			"id": 11,
+			"liked": false,
+			"name": "Globe Surplus Skate Shoes",
+			"title": "Globe Surplus Skate Shoes",
+			"price": "54.99",
+			"sold": "1114 sold",
+			"imageFilename": "women/product_3.png",
+			"categoryId": 2,
+			"subcategoryId": 1
+		},
+		{
+			"id": 12,
+			"liked": false,
+			"name": "Pull On Chino Short - Coconut Milk",
+			"title": "Pull On Chino Short - Coconut Milk",
+			"price": "47.99",
+			"sold": "1214 sold",
+			"imageFilename": "women/product_4.png",
+			"categoryId": 2,
+			"subcategoryId": 3
+		},
+		{
+			"id": 13,
+			"liked": false,
+			"name": "Stage 3 Complete Skateboard",
+			"title": "Stage 3 Complete Skateboard",
+			"price": "59.99",
+			"sold": "764 sold",
+			"imageFilename": "women/product_5.png",
+			"categoryId": 2,
+			"subcategoryId": 4
+		},
+		{
+			"id": 14,
+			"liked": false,
+			"name": "Herschel Supply Co. Settlement...",
+			"title": "Herschel Supply Co. Settlement...",
+			"price": "59.99",
+			"sold": "1573 sold",
+			"imageFilename": "women/product_6.png",
+			"categoryId": 2,
+			"subcategoryId": 3
+		},
+		{
+			"id": 15,
+			"liked": true,
+			"name": "REKD Elite 2.0 Helmet - Blue",
+			"title": "REKD Elite 2.0 Helmet - Blue",
+			"price": "34.95",
+			"sold": "364 sold",
+			"imageFilename": "women/product_7.png",
+			"categoryId": 2,
+			"subcategoryId": 3
+		},
+		{
+			"id": 16,
+			"liked": false,
+			"name": "Element Cookie Skateboard...",
+			"title": "Element Cookie Skateboard...",
+			"price": "64.99",
+			"sold": "245 sold",
+			"imageFilename": "women/product_8.png",
+			"categoryId": 2,
+			"subcategoryId": 1
+		}
+	],
+	"productAttributes": [
+		{
+			"id": 1,
+			"productId": 1,
+			"material": "100% Cotton",
+			"fit": "Relaxed Fit",
+			"designDetails": ["Screen Printed Chest and Back Graphic", "Ribbed Neckline"],
+			"productCode": "001172586",
+			"assemblyInfo": {
+				"requiresAssembly": false,
+				"assemblyInstructions": null,
+				"toolsRequired": null,
+				"estimatedAssemblyTime": null
+			},
+			"deliveryInfo": {
+				"availableForDelivery": true,
+				"deliveryCost": "Free",
+				"estimatedDeliveryTime": "3-5 business days",
+				"deliveryOptions": ["Standard Delivery", "Next-Day Delivery"]
+			}
+		}
+	],
+	"productPhotos": [
+		{ "id": 1, "productId": 1, "imageFilename": "skate_shoes_1.png" },
+		{ "id": 2, "productId": 1, "imageFilename": "skate_shoes_2.png" },
+		{ "id": 3, "productId": 1, "imageFilename": "skate_shoes_3.png" },
+		{ "id": 4, "productId": 1, "imageFilename": "skate_shoes_4.png" },
+		{ "id": 5, "productId": 1, "imageFilename": "skate_shoes_5.png" }
+	],
+	"brands": [
+		{ "id": 1, "name": "Nike", "imageFilename": "nike.png" },
+		{ "id": 2, "name": "Adidas", "imageFilename": "adidas.png" },
+		{ "id": 3, "name": "Route One", "imageFilename": "route_one.png" },
+		{ "id": 4, "name": "Vans", "imageFilename": "vans.png" },
+		{ "id": 5, "name": "Carhartt", "imageFilename": "carhartt.png", "type": "brand" },
+		{ "id": 6, "name": "Santa Cruz", "imageFilename": "santa_cruz.png" },
+		{ "id": 7, "name": "Kavu", "imageFilename": "kavu.png" },
+		{ "id": 8, "name": "Converse", "imageFilename": "converse.png" }
+	]
 }
