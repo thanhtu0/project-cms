@@ -1,3 +1,4 @@
+import { user_logo } from '~/components/utils/images';
 import './Main.scss';
 
 const Main = () => {
@@ -16,7 +17,11 @@ const Main = () => {
                 </div>
 
                 <div className="user position-relative w-4 h-4">
-                    <img className='position-absolute top-0 left-0 w-100 h-100' src="/user_logo.jpg" alt="logo_user" />
+                    <img
+                        className="position-absolute top-0 left-0 w-100 h-100 img-cover"
+                        src={user_logo}
+                        alt="logo_user"
+                    />
                 </div>
             </div>
         </div>

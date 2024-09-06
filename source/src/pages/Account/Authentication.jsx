@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Authentication.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { login, register } from '~/components/utils/images';
 
 const Authentication = () => {
     const [isregisterMode, setIsregisterMode] = useState(false);
@@ -112,14 +113,12 @@ const Authentication = () => {
                             <h3>Member of Brands?</h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia magnam incidunt excepturi
-                                explicabo expedita sit in at ullam reprehenderit perferendis aperiam placeat provident
-                                deserunt quos animi totam, amet voluptatem nobis.
                             </p>
                             <button className="btn-auth" onClick={handleloginClick}>
                                 Sign in
                             </button>
                         </div>
-                        <img src="/login.png" alt="" className="image" />
+                        <img src={login} alt="" className="image" />
                     </div>
 
                     <div className="panel right-panel">
@@ -134,7 +133,7 @@ const Authentication = () => {
                                 Sign up
                             </button>
                         </div>
-                        <img src="/register.png" alt="" className="image" />
+                        <img src={register} alt="" className="image" />
                     </div>
                 </div>
             </div>

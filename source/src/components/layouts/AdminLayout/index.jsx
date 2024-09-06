@@ -1,7 +1,6 @@
 import useToggleNavigation from '~/components/hooks/useToggleNavigation ';
-import Main from '../components/Main';
-import Navigation from '../components/Navigation';
 import './AdminLayout.scss';
+import { Main, Navigation } from '../components';
 
 const AdminLayout = ({ children }) => {
     useToggleNavigation();

@@ -1,7 +1,6 @@
 // Pages
 import { Home } from '~/pages/user';
 import { AdminHome } from '~/pages/admin';
-import NotFound from '~/pages/NotFound';
 import { Authentication, ForgotPassword } from '~/pages/account';
 
 // Layouts
@@ -12,6 +11,7 @@ import { CategoryList, CreateCategory, EditCategory } from '~/pages/admin/catego
 import { CreateSubCategory, EditSubCategory, SubCategoryList } from '~/pages/admin/subcategories';
 import { CreateEmployee, EditEmployee, EmployeeList } from '~/pages/admin/employees';
 import { BrandList, CreateBrand, EditBrand } from '~/pages/admin/brands';
+import NotFound from '~/pages/error/NotFound';
 
 // Public routes
 const publicRoutes = [

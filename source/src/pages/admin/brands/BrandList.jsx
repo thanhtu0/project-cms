@@ -1,8 +1,7 @@
-import { ListHeader, ListTable, ListTitle } from "~/components/common/List";
-import { ConfirmModal } from "~/components/common/Modal";
-import Pagination from "~/components/common/Pagination";
-import { useDeleteModal, usePaginatedData } from "~/components/hooks";
-
+import { ListHeader, ListTable, ListTitle } from '~/components/common/List';
+import { ConfirmModal } from '~/components/common/Modal';
+import Pagination from '~/components/common/Pagination';
+import { useDeleteModal, usePaginatedData } from '~/components/hooks';
 
 const BrandList = () => {
     const {
@@ -43,7 +42,7 @@ const BrandList = () => {
                         <td style={{ width: '100px', height: 'auto' }}>
                             <img
                                 src={`http://localhost:4000/images/brands/${brand.imageFilename}`}
-                                className="img-responsive"
+                                className="img-fluid img-cover"
                                 alt="..."
                             />
                         </td>

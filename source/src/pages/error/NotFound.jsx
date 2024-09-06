@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import useIsAdmin from '~/components/hooks/useIsAdmin';
+import { error } from '~/components/utils/images';
 
 const NotFound = () => {
     const isAdmin = useIsAdmin();
@@ -13,7 +14,7 @@ const NotFound = () => {
                 Back to home
             </Link>
             <img
-                src="/error-404.png"
+                src={error}
                 className="img-fluid py-5"
                 alt="Page Not Found"
                 style={{

@@ -161,7 +161,7 @@ const ProductList = () => {
                                     <td style={{ width: '150px', height: 'auto' }}>
                                         <img
                                             src={`http://localhost:4000/images/products/${product.imageFilename}`}
-                                            className="img-responsive"
+                                            className="img-fluid"
                                             alt="..."
                                         />
                                     </td>

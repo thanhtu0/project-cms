@@ -56,7 +56,7 @@ const EmployeeList = () => {
                                     <div className="left-info">
                                         <img
                                             src={`http://localhost:4000/images/employees/${employee.imageFilename}`}
-                                            className="img-responsive profile-user-img"
+                                            className="img-fluid profile-user-img"
                                             alt={employee.fullName}
                                         />
                                     </div>

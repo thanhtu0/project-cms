@@ -1,16 +1,17 @@
-import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
-
-import React from 'react';
+import { Banner, Brand, Footer, Header } from '../components';
 
 const UserLayout = ({ children }) => {
     return (
         <div>
             <Header />
             <div className="container">
-                <Sidebar />
-                <div className="content">{children}</div>
+                <div className="content">
+                    <Banner />
+                    <Brand />
+                    {children}
+                </div>
             </div>
+            <Footer />
         </div>
     );
 };
