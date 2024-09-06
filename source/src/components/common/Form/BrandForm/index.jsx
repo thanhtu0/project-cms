@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import useImagePreview from '~/components/hooks/useImagePreview';
 
 const BrandForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading }) => {
-    const { imagePreview, setImagePreview, handleImageChange } = useImagePreview('');
+    const { imagePreview, handleImageChange } = useImagePreview('');
     const [imageOlder, setImageOlder] = useState('');
 
     useEffect(() => {
         if (initialData.imageFilename) {
             setImageOlder(`http://localhost:4000/images/brands/${initialData.imageFilename}`);
         }
-        // No need to call setImagePreview here because initialImage is ''
     }, [initialData]);
 
     return (
