@@ -1,17 +1,17 @@
 import './NewCustomer.scss';
 const NewCustomer = () => {
     return (
-        <div className="recentCustomers">
+        <div className="recentCustomers position-relative p-2 bg-white">
             <div className="carHeader">
                 <h2>Recent Customers</h2>
             </div>
 
-            <table>
+            <table className='w-100'>
                 <tbody>
                     <tr>
                         <td width="60px">
-                            <div className="imgBx">
-                                <img src="/user_logo.jpg" alt="" />
+                            <div className="imgBx position-relative w-4 h-4">
+                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
                             </div>
                         </td>
                         <td>
@@ -24,8 +24,8 @@ const NewCustomer = () => {
 
                     <tr>
                         <td width="60px">
-                            <div className="imgBx">
-                                <img src="/user_logo.jpg" alt="" />
+                            <div className="imgBx position-relative w-4 h-4">
+                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
                             </div>
                         </td>
                         <td>
@@ -38,8 +38,8 @@ const NewCustomer = () => {
 
                     <tr>
                         <td width="60px">
-                            <div className="imgBx">
-                                <img src="/user_logo.jpg" alt="" />
+                            <div className="imgBx position-relative w-4 h-4">
+                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
                             </div>
                         </td>
                         <td>
@@ -52,8 +52,8 @@ const NewCustomer = () => {
 
                     <tr>
                         <td width="60px">
-                            <div className="imgBx">
-                                <img src="/user_logo.jpg" alt="" />
+                            <div className="imgBx position-relative w-4 h-4">
+                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
                             </div>
                         </td>
                         <td>
@@ -66,8 +66,8 @@ const NewCustomer = () => {
 
                     <tr>
                         <td width="60px">
-                            <div className="imgBx">
-                                <img src="/user_logo.jpg" alt="" />
+                            <div className="imgBx position-relative w-4 h-4">
+                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
                             </div>
                         </td>
                         <td>
@@ -80,8 +80,8 @@ const NewCustomer = () => {
 
                     <tr>
                         <td width="60px">
-                            <div className="imgBx">
-                                <img src="/user_logo.jpg" alt="" />
+                            <div className="imgBx position-relative w-4 h-4">
+                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
                             </div>
                         </td>
                         <td>
@@ -94,8 +94,8 @@ const NewCustomer = () => {
 
                     <tr>
                         <td width="60px">
-                            <div className="imgBx">
-                                <img src="/user_logo.jpg" alt="" />
+                            <div className="imgBx position-relative w-4 h-4">
+                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
                             </div>
                         </td>
                         <td>
@@ -108,8 +108,8 @@ const NewCustomer = () => {
 
                     <tr>
                         <td width="60px">
-                            <div className="imgBx">
-                                <img src="/user_logo.jpg" alt="" />
+                            <div className="imgBx position-relative w-4 h-4">
+                                <img className="position-relative top-0 left-0 w-100 h-100" src="/user_logo.jpg" alt="" />
                             </div>
                         </td>
                         <td>

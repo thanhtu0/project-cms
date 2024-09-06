@@ -1,11 +1,9 @@
 @import '../../../styles/GlobalStyles.scss';
 
 .main {
-    position: absolute;
     width: calc(100% - 300px);
     left: 300px;
     min-height: 100vh;
-    background: $clr-white;
     transition: 0.5s;
 
     &.active {
@@ -17,39 +15,23 @@
 .topbar {
     width: 100%;
     height: 60px;
-    padding: 0 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .toggle {
-    position: relative;
     width: 60px;
     height: 60px;
-    background: $clr-gray-f1;
-    font-size: 4rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .search {
-    position: relative;
     width: 400px;
-    margin: 0 10px;
 
     label {
-        position: relative;
-        width: 100%;
-
         input {
             width: 100%;
             height: 40px;
             border-radius: 40px;
             padding: 5px 30px;
-            outline: none;
             border: 1px solid $clr-black-2;
         }
 
@@ -57,25 +39,13 @@
             position: absolute;
             top: 20px;
             left: 10px;
-            font-size: 1.92rem;
+            font-size: 2rem;
         }
     }
 }
 
 .user {
-    position: relative;
-    width: 40px;
-    height: 40px;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
-
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 }

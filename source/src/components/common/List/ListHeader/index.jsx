@@ -3,7 +3,7 @@ import Title from '../../Title';
 
 const ListHeader = ({ title, refreshHandler, refreshLabel = 'Refresh', createLink, createLabel = 'Create' }) => {
     return (
-        <div className="list__header">
+        <div className="list__header flex flex-between">
             <Title text={title} />
             <div className="list__btn-group">
                 <button type="button" className="btn btn-outline-success" onClick={refreshHandler}>

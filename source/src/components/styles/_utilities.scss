@@ -5,6 +5,87 @@
     margin: 0 auto;
 }
 
+/* position */
+.position {
+    &-relative {
+        position: relative;
+    }
+    &-absolute {
+        position: absolute;
+    }
+    &-fixed {
+        position: fixed;
+    }
+    &-sticky {
+        position: sticky;
+    }
+    &-static {
+        position: static;
+    }
+}
+
+/* top, right, bottom, left */
+.top {
+    &-0 {
+        top: 0;
+    }
+    &-50 {
+        top: 50%;
+    }
+    &-100 {
+        top: 100%;
+    }
+}
+.bottom {
+    &-0 {
+        bottom: 0;
+    }
+    &-50 {
+        bottom: 50%;
+    }
+    &-100 {
+        bottom: 100%;
+    }
+}
+.left {
+    &-0 {
+        left: 0;
+    }
+    &-50 {
+        left: 50%;
+    }
+    &-100 {
+        left: 100%;
+    }
+}
+.right {
+    &-0 {
+        right: 0;
+    }
+    &-50 {
+        right: 50%;
+    }
+    &-100 {
+        right: 100%;
+    }
+}
+
+/* z-index */
+.z {
+    &-0 {
+        z-index: 0;
+    }
+    &-1 {
+        z-index: 1;
+    }
+    &-10 {
+        z-index: 10;
+    }
+    &-100 {
+        z-index: 100;
+    }
+}
+
 /* flexbox and grid */
 .flex {
     display: flex;
@@ -38,6 +119,21 @@
 .w-100 {
     width: 100%;
 }
+.w-30 {
+    width: 300px;
+}
+.h-4 {
+    height: 40px;
+}
+.h-6 {
+    height: 60px;
+}
+.w-4 {
+    width: 40px;
+}
+.w-6 {
+    width: 60px;
+}
 
 /* text align and transformation */
 .text {
@@ -59,8 +155,17 @@
     &-capitalize {
         text-transform: capitalize;
     }
+    &-white {
+        color: $clr-white;
+    }
     &-black {
         color: $clr-black;
+    }
+    &-black-1 {
+        color: $clr-black-1;
+    }
+    &-black-2 {
+        color: $clr-black-2;
     }
     &-white {
         color: $clr-white;
@@ -80,6 +185,9 @@
     &-black {
         background-color: $clr-black;
     }
+    &-black-1 {
+        background-color: $clr-black-1;
+    }
     &-white {
         background-color: $clr-white;
     }
@@ -91,6 +199,9 @@
     }
     &-bg {
         background-color: $clr-bg;
+    }
+    &-primary {
+        background-color: $clr-primary;
     }
 }
 
@@ -128,46 +239,55 @@
 /* common font sizes */
 .fs {
     &-13 {
-        font-size: 13px;
+        font-size: 1.3rem;
     }
     &-14 {
-        font-size: 14px;
+        font-size: 1.4rem;
     }
     &-15 {
-        font-size: 15px;
+        font-size: 1.5rem;
     }
     &-16 {
-        font-size: 16px;
+        font-size: 1.6rem;
     }
     &-17 {
-        font-size: 17px;
+        font-size: 1.7rem;
     }
     &-18 {
-        font-size: 18px;
+        font-size: 1.8rem;
     }
     &-19 {
-        font-size: 19px;
+        font-size: 1.9rem;
     }
     &-20 {
-        font-size: 20px;
+        font-size: 2rem;
     }
     &-21 {
-        font-size: 21px;
+        font-size: 2.1rem;
     }
     &-22 {
-        font-size: 22px;
+        font-size: 2.2rem;
     }
     &-23 {
-        font-size: 23px;
+        font-size: 2.3rem;
     }
     &-24 {
-        font-size: 24px;
+        font-size: 2.4rem;
     }
     &-25 {
-        font-size: 25px;
+        font-size: 2.5rem;
     }
     &-26 {
-        font-size: 26px;
+        font-size: 2.6rem;
+    }
+    &-30 {
+        font-size: 3rem;
+    }
+    &-40 {
+        font-size: 4rem;
+    }
+    &-56 {
+        font-size: 5.6rem;
     }
 }
 
@@ -178,44 +298,80 @@
 .ls-2 {
     letter-spacing: 2px;
 }
+/* Line height*/
+.lh-1 {
+    line-height: 1rem;
+}
+.lh-2 {
+    line-height: 2rem;
+}
+.lh-3 {
+    line-height: 3rem;
+}
+.lh-6 {
+    line-height: 6rem;
+}
+.lh-75 {
+    line-height: 7.5rem;
+}
 /* margin and padding */
 .mx-auto {
     margin-right: auto;
     margin-left: auto;
 }
+.mt-5 {
+    margin-top: 0.5rem;
+}
+.mt-1 {
+    margin-top: 1rem;
+}
+.mt-15 {
+    margin-top: 1.5rem;
+}
+.mt-2 {
+    margin-top: 2rem;
+}
+.ml-1 {
+    margin-left: 1rem;
+}
+.ml-2 {
+    margin-left: 2rem;
+}
 .mx-1 {
-    margin-left: 0.6rem;
-    margin-right: 0.6rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 .mx-2 {
-    margin-left: 1.2rem;
-    margin-right: 1.2rem;
-}
-.mx-3 {
-    margin-left: 1.8rem;
-    margin-right: 1.8rem;
-}
-.mx-4 {
-    margin-left: 2.4rem;
-    margin-right: 2.4rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 .my-1 {
-    margin-top: 0.6rem;
-    margin-bottom: 0.6rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .my-2 {
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
-.my-3 {
-    margin-top: 1.8rem;
-    margin-bottom: 1.8rem;
+.p-2 {
+    padding: 2rem;
 }
-.my-4 {
-    margin-top: 2.4rem;
-    margin-bottom: 2.4rem;
+.p-3 {
+    padding: 3rem;
 }
-.py-5 {
-    padding-top: 4.8rem;
-    padding-bottom: 4.8rem;
+.pt-1 {
+    padding-top: 1rem;
+}
+.py-1 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.px-2 {
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.px-1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

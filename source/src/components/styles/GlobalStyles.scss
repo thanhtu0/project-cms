@@ -54,6 +54,7 @@ button {
     background-color: transparent;
     font-family: inherit;
     font-size: 1.4rem;
+    border-radius: 5px;
 }
 input,
 textarea,
@@ -67,12 +68,14 @@ select {
 }
 
 input[type='text'],
+input[type='image'],
 select,
 textarea {
     width: 100%;
-    padding: 12px;
+    padding: 1.5rem;
+    font-size: 1.6rem;
     border: 1px solid $clr-black-2;
-    border-radius: 4px;
+    border-radius: 5px;
     resize: vertical;
 }
 

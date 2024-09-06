@@ -10,8 +10,8 @@ const Navigation = () => {
 
     return (
         <div className="container">
-            <div className="navigation">
-                <ul>
+            <div className="navigation position-fixed w-30 h-100 bg-black">
+                <ul className="position-absolute top-0 left-0 w-100">
                     {[
                         { to: '/admin', icon: 'cloud-circle-sharp', title: 'Route O.B Store' },
                         { to: '/admin', icon: 'home-outline', title: 'Dashboard' },
@@ -27,12 +27,12 @@ const Navigation = () => {
                         { to: '/admin/password', icon: 'lock-closed-outline', title: 'Password' },
                         { to: '/login', icon: 'log-out-outline', title: 'Sign Out' },
                     ].map((item, index) => (
-                        <li key={index} ref={(el) => (listRef.current[index] = el)}>
+                        <li className="position-relative w-100" key={index} ref={(el) => (listRef.current[index] = el)}>
                             <Link to={item.to} title={item.title}>
-                                <span className="icon">
+                                <span className="icon position-relative text-center h-6 lh-75">
                                     <ion-icon name={item.icon}></ion-icon>
                                 </span>
-                                <span className="title">{item.title}</span>
+                                <span className="title position-relative px-1 h-6 lh-6 text-start">{item.title}</span>
                             </Link>
                         </li>
                     ))}
