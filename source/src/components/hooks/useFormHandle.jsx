@@ -1,6 +1,7 @@
 // hooks/useFormHandler.js
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../utils/apiURL';
 
 const useFormHandler = (endpoint, id, redirectPath, title) => {
     const [validationErrors, setValidationErrors] = useState({});
@@ -21,7 +22,7 @@ const useFormHandler = (endpoint, id, redirectPath, title) => {
         }
 
         try {
-            const response = await fetch(`http://localhost:4000/${endpoint}/${id}`, {
+            const response = await fetch(`${BASE_URL}/${endpoint}/${id}`, {
                 method: 'PATCH',
                 body: formData,
             });

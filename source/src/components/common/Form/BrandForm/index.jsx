@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useImagePreview from '~/components/hooks/useImagePreview';
+import { BASE_URL } from '~/components/utils/apiURL';
 
 const BrandForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading }) => {
     const { imagePreview, handleImageChange } = useImagePreview('');
@@ -8,7 +9,7 @@ const BrandForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading 
 
     useEffect(() => {
         if (initialData.imageFilename) {
-            setImageOlder(`http://localhost:4000/images/brands/${initialData.imageFilename}`);
+            setImageOlder(`${BASE_URL}/images/brands/${initialData.imageFilename}`);
         }
     }, [initialData]);
 

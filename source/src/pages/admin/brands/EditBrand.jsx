@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BrandForm } from '~/components/common/Form';
 import Title from '~/components/common/Title';
+import { BASE_URL } from '~/components/utils/apiURL';
 
 const EditBrand = () => {
     const { id } = useParams();
@@ -14,7 +15,7 @@ const EditBrand = () => {
     useEffect(() => {
         async function fetchBrand() {
             try {
-                const response = await fetch(`http://localhost:4000/brands/${id}`);
+                const response = await fetch(`${BASE_URL}/brands/${id}`);
                 if (response.ok) {
                     const data = await response.json();
                     setInitialData(data);
@@ -45,7 +46,7 @@ const EditBrand = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:4000/brands/${id}`, {
+            const response = await fetch(`${BASE_URL}/brands/${id}`, {
                 method: 'PATCH',
                 body: formData,
             });

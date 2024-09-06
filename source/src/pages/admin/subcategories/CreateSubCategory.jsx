@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SubCategoryForm } from '~/components/common/Form';
 import Title from '~/components/common/Title';
+import { BASE_URL } from '~/components/utils/apiURL';
 
 const CreateSubCategory = () => {
     const [validationErrors, setValidationErrors] = useState({});
@@ -22,7 +23,7 @@ const CreateSubCategory = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:4000/subcategories', {
+            const response = await fetch(`${BASE_URL}/subcategories`, {
                 method: 'POST',
                 body: formData,
             });

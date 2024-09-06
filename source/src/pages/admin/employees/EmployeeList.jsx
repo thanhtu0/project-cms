@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ListHeader, ListTitle } from '~/components/common/List';
 import Pagination from '~/components/common/Pagination';
 import { usePaginatedData } from '~/components/hooks';
+import { BASE_URL } from '~/components/utils/apiURL';
 
 const EmployeeList = () => {
     const itemsPerPage = 9;
@@ -13,7 +14,7 @@ const EmployeeList = () => {
         totalItems,
         handlePageChange,
         handleRefresh,
-    } = usePaginatedData('http://localhost:4000/employees', itemsPerPage);
+    } = usePaginatedData(`${BASE_URL}/employees`, itemsPerPage);
 
     return (
         <>
@@ -55,7 +56,7 @@ const EmployeeList = () => {
                                 <div className="body">
                                     <div className="left-info">
                                         <img
-                                            src={`http://localhost:4000/images/employees/${employee.imageFilename}`}
+                                            src={`${BASE_URL}/images/employees/${employee.imageFilename}`}
                                             className="img-fluid profile-user-img"
                                             alt={employee.fullName}
                                         />

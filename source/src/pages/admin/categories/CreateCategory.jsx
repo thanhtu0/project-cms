@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CategoryForm } from '~/components/common/Form';
 import Title from '~/components/common/Title';
+import { BASE_URL } from '~/components/utils/apiURL';
 
 const CreateCategory = () => {
     const [validationErrors, setValidationErrors] = useState({});
@@ -22,7 +23,7 @@ const CreateCategory = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:4000/categories', {
+            const response = await fetch(`${BASE_URL}/categories`, {
                 method: 'POST',
                 body: formData,
             });

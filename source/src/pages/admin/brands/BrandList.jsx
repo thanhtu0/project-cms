@@ -2,6 +2,7 @@ import { ListHeader, ListTable, ListTitle } from '~/components/common/List';
 import { ConfirmModal } from '~/components/common/Modal';
 import Pagination from '~/components/common/Pagination';
 import { useDeleteModal, usePaginatedData } from '~/components/hooks';
+import { BASE_URL } from '~/components/utils/apiURL';
 
 const BrandList = () => {
     const {
@@ -11,7 +12,7 @@ const BrandList = () => {
         totalItems,
         handlePageChange,
         handleRefresh,
-    } = usePaginatedData('http://localhost:4000/brands');
+    } = usePaginatedData(`${BASE_URL}/brands`);
 
     const {
         showModal,
@@ -20,7 +21,7 @@ const BrandList = () => {
         handleCloseModal,
         handleConfirmDelete,
     } = useDeleteModal(
-        'http://localhost:4000/brands',
+        `${BASE_URL}/brands`,
         handleRefresh,
         'Brand deleted successfully!',
         'Unable to delete the brand!',
@@ -46,7 +47,7 @@ const BrandList = () => {
                         <td style={{ width: '10px' }}>{brand.id}</td>
                         <td style={{ width: '100px', height: 'auto' }}>
                             <img
-                                src={`http://localhost:4000/images/brands/${brand.imageFilename}`}
+                                src={`${BASE_URL}/images/brands/${brand.imageFilename}`}
                                 className="img-fluid img-cover"
                                 alt={`Brand ${brand.name}`}
                             />

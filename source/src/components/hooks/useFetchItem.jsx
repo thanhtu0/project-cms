@@ -1,5 +1,6 @@
 // hooks/useFetchItem.js
 import { useEffect, useState } from 'react';
+import { BASE_URL } from '../utils/apiURL';
 
 const useFetchItem = (endpoint, id) => {
     const [data, setData] = useState({});
@@ -8,7 +9,7 @@ const useFetchItem = (endpoint, id) => {
     useEffect(() => {
         async function fetchItem() {
             try {
-                const response = await fetch(`http://localhost:4000/${endpoint}/${id}`);
+                const response = await fetch(`${BASE_URL}/${endpoint}/${id}`);
                 if (response.ok) {
                     const item = await response.json();
                     setData(item);

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ListHeader, ListTitle } from '~/components/common/List';
 import Pagination from '~/components/common/Pagination';
+import { BASE_URL } from '~/components/utils/apiURL';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ const ProductList = () => {
     const getProducts = useCallback(
         (page = 1) => {
             const randomParam = `?_=${new Date().getTime()}`;
-            let url = `http://localhost:4000/products${randomParam}`;
+            let url = `${BASE_URL}/products${randomParam}`;
             if (selectedBrand) url += `&brand=${selectedBrand}`;
             if (selectedCategory) url += `&category=${selectedCategory}`;
             if (selectedSubcategory) url += `&subcategory=${selectedSubcategory}`;
@@ -77,9 +78,9 @@ const ProductList = () => {
         const fetchData = async () => {
             try {
                 const [brandsData, categoriesData, subcategoriesData] = await Promise.all([
-                    fetch('http://localhost:4000/brands').then((res) => res.json()),
-                    fetch('http://localhost:4000/categories').then((res) => res.json()),
-                    fetch('http://localhost:4000/subcategories').then((res) => res.json()),
+                    fetch(`${BASE_URL}/brands`).then((res) => res.json()),
+                    fetch(`${BASE_URL}/categories`).then((res) => res.json()),
+                    fetch(`${BASE_URL}/subcategories`).then((res) => res.json()),
                 ]);
 
                 setBrands(brandsData);
@@ -160,7 +161,7 @@ const ProductList = () => {
                                 <tr key={product.id}>
                                     <td style={{ width: '150px', height: 'auto' }}>
                                         <img
-                                            src={`http://localhost:4000/images/products/${product.imageFilename}`}
+                                            src={`${BASE_URL}/images/products/${product.imageFilename}`}
                                             className="img-fluid"
                                             alt="..."
                                         />
