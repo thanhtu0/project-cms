@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NavMenu.scss';
-import useSubcategories from '~/components/hooks/useSubCategories';
+import useFetch from '~/components/hooks/useFetch';
+import { BASE_URL } from '~/components/utils/apiURL';
 
 const NavMenu = () => {
-    const { subcategories, loading, error } = useSubcategories();
+    const { data: subcategories, loading, error } = useFetch(`${BASE_URL}/subcategories`);
     const [showAll, setShowAll] = useState(false);
 
     if (loading) return <div>Loading...</div>;
@@ -19,7 +20,7 @@ const NavMenu = () => {
     return (
         <div className="wrapper-nav flex flex-center w-100 h-5">
             <div className="menu-bar flex flex-center p-1 fs-14 fw-4 h-34">
-                <ul>
+                <ul className="flex">
                     {displayedSubcategories.map((subcategory) => (
                         <li key={subcategory.id} className="h-34 flex flex-center">
                             <Link
