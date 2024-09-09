@@ -1,0 +1,132 @@
+@import '../../../styles/GlobalStyles.scss';
+.footer {
+    width: 1440px;
+    height: 523px;
+    background-color: $clr-black;
+    padding: 79px 130px;
+
+    .footer-logo {
+        height: 50px;
+
+        h2 {
+            width: 120px;
+            line-height: 50px;
+            font-family: $fnt-logo;
+        }
+    }
+    .footer-container {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+
+        .footer-section {
+            min-width: 200px;
+
+            h3 {
+                display: inline-block;
+                border-bottom: 1px solid $clr-white;
+                padding-bottom: 0.3rem;
+                margin-bottom: 24px;
+            }
+
+            ul {
+                li {
+                    margin-bottom: 0.4rem;
+
+                    button {
+                        color: $clr-white;
+
+                        &:hover {
+                            color: $clr-gray-9a;
+                        }
+                    }
+
+                    a {
+                        color: $clr-white;
+
+                        &:hover {
+                            color: $clr-gray-9a;
+                        }
+                    }
+                }
+            }
+
+            p {
+                width: 200px;
+            }
+
+            .about-section {
+                display: flex;
+                justify-content: space-between;
+
+                .about-left,
+                .about-right {
+                    width: 45%;
+
+                    li a {
+                        line-height: 1.8rem;
+                    }
+                }
+            }
+
+            .payment-methods {
+                width: 150px;
+                height: 20px;
+                li {
+                    display: block;
+                    margin-bottom: 1.2rem;
+
+                    .icon {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .social-icons {
+                li {
+                    display: inline-block;
+                    margin-right: 10px;
+
+                    a {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .social-icons li a {
+                font-size: 1.6rem;
+                transition: color 0.3s ease;
+
+                &.facebook:hover {
+                    color: #3b5998;
+                }
+
+                &.instagram:hover {
+                    color: #e4405f;
+                }
+
+                &.github:hover {
+                    color: #333;
+                }
+
+                &.twitter:hover {
+                    color: #1da1f2;
+                }
+
+                &.snapchat:hover {
+                    color: #fffc00;
+                }
+
+                &.linkedin:hover {
+                    color: #0077b5;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        height: 55px;
+        margin-top: 44px;
+        border-top: 1px solid $clr-gray-9a;
+    }
+}

@@ -20,7 +20,6 @@ const Modal = ({ show, onClose, onConfirm, title, message }) => {
                         className="py-1 px-2 ml-1 fs-16 btn-primary"
                         onClick={() => {
                             onConfirm();
-                            console.log('Confirm button clicked');
                         }}
                     >
                         Confirm
@@ -29,7 +28,6 @@ const Modal = ({ show, onClose, onConfirm, title, message }) => {
                         className="py-1 px-2 ml-1 fs-16 btn-outline-default"
                         onClick={() => {
                             onClose();
-                            console.log('Cancel button clicked');
                         }}
                     >
                         Cancel

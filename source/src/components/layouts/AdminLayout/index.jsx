@@ -1,6 +1,7 @@
-import useToggleNavigation from '~/components/hooks/useToggleNavigation ';
 import './AdminLayout.scss';
+import useToggleNavigation from '~/components/hooks/useToggleNavigation ';
 import { Main, Navigation } from '../components';
+import FooterAdmin from '../components/FooterAdmin';
 
 const AdminLayout = ({ children }) => {
     useToggleNavigation();
@@ -11,7 +12,10 @@ const AdminLayout = ({ children }) => {
                 <Navigation />
                 <Main />
             </div>
-            <div className="content">{children}</div>
+            <div className="content">
+                {children}
+                <FooterAdmin />
+            </div>
         </div>
     );
 };
