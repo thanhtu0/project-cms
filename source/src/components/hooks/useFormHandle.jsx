@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/apiURL';
 
-const useFormHandler = (endpoint, id, redirectPath, title) => {
+const useFormHandler = (endpoint, id = null, redirectPath, title) => {
     const [validationErrors, setValidationErrors] = useState({});
     const navigate = useNavigate();
 
@@ -22,8 +22,8 @@ const useFormHandler = (endpoint, id, redirectPath, title) => {
         }
 
         try {
-            const response = await fetch(`${BASE_URL}/${endpoint}/${id}`, {
-                method: 'PATCH',
+            const response = await fetch(`${BASE_URL}/${endpoint}${id ? `/${id}` : ''}`, {
+                method: id ? 'PATCH' : 'POST',
                 body: formData,
             });
 
@@ -33,7 +33,7 @@ const useFormHandler = (endpoint, id, redirectPath, title) => {
                 const data = await response.json();
                 setValidationErrors(data);
             } else {
-                alert(`Unable to update the ${title.toLowerCase()}!`);
+                alert(`Unable to ${id ? 'update' : 'create'} the ${title.toLowerCase()}!`);
             }
         } catch (error) {
             alert('Unable to connect to the server!');
