@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/apiURL';
+import { toast } from 'react-toastify';
 
 const useFormHandler = (endpoint, id = null, redirectPath, title) => {
     const [validationErrors, setValidationErrors] = useState({});
@@ -18,6 +19,7 @@ const useFormHandler = (endpoint, id = null, redirectPath, title) => {
                 name: !item.name ? 'Name is required' : '',
                 description: !item.description ? 'Description is required' : '',
             });
+            toast.error('Please fill out all required fields!');
             return;
         }
 
@@ -28,15 +30,17 @@ const useFormHandler = (endpoint, id = null, redirectPath, title) => {
             });
 
             if (response.ok) {
+                toast.success(`${title} ${id ? 'updated' : 'created'} successfully!`);
                 navigate(redirectPath);
             } else if (response.status === 400) {
                 const data = await response.json();
                 setValidationErrors(data);
+                toast.error(`Failed to ${id ? 'update' : 'create'} ${title.toLowerCase()}!`);
             } else {
-                alert(`Unable to ${id ? 'update' : 'create'} the ${title.toLowerCase()}!`);
+                toast.error(`Unable to ${id ? 'update' : 'create'} the ${title.toLowerCase()}!`);
             }
         } catch (error) {
-            alert('Unable to connect to the server!');
+            toast.error('Unable to connect to the server!');
         }
     }
 
