@@ -1,22 +1,13 @@
 @import 'variables';
 
 .error {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    padding: 20px;
 }
 
 .error-404 {
     padding: 30px;
-    text-align: center;
 
     h1 {
-        font-size: 18rem;
-        font-weight: 700;
-        color: $clr-black;
         line-height: 18rem;
 
         @media (max-width: 991px) {
@@ -35,16 +26,7 @@
         }
     }
 
-    h2 {
-        font-size: 2.4rem;
-        font-weight: 700;
-        color: $clr-black-2;
-        margin-bottom: 30px;
-    }
-
     .btn {
-        background: $clr-gray-9a;
-        color: $clr-gray;
         padding: 0.8rem 3rem;
         transition: all 0.3s ease;
 
@@ -54,17 +36,7 @@
             color: $clr-gray-9a;
         }
     }
-
     .credits {
-        margin-top: 20px;
-        font-size: 1.4rem;
-        color: #888;
-
-        a {
-            color: $clr-black-1;
-            font-weight: 700;
-        }
-
         @media (max-width: 768px) {
             font-size: 1.2rem;
         }

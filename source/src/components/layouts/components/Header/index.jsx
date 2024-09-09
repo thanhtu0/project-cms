@@ -2,9 +2,9 @@ import { BASE_URL } from '~/components/utils/apiURL';
 import { NavMenu } from '..';
 import useContactInfo from '~/components/hooks/useContactInfo';
 import useFetch from '~/components/hooks/useFetch';
+import './Header.scss';
 import InfoHeader from './InfoHeader';
 import InfoNavigation from './InfoNavigation';
-import './Header.scss';
 
 const Header = () => {
     const { data: contactData, loading: contactLoading, error: contactError } = useFetch(`${BASE_URL}/contact`);

@@ -7,10 +7,10 @@ const NotFound = () => {
     const redirectPath = isAdmin ? '/admin' : '/';
 
     return (
-        <section className="error error-404">
-            <h1>404</h1>
-            <h2>The page you are looking for doesn't exist.</h2>
-            <Link className="btn" to={redirectPath}>
+        <section className="error error-404 flex flex-column flex-center p-2 text-center">
+            <h1 className="fs-180 fw-7 text-black">404</h1>
+            <h2 className="ds-24 fw-7 text-black-2 mt-3">The page you are looking for doesn't exist.</h2>
+            <Link className="btn bg-gray-9a text-gray" to={redirectPath}>
                 Back to home
             </Link>
             <img
@@ -22,8 +22,11 @@ const NotFound = () => {
                     maxWidth: '500px',
                 }}
             />
-            <div className="credits">
-                Designed by <a href="https://www.facebook.com/ThanhTu03012002/">Thanh Tu</a>
+            <div className="credits mt-2 fs-14 text-black-2">
+                Designed by{' '}
+                <a className="text-black-1 fw-7" href="https://www.facebook.com/ThanhTu03012002/">
+                    Thanh Tu
+                </a>
             </div>
         </section>
     );
