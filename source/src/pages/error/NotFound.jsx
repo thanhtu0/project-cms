@@ -10,7 +10,7 @@ const NotFound = () => {
         <section className="error error-404 flex flex-column flex-center p-2 text-center">
             <h1 className="fs-180 fw-7 text-black">404</h1>
             <h2 className="ds-24 fw-7 text-black-2 mt-3">The page you are looking for doesn't exist.</h2>
-            <Link className="btn bg-gray-9a text-gray" to={redirectPath}>
+            <Link className="btn bg-gray-9a text-gray fw-6" to={redirectPath}>
                 Back to home
             </Link>
             <img

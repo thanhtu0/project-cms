@@ -35,7 +35,7 @@ const NavMenu = () => {
                     {subcategories.length > 9 && (
                         <li className="more-subcategory h-34 fs-14 flex flex-center" onClick={handleShowMore}>
                             {showAll ? 'Show Less' : 'Show More'}
-                            <div className="tooltip bg-gray-a9 text-white text-center position-absolute z-1 left-50">
+                            <div className="tooltip bg-gray-9a text-white text-center position-absolute z-1 left-50">
                                 {showAll ? 'Click to show less' : 'Click to show more categories'}
                             </div>
                         </li>
