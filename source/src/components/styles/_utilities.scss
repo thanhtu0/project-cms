@@ -253,6 +253,9 @@
 
 /* common font sizes */
 .fs {
+    &-8 {
+        font-size: 0.8rem;
+    }
     &-10 {
         font-size: 1rem;
     }

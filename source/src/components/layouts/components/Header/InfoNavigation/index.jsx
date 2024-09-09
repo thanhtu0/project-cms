@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaRegUser } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartFlatbed, faChevronDown, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faCartFlatbed, faChevronDown, faHeart, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const InfoNavigation = ({ companyName, categories, categoriesLoading, categoriesError }) => {
     return (
@@ -26,15 +26,23 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
                 </ul>
             </nav>
 
+            <div className="search-bar position-relative">
+                <input className="w-100 h-100" type="text" placeholder="Search product" />
+                <button type="submit" className="position-absolute right-0 h-100 bg-black text-white">
+                    <FontAwesomeIcon className="fs-14" icon={faSearch} />
+                    <span className="fs-14">Search</span>
+                </button>
+            </div>
+
             <div className="account flex">
                 <FaRegUser className="account-icon mr-2" />
                 <div className="account-text flex flex-column">
                     <div className="up flex">
-                        <Link className="fs-10" to="/login">
+                        <Link className="fs-8" to="/login">
                             Log in
                         </Link>{' '}
                         /
-                        <Link className="fs-10" to="/register">
+                        <Link className="fs-8" to="/register">
                             Sign up
                         </Link>
                     </div>

@@ -1,7 +1,7 @@
 @import '../../../styles/GlobalStyles.scss';
 
 .header {
-    width: 1400px;
+    width: 1440px;
     height: 202px;
 
     .info-header {
@@ -70,17 +70,37 @@
             }
         }
 
+        .search-bar {
+            width: 380px;
+            height: 38px;
+
+            button {
+                width: 100px;
+
+                span {
+                    margin-left: 0.8rem;
+                }
+            }
+        }
+
+        .search-bar input::placeholder {
+            color: $clr-gray-9a;
+            font-size: 1.4rem;
+        }
+
         .account {
+            width: 110px;
             height: 35px;
 
             .account-text {
                 .up {
+                    width: 70px;
                     a {
                         color: $clr-black;
                         transition: font-size 0.3s ease-in-out;
 
                         &:hover {
-                            font-size: 1.1rem;
+                            font-size: 0.9rem;
                         }
                     }
                 }
@@ -112,7 +132,6 @@
             width: 90px;
 
             a {
-                width: 50px;
                 transition: font-size 0.3s ease-in-out;
 
                 &:hover {
@@ -122,8 +141,6 @@
         }
 
         .cart {
-            width: 70px;
-
             a {
                 width: 30px;
                 transition: font-size 0.3s ease-in-out;
