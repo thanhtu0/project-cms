@@ -1,11 +1,10 @@
 @import '../../../styles/GlobalStyles.scss';
 
 .header {
-    min-width: 1440px;
+    width: 1400px;
     height: 202px;
 
     .info-header {
-        padding: 0 2rem;
         height: 32px;
 
         .left-info,
@@ -32,7 +31,6 @@
 
     .info-navigation {
         height: 12rem;
-        padding: 1rem 12rem;
 
         .logo-text {
             font-family: $fnt-logo;
@@ -114,6 +112,7 @@
             width: 90px;
 
             a {
+                width: 50px;
                 transition: font-size 0.3s ease-in-out;
 
                 &:hover {
@@ -126,6 +125,7 @@
             width: 70px;
 
             a {
+                width: 30px;
                 transition: font-size 0.3s ease-in-out;
 
                 &:hover {

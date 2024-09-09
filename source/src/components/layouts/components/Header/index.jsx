@@ -54,7 +54,7 @@ const Header = () => {
 
     return (
         <header className="header flex-column">
-            <div className="info-header text-white bg-black flex flex-around">
+            <div className="info-header text-white bg-black flex flex-between px-13">
                 <div className="left-info">
                     {infoItems.map((item, index) => (
                         <div key={index} className={item.className}>
@@ -72,7 +72,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className="info-navigation flex flex-between">
+            <div className="info-navigation flex flex-between px-13 py-1">
                 <Link to="/" className="logo-text fs-43">
                     {companyName || ''}
                 </Link>
@@ -109,14 +109,14 @@ const Header = () => {
 
                 <div className="wishlist flex h-2">
                     <FontAwesomeIcon icon={faHeart} className="fs-20" />
-                    <Link to="/wishlist" className="ml-2 fs-14">
+                    <Link to="/wishlist" className="ml-2 fs-14 lh-18">
                         Wishlist
                     </Link>
                 </div>
 
                 <div className="cart flex h-2">
                     <FontAwesomeIcon icon={faCartFlatbed} className="fs-20" />
-                    <Link to="/cart" className="ml-2 fs-14">
+                    <Link to="/cart" className="ml-2 fs-14 lh-18">
                         Cart
                     </Link>
                 </div>
