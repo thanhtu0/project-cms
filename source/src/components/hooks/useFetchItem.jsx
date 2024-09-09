@@ -1,6 +1,7 @@
 // hooks/useFetchItem.js
 import { useEffect, useState } from 'react';
 import { BASE_URL } from '../utils/apiURL';
+import { toast } from 'react-toastify';
 
 const useFetchItem = (endpoint, id) => {
     const [data, setData] = useState({});
@@ -15,9 +16,11 @@ const useFetchItem = (endpoint, id) => {
                     setData(item);
                 } else {
                     setError('Unable to fetch item');
+                    toast.error('Failed to fetch item data!');
                 }
             } catch (error) {
                 setError('Unable to connect to the server!');
+                toast.error('Unable to connect to the server!');
             }
         }
 
