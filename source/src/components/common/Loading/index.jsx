@@ -1,6 +1,7 @@
 const Loading = () => (
-    <div className="loading">
-        <p>Loading...</p>
+    <div className="loader">
+        <span className="loader-text">loading</span>
+        <span className="load"></span>
     </div>
 );
 

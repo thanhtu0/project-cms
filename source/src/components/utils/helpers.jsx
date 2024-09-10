@@ -1,4 +1,4 @@
-// slugHelper
+// slug Helper
 export const createSlug = (name) => {
     return name
         .toLowerCase()
@@ -6,3 +6,8 @@ export const createSlug = (name) => {
         .replace(/^-+|-+$/g, '');
 };
 
+// getCategoryName Helper
+export const getCategoryName = (categoryId, categories) => {
+    const category = categories?.find((cat) => cat.id === parseInt(categoryId));
+    return category ? category.name : 'Unknown';
+};
