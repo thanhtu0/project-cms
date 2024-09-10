@@ -2,9 +2,14 @@
 
 .list {
     position: relative;
+    margin: 10px;
     padding: 20px;
+    border-radius: 5px;
+    border-top: 0.5px solid $clr-black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 15px;
 
-    &__header {
+    &__header,
+    &__info {
         height: 50px;
         border-bottom: 1px solid $clr-black-2;
     }
@@ -125,61 +130,31 @@
         }
     }
     &__employee {
-        position: relative;
-        padding: 20px;
-        width: 100%;
-        margin-top: 10px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
 
         .card {
-            position: relative;
-            background: $clr-gray-f1;
             width: auto;
             height: 225px;
-            display: flex;
-            flex-direction: column;
             border-radius: 10px;
-            border-top: 1rem solid rgba(0, 0, 0, 0.1);
+            box-shadow: $clr-gray-9a 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 
             .profile {
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-
                 .title {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    height: 40px;
-                    padding: 0 15px;
                     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
                     .left_title {
                         flex: 0 0 66.67%;
-                        h4 {
-                            margin: 0;
-                            font-size: 1.8rem;
-                            font-weight: 500;
-                        }
                     }
 
                     .right_title {
                         flex: 0 0 33.33%;
-                        display: flex;
-                        justify-content: flex-end;
                         gap: 10px;
-
-                        ion-icon {
-                            font-size: 1.6rem;
-                        }
                     }
                 }
 
                 .body {
-                    margin-top: 10px;
-                    padding: 0 15px;
                     flex: 1;
                     display: grid;
                     grid-template-columns: 4fr 8fr;
@@ -202,13 +177,9 @@
 
                     .right-info {
                         ul {
-                            padding-left: 0;
                             margin-bottom: 20px;
-                            list-style: none;
-                            font-size: 1.4rem;
 
                             li {
-                                padding: 10px 15px;
                                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
                                 ion-icon {
@@ -221,15 +192,10 @@
                                     width: 16px;
                                     height: 16px;
                                     border-radius: 50%;
-                                    background-color: $clr-white;
                                     color: $clr-warning-dark;
-                                    font-weight: bold;
-                                    text-align: center;
-                                    line-height: 16px;
                                     margin-left: 5px;
                                     cursor: help;
                                     border: 1px solid $clr-warning;
-                                    position: relative;
 
                                     &:hover::after {
                                         content: attr(value);

@@ -1,5 +1,5 @@
 import { Error, Loading } from '~/components/common';
-import useFooterData from '~/components/hooks/useFooterData';
+import useFooterData from '~/components/hooks/useContactData';
 
 const StoreSection = () => {
     const { data, loading, error } = useFooterData();

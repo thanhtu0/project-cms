@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Error, Loading } from '~/components/common';
-import useFooterData from '~/components/hooks/useFooterData';
+import useFooterData from '~/components/hooks/useContactData';
 import { createSlug } from '~/components/utils/helpers';
 
 const AboutSection = () => {

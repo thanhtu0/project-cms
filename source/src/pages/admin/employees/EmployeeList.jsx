@@ -27,33 +27,36 @@ const EmployeeList = () => {
                     createLabel="Create Employee"
                 />
                 <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
-                <div className="list__employee">
+                <div className="list__employee position-relative p-2 w-100 mt-1">
                     {employees.map((employee) => (
-                        <div key={employee.id} className="card">
-                            <div className="profile">
-                                <div className="title">
+                        <div key={employee.id} className="card position-relative bg-gray-f1 flex-column">
+                            <div className="profile flex-column h-100">
+                                <div className="title flex flex-between h-4 px-15">
                                     <div className="left_title">
-                                        <h4>{employee.fullName}</h4>
+                                        <h4 className="fs-18 fw-5">{employee.fullName}</h4>
                                     </div>
-                                    <div className="right_title">
+                                    <div className="right_title flex flex-end">
                                         <Link
-                                            className="btn-xs btn-primary"
+                                            className="btn-primary w-3 h-3 flex flex-center"
                                             to={'/admin/employees/edit/' + employee.id}
                                         >
-                                            <ion-icon name="create-outline"></ion-icon>
+                                            <ion-icon className="fs-16" name="create-outline"></ion-icon>
                                         </Link>
                                         <Link
-                                            className="btn-xs btn-warning"
+                                            className="btn-warning w-3 h-3 flex flex-center"
                                             to={'/admin/employees/reset-password/' + employee.id}
                                         >
-                                            <ion-icon name="key-outline"></ion-icon>
+                                            <ion-icon className="fs-16" name="key-outline"></ion-icon>
                                         </Link>
-                                        <button type="button" className="btn-xs btn-danger">
-                                            <ion-icon name="trash-outline"></ion-icon>
+                                        <button type="button" className="btn-danger flex flex-center w-3 h-3">
+                                            <ion-icon
+                                                className="fs-16 flex flex-center"
+                                                name="trash-outline"
+                                            ></ion-icon>
                                         </button>
                                     </div>
                                 </div>
-                                <div className="body">
+                                <div className="body mt-1 px-15">
                                     <div className="left-info">
                                         <img
                                             src={`${BASE_URL}/images/employees/${employee.imageFilename}`}
@@ -62,12 +65,12 @@ const EmployeeList = () => {
                                         />
                                     </div>
                                     <div className="right-info">
-                                        <ul>
-                                            <li>
+                                        <ul className='fs-14'>
+                                            <li className='px-15 py-1'>
                                                 <ion-icon name="calendar-outline"></ion-icon>
                                                 {new Date(employee.birthDate).toLocaleDateString()}
                                             </li>
-                                            <li>
+                                            <li className='px-15 py-1'>
                                                 <ion-icon name="call-outline"></ion-icon>
                                                 {employee.phone ? (
                                                     employee.phone
@@ -75,7 +78,7 @@ const EmployeeList = () => {
                                                     <>
                                                         Pending update
                                                         <span
-                                                            className="info-icon"
+                                                            className="info-icon bg-white fw-7 text-center lh-16 position-relative"
                                                             value="You haven't added this information."
                                                         >
                                                             i
@@ -83,7 +86,7 @@ const EmployeeList = () => {
                                                     </>
                                                 )}
                                             </li>
-                                            <li>
+                                            <li className='px-15 py-1'>
                                                 <ion-icon name="mail-outline"></ion-icon> <br />
                                                 {employee.email}
                                             </li>

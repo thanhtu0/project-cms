@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { About, Payment, Social, Store } from './Section';
-import useFooterData from '~/components/hooks/useFooterData';
+import useFooterData from '~/components/hooks/useContactData';
 import './Footer.scss';
 import { Error, Loading } from '~/components/common';
 

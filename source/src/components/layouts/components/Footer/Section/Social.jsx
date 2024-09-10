@@ -7,7 +7,7 @@ import {
     faSnapchat,
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import useFooterData from '~/components/hooks/useFooterData';
+import useFooterData from '~/components/hooks/useContactData';
 import { Error, Loading } from '~/components/common';
 
 const iconMap = {

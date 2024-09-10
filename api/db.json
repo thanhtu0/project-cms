@@ -13,14 +13,14 @@
 				{ "id": 9, "name": "Help" }
 			],
 			"store": {
-				"companyName": "codes",
+				"companyName": "cordes.",
 				"telephone": "(239) 555-0108",
 				"email": "ex@mail.com",
 				"address": "3891 Ranch view Dr.Richardson, California"
 			},
 			"payment": [
-				{ "id": 1, "text": "Amex", "icon": "faCreditCard" },
-				{ "id": 2, "text": "Credit card", "icon": "faCreditCard" }
+				{ "id": 1, "name": "Amex" },
+				{ "id": 2, "name": "Credit card" }
 			],
 			"social": [
 				{

@@ -5,7 +5,7 @@ const Main = () => {
     return (
         <div className="main position-absolute bg-white">
             <div className="topbar flex flex-between px-1">
-                <div className="toggle flex flex-center position-relative bg-gray-f1 fs-40">
+                <div className="toggle flex flex-center position-relative fs-40 w-5 h-5">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
