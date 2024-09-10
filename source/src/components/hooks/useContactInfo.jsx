@@ -6,24 +6,22 @@ const useContactInfo = (contactData) => {
     const [companyName, setCompanyName] = useState('');
 
     useEffect(() => {
-        if (contactData) {
-            if (Array.isArray(contactData) && contactData.length > 0) {
-                const contact = contactData[0];
-                setCompanyName(contact.companyName || '');
+        if (contactData && Array.isArray(contactData) && contactData.length > 0) {
+            const store = contactData[0]?.store;
+            if (store) {
+                setCompanyName(store.companyName || '');
                 setInfoItems([
                     {
                         icon: faPhoneVolume,
-                        text: contact.telephone || 'N/A',
+                        text: store.telephone || 'N/A',
                         className: 'phone',
                     },
                     {
                         icon: faLocationDot,
-                        text: contact.address || 'N/A',
+                        text: store.address || 'N/A',
                         className: 'address',
                     },
                 ]);
-            } else {
-                console.error('Contact data is missing or empty:', contactData);
             }
         }
     }, [contactData]);

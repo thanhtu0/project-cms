@@ -10,11 +10,17 @@ const Header = () => {
     const { data: contactData, loading: contactLoading, error: contactError } = useFetch(`${BASE_URL}/contact`);
     const { data: categories, loading: categoriesLoading, error: categoriesError } = useFetch(`${BASE_URL}/categories`);
 
-    const { companyName, infoItems } = useContactInfo(contactData);
-
+    const { companyName, infoItems } = useContactInfo(
+        contactData && !contactLoading && !contactError ? contactData : [],
+    );
+    
     return (
         <header className="header flex-column">
-            <InfoHeader infoItems={infoItems} loading={contactLoading} error={contactError} />
+            {!contactLoading && contactData ? (
+                <InfoHeader infoItems={infoItems} loading={contactLoading} error={contactError} />
+            ) : (
+                <p>Loading contact data...</p>
+            )}
 
             <InfoNavigation
                 companyName={companyName}
