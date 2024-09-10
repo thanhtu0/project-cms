@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Error, Loading } from '~/components/common';
-import useFooterData from '~/components/hooks/useContactData';
+import useContactData from '~/components/hooks/useContactData';
 import { createSlug } from '~/components/utils/helpers';
 
 const AboutSection = () => {
-    const { data, loading, error } = useFooterData();
+    const { data, loading, error } = useContactData();
     const [links, setLinks] = useState({ left: [], right: [] });
     const navigate = useNavigate();
 

@@ -1,8 +1,8 @@
 import { Error, Loading } from '~/components/common';
-import useFooterData from '~/components/hooks/useContactData';
+import useContactData from '~/components/hooks/useContactData';
 
 const StoreSection = () => {
-    const { data, loading, error } = useFooterData();
+    const { data, loading, error } = useContactData();
 
     if (loading) return <Loading />;
     if (error) return <Error message={error.message} />;

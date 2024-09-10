@@ -7,7 +7,7 @@ import {
     faSnapchat,
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import useFooterData from '~/components/hooks/useContactData';
+import useContactData from '~/components/hooks/useContactData';
 import { Error, Loading } from '~/components/common';
 
 const iconMap = {
@@ -20,7 +20,7 @@ const iconMap = {
 };
 
 const SocialSection = () => {
-    const { data, loading, error } = useFooterData();
+    const { data, loading, error } = useContactData();
 
     if (loading) return <Loading />;
     if (error) return <Error message={error.message} />;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BASE_URL } from '../utils/apiURL';
 
-const useFooterData = () => {
+const useContactData = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -28,4 +28,4 @@ const useFooterData = () => {
     return { data, loading, error };
 };
 
-export default useFooterData;
+export default useContactData;

@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
-import useFooterData from '~/components/hooks/useContactData';
+import useContactData from '~/components/hooks/useContactData';
 import { Error, Loading } from '~/components/common';
 import { useNavigate } from 'react-router-dom';
 import { createSlug } from '~/components/utils/helpers';
 
 const PaymentSection = () => {
-    const { data, loading, error } = useFooterData();
+    const { data, loading, error } = useContactData();
     const navigate = useNavigate();
 
     if (loading) return <Loading />;

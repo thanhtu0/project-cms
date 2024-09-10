@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { About, Payment, Social, Store } from './Section';
-import useFooterData from '~/components/hooks/useContactData';
+import useContactData from '~/components/hooks/useContactData';
 import './Footer.scss';
 import { Error, Loading } from '~/components/common';
 
 const Footer = () => {
-    const { data, loading, error } = useFooterData();
+    const { data, loading, error } = useContactData();
 
     if (loading) return <Loading />;
     if (error) return <Error message={error.message} />;
