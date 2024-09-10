@@ -1,14 +1,13 @@
-import React from 'react';
-import useFetch from '~/components/hooks/useFetch';
-import { BASE_URL } from '~/components/utils/apiURL';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import useFooterData from '~/components/hooks/useFooterData';
+import { Error, Loading } from '~/components/common';
 
 const PaymentSection = () => {
-    const { data, loading, error } = useFetch(`${BASE_URL}/contact`);
+    const { data, loading, error } = useFooterData();
 
-    if (loading) return <p>Loading payment methods...</p>;
-    if (error) return <p>Error loading payment methods</p>;
+    if (loading) return <Loading />;
+    if (error) return <Error message={error.message} />;
 
     if (data && Array.isArray(data) && data.length > 0) {
         const contact = data[0];
@@ -21,7 +20,7 @@ const PaymentSection = () => {
                     <ul className="payment-methods">
                         {paymentMethods.map(({ id, text, icon }) => (
                             <li className="text-white fs-14 lh-18" key={id}>
-                                <FontAwesomeIcon icon={faCreditCard} className="icon" />
+                                <FontAwesomeIcon icon={faCreditCard} className={`icon ${icon} mr-1`} />
                                 {text}
                             </li>
                         ))}

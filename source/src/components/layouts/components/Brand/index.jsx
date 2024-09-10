@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Brand.scss';
 import useFetch from '~/components/hooks/useFetch';
 import { BASE_URL } from '~/components/utils/apiURL';
 import { createSlug } from '~/components/utils/helpers';
+import { Error, Loading } from '~/components/common';
 
 const Brand = () => {
     const { data: brands, loading, error } = useFetch(`${BASE_URL}/brands`);
     const [showAll, setShowAll] = useState(false);
     const navigate = useNavigate();
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error loading brands.</div>;
+    if (loading) return <Loading />;
+    if (error) return <Error message={error.message} />;
 
     const displayedBrands = showAll ? brands : brands.slice(0, 6);
 

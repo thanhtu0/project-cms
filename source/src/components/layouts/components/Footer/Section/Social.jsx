@@ -1,6 +1,3 @@
-import React from 'react';
-import useFetch from '~/components/hooks/useFetch';
-import { BASE_URL } from '~/components/utils/apiURL';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faFacebook,
@@ -10,6 +7,8 @@ import {
     faSnapchat,
     faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import useFooterData from '~/components/hooks/useFooterData';
+import { Error, Loading } from '~/components/common';
 
 const iconMap = {
     facebook: faFacebook,
@@ -21,10 +20,10 @@ const iconMap = {
 };
 
 const SocialSection = () => {
-    const { data, loading, error } = useFetch(`${BASE_URL}/contact`);
+    const { data, loading, error } = useFooterData();
 
-    if (loading) return <p>Loading social links...</p>;
-    if (error) return <p>Error loading social links</p>;
+    if (loading) return <Loading />;
+    if (error) return <Error message={error.message} />;
 
     if (data && Array.isArray(data) && data.length > 0) {
         const contact = data[0];

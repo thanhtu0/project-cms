@@ -1,12 +1,11 @@
-import React from 'react';
-import useFetch from '~/components/hooks/useFetch';
-import { BASE_URL } from '~/components/utils/apiURL';
+import { Error, Loading } from '~/components/common';
+import useFooterData from '~/components/hooks/useFooterData';
 
 const StoreSection = () => {
-    const { data, loading, error } = useFetch(`${BASE_URL}/contact`); // Đảm bảo bạn đang fetch dữ liệu đúng endpoint
+    const { data, loading, error } = useFooterData();
 
-    if (loading) return <p>Loading store information...</p>;
-    if (error) return <p>Error loading store information</p>;
+    if (loading) return <Loading />;
+    if (error) return <Error message={error.message} />;
 
     if (data && Array.isArray(data) && data.length > 0) {
         const contact = data[0];

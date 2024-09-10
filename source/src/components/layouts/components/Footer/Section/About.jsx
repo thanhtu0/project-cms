@@ -1,27 +1,25 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useFetch from '~/components/hooks/useFetch';
-import { BASE_URL } from '~/components/utils/apiURL';
+import { Error, Loading } from '~/components/common';
+import useFooterData from '~/components/hooks/useFooterData';
 import { createSlug } from '~/components/utils/helpers';
 
 const AboutSection = () => {
-    const { data, loading, error } = useFetch(`${BASE_URL}/contact`);
+    const { data, loading, error } = useFooterData();
     const [links, setLinks] = useState({ left: [], right: [] });
     const navigate = useNavigate();
 
     useEffect(() => {
         if (data && data[0] && data[0].about) {
             const aboutLinks = data[0].about;
-
             const leftLinks = aboutLinks.slice(0, 5);
             const rightLinks = aboutLinks.length > 5 ? aboutLinks.slice(5) : [];
-
             setLinks({ left: leftLinks, right: rightLinks });
         }
     }, [data]);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+    if (loading) return <Loading />;
+    if (error) return <Error message={error.message} />;
 
     const handleBrandClick = (name) => {
         const slug = createSlug(name);
@@ -35,7 +33,9 @@ const AboutSection = () => {
                 <ul className="about-left">
                     {links.left.map(({ id, name }) => (
                         <li key={id}>
-                            <button onClick={() => handleBrandClick(name)}>{name}</button>
+                            <button onClick={() => handleBrandClick(name)} aria-label={`About ${name}`}>
+                                {name}
+                            </button>
                         </li>
                     ))}
                 </ul>
@@ -43,7 +43,9 @@ const AboutSection = () => {
                     <ul className="about-right">
                         {links.right.map(({ id, name }) => (
                             <li key={id}>
-                                <button onClick={() => handleBrandClick(name)}>{name}</button>
+                                <button onClick={() => handleBrandClick(name)} aria-label={`About ${name}`}>
+                                    {name}
+                                </button>
                             </li>
                         ))}
                     </ul>
