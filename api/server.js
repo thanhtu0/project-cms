@@ -14,25 +14,34 @@ server.use(middlewares);
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		let uploadPath = 'public/images/';
-		const type = req.body.type || '';
+		const type = req.body.type;
+		const categories = router.db.get('categories').value();
+		const category = categories.find((cate) => cate.id === parseInt(req.body.categoryId));
 
-		// Check if type is valid
-		if (!type || !['brand', 'banner', 'employee', 'product', 'customer'].includes(type)) {
-			return cb(new Error('Invalid type or missing directory'));
+		// Function to sanitize category name (remove spaces, special characters)
+		const sanitizeCategoryName = (name) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+		// Determine the upload path based on the type
+		switch (type) {
+			case 'brand':
+				uploadPath += 'brands/';
+				break;
+			case 'banner':
+				uploadPath += `banners/${sanitizeCategoryName(category.name)}/`;
+				break;
+			case 'employee':
+				uploadPath += 'employees/';
+				break;
+			case 'product':
+				uploadPath += req.body.category === 'men' ? 'products/men/' : 'products/women/';
+				break;
+			case 'customer':
+				uploadPath += 'customers/';
+				break;
+			default:
+				return cb(new Error('Invalid type or missing directory'));
 		}
 
-		// Handle category-specific directories
-		if (type === 'banner' || type === 'product') {
-			const category = req.body.category || '';
-			if (!['men', 'women'].includes(category.toLowerCase())) {
-				return cb(new Error('Invalid category'));
-			}
-			uploadPath += `${type}s/${category.toLowerCase()}/`;
-		} else {
-			uploadPath += `${type}s/`;
-		}
-
-		// Ensure the directory exists
 		if (!fs.existsSync(uploadPath)) {
 			fs.mkdirSync(uploadPath, { recursive: true });
 		}
@@ -40,23 +49,30 @@ const storage = multer.diskStorage({
 		cb(null, uploadPath);
 	},
 	filename: (req, file, cb) => {
-		const allowedMimeTypes = ['image/jpeg', 'image/png'];
-		if (!allowedMimeTypes.includes(file.mimetype)) {
-			return cb(new Error('Invalid file type. Only JPEG and PNG are allowed.'));
-		}
-		const timestamp = Date.now();
-		const imageFilename = `${timestamp}-${file.originalname}`;
+		const imageFilename = file.originalname;
 		req.body.imageFilename = imageFilename;
 		cb(null, imageFilename);
 	},
 });
 
-// Create multer instance with the defined storage
-const bodyParser = multer({ storage: storage }).any();
+// Define multer with file filter for images only
+const upload = multer({
+	storage: storage,
+	fileFilter: (req, file, cb) => {
+		const fileTypes = /jpeg|jpg|png/;
+		const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
+		const mimetype = fileTypes.test(file.mimetype);
 
-// To handle POST, PUT and PATCH you need to use a body-parser
+		if (mimetype && extname) {
+			return cb(null, true);
+		} else {
+			cb('Error: Only image files are allowed!');
+		}
+	},
+}).single('image');
+
 // You can use the one used by JSON Server
-server.use(bodyParser);
+server.use(upload);
 
 // Validation middleware for '/categories'
 server.post('/categories', validateCategory);
@@ -73,20 +89,43 @@ server.post('/brands', validateBrand);
 // Validation middleware for PATCH on '/brands/:id'
 server.patch('/brands/:id', validateBrand);
 
+// Validation middleware for get '/categories/:id/banners'
+server.get('/categories/:id/banners', (req, res) => {
+	const categoryId = parseInt(req.params.id);
+	const categories = router.db.get('categories').value();
+	const categoryExists = categories.some((category) => category.id === categoryId);
+
+	if (!categoryExists) {
+		return res.status(404).json({ message: 'Category not found' });
+	}
+
+	const banners = router.db.get('banners').filter({ categoryId }).value();
+	if (!banners.length) {
+		return res.status(404).json({ message: 'No banners found for this category' });
+	}
+	res.status(200).json(banners);
+});
+
 // Validation middleware for '/banners'
-server.post('/banners', validateBanner, (req, res) => {
-	const bannerData = {
-		name: req.body.name,
-		description: req.body.description || '',
-		category: req.body.category,
+const categories = router.db.get('categories').value();
+server.post('/banners', validateBanner(categories), (req, res) => {
+	const banners = router.db.get('banners').value();
+	const newId = banners.length ? Math.max(...banners.map((b) => b.id)) + 1 : 1;
+
+	const newBanner = {
+		id: newId,
+		...req.body,
 		imageUrl: req.body.imageFilename || '',
 	};
 
-	const banners = router.db.get('banners');
-	banners.push(bannerData).write();
+	router.db.get('banners').push(newBanner).write();
 
-	res.status(201).json({ message: 'Banner created successfully', banner: bannerData });
+	res.status(201).json({
+		message: 'Banner created successfully',
+		banner: newBanner,
+	});
 });
+
 // Validation middleware for PATCH on '/banners/:id'
 server.patch('/banners/:id', validateBanner, (req, res) => {
 	const bannerId = req.params.id;
@@ -111,6 +150,20 @@ server.patch('/banners/:id', validateBanner, (req, res) => {
 		.write();
 
 	res.status(200).json({ message: 'Banner updated successfully', banner: updatedBanner });
+});
+
+// Error handling middleware
+server.use((err, req, res, next) => {
+	if (err instanceof multer.MulterError) {
+		console.error('Multer error:', err);
+		res.status(400).json({ error: 'Invalid file upload: ' + err.message });
+	} else if (err.message) {
+		console.error('Error:', err.message);
+		res.status(400).json({ error: 'Validation error: ' + err.message });
+	} else {
+		console.error('Unexpected error:', err);
+		res.status(500).json({ error: 'Internal Server Error' });
+	}
 });
 
 // Use default router

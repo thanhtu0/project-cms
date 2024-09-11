@@ -1,21 +1,19 @@
-// validation.js
-
 const validateCategory = (req, res, next) => {
 	const { name, description } = req.body;
 	let hasErrors = false;
 	let errors = {};
 
-	if (!name || name.length < 2) {
+	if (!name || name.trim().length < 2) {
 		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
+		errors.name = 'The name must be at least 2 characters long';
 	}
-	if (description && description.length < 10) {
+	if (description && description.trim().length < 10) {
 		hasErrors = true;
-		errors.description = 'The description length should be at least 10 characters';
+		errors.description = 'The description must be at least 10 characters long';
 	}
 
 	if (hasErrors) {
-		return res.status(400).jsonp(errors);
+		return res.status(400).json(errors);
 	}
 	next();
 };
@@ -25,17 +23,17 @@ const validateSubCategory = (req, res, next) => {
 	let hasErrors = false;
 	let errors = {};
 
-	if (!name || name.length < 2) {
+	if (!name || name.trim().length < 2) {
 		hasErrors = true;
 		errors.name = 'The name length should be at least 2 characters';
 	}
-	if (description && description.length < 10) {
+	if (description && description.trim().length < 10) {
 		hasErrors = true;
 		errors.description = 'The description length should be at least 10 characters';
 	}
 
 	if (hasErrors) {
-		return res.status(400).jsonp(errors);
+		return res.status(400).json(errors);
 	}
 	next();
 };
@@ -45,33 +43,47 @@ const validateBrand = (req, res, next) => {
 	let hasErrors = false;
 	let errors = {};
 
-	if (!name || name.length < 2) {
+	if (!name || name.trim().length < 2) {
 		hasErrors = true;
 		errors.name = 'The name length should be at least 2 characters';
 	}
 
 	if (hasErrors) {
-		return res.status(400).jsonp(errors);
+		return res.status(400).json(errors);
 	}
 	next();
 };
 
-const validateBanner = (req, res, next) => {
-	const { name, category } = req.body;
+const validateBanner = (categories) => (req, res, next) => {
+	console.log('Request Body:', req.body);
+
+	const { season, title, subtitle, categoryId } = req.body;
 	let hasErrors = false;
 	let errors = {};
 
-	if (!name || name.length < 2) {
+	const isValidCategoryId = categories && categories.some((category) => category.id === parseInt(categoryId, 10));
+
+	if (!season || season.trim().length < 2) {
 		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
+		errors.season = 'Season is required and must be at least 2 characters';
 	}
-	if (!category || (category !== 'men' && category !== 'women')) {
+	if (!title || title.trim().length < 2) {
 		hasErrors = true;
-		errors.category = 'Category must be either "men" or "women"';
+		errors.title = 'Title is required and must be at least 2 characters';
+	}
+	if (!subtitle || subtitle.trim().length < 2) {
+		hasErrors = true;
+		errors.subtitle = 'Subtitle is required and must be at least 2 characters';
+	}
+	if (!categoryId || !isValidCategoryId) {
+		hasErrors = true;
+		errors.categoryId = 'Invalid category ID';
 	}
 
+	console.log('Validation Errors:', errors);
+
 	if (hasErrors) {
-		return res.status(400).jsonp(errors);
+		return res.status(400).json(errors);
 	}
 	next();
 };

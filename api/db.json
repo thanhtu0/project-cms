@@ -90,152 +90,6 @@
       ]
     }
   ],
-  "employees": [
-    {
-      "id": 1,
-      "fullName": "Lưu Lê Thanh Tú",
-      "birthDate": "2002-03-01T12:00:00",
-      "gender": "Male",
-      "address": "123 ABC Street, District 1, Hue City",
-      "phone": "093 254 7683",
-      "email": "thanhtu@example.com",
-      "password": "123456",
-      "imageFilename": "marvel_captain.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 2,
-      "fullName": "Lê Anh Hai",
-      "birthDate": "2001-04-15T09:00:00",
-      "gender": "Male",
-      "address": "456 XYZ Street, District 3, Hue City",
-      "phone": "0932547816",
-      "email": "khoa@example.com",
-      "password": "123456",
-      "imageFilename": "marvel_thor.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 3,
-      "fullName": "Lê Anh Hào",
-      "birthDate": "2003-05-20T11:45:00",
-      "gender": "Male",
-      "address": "789 DEF Street, District 5, Hue City",
-      "phone": "093 254 442",
-      "email": "minh@example.com",
-      "password": "123456",
-      "imageFilename": "marvel_hawkeye.jpg",
-      "isWorking": false
-    },
-    {
-      "id": 4,
-      "fullName": "Bruno Fernandes",
-      "birthDate": "1994-09-21",
-      "gender": "Male",
-      "address": "Maia, Bồ Đào Nha",
-      "phone": "123 456 789",
-      "email": "man_united@example.com",
-      "password": "123456",
-      "imageFilename": "mu_bruno_fernandes.png",
-      "isWorking": true
-    },
-    {
-      "id": 5,
-      "fullName": "Marcus Rashford",
-      "birthDate": "1997-10-31",
-      "gender": "Male",
-      "address": "Wythenshawe, Manchester, Anh",
-      "phone": "123 456 789",
-      "email": "man_united@example.com",
-      "password": "123456",
-      "imageFilename": "mu_marcus_rashford.png",
-      "isWorking": true
-    },
-    {
-      "id": 6,
-      "fullName": "Antony Dos Santos",
-      "birthDate": "2000-02-24",
-      "gender": "Male",
-      "address": "Osasco, São Paulo, Brasil",
-      "phone": "123 456 789",
-      "email": "man_united@example.com",
-      "password": "123456",
-      "imageFilename": "mu_antony.png",
-      "isWorking": true
-    },
-    {
-      "id": 7,
-      "fullName": "Micky van de Ven",
-      "birthDate": "2001-04-19",
-      "gender": "Male",
-      "address": "Wormer, Hà Lan",
-      "phone": "987654321",
-      "email": "the_spurs@example.com",
-      "password": "123456",
-      "imageFilename": "tot_micky_van_de_ven.png",
-      "isWorking": true
-    },
-    {
-      "id": 8,
-      "fullName": "Son Heung Min",
-      "birthDate": "1992-07-08",
-      "gender": "Male",
-      "address": "Wythenshawe, Chuncheon, Gangwon, Hàn Quốc",
-      "phone": "987 654 321",
-      "email": "the_spurs@example.com",
-      "password": "123456",
-      "imageFilename": "tot_son_heung_min.png",
-      "isWorking": true
-    },
-    {
-      "id": 9,
-      "fullName": "Yves Bissouma",
-      "birthDate": "1996-08-30",
-      "gender": "Male",
-      "address": "Redbridge, Anh",
-      "phone": "987 654 321",
-      "email": "the_spurs@example.com",
-      "password": "123456",
-      "imageFilename": "tot_yves_bissouma.png",
-      "isWorking": true
-    },
-    {
-      "id": 10,
-      "fullName": "Crystal Liu",
-      "birthDate": "1987-08-25",
-      "gender": "FeMale",
-      "address": "Vũ Hán, Hồ Bắc, Trung Quốc",
-      "phone": "123 789 456",
-      "email": "@example.com",
-      "password": "123456",
-      "imageFilename": "crystal_liu_1.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 11,
-      "fullName": "Lưu Diệc Phi",
-      "birthDate": "1987-08-25",
-      "gender": "FeMale",
-      "address": "Anh Hùng Xạ Điêu",
-      "phone": "123 789 456",
-      "email": "@example.com",
-      "password": "123456",
-      "imageFilename": "crystal_liu_2.jpg",
-      "isWorking": true
-    },
-    {
-      "id": 12,
-      "fullName": "Vương Ngữ Yên",
-      "birthDate": "1987-08-25",
-      "gender": "FeMale",
-      "address": "Thiên Long Bát Bộ",
-      "phone": "123 789 456",
-      "email": "@example.com",
-      "password": "123456",
-      "imageFilename": "crystal_liu_3.jpg",
-      "isWorking": true
-    }
-  ],
   "categories": [
     {
       "id": 1,
@@ -246,6 +100,11 @@
       "id": 2,
       "name": "Women",
       "description": "Clothing and accessories for women"
+    },
+    {
+      "name": "Unisex",
+      "description": "Men and Women are wearing them",
+      "id": 3
     }
   ],
   "banners": [
@@ -254,7 +113,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "men/banner_1.png",
+      "imageFilename": "banner_1.png",
       "categoryId": "1"
     },
     {
@@ -262,7 +121,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "men/banner_2.png",
+      "imageFilename": "banner_2.png",
       "categoryId": "1"
     },
     {
@@ -270,7 +129,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "men/banner_3.png",
+      "imageFilename": "banner_3.png",
       "categoryId": "1"
     },
     {
@@ -278,7 +137,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "women/banner_1.png",
+      "imageFilename": "banner_1.png",
       "categoryId": "2"
     },
     {
@@ -286,7 +145,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "women/banner_2.png",
+      "imageFilename": "banner_2.png",
       "categoryId": "2"
     },
     {
@@ -294,7 +153,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "women/banner_3.png",
+      "imageFilename": "banner_3.png",
       "categoryId": "2"
     }
   ],
@@ -368,6 +227,79 @@
       "id": 14,
       "name": "Bags",
       "description": "Backpacks, handbags, and other types of bags."
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "name": "Nike",
+      "imageFilename": "nike.png"
+    },
+    {
+      "id": 2,
+      "name": "Adidas",
+      "imageFilename": "adidas.png"
+    },
+    {
+      "id": 3,
+      "name": "Route One",
+      "imageFilename": "route_one.png"
+    },
+    {
+      "id": 4,
+      "name": "Vans",
+      "imageFilename": "vans.png"
+    },
+    {
+      "id": 5,
+      "name": "Carhartt",
+      "imageFilename": "carhartt.png",
+      "type": "brand"
+    },
+    {
+      "id": 6,
+      "name": "Santa Cruz",
+      "imageFilename": "santa_cruz.png"
+    },
+    {
+      "id": 7,
+      "name": "Kavu",
+      "imageFilename": "kavu.png"
+    },
+    {
+      "id": 8,
+      "name": "Converse",
+      "imageFilename": "converse.png"
+    },
+    {
+      "type": "brand",
+      "name": "Dc",
+      "imageFilename": "dc.png",
+      "id": 9
+    },
+    {
+      "type": "brand",
+      "name": "Obey",
+      "imageFilename": "obey.png",
+      "id": 10
+    },
+    {
+      "type": "brand",
+      "name": "Hot Hot Hot",
+      "imageFilename": "hot.png",
+      "id": 11
+    },
+    {
+      "type": "brand",
+      "name": "Dc",
+      "imageFilename": "dc.png",
+      "id": 12
+    },
+    {
+      "type": "brand",
+      "name": "Obey",
+      "imageFilename": "obey.png",
+      "id": 13
     }
   ],
   "products": [
@@ -603,59 +535,150 @@
       "imageFilename": "skate_shoes_5.png"
     }
   ],
-  "brands": [
+  "employees": [
     {
       "id": 1,
-      "name": "Nike",
-      "imageFilename": "nike.png"
+      "fullName": "Lưu Lê Thanh Tú",
+      "birthDate": "2002-03-01T12:00:00",
+      "gender": "Male",
+      "address": "123 ABC Street, District 1, Hue City",
+      "phone": "093 254 7683",
+      "email": "thanhtu@example.com",
+      "password": "123456",
+      "imageFilename": "marvel_captain.jpg",
+      "isWorking": true
     },
     {
       "id": 2,
-      "name": "Adidas",
-      "imageFilename": "adidas.png"
+      "fullName": "Lê Anh Hai",
+      "birthDate": "2001-04-15T09:00:00",
+      "gender": "Male",
+      "address": "456 XYZ Street, District 3, Hue City",
+      "phone": "0932547816",
+      "email": "khoa@example.com",
+      "password": "123456",
+      "imageFilename": "marvel_thor.jpg",
+      "isWorking": true
     },
     {
       "id": 3,
-      "name": "Route One",
-      "imageFilename": "route_one.png"
+      "fullName": "Lê Anh Hào",
+      "birthDate": "2003-05-20T11:45:00",
+      "gender": "Male",
+      "address": "789 DEF Street, District 5, Hue City",
+      "phone": "093 254 442",
+      "email": "minh@example.com",
+      "password": "123456",
+      "imageFilename": "marvel_hawkeye.jpg",
+      "isWorking": false
     },
     {
       "id": 4,
-      "name": "Vans",
-      "imageFilename": "vans.png"
+      "fullName": "Bruno Fernandes",
+      "birthDate": "1994-09-21",
+      "gender": "Male",
+      "address": "Maia, Bồ Đào Nha",
+      "phone": "123 456 789",
+      "email": "man_united@example.com",
+      "password": "123456",
+      "imageFilename": "mu_bruno_fernandes.png",
+      "isWorking": true
     },
     {
       "id": 5,
-      "name": "Carhartt",
-      "imageFilename": "carhartt.png",
-      "type": "brand"
+      "fullName": "Marcus Rashford",
+      "birthDate": "1997-10-31",
+      "gender": "Male",
+      "address": "Wythenshawe, Manchester, Anh",
+      "phone": "123 456 789",
+      "email": "man_united@example.com",
+      "password": "123456",
+      "imageFilename": "mu_marcus_rashford.png",
+      "isWorking": true
     },
     {
       "id": 6,
-      "name": "Santa Cruz",
-      "imageFilename": "santa_cruz.png"
+      "fullName": "Antony Dos Santos",
+      "birthDate": "2000-02-24",
+      "gender": "Male",
+      "address": "Osasco, São Paulo, Brasil",
+      "phone": "123 456 789",
+      "email": "man_united@example.com",
+      "password": "123456",
+      "imageFilename": "mu_antony.png",
+      "isWorking": true
     },
     {
       "id": 7,
-      "name": "Kavu",
-      "imageFilename": "kavu.png"
+      "fullName": "Micky van de Ven",
+      "birthDate": "2001-04-19",
+      "gender": "Male",
+      "address": "Wormer, Hà Lan",
+      "phone": "987654321",
+      "email": "the_spurs@example.com",
+      "password": "123456",
+      "imageFilename": "tot_micky_van_de_ven.png",
+      "isWorking": true
     },
     {
       "id": 8,
-      "name": "Converse",
-      "imageFilename": "converse.png"
+      "fullName": "Son Heung Min",
+      "birthDate": "1992-07-08",
+      "gender": "Male",
+      "address": "Wythenshawe, Chuncheon, Gangwon, Hàn Quốc",
+      "phone": "987 654 321",
+      "email": "the_spurs@example.com",
+      "password": "123456",
+      "imageFilename": "tot_son_heung_min.png",
+      "isWorking": true
     },
     {
-      "type": "brand",
-      "name": "Dc",
-      "imageFilename": "1726019491539-dc.png",
-      "id": 9
+      "id": 9,
+      "fullName": "Yves Bissouma",
+      "birthDate": "1996-08-30",
+      "gender": "Male",
+      "address": "Redbridge, Anh",
+      "phone": "987 654 321",
+      "email": "the_spurs@example.com",
+      "password": "123456",
+      "imageFilename": "tot_yves_bissouma.png",
+      "isWorking": true
     },
     {
-      "type": "brand",
-      "name": "Obey",
-      "imageFilename": "1726019613039-obey.png",
-      "id": 10
+      "id": 10,
+      "fullName": "Crystal Liu",
+      "birthDate": "1987-08-25",
+      "gender": "FeMale",
+      "address": "Vũ Hán, Hồ Bắc, Trung Quốc",
+      "phone": "123 789 456",
+      "email": "@example.com",
+      "password": "123456",
+      "imageFilename": "crystal_liu_1.jpg",
+      "isWorking": true
+    },
+    {
+      "id": 11,
+      "fullName": "Lưu Diệc Phi",
+      "birthDate": "1987-08-25",
+      "gender": "FeMale",
+      "address": "Anh Hùng Xạ Điêu",
+      "phone": "123 789 456",
+      "email": "@example.com",
+      "password": "123456",
+      "imageFilename": "crystal_liu_2.jpg",
+      "isWorking": true
+    },
+    {
+      "id": 12,
+      "fullName": "Vương Ngữ Yên",
+      "birthDate": "1987-08-25",
+      "gender": "FeMale",
+      "address": "Thiên Long Bát Bộ",
+      "phone": "123 789 456",
+      "email": "@example.com",
+      "password": "123456",
+      "imageFilename": "crystal_liu_3.jpg",
+      "isWorking": true
     }
   ]
 }
