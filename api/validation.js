@@ -63,17 +63,17 @@ const validateBanner = (categories) => (req, res, next) => {
 
 	const isValidCategoryId = categories && categories.some((category) => category.id === parseInt(categoryId, 10));
 
-	if (!season || season.trim().length < 2) {
+	if (!season || season.trim().length < 10) {
 		hasErrors = true;
-		errors.season = 'Season is required and must be at least 2 characters';
+		errors.season = 'Season is required and must be at least 10 characters';
 	}
-	if (!title || title.trim().length < 2) {
+	if (!title || title.trim().length < 10) {
 		hasErrors = true;
-		errors.title = 'Title is required and must be at least 2 characters';
+		errors.title = 'Title is required and must be at least 10 characters';
 	}
-	if (!subtitle || subtitle.trim().length < 2) {
+	if (!subtitle || subtitle.trim().length < 10) {
 		hasErrors = true;
-		errors.subtitle = 'Subtitle is required and must be at least 2 characters';
+		errors.subtitle = 'Subtitle is required and must be at least 10 characters';
 	}
 	if (!categoryId || !isValidCategoryId) {
 		hasErrors = true;

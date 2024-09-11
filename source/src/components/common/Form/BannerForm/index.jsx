@@ -3,20 +3,29 @@ import { Link } from 'react-router-dom';
 import useImagePreview from '~/components/hooks/useImagePreview';
 import { BASE_URL } from '~/components/utils/apiURL';
 
-const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading }) => {
+const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading, categories = [] }) => {
     const { imagePreview, handleImageChange } = useImagePreview('');
     const [imageOlder, setImageOlder] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState(initialData.categoryId || '');
 
     useEffect(() => {
         if (initialData.imageFilename) {
-            setImageOlder(`${BASE_URL}/images/banners/categoryId/${initialData.imageFilename}`);
+            setImageOlder(`${BASE_URL}/images/${initialData.categoryId}/${initialData.imageFilename}`);
         }
     }, [initialData]);
+
+    useEffect(() => {
+        setSelectedCategory(initialData.categoryId || '');
+    }, [initialData.categoryId]);
+
+    const handleCategoryChange = (event) => {
+        setSelectedCategory(event.target.value);
+    };
 
     return (
         <div className="list__form">
             <form onSubmit={onSubmit}>
-                <input type="hidden" name="type" value="brand" />
+                <input type="hidden" name="type" value="banner" />
                 <div className="row">
                     <div className="col-25">
                         <label>Banner Season:</label>
@@ -28,11 +37,23 @@ const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading
                 </div>
                 <div className="row">
                     <div className="col-25">
-                        <label>Category Name:</label>
+                        <label>Category:</label>
                     </div>
                     <div className="col-75">
-                        <input type="text" name="name" defaultValue={initialData.name || ''} />
-                        <span className="text-danger">{validationErrors.name}</span>
+                        {categories.map((category) => (
+                            <div key={category.id} className="col-25">
+                                <input
+                                    type="radio"
+                                    name="categoryId"
+                                    value={category.id}
+                                    checked={selectedCategory === category.id.toString()}
+                                    onChange={handleCategoryChange}
+                                    className="custom-radio"
+                                />
+                                {category.name}
+                            </div>
+                        ))}
+                        <span className="text-danger">{validationErrors.categoryId}</span>
                     </div>
                 </div>
                 <div className="row">

@@ -100,11 +100,6 @@
       "id": 2,
       "name": "Women",
       "description": "Clothing and accessories for women"
-    },
-    {
-      "name": "Unisex",
-      "description": "Men and Women are wearing them",
-      "id": 3
     }
   ],
   "banners": [
@@ -114,7 +109,7 @@
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
       "imageFilename": "banner_1.png",
-      "categoryId": "1"
+      "categoryId": 1
     },
     {
       "id": 2,
@@ -122,7 +117,7 @@
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
       "imageFilename": "banner_2.png",
-      "categoryId": "1"
+      "categoryId": 1
     },
     {
       "id": 3,
@@ -130,7 +125,7 @@
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
       "imageFilename": "banner_3.png",
-      "categoryId": "1"
+      "categoryId": 1
     },
     {
       "id": 4,
@@ -138,7 +133,7 @@
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
       "imageFilename": "banner_1.png",
-      "categoryId": "2"
+      "categoryId": 2
     },
     {
       "id": 5,
@@ -146,7 +141,7 @@
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
       "imageFilename": "banner_2.png",
-      "categoryId": "2"
+      "categoryId": 2
     },
     {
       "id": 6,
@@ -154,7 +149,27 @@
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
       "imageFilename": "banner_3.png",
-      "categoryId": "2"
+      "categoryId": 2
+    },
+    {
+      "id": 7,
+      "type": "banner",
+      "season": "Hot ",
+      "categoryId": "2",
+      "title": "Route.One People",
+      "subtitle": "Hahahaha",
+      "imageFilename": "hot.png",
+      "imageUrl": "hot.png"
+    },
+    {
+      "id": 8,
+      "type": "banner",
+      "season": "Spring",
+      "categoryId": "1",
+      "title": "Route.One People",
+      "subtitle": "New Like New Day",
+      "imageFilename": "banner-4.png",
+      "imageUrl": "banner-4.png"
     }
   ],
   "subcategories": [

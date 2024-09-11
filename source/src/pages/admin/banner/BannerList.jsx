@@ -29,15 +29,7 @@ const BannerList = () => {
         'Unable to delete the Banner!',
     );
 
-    const { data: categories, loading: loadingCategories, error: errorCategories } = useFetch(`${BASE_URL}/categories`);
-
-    if (loadingCategories) {
-        return <div>Loading categories...</div>;
-    }
-
-    if (errorCategories) {
-        return <div>Error loading categories: {errorCategories.message}</div>;
-    }
+    const { data: categories } = useFetch(`${BASE_URL}/categories`);
 
     return (
         <div className="list">
@@ -59,7 +51,9 @@ const BannerList = () => {
                         <td style={{ width: '10px' }}>{banner.id}</td>
                         <td style={{ width: '100px', height: 'auto' }}>
                             <img
-                                src={`${BASE_URL}/images/banners/${banner.imageFilename}`}
+                                src={`${BASE_URL}/images/banners/${getCategoryName(banner.categoryId, categories)}/${
+                                    banner.imageFilename
+                                }`}
                                 className="img-fluid img-cover"
                                 alt={`Banner ${banner.season}`}
                             />

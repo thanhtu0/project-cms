@@ -79,6 +79,18 @@ textarea {
     resize: vertical;
 }
 
+input[type='radio'] {
+    margin-right: 10px;
+}
+
+.custom-radio {
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 2px solid $clr-black-2;
+    border-radius: 50%;
+    background-color: $clr-white;
+}
+
 label {
     padding: 12px 12px 12px 0;
     display: inline-block;

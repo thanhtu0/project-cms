@@ -8,6 +8,11 @@ export const createSlug = (name) => {
 
 // getCategoryName Helper
 export const getCategoryName = (categoryId, categories) => {
-    const category = categories?.find((cat) => cat.id === parseInt(categoryId));
+    if (!Array.isArray(categories)) return 'Unknown';
+
+    const parsedCategoryId = parseInt(categoryId, 10);
+    if (isNaN(parsedCategoryId)) return 'Unknown';
+
+    const category = categories.find((cat) => cat.id === parsedCategoryId);
     return category ? category.name : 'Unknown';
 };
