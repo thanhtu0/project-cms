@@ -1,20 +1,12 @@
 @import '../../styles/GlobalStyles.scss';
 
 .loader {
-    width: 80px;
-    height: 50px;
-    position: relative;
+    width: 80;
+    height: 50;
 }
 
 .loader-text {
-    position: absolute;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    color: $clr-black;
     animation: text_713 3.5s ease both infinite;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
 }
 
 .load {
@@ -23,8 +15,6 @@
     display: block;
     height: 16px;
     width: 16px;
-    bottom: 0;
-    position: absolute;
     transform: translateX(64px);
     animation: loading_713 3.5s ease both infinite;
 }

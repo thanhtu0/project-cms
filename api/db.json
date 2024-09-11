@@ -152,16 +152,6 @@
       "categoryId": 2
     },
     {
-      "id": 7,
-      "type": "banner",
-      "season": "Hot ",
-      "categoryId": "2",
-      "title": "Route.One People",
-      "subtitle": "Hahahaha",
-      "imageFilename": "hot.png",
-      "imageUrl": "hot.png"
-    },
-    {
       "id": 8,
       "type": "banner",
       "season": "Spring",

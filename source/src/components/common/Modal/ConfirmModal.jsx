@@ -4,8 +4,11 @@ const Modal = ({ show, onClose, onConfirm, title, message }) => {
     if (!show) return null;
 
     return (
-        <div className="modal-overlay flex flex-center" aria-hidden={!show}>
-            <div className="modal-content bg-white p-2">
+        <div
+            className="modal-overlay flex flex-center position-absolute top-0 left-0 right-0 bottom-0 bg-black z-1000"
+            aria-hidden={!show}
+        >
+            <div className="modal-content position-relative bg-white p-2">
                 <div className="modal-header flex flex-between">
                     <h2>{title}</h2>
                     <button className="close-button fs-24" onClick={onClose}>

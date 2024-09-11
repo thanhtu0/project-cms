@@ -7,12 +7,12 @@ import InfoHeader from './InfoHeader';
 import InfoNavigation from './InfoNavigation';
 import { faLocationDot, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 
-const Header = ({ setActiveTab }) => {
+const Header = () => {
     const { data: contactData, loading: contactLoading, error: contactError } = useContactData();
     const { data: categories, loading: categoriesLoading, error: categoriesError } = useFetch(`${BASE_URL}/categories`);
 
     return (
-        <header className="header flex-column">
+        <header className="header mw-144 flex-column">
             {!contactLoading ? (
                 contactData ? (
                     <InfoHeader
@@ -43,7 +43,6 @@ const Header = ({ setActiveTab }) => {
                 categories={categories || []}
                 categoriesLoading={categoriesLoading}
                 categoriesError={categoriesError}
-                setActiveTab={setActiveTab}
             />
 
             <NavMenu />

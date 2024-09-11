@@ -3,7 +3,7 @@ import './Main.scss';
 
 const Main = () => {
     return (
-        <div className="main position-absolute bg-white">
+        <div className="main mh-100 position-absolute bg-white">
             <div className="topbar flex flex-between px-1">
                 <div className="toggle flex flex-center position-relative fs-40 w-5 h-5">
                     <ion-icon name="menu-outline"></ion-icon>

@@ -2,7 +2,7 @@ import { user_logo } from '~/components/utils/images';
 import './NewCustomer.scss';
 const NewCustomer = () => {
     return (
-        <div className="recentCustomers position-relative p-2 bg-white">
+        <div className="recentCustomers position-relative p-2 bg-white grid">
             <div className="carHeader">
                 <h2>Recent Customers</h2>
             </div>
@@ -16,13 +16,12 @@ const NewCustomer = () => {
                             </div>
                         </td>
                         <td>
-                            <h4>
+                            <h4 className="fs-16 fw-5 lh-18">
                                 Lưu Diệc Phi <br />
-                                <span>American</span>
+                                <span className="fs-14 text-black-2">American</span>
                             </h4>
                         </td>
                     </tr>
-
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
@@ -30,13 +29,12 @@ const NewCustomer = () => {
                             </div>
                         </td>
                         <td>
-                            <h4>
+                            <h4 className="fs-16 fw-5 lh-18">
                                 Lưu Diệc Phi <br />
-                                <span>American</span>
+                                <span className="fs-14 text-black-2">American</span>
                             </h4>
                         </td>
                     </tr>
-
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
@@ -44,13 +42,12 @@ const NewCustomer = () => {
                             </div>
                         </td>
                         <td>
-                            <h4>
+                            <h4 className="fs-16 fw-5 lh-18">
                                 Lưu Diệc Phi <br />
-                                <span>American</span>
+                                <span className="fs-14 text-black-2">American</span>
                             </h4>
                         </td>
                     </tr>
-
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
@@ -58,13 +55,12 @@ const NewCustomer = () => {
                             </div>
                         </td>
                         <td>
-                            <h4>
+                            <h4 className="fs-16 fw-5 lh-18">
                                 Lưu Diệc Phi <br />
-                                <span>American</span>
+                                <span className="fs-14 text-black-2">American</span>
                             </h4>
                         </td>
                     </tr>
-
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
@@ -72,13 +68,12 @@ const NewCustomer = () => {
                             </div>
                         </td>
                         <td>
-                            <h4>
+                            <h4 className="fs-16 fw-5 lh-18">
                                 Lưu Diệc Phi <br />
-                                <span>American</span>
+                                <span className="fs-14 text-black-2">American</span>
                             </h4>
                         </td>
                     </tr>
-
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
@@ -86,13 +81,12 @@ const NewCustomer = () => {
                             </div>
                         </td>
                         <td>
-                            <h4>
+                            <h4 className="fs-16 fw-5 lh-18">
                                 Lưu Diệc Phi <br />
-                                <span>American</span>
+                                <span className="fs-14 text-black-2">American</span>
                             </h4>
                         </td>
                     </tr>
-
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
@@ -100,13 +94,12 @@ const NewCustomer = () => {
                             </div>
                         </td>
                         <td>
-                            <h4>
+                            <h4 className="fs-16 fw-5 lh-18">
                                 Lưu Diệc Phi <br />
-                                <span>American</span>
+                                <span className="fs-14 text-black-2">American</span>
                             </h4>
                         </td>
                     </tr>
-
                     <tr>
                         <td width="60px">
                             <div className="imgBx position-relative w-4 h-4">
@@ -114,9 +107,9 @@ const NewCustomer = () => {
                             </div>
                         </td>
                         <td>
-                            <h4>
+                            <h4 className="fs-16 fw-5 lh-18">
                                 Lưu Diệc Phi <br />
-                                <span>American</span>
+                                <span className="fs-14 text-black-2">American</span>
                             </h4>
                         </td>
                     </tr>

@@ -27,7 +27,7 @@ const EmployeeList = () => {
                     createLabel="Create Employee"
                 />
                 <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
-                <div className="list__employee position-relative p-2 w-100 mt-1">
+                <div className="list__employee position-relative p-2 w-100 mt-1 grid">
                     {employees.map((employee) => (
                         <div key={employee.id} className="card position-relative bg-gray-f1 flex-column">
                             <div className="profile flex-column h-100">
@@ -56,7 +56,7 @@ const EmployeeList = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="body mt-1 px-15">
+                                <div className="body mt-1 px-15 grid">
                                     <div className="left-info">
                                         <img
                                             src={`${BASE_URL}/images/employees/${employee.imageFilename}`}
@@ -65,12 +65,12 @@ const EmployeeList = () => {
                                         />
                                     </div>
                                     <div className="right-info">
-                                        <ul className='fs-14'>
-                                            <li className='px-15 py-1'>
+                                        <ul className="fs-14">
+                                            <li className="px-15 py-1">
                                                 <ion-icon name="calendar-outline"></ion-icon>
                                                 {new Date(employee.birthDate).toLocaleDateString()}
                                             </li>
-                                            <li className='px-15 py-1'>
+                                            <li className="px-15 py-1">
                                                 <ion-icon name="call-outline"></ion-icon>
                                                 {employee.phone ? (
                                                     employee.phone
@@ -86,7 +86,7 @@ const EmployeeList = () => {
                                                     </>
                                                 )}
                                             </li>
-                                            <li className='px-15 py-1'>
+                                            <li className="px-15 py-1">
                                                 <ion-icon name="mail-outline"></ion-icon> <br />
                                                 {employee.email}
                                             </li>

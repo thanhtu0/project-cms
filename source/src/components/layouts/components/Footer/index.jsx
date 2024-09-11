@@ -13,7 +13,7 @@ const Footer = () => {
     const companyName = data?.[0]?.store?.companyName || 'Default Company Name';
 
     return (
-        <footer className="footer">
+        <footer className="footer mw-144">
             <Link to="/" className="footer-logo">
                 <h2 className="fs-43 fw-4 text-white">{companyName}</h2>
             </Link>

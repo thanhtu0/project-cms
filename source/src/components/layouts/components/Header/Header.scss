@@ -1,14 +1,11 @@
 @import '../../../styles/GlobalStyles.scss';
 
 .header {
-    width: 1440px;
     height: 202px;
 
     .info-header {
         height: 32px;
 
-        .left-info,
-        .right-info,
         .phone,
         .address {
             display: flex;

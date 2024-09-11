@@ -5,8 +5,8 @@ const UserLayout = ({ children }) => {
     return (
         <div className="user_wrapper flex">
             <Header />
-            <div className="user_wrapper__container">
-                <div className="user_wrapper__content">
+            <div className="user_wrapper__container mw-144">
+                <div className="user_wrapper__content mw-144">
                     <Banner />
                     <Brand />
                     {children}

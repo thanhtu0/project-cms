@@ -29,7 +29,7 @@ const Authentication = () => {
     return (
         <div className={`auth ${isregisterMode ? 'sign-up-mode' : ''}`}>
             <div className="auth-form">
-                <div className="login-register">
+                <div className="login-register w-100 h-100 position-absolute top-0 left-0 flex flex-around z-5">
                     <form action="" className={`sign-in-form ${isregisterMode ? 'hidden' : ''}`}>
                         <h2 className="title-auth">Sign in</h2>
                         <div className="input-field">
@@ -107,7 +107,7 @@ const Authentication = () => {
                         </p>
                     </form>
                 </div>
-                <div className="panels-container">
+                <div className="panels-container w-100 h-100 position-absolute top-0 left-0 flex flex-around">
                     <div className="panel left-panel">
                         <div className="panel-content">
                             <h3>Member of Brands?</h3>

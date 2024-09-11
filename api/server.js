@@ -127,10 +127,10 @@ server.post('/banners', validateBanner(categories), (req, res) => {
 });
 
 // Validation middleware for PATCH on '/banners/:id'
-server.patch('/banners/:id', validateBanner, (req, res) => {
-	const bannerId = req.params.id;
+server.patch('/banners/:id', validateBanner(categories), (req, res) => {
+	const bannerId = parseInt(req.params.id);
 	const banners = router.db.get('banners');
-	const banner = banners.find({ id: parseInt(bannerId) }).value();
+	const banner = banners.find({ id: bannerId }).value();
 
 	if (!banner) {
 		return res.status(404).json({ message: 'Banner not found' });
@@ -138,18 +138,19 @@ server.patch('/banners/:id', validateBanner, (req, res) => {
 
 	const updatedBanner = {
 		...banner,
-		name: req.body.name || banner.name,
-		description: req.body.description || banner.description,
-		category: req.body.category || banner.category,
+		season: req.body.season || banner.season,
+		title: req.body.title || banner.title,
+		subtitle: req.body.subtitle || banner.subtitle,
+		categoryId: req.body.categoryId || banner.categoryId,
 		imageUrl: req.body.imageFilename || banner.imageUrl,
 	};
 
-	banners
-		.find({ id: parseInt(bannerId) })
-		.assign(updatedBanner)
-		.write();
+	banners.find({ id: bannerId }).assign(updatedBanner).write();
 
-	res.status(200).json({ message: 'Banner updated successfully', banner: updatedBanner });
+	res.status(200).json({
+		message: 'Banner updated successfully',
+		banner: updatedBanner,
+	});
 });
 
 // Error handling middleware

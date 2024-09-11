@@ -35,7 +35,7 @@ const SocialSection = () => {
                     <h3 className="fs-16 text-white">Social app</h3>
                     <ul className="social-icons">
                         {socialLinks.map(({ id, href, icon, name }) => (
-                            <li key={id}>
+                            <li key={id} className="mr-1">
                                 <a href={href} className={name} target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={iconMap[name]} />
                                 </a>

@@ -1,6 +1,5 @@
 @import '../../../styles/GlobalStyles.scss';
 .footer {
-    width: 1440px;
     height: 523px;
     background-color: $clr-black;
     padding: 79px 130px;
@@ -81,16 +80,10 @@
             .social-icons {
                 li {
                     display: inline-block;
-                    margin-right: 10px;
-
-                    a {
-                        font-size: 16px;
-                    }
                 }
             }
 
             .social-icons li a {
-                font-size: 1.6rem;
                 transition: color 0.3s ease;
 
                 &.facebook:hover {

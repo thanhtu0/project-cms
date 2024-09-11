@@ -7,12 +7,12 @@ const AdminLayout = ({ children }) => {
     useToggleNavigation();
 
     return (
-        <div className="wrapper">
+        <div className="wrapper mh-100">
             <div className="container">
                 <Navigation />
                 <Main />
             </div>
-            <div className="content">
+            <div className="content mh-100">
                 {children}
                 <FooterAdmin />
             </div>

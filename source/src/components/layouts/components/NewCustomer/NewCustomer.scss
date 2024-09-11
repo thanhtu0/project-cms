@@ -1,7 +1,6 @@
 @import '../../../styles/GlobalStyles.scss';
 
 .recentCustomers {
-    display: grid;
     min-height: 500px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
@@ -35,17 +34,6 @@
 
         td {
             padding: 12px 10px;
-
-            h4 {
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 1.92rem;
-
-                span {
-                    font-size: 14px;
-                    color: $clr-black-2;
-                }
-            }
         }
     }
 }

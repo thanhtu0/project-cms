@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ListHeader, ListTitle } from '~/components/common/List';
 import Pagination from '~/components/common/Pagination';
+import SelectFilter from '~/components/common/SelectFilter';
 import { BASE_URL } from '~/components/utils/apiURL';
 
 const ProductList = () => {
@@ -116,36 +117,30 @@ const ProductList = () => {
 
                 <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
 
-                <div className="list__filters">
-                    <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-                        <option value="">Select Category</option>
-                        {categories.map((category) => (
-                            <option key={category.id} value={category.name}>
-                                {category.name}
-                            </option>
-                        ))}
-                    </select>
-                    <select value={selectedSubcategory} onChange={(e) => setSelectedSubcategory(e.target.value)}>
-                        <option value="">Select Subcategory</option>
-                        {subcategories.map((subcategory) => (
-                            <option key={subcategory.id} value={subcategory.name}>
-                                {subcategory.name}
-                            </option>
-                        ))}
-                    </select>
-                    <select value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)}>
-                        <option value="">Select Brand</option>
-                        {brands.map((brand) => (
-                            <option key={brand.id} value={brand.name}>
-                                {brand.name}
-                            </option>
-                        ))}
-                    </select>
+                <div className="list__filters flex flex-between mt-2 ml-2">
+                    <SelectFilter
+                        value={selectedCategory}
+                        options={categories}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        label="Category"
+                    />
+                    <SelectFilter
+                        value={selectedSubcategory}
+                        options={subcategories}
+                        onChange={(e) => setSelectedSubcategory(e.target.value)}
+                        label="Subcategory"
+                    />
+                    <SelectFilter
+                        value={selectedBrand}
+                        options={brands}
+                        onChange={(e) => setSelectedBrand(e.target.value)}
+                        label="Brand"
+                    />
                 </div>
 
                 <div className="list__table">
-                    <table>
-                        <thead>
+                    <table className="ml-2 mt-1">
+                        <thead className="bg-black-1 text-white">
                             <tr>
                                 <td>Image</td>
                                 <td>Product Name</td>

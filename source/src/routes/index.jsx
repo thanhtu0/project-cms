@@ -17,6 +17,8 @@ import { BannerList, CreateBanner, EditBanner } from '~/pages/admin/banner';
 // Public routes
 const publicRoutes = [
     { path: '/', component: Home },
+    { path: '/men', component: Home },
+    { path: '/women', component: Home },
     { path: '/product/:{id}', component: Home, layout: ProductDetail },
     { path: '/login', component: Authentication, layout: null },
     { path: '/register', component: Authentication, layout: null },

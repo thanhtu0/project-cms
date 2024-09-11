@@ -4,7 +4,7 @@ import { IoIosStar } from 'react-icons/io';
 const InfoHeader = ({ infoItems, loading, error }) => {
     return (
         <div className="info-header text-white bg-black flex flex-between px-13">
-            <div className="left-info">
+            <div className="left-info flex">
                 {loading ? (
                     <p>Loading contact info...</p>
                 ) : error ? (
@@ -19,7 +19,7 @@ const InfoHeader = ({ infoItems, loading, error }) => {
                 )}
             </div>
 
-            <div className="right-info">
+            <div className="right-info flex">
                 {Array.from({ length: 5 }, (_, index) => (
                     <IoIosStar className="icon" key={index} />
                 ))}

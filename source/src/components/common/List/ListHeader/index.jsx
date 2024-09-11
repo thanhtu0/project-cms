@@ -5,7 +5,7 @@ const ListHeader = ({ title, refreshHandler, refreshLabel = 'Refresh', createLin
     return (
         <div className="list__header flex flex-between">
             <Title text={title} />
-            <div className="list__btn-group">
+            <div className="list__btn-group mr-2">
                 <button type="button" className="btn btn-outline-success" onClick={refreshHandler}>
                     {refreshLabel}
                 </button>

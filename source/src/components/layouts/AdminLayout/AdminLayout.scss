@@ -1,7 +1,6 @@
 @import '../../styles/GlobalStyles.scss';
 
 .wrapper {
-    min-height: 100vh;
     overflow-x: hidden;
     font-family: $fnt-admin;
 }
@@ -11,7 +10,6 @@
     width: calc(100% - 300px);
     top: 60px;
     left: 300px;
-    min-height: 100vh;
     background: $clr-white;
     transition: 0.5s;
 

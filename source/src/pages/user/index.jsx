@@ -1,4 +1,5 @@
 export { default as Home } from './Home';
-export { default as Information } from './Information';
-export { default as ProductDetail } from './ProductDetail';
-export { default as Wishlist } from './Wishlist';
+export { default as Account } from './Controller';
+export { default as Wishlist } from './Dist/WishList';
+export { default as Cart } from './Cart';
+export { default as ProductDetail } from './Container/ProductDetail';
