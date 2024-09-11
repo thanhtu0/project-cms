@@ -2,6 +2,7 @@ const jsonServer = require('json-server');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const { validateCategory, validateSubCategory, validateBrand, validateBanner } = require('./validation');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
@@ -13,31 +14,22 @@ server.use(middlewares);
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		let uploadPath = 'public/images/';
-		const type = req.body.type;
+		const type = req.body.type || '';
 
-		// Ensure type is provided
-		if (!type) {
-			console.error('Type is missing in the request body.');
+		// Check if type is valid
+		if (!type || !['brand', 'banner', 'employee', 'product', 'customer'].includes(type)) {
 			return cb(new Error('Invalid type or missing directory'));
 		}
 
-		// Determine the upload path based on the type
-		switch (type) {
-			case 'brand':
-				uploadPath += 'brands/';
-				break;
-			case 'employee':
-				uploadPath += 'employees/';
-				break;
-			case 'product':
-				uploadPath += req.body.category === 'men' ? 'products/men/' : 'products/women/';
-				break;
-			case 'customer':
-				uploadPath += 'customers/';
-				break;
-			default:
-				console.log(`Invalid type: ${type}`);
-				return cb(new Error('Invalid type or missing directory'));
+		// Handle category-specific directories
+		if (type === 'banner' || type === 'product') {
+			const category = req.body.category || '';
+			if (!['men', 'women'].includes(category.toLowerCase())) {
+				return cb(new Error('Invalid category'));
+			}
+			uploadPath += `${type}s/${category.toLowerCase()}/`;
+		} else {
+			uploadPath += `${type}s/`;
 		}
 
 		// Ensure the directory exists
@@ -45,11 +37,15 @@ const storage = multer.diskStorage({
 			fs.mkdirSync(uploadPath, { recursive: true });
 		}
 
-		console.log(`Upload path: ${uploadPath}`);
 		cb(null, uploadPath);
 	},
 	filename: (req, file, cb) => {
-		const imageFilename = file.originalname;
+		const allowedMimeTypes = ['image/jpeg', 'image/png'];
+		if (!allowedMimeTypes.includes(file.mimetype)) {
+			return cb(new Error('Invalid file type. Only JPEG and PNG are allowed.'));
+		}
+		const timestamp = Date.now();
+		const imageFilename = `${timestamp}-${file.originalname}`;
 		req.body.imageFilename = imageFilename;
 		cb(null, imageFilename);
 	},
@@ -63,128 +59,58 @@ const bodyParser = multer({ storage: storage }).any();
 server.use(bodyParser);
 
 // Validation middleware for '/categories'
-server.post('/categories', (req, res, next) => {
-	let hasErrors = false;
-	let errors = {};
-
-	if (req.body.name.length < 2) {
-		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
-	}
-	if (req.body.description.length < 10) {
-		hasErrors = true;
-		errors.description = 'The description length should be at least 2 characters';
-	}
-
-	if (hasErrors) {
-		res.status(400).jsonp(errors);
-		return;
-	}
-
-	next();
-});
+server.post('/categories', validateCategory);
 // Validation middleware for PATCH on '/categories/:id'
-server.patch('/categories/:id', (req, res, next) => {
-	let hasErrors = false;
-	let errors = {};
-
-	if (req.body.name.length < 2) {
-		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
-	}
-	if (req.body.description.length < 10) {
-		hasErrors = true;
-		errors.description = 'The description length should be at least 10 characters';
-	}
-
-	if (hasErrors) {
-		res.status(400).jsonp(errors);
-		return;
-	}
-
-	next();
-});
+server.patch('/categories/:id', validateCategory);
 
 // Validation middleware for '/subcategories'
-server.post('/subcategories', (req, res, next) => {
-	let hasErrors = false;
-	let errors = {};
-
-	if (req.body.name.length < 2) {
-		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
-	}
-	if (req.body.description.length < 10) {
-		hasErrors = true;
-		errors.description = 'The description length should be at least 10 characters';
-	}
-
-	if (hasErrors) {
-		res.status(400).jsonp(errors);
-		return;
-	}
-
-	next();
-});
+server.post('/subcategories', validateSubCategory);
 // Validation middleware for PATCH on '/subcategories/:id'
-server.patch('/subcategories/:id', (req, res, next) => {
-	let hasErrors = false;
-	let errors = {};
-
-	if (req.body.name.length < 2) {
-		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
-	}
-	if (req.body.description.length < 10) {
-		hasErrors = true;
-		errors.description = 'The description length should be at least 10 characters';
-	}
-
-	if (hasErrors) {
-		res.status(400).jsonp(errors);
-		return;
-	}
-
-	next();
-});
+server.patch('/subcategories/:id', validateSubCategory);
 
 // Validation middleware for '/brands'
-server.post('/brands', (req, res, next) => {
-	console.log('Request body:', req.body);
-
-	let hasErrors = false;
-	let errors = {};
-
-	if (req.body.name.length < 2) {
-		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
-	}
-
-	if (hasErrors) {
-		res.status(400).jsonp(errors);
-		return;
-	}
-
-	next();
-});
+server.post('/brands', validateBrand);
 // Validation middleware for PATCH on '/brands/:id'
-server.patch('/brands/:id', (req, res, next) => {
-	console.log('Request body:', req.body);
+server.patch('/brands/:id', validateBrand);
 
-	let hasErrors = false;
-	let errors = {};
+// Validation middleware for '/banners'
+server.post('/banners', validateBanner, (req, res) => {
+	const bannerData = {
+		name: req.body.name,
+		description: req.body.description || '',
+		category: req.body.category,
+		imageUrl: req.body.imageFilename || '',
+	};
 
-	if (req.body.name.length < 2) {
-		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
+	const banners = router.db.get('banners');
+	banners.push(bannerData).write();
+
+	res.status(201).json({ message: 'Banner created successfully', banner: bannerData });
+});
+// Validation middleware for PATCH on '/banners/:id'
+server.patch('/banners/:id', validateBanner, (req, res) => {
+	const bannerId = req.params.id;
+	const banners = router.db.get('banners');
+	const banner = banners.find({ id: parseInt(bannerId) }).value();
+
+	if (!banner) {
+		return res.status(404).json({ message: 'Banner not found' });
 	}
 
-	if (hasErrors) {
-		res.status(400).jsonp(errors);
-		return;
-	}
+	const updatedBanner = {
+		...banner,
+		name: req.body.name || banner.name,
+		description: req.body.description || banner.description,
+		category: req.body.category || banner.category,
+		imageUrl: req.body.imageFilename || banner.imageUrl,
+	};
 
-	next();
+	banners
+		.find({ id: parseInt(bannerId) })
+		.assign(updatedBanner)
+		.write();
+
+	res.status(200).json({ message: 'Banner updated successfully', banner: updatedBanner });
 });
 
 // Use default router
