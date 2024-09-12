@@ -40,7 +40,7 @@ const CategoryList = () => {
             <ListTable
                 headers={['ID', 'Category Name', 'Category Description']}
                 data={categories}
-                onEdit={(category) => `/admin/category/${category.id}`}
+                onEdit={(category) => `/admin/category/edit/${category.id}`}
                 onDelete={handleShowModal}
                 renderRow={(category) => (
                     <>

@@ -40,7 +40,7 @@ const BrandList = () => {
             <ListTable
                 headers={['ID', 'Image', 'Brand Name']}
                 data={brands}
-                onEdit={(brand) => `/admin/brand/${brand.id}`}
+                onEdit={(brand) => `/admin/brand/edit/${brand.id}`}
                 onDelete={handleShowModal}
                 renderRow={(brand) => (
                     <>

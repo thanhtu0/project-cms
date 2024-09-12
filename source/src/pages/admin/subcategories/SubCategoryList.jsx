@@ -40,7 +40,7 @@ const SubCategoryList = () => {
             <ListTable
                 headers={['ID', 'SubCategory Name', 'SubCategory Description']}
                 data={subcategories}
-                onEdit={(subcategory) => `/admin/subcategory/${subcategory.id}`}
+                onEdit={(subcategory) => `/admin/subcategory/edit/${subcategory.id}`}
                 onDelete={handleShowModal}
                 renderRow={(subcategory) => (
                     <>
