@@ -1,5 +1,6 @@
-export { default as UserLayout } from './UserLayout';
-export { default as ProductDetail } from './ProductDetail';
+// client
+export { default as UserLayout } from './Client';
+export { default as ProductDetail } from './Other';
 
-// CMS
-export { default as AdminLayout } from './AdminLayout';
+// CMS / Administration
+export { default as AdminLayout } from './Admin';

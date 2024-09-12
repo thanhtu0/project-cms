@@ -5,7 +5,7 @@ const Modal = ({ show, onClose, onConfirm, title, message }) => {
 
     return (
         <div
-            className="modal-overlay flex flex-center position-absolute top-0 left-0 right-0 bottom-0 bg-black z-1000"
+            className="modal-overlay w-100 h-100 flex flex-center position-absolute top-0 left-0 right-0 bottom-0  z-1000"
             aria-hidden={!show}
         >
             <div className="modal-content position-relative bg-white p-2">

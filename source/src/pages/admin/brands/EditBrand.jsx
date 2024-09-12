@@ -8,7 +8,6 @@ import { BASE_URL } from '~/components/utils/apiURL';
 
 const EditBrand = () => {
     const { id } = useParams();
-    // const [initialData, setInitialData] = useState({});
     const [validationErrors, setValidationErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();

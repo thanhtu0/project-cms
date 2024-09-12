@@ -1,7 +1,7 @@
 // Pages
-import { Home } from '~/pages/user';
+import { Home } from '~/pages/client';
 import { AdminHome } from '~/pages/admin';
-import { Authentication, ForgotPassword } from '~/pages/account';
+import { Authentication, ForgotPassword } from '~/pages/auth';
 
 // Layouts
 import { AdminLayout, ProductDetail } from '~/components/layouts';
