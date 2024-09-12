@@ -126,14 +126,6 @@
       "subtitle": "Every day, i want to run",
       "categoryId": 1,
       "imageUrl": "banner-4.png"
-    },
-    {
-      "id": 4,
-      "season": "Skateboard",
-      "title": "New Day New Like",
-      "subtitle": "New Clothing New Day",
-      "categoryId": 1,
-      "imageUrl": "banner_5.png"
     }
   ],
   "subcategories": [
@@ -261,6 +253,12 @@
       "name": "Obey",
       "imageFilename": "obey.png",
       "id": 10
+    },
+    {
+      "type": "brand",
+      "name": "Hot Hot Hot",
+      "imageFilename": "banner_5.png",
+      "id": 11
     }
   ],
   "products": [

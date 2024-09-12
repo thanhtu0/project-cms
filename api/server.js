@@ -126,21 +126,29 @@ server.post('/banners', validateBanner(categories), (req, res) => {
 
 // Validation middleware for PATCH on '/banners/:id'
 server.patch('/banners/:id', upload, validateBanner(categories), (req, res) => {
+	console.log('Request Body:', req.body);
+	console.log('Uploaded File:', req.file);
+
 	const bannerId = parseInt(req.params.id);
 	const banners = router.db.get('banners');
-	const banner = banners.find({ id: bannerId }).value();
+	const bannerIndex = banners.findIndex({ id: bannerId }).value();
 
-	if (!banner) {
+	if (bannerIndex === -1) {
+		console.error('Banner not found:', bannerId);
 		return res.status(404).json({ message: 'Banner not found' });
 	}
 
-	const updatedBanner = Object.assign({}, banner, req.body);
+	const updatedBanner = {
+		...banners.get(bannerIndex).value(),
+		...req.body,
+	};
 
 	if (req.file) {
-		updatedBanner.imageUrl = req.body.imageFilename || '';
+		console.log('Updating image URL:', req.file.filename);
+		updatedBanner.imageUrl = req.file.filename;
 	}
 
-	banners.find({ id: bannerId }).assign(updatedBanner).write();
+	banners.get(bannerIndex).assign(updatedBanner).write();
 
 	res.status(200).json({
 		message: 'Banner updated successfully',
