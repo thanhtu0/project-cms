@@ -1,34 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BrandForm } from '~/components/common/Form';
 import Title from '~/components/common/Title';
+import useFetchItem from '~/components/hooks/useFetchItem';
 import { BASE_URL } from '~/components/utils/apiURL';
 
 const EditBrand = () => {
     const { id } = useParams();
-    const [initialData, setInitialData] = useState({});
+    // const [initialData, setInitialData] = useState({});
     const [validationErrors, setValidationErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        async function fetchBrand() {
-            try {
-                const response = await fetch(`${BASE_URL}/brands/${id}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    setInitialData(data);
-                } else {
-                    toast.error('Unable to fetch brand details');
-                }
-            } catch (error) {
-                toast.error('Unable to connect to the server!');
-            }
-        }
-
-        fetchBrand();
-    }, [id]);
+    const { data: initialData } = useFetchItem('brands', id);
 
     async function handleSubmit(event) {
         event.preventDefault();
