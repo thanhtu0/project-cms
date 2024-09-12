@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import useIsAdmin from '~/components/hooks/useIsAdmin';
-import { error } from '~/components/utils/images';
+import useIsAdmin from '~/hooks/useIsAdmin';
+import { error } from '~/utils/images';
 
 const NotFound = () => {
     const isAdmin = useIsAdmin();

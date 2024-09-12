@@ -4,62 +4,63 @@ import { AdminHome } from '~/pages/admin';
 import { Authentication, ForgotPassword } from '~/pages/auth';
 
 // Layouts
-import { AdminLayout, ProductDetail } from '~/components/layouts';
-import { ProductList, CreateProduct, EditProduct } from '~/pages/admin/products';
-import { CreateInfo, EditInfo, InfoList } from '~/pages/admin/information';
-import { CategoryList, CreateCategory, EditCategory } from '~/pages/admin/categories';
-import { CreateSubCategory, EditSubCategory, SubCategoryList } from '~/pages/admin/subcategories';
-import { CreateEmployee, EditEmployee, EmployeeList } from '~/pages/admin/employees';
-import { BrandList, CreateBrand, EditBrand } from '~/pages/admin/brands';
+import { AdminLayout, ProductDetail } from '~/layouts';
+import { ProductList, CreateProduct, EditProduct } from '~/pages/admin/Product';
+import { CreateContact, EditContact, ContactList } from '~/pages/admin/Contact';
+import { CategoryList, CreateCategory, EditCategory } from '~/pages/admin/Category';
+import { CreateSubCategory, EditSubCategory, SubCategoryList } from '~/pages/admin/SubCategory';
+import { CreateEmployee, EditEmployee, EmployeeList } from '~/pages/admin/Employee';
+import { BrandList, CreateBrand, EditBrand } from '~/pages/admin/Brand';
 import NotFound from '~/pages/error/NotFound';
-import { BannerList, CreateBanner, EditBanner } from '~/pages/admin/banner';
+import { BannerList, CreateBanner, EditBanner } from '~/pages/admin/Banner';
+import config from '~/config';
 
 // Public routes
 const publicRoutes = [
-    { path: '/', component: Home },
-    { path: '/men', component: Home },
-    { path: '/women', component: Home },
-    { path: '/product/:{id}', component: Home, layout: ProductDetail },
-    { path: '/login', component: Authentication, layout: null },
-    { path: '/register', component: Authentication, layout: null },
-    { path: '/password_reset', component: ForgotPassword },
+    { path: config.routes.home, component: Home },
+    { path: config.routes.men, component: Home },
+    { path: config.routes.women, component: Home },
+    { path: config.routes.product_detail, component: Home, layout: ProductDetail },
+    { path: config.routes.login, component: Authentication, layout: null },
+    { path: config.routes.register, component: Authentication, layout: null },
+    { path: config.routes.forgotPassword, component: ForgotPassword },
 
     // Not found
-    { path: '*', component: NotFound, layout: null },
+    { path: config.routes.error, component: NotFound, layout: null },
 ];
 
 // Private routes
 const privateRoutes = [
-    { path: '/admin', component: AdminHome, layout: AdminLayout },
-    { path: '/admin/*', component: NotFound, layout: AdminLayout },
+    { path: config.routes.admin, component: AdminHome, layout: AdminLayout },
+    { path: config.routes.admin_error, component: NotFound, layout: AdminLayout },
 
-    { path: '/admin/products', component: ProductList, layout: AdminLayout },
-    { path: '/admin/product/create', component: CreateProduct, layout: AdminLayout },
-    { path: '/admin/product/edit/edit/:id', component: EditProduct, layout: AdminLayout },
+    { path: config.routes.products, component: ProductList, layout: AdminLayout },
+    { path: config.routes.create_product, component: CreateProduct, layout: AdminLayout },
+    { path: config.routes.update_product, component: EditProduct, layout: AdminLayout },
 
-    { path: '/admin/info', component: InfoList, layout: AdminLayout },
-    { path: '/admin/info/create', component: CreateInfo, layout: AdminLayout },
-    { path: '/admin/info/edit/edit/:id', component: EditInfo, layout: AdminLayout },
+    { path: config.routes.contact, component: ContactList, layout: AdminLayout },
+    { path: config.routes.create_contact, component: CreateContact, layout: AdminLayout },
+    { path: config.routes.update_contact, component: EditContact, layout: AdminLayout },
 
-    { path: '/admin/brands', component: BrandList, layout: AdminLayout },
-    { path: '/admin/brand/create', component: CreateBrand, layout: AdminLayout },
-    { path: '/admin/brand/edit/:id', component: EditBrand, layout: AdminLayout },
+    { path: config.routes.brands, component: BrandList, layout: AdminLayout },
+    { path: config.routes.create_brand, component: CreateBrand, layout: AdminLayout },
+    { path: config.routes.update_brand, component: EditBrand, layout: AdminLayout },
 
-    { path: '/admin/banners', component: BannerList, layout: AdminLayout },
-    { path: '/admin/banner/create', component: CreateBanner, layout: AdminLayout },
-    { path: '/admin/banner/edit/:id', component: EditBanner, layout: AdminLayout },
+    { path: config.routes.banners, component: BannerList, layout: AdminLayout },
+    { path: config.routes.create_banner, component: CreateBanner, layout: AdminLayout },
+    { path: config.routes.update_banner, component: EditBanner, layout: AdminLayout },
 
-    { path: '/admin/categories', component: CategoryList, layout: AdminLayout },
-    { path: '/admin/category/create', component: CreateCategory, layout: AdminLayout },
-    { path: '/admin/category/edit/:id', component: EditCategory, layout: AdminLayout },
+    { path: config.routes.categories, component: CategoryList, layout: AdminLayout },
+    { path: config.routes.create_category, component: CreateCategory, layout: AdminLayout },
+    { path: config.routes.update_category, component: EditCategory, layout: AdminLayout },
 
-    { path: '/admin/subcategories', component: SubCategoryList, layout: AdminLayout },
-    { path: '/admin/subcategory/create', component: CreateSubCategory, layout: AdminLayout },
-    { path: '/admin/subcategory/edit/:id', component: EditSubCategory, layout: AdminLayout },
+    { path: config.routes.subcategories, component: SubCategoryList, layout: AdminLayout },
+    { path: config.routes.create_subcategory, component: CreateSubCategory, layout: AdminLayout },
+    { path: config.routes.update_subcategory, component: EditSubCategory, layout: AdminLayout },
 
-    { path: '/admin/employees', component: EmployeeList, layout: AdminLayout },
-    { path: '/admin/employee/create', component: CreateEmployee, layout: AdminLayout },
-    { path: '/admin/employee/edit/:id', component: EditEmployee, layout: AdminLayout },
+    { path: config.routes.employees, component: EmployeeList, layout: AdminLayout },
+    { path: config.routes.create_employee, component: CreateEmployee, layout: AdminLayout },
+    { path: config.routes.update_employee, component: EditEmployee, layout: AdminLayout },
 ];
 
 export { publicRoutes, privateRoutes };

@@ -1,10 +1,11 @@
-import { ListHeader, ListTable, ListTitle } from '~/components/common/List';
-import Pagination from '~/components/common/Pagination';
-import useFetch from '~/components/hooks/useFetch';
-import { BASE_URL } from '~/components/utils/apiURL';
-import { getCategoryName } from '~/components/utils/helpers';
-import { useDeleteModal, usePaginatedData } from '~/components/hooks';
-import { ConfirmModal } from '~/components/common/Modal';
+import { ListHeader, ListTable, ListTitle } from '~/common/List';
+
+import { Pagination } from '~/common';
+import useFetch from '~/hooks/useFetch';
+import { BASE_URL } from '~/utils/apiURL';
+import { getCategoryName } from '~/utils/helpers';
+import { useDeleteModal, usePaginatedData } from '~/hooks';
+import { ConfirmModal } from '~/common/Modal';
 
 const BannerList = () => {
     const {

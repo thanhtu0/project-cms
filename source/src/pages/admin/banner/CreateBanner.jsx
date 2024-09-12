@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { BannerForm } from '~/components/common/Form';
-import Title from '~/components/common/Title';
-import { BASE_URL } from '~/components/utils/apiURL';
+import { BannerForm } from '~/common/Form';
+import Title from '~/common/Title';
+import { BASE_URL } from '~/utils/apiURL';
 
 const CreateBanner = () => {
     const [validationErrors, setValidationErrors] = useState({});

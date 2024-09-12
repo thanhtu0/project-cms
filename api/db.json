@@ -116,64 +116,24 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageUrl": "banner_2.png",
-      "categoryId": 1
-    },
-    {
-      "id": 3,
-      "season": "New Season",
-      "title": "Route One O.B.",
-      "subtitle": "Lastest Skateboard",
-      "imageUrl": "banner_3.png",
-      "categoryId": 1
-    },
-    {
-      "id": 4,
-      "season": "New Season",
-      "title": "Route One O.B.",
-      "subtitle": "Lastest Skateboard",
       "imageUrl": "banner_1.png",
       "categoryId": 2
     },
     {
-      "id": 5,
-      "season": "New Season",
-      "title": "Route One O.B.",
-      "subtitle": "Lastest Skateboard",
-      "imageUrl": "banner_2.png",
-      "categoryId": 2
-    },
-    {
-      "id": 6,
-      "season": "New Season",
-      "title": "Route One O.B.",
-      "subtitle": "Lastest Skateboard",
-      "imageUrl": "banner_3.png",
-      "categoryId": 2
-    },
-    {
-      "id": 7,
-      "season": "Banner Season",
-      "title": "New Day New Like",
-      "subtitle": "New Clothing New Day",
+      "id": 3,
+      "season": "Summner",
+      "title": "Every day, i want to run and sit ",
+      "subtitle": "Every day, i want to run",
       "categoryId": 1,
       "imageUrl": "banner-4.png"
     },
     {
-      "id": 8,
+      "id": 4,
       "season": "Skateboard",
       "title": "New Day New Like",
-      "subtitle": "Hahahaha",
-      "categoryId": 2,
-      "imageUrl": "obey.png"
-    },
-    {
-      "id": 9,
-      "season": "Dc Season",
-      "title": "Season is the best in the world",
-      "subtitle": "I am BatMan, The new heros",
+      "subtitle": "New Clothing New Day",
       "categoryId": 1,
-      "imageUrl": "dc.png"
+      "imageUrl": "banner_5.png"
     }
   ],
   "subcategories": [

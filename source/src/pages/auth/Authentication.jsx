@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Authentication.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { login, register } from '~/components/utils/images';
+import { login, register } from '~/utils/images';
 
 const Authentication = () => {
     const [isregisterMode, setIsregisterMode] = useState(false);
