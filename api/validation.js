@@ -57,27 +57,34 @@ const validateBrand = (req, res, next) => {
 const validateBanner = (categories) => (req, res, next) => {
 	console.log('Request Body:', req.body);
 
-	const { season, title, subtitle, categoryId } = req.body;
+	let { season, title, subtitle, categoryId } = req.body;
+	// Convert categoryId to a number for validation
+	const parsedCategoryId = parseInt(categoryId, 10);
+	console.log('Parsed categoryId:', parsedCategoryId);
+
+	// Check if the parsed categoryId is valid
+	const isValidCategoryId = categories.some((category) => category.id === parsedCategoryId);
+	console.log('Is valid categoryId:', isValidCategoryId);
+
 	let hasErrors = false;
 	let errors = {};
 
-	const isValidCategoryId = categories && categories.some((category) => category.id === parseInt(categoryId, 10));
+	if (!isValidCategoryId) {
+		hasErrors = true;
+		errors.categoryId = 'Invalid categoryId';
+	}
 
-	if (!season || season.trim().length < 10) {
+	if (!season || season.trim().length < 2) {
 		hasErrors = true;
-		errors.season = 'Season is required and must be at least 10 characters';
+		errors.season = 'Season is required and must be at least 2 characters';
 	}
-	if (!title || title.trim().length < 10) {
+	if (!title || title.trim().length < 5) {
 		hasErrors = true;
-		errors.title = 'Title is required and must be at least 10 characters';
+		errors.title = 'Title is required and must be at least 5 characters';
 	}
-	if (!subtitle || subtitle.trim().length < 10) {
+	if (!subtitle || subtitle.trim().length < 5) {
 		hasErrors = true;
-		errors.subtitle = 'Subtitle is required and must be at least 10 characters';
-	}
-	if (!categoryId || !isValidCategoryId) {
-		hasErrors = true;
-		errors.categoryId = 'Invalid category ID';
+		errors.subtitle = 'Subtitle is required and must be at least 5 characters';
 	}
 
 	console.log('Validation Errors:', errors);

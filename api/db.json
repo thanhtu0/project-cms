@@ -152,12 +152,12 @@
       "categoryId": 2
     },
     {
-      "id": 8,
+      "id": 7,
       "type": "banner",
-      "season": "Spring",
+      "season": "Skateboard",
       "categoryId": "1",
-      "title": "Route.One People",
-      "subtitle": "New Like New Day",
+      "title": "New Day New Like",
+      "subtitle": "Hahahaha",
       "imageFilename": "banner-4.png",
       "imageUrl": "banner-4.png"
     }
@@ -290,21 +290,9 @@
     },
     {
       "type": "brand",
-      "name": "Hot Hot Hot",
-      "imageFilename": "hot.png",
+      "name": "qwwrqwr2",
+      "imageFilename": "banner_5.png",
       "id": 11
-    },
-    {
-      "type": "brand",
-      "name": "Dc",
-      "imageFilename": "dc.png",
-      "id": 12
-    },
-    {
-      "type": "brand",
-      "name": "Obey",
-      "imageFilename": "obey.png",
-      "id": 13
     }
   ],
   "products": [

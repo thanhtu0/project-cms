@@ -90,20 +90,15 @@ server.post('/brands', validateBrand);
 server.patch('/brands/:id', validateBrand);
 
 // Validation middleware for get '/categories/:id/banners'
-server.get('/categories/:id/banners', (req, res) => {
-	const categoryId = parseInt(req.params.id);
-	const categories = router.db.get('categories').value();
-	const categoryExists = categories.some((category) => category.id === categoryId);
+server.get('/banners/:id', (req, res) => {
+	const bannerId = parseInt(req.params.id, 10);
+	const banner = router.db.get('banners').find({ id: bannerId }).value();
 
-	if (!categoryExists) {
-		return res.status(404).json({ message: 'Category not found' });
+	if (!banner) {
+		return res.status(404).json({ message: 'Banner not found' });
 	}
 
-	const banners = router.db.get('banners').filter({ categoryId }).value();
-	if (!banners.length) {
-		return res.status(404).json({ message: 'No banners found for this category' });
-	}
-	res.status(200).json(banners);
+	res.status(200).json({ banner });
 });
 
 // Validation middleware for '/banners'
@@ -127,7 +122,7 @@ server.post('/banners', validateBanner(categories), (req, res) => {
 });
 
 // Validation middleware for PATCH on '/banners/:id'
-server.patch('/banners/:id', validateBanner(categories), (req, res) => {
+server.patch('/banners/:id', upload, validateBanner(categories), (req, res) => {
 	const bannerId = parseInt(req.params.id);
 	const banners = router.db.get('banners');
 	const banner = banners.find({ id: bannerId }).value();
@@ -136,14 +131,11 @@ server.patch('/banners/:id', validateBanner(categories), (req, res) => {
 		return res.status(404).json({ message: 'Banner not found' });
 	}
 
-	const updatedBanner = {
-		...banner,
-		season: req.body.season || banner.season,
-		title: req.body.title || banner.title,
-		subtitle: req.body.subtitle || banner.subtitle,
-		categoryId: req.body.categoryId || banner.categoryId,
-		imageUrl: req.body.imageFilename || banner.imageUrl,
-	};
+	const updatedBanner = Object.assign({}, banner, req.body);
+
+	if (req.file) {
+		updatedBanner.imageUrl = req.body.imageFilename || '';
+	}
 
 	banners.find({ id: bannerId }).assign(updatedBanner).write();
 

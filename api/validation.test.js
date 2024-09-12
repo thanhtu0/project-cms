@@ -58,15 +58,19 @@ describe('POST /brands', () => {
 
 describe('POST /banners', () => {
 	it('should validate banner data', async () => {
-		const response = await request(app)
-			.post('/banners')
-			.send({ season: 'Summer', title: 'New Collection', subtitle: 'Best Deals', categoryId: '1' });
+		const response = await request(app).post('/banners').send({
+			season: 'Summer 2024 Collection',
+			title: 'New Collection',
+			subtitle: 'Best Deals',
+			categoryId: 1,
+		});
 
 		console.log('Response:', response.body);
 		expect(response.status).toBe(201);
 		expect(response.body).toHaveProperty('message', 'Banner created successfully');
 		expect(response.body).toHaveProperty('banner');
+		expect(response.body.banner).toHaveProperty('season', 'Summer 2024 Collection');
 		expect(response.body.banner).toHaveProperty('title', 'New Collection');
-		expect(response.body.banner).toHaveProperty('season', 'Summer');
+		expect(response.body.banner).toHaveProperty('subtitle', 'Best Deals');
 	});
 });

@@ -31,6 +31,10 @@ const CreateBanner = () => {
 
         const formData = new FormData(event.target);
 
+        const categoryId = parseInt(formData.get('categoryId'), 10);
+        formData.set('categoryId', categoryId.toString());
+        console.log(categoryId);
+
         const banner = Object.fromEntries(formData.entries());
         if (!banner.season || !banner.title || !banner.subtitle || !banner.categoryId) {
             setValidationErrors({
