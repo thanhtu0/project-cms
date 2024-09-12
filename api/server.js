@@ -109,7 +109,10 @@ server.post('/banners', validateBanner(categories), (req, res) => {
 
 	const newBanner = {
 		id: newId,
-		...req.body,
+		season: req.body.season,
+		title: req.body.title,
+		subtitle: req.body.subtitle,
+		categoryId: parseInt(req.body.categoryId, 10),
 		imageUrl: req.body.imageFilename || '',
 	};
 

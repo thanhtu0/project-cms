@@ -44,7 +44,7 @@ const BannerList = () => {
             <ListTable
                 headers={['ID', 'Image Banner', 'Category Name', 'Season', 'Title', 'Subtitle']}
                 data={banners}
-                onEdit={(banner) => `/admin/Banner/${banner.id}`}
+                onEdit={(banner) => `/admin/banner/${banner.id}`}
                 onDelete={handleShowModal}
                 renderRow={(banner) => (
                     <>
@@ -52,7 +52,7 @@ const BannerList = () => {
                         <td style={{ width: '100px', height: 'auto' }}>
                             <img
                                 src={`${BASE_URL}/images/banners/${getCategoryName(banner.categoryId, categories)}/${
-                                    banner.imageFilename
+                                    banner.imageUrl
                                 }`}
                                 className="img-fluid img-cover"
                                 alt={`Banner ${banner.season}`}

@@ -108,7 +108,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "banner_1.png",
+      "imageUrl": "banner_1.png",
       "categoryId": 1
     },
     {
@@ -116,7 +116,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "banner_2.png",
+      "imageUrl": "banner_2.png",
       "categoryId": 1
     },
     {
@@ -124,7 +124,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "banner_3.png",
+      "imageUrl": "banner_3.png",
       "categoryId": 1
     },
     {
@@ -132,7 +132,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "banner_1.png",
+      "imageUrl": "banner_1.png",
       "categoryId": 2
     },
     {
@@ -140,7 +140,7 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "banner_2.png",
+      "imageUrl": "banner_2.png",
       "categoryId": 2
     },
     {
@@ -148,18 +148,32 @@
       "season": "New Season",
       "title": "Route One O.B.",
       "subtitle": "Lastest Skateboard",
-      "imageFilename": "banner_3.png",
+      "imageUrl": "banner_3.png",
       "categoryId": 2
     },
     {
       "id": 7,
-      "type": "banner",
+      "season": "Banner Season",
+      "title": "New Day New Like",
+      "subtitle": "New Clothing New Day",
+      "categoryId": 1,
+      "imageUrl": "banner-4.png"
+    },
+    {
+      "id": 8,
       "season": "Skateboard",
-      "categoryId": "1",
       "title": "New Day New Like",
       "subtitle": "Hahahaha",
-      "imageFilename": "banner-4.png",
-      "imageUrl": "banner-4.png"
+      "categoryId": 2,
+      "imageUrl": "obey.png"
+    },
+    {
+      "id": 9,
+      "season": "Dc Season",
+      "title": "Season is the best in the world",
+      "subtitle": "I am BatMan, The new heros",
+      "categoryId": 1,
+      "imageUrl": "dc.png"
     }
   ],
   "subcategories": [
@@ -287,12 +301,6 @@
       "name": "Obey",
       "imageFilename": "obey.png",
       "id": 10
-    },
-    {
-      "type": "brand",
-      "name": "qwwrqwr2",
-      "imageFilename": "banner_5.png",
-      "id": 11
     }
   ],
   "products": [
