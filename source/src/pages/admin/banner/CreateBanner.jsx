@@ -30,7 +30,6 @@ const CreateBanner = () => {
         setLoading(true);
 
         const formData = new FormData(event.target);
-
         const categoryId = parseInt(formData.get('categoryId'), 10);
         formData.set('categoryId', categoryId.toString());
 
@@ -60,12 +59,9 @@ const CreateBanner = () => {
                 setValidationErrors(data);
                 toast.error('Validation failed. Please check the errors.');
             } else {
-                const errorText = await response.text();
-                console.error('Server error:', errorText);
                 toast.error('Unable to create the banner!');
             }
         } catch (error) {
-            console.error('Network error:', error);
             toast.error('Unable to connect to the server!');
         } finally {
             setLoading(false);

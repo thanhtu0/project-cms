@@ -15,8 +15,8 @@ const CreateBrand = () => {
         setLoading(true);
 
         const formData = new FormData(event.target);
+        
         const brand = Object.fromEntries(formData.entries());
-
         if (!brand.name) {
             setValidationErrors({
                 name: 'Name is required',

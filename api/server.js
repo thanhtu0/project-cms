@@ -16,15 +16,17 @@ const storage = multer.diskStorage({
 		let uploadPath = 'public/images/';
 		const type = req.body.type;
 
-		if (!req.body.categoryId) {
+		if (type !== 'brand' && !req.body.categoryId) {
 			return cb(new Error('CategoryId is missing'));
 		}
 
-		const categories = router.db.get('categories').value();
-		const category = categories.find((cate) => cate.id === parseInt(req.body.categoryId));
+		if (type !== 'brand') {
+			const categories = router.db.get('categories').value();
+			const category = categories.find((cate) => cate.id === parseInt(req.body.categoryId));
 
-		if (!category) {
-			return cb(new Error('Invalid categoryId'));
+			if (!category) {
+				return cb(new Error('Invalid categoryId'));
+			}
 		}
 
 		// Function to sanitize category name (remove spaces, special characters)

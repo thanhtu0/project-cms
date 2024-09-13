@@ -1,19 +1,21 @@
+const errors = require('./error');
+
 const validateCategory = (req, res, next) => {
 	const { name, description } = req.body;
 	let hasErrors = false;
-	let errors = {};
+	let errorMessages = {};
 
 	if (!name || name.trim().length < 2) {
 		hasErrors = true;
-		errors.name = 'The name must be at least 2 characters long';
+		errorMessages.name = errors.category.name;
 	}
 	if (description && description.trim().length < 10) {
 		hasErrors = true;
-		errors.description = 'The description must be at least 10 characters long';
+		errorMessages.description = errors.category.description;
 	}
 
 	if (hasErrors) {
-		return res.status(400).json(errors);
+		return res.status(400).json(errorMessages);
 	}
 	next();
 };
@@ -21,19 +23,19 @@ const validateCategory = (req, res, next) => {
 const validateSubCategory = (req, res, next) => {
 	const { name, description } = req.body;
 	let hasErrors = false;
-	let errors = {};
+	let errorMessages = {};
 
 	if (!name || name.trim().length < 2) {
 		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
+		errorMessages.name = errors.subCategory.name;
 	}
 	if (description && description.trim().length < 10) {
 		hasErrors = true;
-		errors.description = 'The description length should be at least 10 characters';
+		errorMessages.description = errors.subCategory.description;
 	}
 
 	if (hasErrors) {
-		return res.status(400).json(errors);
+		return res.status(400).json(errorMessages);
 	}
 	next();
 };
@@ -41,52 +43,48 @@ const validateSubCategory = (req, res, next) => {
 const validateBrand = (req, res, next) => {
 	const { name } = req.body;
 	let hasErrors = false;
-	let errors = {};
+	let errorMessages = {};
 
 	if (!name || name.trim().length < 2) {
 		hasErrors = true;
-		errors.name = 'The name length should be at least 2 characters';
+		errorMessages.name = errors.brand.name;
 	}
 
 	if (hasErrors) {
-		return res.status(400).json(errors);
+		return res.status(400).json(errorMessages);
 	}
 	next();
 };
 
 const validateBanner = (categories) => (req, res, next) => {
-	console.log('Request Body:', req.body);
-
 	let { season, title, subtitle, categoryId } = req.body;
 	const parsedCategoryId = parseInt(categoryId, 10);
 
 	const isValidCategoryId = categories.some((category) => category.id === parsedCategoryId);
 
 	let hasErrors = false;
-	let errors = {};
+	let errorMessages = {};
 
 	if (!isValidCategoryId) {
 		hasErrors = true;
-		errors.categoryId = 'Invalid categoryId';
+		errorMessages.categoryId = errors.banner.categoryId;
 	}
 
 	if (!season || season.trim().length < 2) {
 		hasErrors = true;
-		errors.season = 'Season is required and must be at least 2 characters';
+		errorMessages.season = errors.banner.season;
 	}
 	if (!title || title.trim().length < 5) {
 		hasErrors = true;
-		errors.title = 'Title is required and must be at least 5 characters';
+		errorMessages.title = errors.banner.title;
 	}
 	if (!subtitle || subtitle.trim().length < 5) {
 		hasErrors = true;
-		errors.subtitle = 'Subtitle is required and must be at least 5 characters';
+		errorMessages.subtitle = errors.banner.subtitle;
 	}
 
-	console.log('Validation Errors:', errors);
-
 	if (hasErrors) {
-		return res.status(400).json(errors);
+		return res.status(400).json(errorMessages);
 	}
 	next();
 };

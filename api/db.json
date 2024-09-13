@@ -99,11 +99,6 @@
       "id": 2,
       "name": "Women",
       "description": "Clothing and accessories for women"
-    },
-    {
-      "name": "Unisex",
-      "description": "Unisex Unisex Unisex ",
-      "id": 3
     }
   ],
   "banners": [
@@ -148,7 +143,7 @@
     {
       "id": 5,
       "name": "Skateboard",
-      "description": "Skateboards, decks, wheels, trucks, and other skateboarding gear."
+      "description": "Skateboards, decks, wheels, trucks, and skateboarding gear."
     },
     {
       "id": 6,
@@ -178,7 +173,7 @@
     {
       "id": 11,
       "name": "Children",
-      "description": "Products specifically designed for children, including clothing and accessories."
+      "description": "Children's products: clothing and accessories."
     },
     {
       "id": 12,
@@ -220,8 +215,7 @@
     {
       "id": 5,
       "name": "Carhartt",
-      "imageFilename": "carhartt.png",
-      "type": "brand"
+      "imageFilename": "carhartt.png"
     },
     {
       "id": 6,
@@ -230,9 +224,9 @@
     },
     {
       "type": "brand",
-      "name": "Dc",
-      "id": 7,
-      "imageFilename": "dc.png"
+      "name": "Patagonia",
+      "imageFilename": "patagonia.png",
+      "id": 7
     },
     {
       "type": "brand",
