@@ -58,13 +58,9 @@ const validateBanner = (categories) => (req, res, next) => {
 	console.log('Request Body:', req.body);
 
 	let { season, title, subtitle, categoryId } = req.body;
-	// Convert categoryId to a number for validation
 	const parsedCategoryId = parseInt(categoryId, 10);
-	console.log('Parsed categoryId:', parsedCategoryId);
 
-	// Check if the parsed categoryId is valid
 	const isValidCategoryId = categories.some((category) => category.id === parsedCategoryId);
-	console.log('Is valid categoryId:', isValidCategoryId);
 
 	let hasErrors = false;
 	let errors = {};

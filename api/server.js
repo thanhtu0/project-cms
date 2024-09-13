@@ -81,22 +81,19 @@ const upload = multer({
 }).single('image');
 
 // You can use the one used by JSON Server
-// server.use(upload);
+server.use(upload);
 
-// Validation middleware for '/categories'
+// Validation middleware for '/categories' and PATCH on 'categories/:id
 server.post('/categories', validateCategory);
-// Validation middleware for PATCH on '/categories/:id'
 server.patch('/categories/:id', validateCategory);
 
-// Validation middleware for '/subcategories'
+// Validation middleware for '/subcategories' and PATCH on '/subcategories/:id'
 server.post('/subcategories', validateSubCategory);
-// Validation middleware for PATCH on '/subcategories/:id'
 server.patch('/subcategories/:id', validateSubCategory);
 
-// Validation middleware for '/brands'
-server.post('/brands', upload, validateBrand);
-// Validation middleware for PATCH on '/brands/:id'
-server.patch('/brands/:id', upload, validateBrand);
+// Validation middleware for '/brands' and for PATCH on '/brands/:id'
+server.post('/brands', validateBrand);
+server.patch('/brands/:id', validateBrand);
 
 // Validation middleware for get '/categories/:id/banners'
 server.get('/banners/:id', (req, res) => {
@@ -110,9 +107,9 @@ server.get('/banners/:id', (req, res) => {
 	res.status(200).json({ banner });
 });
 
-// Validation middleware for '/banners'
+// Validation middleware for '/banners' and PATCH on '/banners/:id'
 const categories = router.db.get('categories').value();
-server.post('/banners', upload, validateBanner(categories), (req, res) => {
+server.post('/banners', validateBanner(categories), (req, res) => {
 	const banners = router.db.get('banners').value();
 	const newId = banners.length ? Math.max(...banners.map((b) => b.id)) + 1 : 1;
 
@@ -132,9 +129,7 @@ server.post('/banners', upload, validateBanner(categories), (req, res) => {
 		banner: newBanner,
 	});
 });
-
-// Validation middleware for PATCH on '/banners/:id'
-server.patch('/banners/:id', upload, validateBanner(categories), (req, res) => {
+server.patch('/banners/:id', validateBanner(categories), (req, res) => {
 	console.log('Request Body:', req.body);
 	console.log('Uploaded File:', req.file);
 
