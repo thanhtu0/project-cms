@@ -15,8 +15,17 @@ const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
 		let uploadPath = 'public/images/';
 		const type = req.body.type;
+
+		if (!req.body.categoryId) {
+			return cb(new Error('CategoryId is missing'));
+		}
+
 		const categories = router.db.get('categories').value();
 		const category = categories.find((cate) => cate.id === parseInt(req.body.categoryId));
+
+		if (!category) {
+			return cb(new Error('Invalid categoryId'));
+		}
 
 		// Function to sanitize category name (remove spaces, special characters)
 		const sanitizeCategoryName = (name) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -72,7 +81,7 @@ const upload = multer({
 }).single('image');
 
 // You can use the one used by JSON Server
-server.use(upload);
+// server.use(upload);
 
 // Validation middleware for '/categories'
 server.post('/categories', validateCategory);
@@ -85,9 +94,9 @@ server.post('/subcategories', validateSubCategory);
 server.patch('/subcategories/:id', validateSubCategory);
 
 // Validation middleware for '/brands'
-server.post('/brands', validateBrand);
+server.post('/brands', upload, validateBrand);
 // Validation middleware for PATCH on '/brands/:id'
-server.patch('/brands/:id', validateBrand);
+server.patch('/brands/:id', upload, validateBrand);
 
 // Validation middleware for get '/categories/:id/banners'
 server.get('/banners/:id', (req, res) => {
@@ -103,7 +112,7 @@ server.get('/banners/:id', (req, res) => {
 
 // Validation middleware for '/banners'
 const categories = router.db.get('categories').value();
-server.post('/banners', validateBanner(categories), (req, res) => {
+server.post('/banners', upload, validateBanner(categories), (req, res) => {
 	const banners = router.db.get('banners').value();
 	const newId = banners.length ? Math.max(...banners.map((b) => b.id)) + 1 : 1;
 
@@ -129,26 +138,26 @@ server.patch('/banners/:id', upload, validateBanner(categories), (req, res) => {
 	console.log('Request Body:', req.body);
 	console.log('Uploaded File:', req.file);
 
-	const bannerId = parseInt(req.params.id);
-	const banners = router.db.get('banners');
-	const bannerIndex = banners.findIndex({ id: bannerId }).value();
+	const bannerId = parseInt(req.params.id, 10);
+	const { season, title, subtitle, categoryId } = req.body;
+	const imageFilename = req.file ? req.file.filename : req.body.imageFilename;
 
-	if (bannerIndex === -1) {
-		console.error('Banner not found:', bannerId);
+	const banner = router.db.get('banners').find({ id: bannerId }).value();
+
+	if (!banner) {
 		return res.status(404).json({ message: 'Banner not found' });
 	}
 
 	const updatedBanner = {
-		...banners.get(bannerIndex).value(),
-		...req.body,
+		...banner,
+		season: season || banner.season,
+		title: title || banner.title,
+		subtitle: subtitle || banner.subtitle,
+		categoryId: parseInt(categoryId, 10) || banner.categoryId,
+		imageUrl: imageFilename || banner.imageUrl,
 	};
 
-	if (req.file) {
-		console.log('Updating image URL:', req.file.filename);
-		updatedBanner.imageUrl = req.file.filename;
-	}
-
-	banners.get(bannerIndex).assign(updatedBanner).write();
+	router.db.get('banners').find({ id: bannerId }).assign(updatedBanner).write();
 
 	res.status(200).json({
 		message: 'Banner updated successfully',

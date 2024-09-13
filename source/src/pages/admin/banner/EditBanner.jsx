@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BannerForm } from '~/common/Form';
@@ -6,64 +6,56 @@ import Title from '~/common/Title';
 import { BASE_URL } from '~/utils/apiURL';
 
 const EditBanner = () => {
-    const { id } = useParams();
-    const [banner, setBanner] = useState(null);
     const [validationErrors, setValidationErrors] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [bannerData, setBannerData] = useState(null);
     const [categories, setCategories] = useState([]);
+    const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchBanner() {
             try {
                 const response = await fetch(`${BASE_URL}/banners/${id}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('Fetched banner data:', data);
-                    setBanner(data.banner);
+                const data = await response.json();
+
+                const banner = data.banner;
+                const category = categories.find((c) => c.id === banner.categoryId);
+                if (category) {
+                    setBannerData({ ...banner, categoryName: category.name });
                 } else {
-                    toast.error('Banner not found.');
-                    navigate('/admin/banners');
+                    setBannerData(banner);
                 }
             } catch (error) {
                 console.error('Failed to fetch banner:', error);
-                toast.error('Failed to fetch banner.');
-            } finally {
-                setLoading(false);
+                toast.error('Failed to load banner!');
             }
         }
 
         async function fetchCategories() {
             try {
                 const response = await fetch(`${BASE_URL}/categories`);
-                if (response.ok) {
-                    const data = await response.json();
-                    setCategories(data);
-                } else {
-                    toast.error('Failed to fetch categories.');
-                }
+                const data = await response.json();
+                setCategories(data);
             } catch (error) {
                 console.error('Failed to fetch categories:', error);
-                toast.error('Failed to fetch categories.');
             }
         }
 
         fetchBanner();
         fetchCategories();
-    }, [id, navigate]);
+    }, [id, categories]);
 
     async function handleSubmit(event) {
         event.preventDefault();
         setLoading(true);
 
         const formData = new FormData(event.target);
-        
+
         const categoryId = parseInt(formData.get('categoryId'), 10);
         formData.set('categoryId', categoryId.toString());
 
         const banner = Object.fromEntries(formData.entries());
-        console.log(banner);
-
         if (!banner.season || !banner.title || !banner.subtitle || !banner.categoryId) {
             setValidationErrors({
                 season: !banner.season ? 'Season is required' : '',
@@ -81,15 +73,17 @@ const EditBanner = () => {
                 body: formData,
             });
 
-            const responseData = await response.json();
-
             if (response.ok) {
                 navigate('/admin/banners');
                 toast.success('Banner updated successfully!');
             } else if (response.status === 400) {
-                setValidationErrors(responseData);
+                const data = await response.json();
+                setValidationErrors(data);
+                console.error('Validation errors:', data);
                 toast.error('Validation failed. Please check the errors.');
             } else {
+                const errorText = await response.text();
+                console.error('Server error:', errorText);
                 toast.error('Unable to update the banner!');
             }
         } catch (error) {
@@ -100,8 +94,9 @@ const EditBanner = () => {
         }
     }
 
-    if (loading) return <div>Loading...</div>;
-    if (!banner) return <div>No banner data found</div>;
+    if (!bannerData) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="list">
@@ -110,7 +105,7 @@ const EditBanner = () => {
             </div>
             <BannerForm
                 onSubmit={handleSubmit}
-                initialData={banner}
+                initialData={bannerData}
                 validationErrors={validationErrors}
                 loading={loading}
                 categories={categories}

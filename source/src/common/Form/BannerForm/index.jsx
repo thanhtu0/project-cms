@@ -9,8 +9,8 @@ const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading
     const [selectedCategory, setSelectedCategory] = useState(initialData.categoryId || '');
 
     useEffect(() => {
-        if (initialData.imageFilename) {
-            setImageOlder(`${BASE_URL}/images/${initialData.categoryId}/${initialData.imageFilename}`);
+        if (initialData.imageUrl) {
+            setImageOlder(`${BASE_URL}/images/banners/${initialData.categoryName}/${initialData.imageUrl}`);
         }
     }, [initialData]);
 
@@ -24,7 +24,7 @@ const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading
 
     return (
         <div className="list__form">
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} encType="multipart/form-data">
                 <input type="hidden" name="type" value="banner" />
                 <div className="row">
                     <div className="col-25">
