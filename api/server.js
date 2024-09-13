@@ -16,13 +16,18 @@ const storage = multer.diskStorage({
 		let uploadPath = 'public/images/';
 		const type = req.body.type;
 
+		if (!type) {
+			return cb(new Error('Type is required'));
+		}
+
 		if (type !== 'brand' && !req.body.categoryId) {
 			return cb(new Error('CategoryId is missing'));
 		}
 
+		let category;
 		if (type !== 'brand') {
 			const categories = router.db.get('categories').value();
-			const category = categories.find((cate) => cate.id === parseInt(req.body.categoryId));
+			category = categories.find((cate) => cate.id === parseInt(req.body.categoryId));
 
 			if (!category) {
 				return cb(new Error('Invalid categoryId'));
@@ -38,13 +43,21 @@ const storage = multer.diskStorage({
 				uploadPath += 'brands/';
 				break;
 			case 'banner':
-				uploadPath += `banners/${sanitizeCategoryName(category.name)}/`;
+				if (category) {
+					uploadPath += `banners/${sanitizeCategoryName(category.name)}/`;
+				}
 				break;
 			case 'employee':
 				uploadPath += 'employees/';
 				break;
 			case 'product':
-				uploadPath += req.body.category === 'men' ? 'products/men/' : 'products/women/';
+				if (req.body.category === 'men') {
+					uploadPath += 'products/men/';
+				} else if (req.body.category === 'women') {
+					uploadPath += 'products/women/';
+				} else {
+					return cb(new Error('Invalid product category'));
+				}
 				break;
 			case 'customer':
 				uploadPath += 'customers/';
@@ -65,6 +78,8 @@ const storage = multer.diskStorage({
 		cb(null, imageFilename);
 	},
 });
+
+module.exports = multer({ storage });
 
 // Define multer with file filter for images only
 const upload = multer({
@@ -132,9 +147,6 @@ server.post('/banners', validateBanner(categories), (req, res) => {
 	});
 });
 server.patch('/banners/:id', validateBanner(categories), (req, res) => {
-	console.log('Request Body:', req.body);
-	console.log('Uploaded File:', req.file);
-
 	const bannerId = parseInt(req.params.id, 10);
 	const { season, title, subtitle, categoryId } = req.body;
 	const imageFilename = req.file ? req.file.filename : req.body.imageFilename;

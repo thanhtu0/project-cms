@@ -117,6 +117,22 @@
       "subtitle": "LasTest Skateboard",
       "categoryId": 2,
       "imageUrl": "default_ferMale.png"
+    },
+    {
+      "id": 3,
+      "season": "Skateboard Men",
+      "title": "New Day New Like",
+      "subtitle": "New Like New Day",
+      "categoryId": 1,
+      "imageUrl": "skate_male.png"
+    },
+    {
+      "id": 4,
+      "season": "Skateboard Women",
+      "title": "Banner 5",
+      "subtitle": "Banner 5",
+      "categoryId": 2,
+      "imageUrl": "skate_ferMale.png"
     }
   ],
   "subcategories": [
@@ -224,8 +240,8 @@
     },
     {
       "type": "brand",
-      "name": "Patagonia",
-      "imageFilename": "patagonia.png",
+      "name": "Dc",
+      "imageFilename": "dc.png",
       "id": 7
     },
     {
@@ -233,6 +249,24 @@
       "name": "Obey",
       "imageFilename": "obey.png",
       "id": 8
+    },
+    {
+      "type": "brand",
+      "name": "Coverse",
+      "imageFilename": "converse.png",
+      "id": 9
+    },
+    {
+      "type": "brand",
+      "name": "Kavu",
+      "imageFilename": "kavu.png",
+      "id": 10
+    },
+    {
+      "type": "brand",
+      "name": "Patagonia",
+      "imageFilename": "patagonia.png",
+      "id": 11
     }
   ],
   "products": [

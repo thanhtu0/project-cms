@@ -1,9 +1,6 @@
-// Pages
 import { Home } from '~/pages/client';
 import { AdminHome } from '~/pages/admin';
 import { Authentication, ForgotPassword } from '~/pages/auth';
-
-// Layouts
 import { AdminLayout, ProductDetail } from '~/layouts';
 import { ProductList, CreateProduct, EditProduct } from '~/pages/admin/Product';
 import { CreateContact, EditContact, ContactList } from '~/pages/admin/Contact';
