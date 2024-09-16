@@ -137,6 +137,9 @@
 .h-3 {
     height: 3rem;
 }
+.h-38 {
+    height: 3.8rem;
+}
 .w-3 {
     width: 3rem;
 }
@@ -157,6 +160,9 @@
 }
 .w-6 {
     width: 6rem;
+}
+.wBtn-100 {
+    width: calc(100% - 100px);
 }
 .w-30 {
     width: 30rem;
@@ -367,6 +373,9 @@
 }
 .lh-36 {
     line-height: 3.6rem;
+}
+.lh-50 {
+    line-height: 5rem;
 }
 .lh-55 {
     line-height: 5.5rem;

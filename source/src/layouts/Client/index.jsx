@@ -1,4 +1,5 @@
 import { Banner, Brand, Footer, Header } from '../components';
+import Subscribe from '../components/Subscribe';
 import './UserLayout.scss';
 
 const UserLayout = ({ children }) => {
@@ -12,6 +13,7 @@ const UserLayout = ({ children }) => {
                     {children}
                 </div>
             </div>
+            <Subscribe />
             <Footer />
         </div>
     );

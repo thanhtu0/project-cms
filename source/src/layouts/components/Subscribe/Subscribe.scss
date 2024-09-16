@@ -1,0 +1,25 @@
+@import '../../../styles/GlobalStyles.scss';
+.subscription {
+    height: 236px;
+    padding: 0 330px;
+
+    &__content {
+        width: 197px;
+        height: 76px;
+    }
+
+    &__text {
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 1px;
+            background-color: $clr-black;
+            margin-left: 8px;
+        }
+    }
+
+    &__title {
+        margin-top: 11px;
+    }
+}

@@ -24,7 +24,7 @@ const Footer = () => {
                 <Social />
             </div>
             <div className="footer-bottom">
-                <p className="fs-12 fw-3 lh-55 text-white">© 2021 {companyName} retail Ltd. All Rights Reserved.</p>
+                <p className="fs-12 fw-32 text-white">© 2021 {companyName} retail Ltd. All Rights Reserved.</p>
             </div>
         </footer>
     );

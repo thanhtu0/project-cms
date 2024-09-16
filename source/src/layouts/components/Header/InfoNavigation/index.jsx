@@ -2,6 +2,7 @@ import { FaRegUser } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartFlatbed, faChevronDown, faHeart, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
+import Search from '~/components/Search';
 
 const InfoNavigation = ({ companyName, categories, categoriesLoading, categoriesError }) => {
     return (
@@ -26,13 +27,16 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
                     )}
                 </ul>
             </nav>
-            <div className="search-bar position-relative">
-                <input className="w-100 h-100" type="text" placeholder="Search product" />
-                <button type="submit" className="position-absolute right-0 h-100 bg-black text-white">
-                    <FontAwesomeIcon className="fs-14" icon={faSearch} />
-                    <span className="fs-14">Search</span>
-                </button>
-            </div>
+            <Search
+                placeholder="Search product"
+                buttonText="Search"
+                width="380px"
+                buttonWidth="100px"
+                onSearch={() => {
+                    /* Handle search */
+                }}
+            />
+
             <div className="account flex">
                 <FaRegUser className="mr-1" />
                 <div className="account-text flex flex-column">
@@ -51,6 +55,7 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
                     </div>
                 </div>
             </div>
+
             <div className="wishlist flex h-2">
                 <Button to="/wishlist" leftIcon={<FontAwesomeIcon icon={faHeart} />} iconSize="2rem" text>
                     Wishlist
