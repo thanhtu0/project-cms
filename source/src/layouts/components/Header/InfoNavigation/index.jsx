@@ -1,15 +1,14 @@
-import { Link } from 'react-router-dom';
 import { FaRegUser } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartFlatbed, faChevronDown, faHeart, faSearch } from '@fortawesome/free-solid-svg-icons';
+import Button from '~/components/Button';
 
 const InfoNavigation = ({ companyName, categories, categoriesLoading, categoriesError }) => {
     return (
         <div className="info-navigation flex flex-between px-13 py-1">
-            <Link to="/" className="logo-text fs-43">
+            <Button to="/" className="logo-text fs-43" text>
                 {categoriesLoading ? 'Loading company name...' : companyName || ''}
-            </Link>
-
+            </Button>
             <nav>
                 <ul className="flex flex-around">
                     {categoriesLoading ? (
@@ -19,13 +18,14 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
                     ) : (
                         categories.map((category) => (
                             <li key={category.id}>
-                                <Link to={`/${category.name.toLowerCase()}`}>{category.name}</Link>
+                                <Button to={`/${category.name.toLowerCase()}`} text>
+                                    {category.name}
+                                </Button>
                             </li>
                         ))
                     )}
                 </ul>
             </nav>
-
             <div className="search-bar position-relative">
                 <input className="w-100 h-100" type="text" placeholder="Search product" />
                 <button type="submit" className="position-absolute right-0 h-100 bg-black text-white">
@@ -33,18 +33,17 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
                     <span className="fs-14">Search</span>
                 </button>
             </div>
-
             <div className="account flex">
-                <FaRegUser className="account-icon mr-2" />
+                <FaRegUser className="mr-1" />
                 <div className="account-text flex flex-column">
                     <div className="up flex">
-                        <Link className="fs-8" to="/login">
+                        <Button to="/login" className="fs-8" text>
                             Log in
-                        </Link>{' '}
+                        </Button>{' '}
                         /
-                        <Link className="fs-8" to="/register">
+                        <Button to="/register" className="fs-8" text>
                             Sign up
-                        </Link>
+                        </Button>
                     </div>
                     <div className="down flex">
                         <p className="fs-14">Account</p>
@@ -52,19 +51,16 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
                     </div>
                 </div>
             </div>
-
             <div className="wishlist flex h-2">
-                <FontAwesomeIcon icon={faHeart} className="fs-20" />
-                <Link to="/wishlist" className="ml-2 fs-14 lh-18">
+                <Button to="/wishlist" leftIcon={<FontAwesomeIcon icon={faHeart} />} iconSize="2rem" text>
                     Wishlist
-                </Link>
+                </Button>
             </div>
 
             <div className="cart flex h-2">
-                <FontAwesomeIcon icon={faCartFlatbed} className="fs-20" />
-                <Link to="/cart" className="ml-2 fs-14 lh-18">
+                <Button to="/cart" leftIcon={<FontAwesomeIcon icon={faCartFlatbed} />} iconSize="2rem" text>
                     Cart
-                </Link>
+                </Button>
             </div>
         </div>
     );

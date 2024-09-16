@@ -22,13 +22,13 @@
             a {
                 &:hover {
                     font-size: 1.3rem;
-                    color: $clr-primary;
+                    text-decoration: none;
                 }
             }
 
             &.more-subcategory {
                 cursor: pointer;
-                color: $clr-primary;
+                font-weight: 600;
 
                 &:hover .tooltip {
                     visibility: visible;

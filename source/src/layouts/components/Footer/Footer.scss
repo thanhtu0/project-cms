@@ -31,22 +31,6 @@
             ul {
                 li {
                     margin-bottom: 0.4rem;
-
-                    button {
-                        color: $clr-white;
-
-                        &:hover {
-                            color: $clr-gray-9a;
-                        }
-                    }
-
-                    a {
-                        color: $clr-white;
-
-                        &:hover {
-                            color: $clr-gray-9a;
-                        }
-                    }
                 }
             }
 
@@ -57,15 +41,6 @@
             .about-section {
                 display: flex;
                 justify-content: space-between;
-
-                .about-left,
-                .about-right {
-                    width: 45%;
-
-                    li a {
-                        line-height: 1.8rem;
-                    }
-                }
             }
 
             .payment-methods {
@@ -84,7 +59,10 @@
             }
 
             .social-icons li a {
+                display: flex;
+                align-items: start;
                 transition: color 0.3s ease;
+                padding: 0;
 
                 &.facebook:hover {
                     color: #3b5998;

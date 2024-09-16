@@ -1,17 +1,17 @@
-import { Link } from 'react-router-dom';
 import Title from '../../Title';
+import Button from '~/components/Button';
 
 const ListHeader = ({ title, refreshHandler, refreshLabel = 'Refresh', createLink, createLabel = 'Create' }) => {
     return (
         <div className="list__header flex flex-between">
             <Title text={title} />
             <div className="list__btn-group mr-2">
-                <button type="button" className="btn btn-outline-success" onClick={refreshHandler}>
+                <Button onClick={refreshHandler} success>
                     {refreshLabel}
-                </button>
-                <Link to={createLink} className="btn btn-primary">
+                </Button>
+                <Button to={createLink} primary>
                     {createLabel}
-                </Link>
+                </Button>
             </div>
         </div>
     );

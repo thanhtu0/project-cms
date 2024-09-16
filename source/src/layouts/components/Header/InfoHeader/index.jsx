@@ -21,7 +21,7 @@ const InfoHeader = ({ infoItems, loading, error }) => {
 
             <div className="right-info flex">
                 {Array.from({ length: 5 }, (_, index) => (
-                    <IoIosStar className="icon" key={index} />
+                    <IoIosStar className="icon fs-14" key={index} />
                 ))}
                 <p className="fs-12 lh-15 ml-1">33400 Five Star Service Reviews</p>
             </div>

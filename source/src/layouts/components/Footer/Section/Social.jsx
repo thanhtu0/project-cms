@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import useContactData from '~/hooks/useContactData';
 import { Error, Loading } from '~/common';
+import Button from '~/components/Button';
 
 const iconMap = {
     facebook: faFacebook,
@@ -35,10 +36,10 @@ const SocialSection = () => {
                     <h3 className="fs-16 text-white">Social app</h3>
                     <ul className="social-icons">
                         {socialLinks.map(({ id, href, icon, name }) => (
-                            <li key={id} className="mr-1">
-                                <a href={href} className={name} target="_blank" rel="noopener noreferrer">
-                                    <FontAwesomeIcon icon={iconMap[name]} />
-                                </a>
+                            <li key={id} className="mr-1 text-white">
+                                <Button href={href} icon className={name} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={iconMap[name]} style={{ fontSize: '1.6rem' }} />
+                                </Button>
                             </li>
                         ))}
                     </ul>

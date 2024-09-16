@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Button from '~/components/Button';
 
 const ListTable = ({ headers, data, onEdit, onDelete, renderRow }) => {
     return (
@@ -19,16 +19,12 @@ const ListTable = ({ headers, data, onEdit, onDelete, renderRow }) => {
                         <tr className="text-black-1" key={item.id}>
                             {renderRow(item)}
                             <td style={{ width: '10px', whiteSpace: 'nowrap' }}>
-                                <Link className="btn btn-primary btn-icon" to={onEdit(item)}>
+                                <Button to={onEdit(item)} edit>
                                     <ion-icon name="create-outline"></ion-icon>
-                                </Link>
-                                <button
-                                    type="button"
-                                    className="btn btn-danger btn-icon"
-                                    onClick={() => onDelete(item)}
-                                >
+                                </Button>
+                                <Button onClick={() => onDelete(item)} del>
                                     <ion-icon name="trash-outline"></ion-icon>
-                                </button>
+                                </Button>
                             </td>
                         </tr>
                     ))}

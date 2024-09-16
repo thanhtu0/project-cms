@@ -240,33 +240,15 @@
     },
     {
       "type": "brand",
-      "name": "Dc",
-      "imageFilename": "dc.png",
+      "name": "Obey",
+      "imageFilename": "obey.png",
       "id": 7
     },
     {
       "type": "brand",
-      "name": "Obey",
-      "imageFilename": "obey.png",
+      "name": "Dc",
+      "imageFilename": "dc.png",
       "id": 8
-    },
-    {
-      "type": "brand",
-      "name": "Coverse",
-      "imageFilename": "converse.png",
-      "id": 9
-    },
-    {
-      "type": "brand",
-      "name": "Kavu",
-      "imageFilename": "kavu.png",
-      "id": 10
-    },
-    {
-      "type": "brand",
-      "name": "Patagonia",
-      "imageFilename": "patagonia.png",
-      "id": 11
     }
   ],
   "products": [

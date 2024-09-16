@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Button from '~/components/Button';
 
 const SubCategoryForm = ({ onSubmit, initialData = {}, validationErrors = {} }) => {
     return (
@@ -29,12 +29,12 @@ const SubCategoryForm = ({ onSubmit, initialData = {}, validationErrors = {} }) 
                 </div>
 
                 <div className="btn-actions">
-                    <button type="submit" className="btn btn-primary">
+                    <Button type="submit" primary>
                         Submit
-                    </button>
-                    <Link className="btn btn-outline-default" to="/admin/subcategories">
+                    </Button>
+                    <Button to="/admin/subcategories" secondary>
                         Cancel
-                    </Link>
+                    </Button>
                 </div>
             </form>
         </div>

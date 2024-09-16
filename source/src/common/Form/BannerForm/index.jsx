@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Button from '~/components/Button';
 import useImagePreview from '~/hooks/useImagePreview';
 import { BASE_URL } from '~/utils/apiURL';
 
@@ -99,13 +99,14 @@ const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading
                         )}
                     </div>
                 </div>
+
                 <div className="btn-actions">
-                    <button type="submit" className="btn btn-primary" disabled={loading}>
+                    <Button type="submit" disabled={loading} primary>
                         {loading ? 'Submitting...' : 'Submit'}
-                    </button>
-                    <Link className="btn btn-outline-default" to="/admin/banners">
+                    </Button>
+                    <Button to="/admin/banners" secondary>
                         Cancel
-                    </Link>
+                    </Button>
                 </div>
             </form>
         </div>

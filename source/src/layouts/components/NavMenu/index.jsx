@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './NavMenu.scss';
 import useFetch from '~/hooks/useFetch';
 import { BASE_URL } from '~/utils/apiURL';
+import Button from '~/components/Button';
 
 const NavMenu = () => {
     const { data: subcategories, loading, error } = useFetch(`${BASE_URL}/subcategories`);
@@ -23,13 +23,14 @@ const NavMenu = () => {
                 <ul className="flex">
                     {displayedSubcategories.map((subcategory) => (
                         <li key={subcategory.id} className="h-34 flex flex-center">
-                            <Link
+                            <Button
                                 to={`/${subcategory.name.toLowerCase().replace(/\s+/g, '-')}`}
-                                title={subcategory.name}
+                                text
                                 className="text-black text-center"
+                                aria-label={subcategory.name}
                             >
                                 {subcategory.name}
-                            </Link>
+                            </Button>
                         </li>
                     ))}
                     {subcategories.length > 9 && (

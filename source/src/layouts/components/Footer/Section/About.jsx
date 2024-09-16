@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Error, Loading } from '~/common';
+import Button from '~/components/Button';
 import useContactData from '~/hooks/useContactData';
 import { createSlug } from '~/utils/helpers';
 
@@ -33,9 +34,14 @@ const AboutSection = () => {
                 <ul className="about-left">
                     {links.left.map(({ id, name }) => (
                         <li key={id}>
-                            <button onClick={() => handleBrandClick(name)} aria-label={`About ${name}`}>
+                            <Button
+                                onClick={() => handleBrandClick(name)}
+                                aria-label={`About ${name}`}
+                                className="about-link text-white"
+                                text
+                            >
                                 {name}
-                            </button>
+                            </Button>
                         </li>
                     ))}
                 </ul>
@@ -43,9 +49,14 @@ const AboutSection = () => {
                     <ul className="about-right">
                         {links.right.map(({ id, name }) => (
                             <li key={id}>
-                                <button onClick={() => handleBrandClick(name)} aria-label={`About ${name}`}>
+                                <Button
+                                    onClick={() => handleBrandClick(name)}
+                                    aria-label={`About ${name}`}
+                                    className="about-link text-white"
+                                    text
+                                >
                                     {name}
-                                </button>
+                                </Button>
                             </li>
                         ))}
                     </ul>

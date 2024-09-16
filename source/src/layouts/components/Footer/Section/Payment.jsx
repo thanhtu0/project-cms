@@ -4,6 +4,7 @@ import useContactData from '~/hooks/useContactData';
 import { Error, Loading } from '~/common';
 import { useNavigate } from 'react-router-dom';
 import { createSlug } from '~/utils/helpers';
+import Button from '~/components/Button';
 
 const PaymentSection = () => {
     const { data, loading, error } = useContactData();
@@ -28,10 +29,16 @@ const PaymentSection = () => {
                     <ul className="payment-methods">
                         {paymentMethods.map(({ id, name, icon }) => (
                             <li className="text-white fs-14 lh-18" key={id}>
-                                <FontAwesomeIcon icon={faCreditCard} className={`icon ${icon} mr-1`} />
-                                <button onClick={() => handleBrandClick(name)} aria-label={`Payment ${name}`}>
+                                <Button
+                                    onClick={() => handleBrandClick(name)}
+                                    aria-label={`Payment ${name}`}
+                                    className="payment-link text-white"
+                                    leftIcon={<FontAwesomeIcon icon={faCreditCard} />}
+                                    iconSize="2rem"
+                                    text
+                                >
                                     {name}
-                                </button>
+                                </Button>
                             </li>
                         ))}
                     </ul>

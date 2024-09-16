@@ -41,6 +41,7 @@
                 width: 17rem;
                 height: 12rem;
                 background-color: $clr-white-fc;
+                margin-right: 62px;
 
                 li {
                     position: relative;
@@ -70,6 +71,7 @@
         .search-bar {
             width: 380px;
             height: 38px;
+            margin-right: 70px;
 
             button {
                 width: 100px;
@@ -91,27 +93,16 @@
 
             .account-text {
                 .up {
-                    width: 70px;
+                    width: 80px;
                     a {
                         color: $clr-black;
-                        transition: font-size 0.3s ease-in-out;
-
-                        &:hover {
-                            font-size: 0.9rem;
-                        }
                     }
                 }
 
                 .down {
                     cursor: pointer;
                     p {
-                        margin-top: 2px;
                         margin-right: 6px;
-                        transition: font-size 0.3s ease-in-out;
-
-                        &:hover {
-                            font-size: 1.5rem;
-                        }
                     }
 
                     .icon {
@@ -127,25 +118,10 @@
 
         .wishlist {
             width: 90px;
-
-            a {
-                transition: font-size 0.3s ease-in-out;
-
-                &:hover {
-                    font-size: 1.5rem;
-                }
-            }
         }
 
         .cart {
-            a {
-                width: 30px;
-                transition: font-size 0.3s ease-in-out;
-
-                &:hover {
-                    font-size: 1.5rem;
-                }
-            }
+            width: 72px;
         }
     }
 }

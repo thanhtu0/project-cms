@@ -1,4 +1,5 @@
 import '../../styles/_modal.scss';
+import Button from '../../components/Button';
 
 const Modal = ({ show, onClose, onConfirm, title, message }) => {
     if (!show) return null;
@@ -19,22 +20,22 @@ const Modal = ({ show, onClose, onConfirm, title, message }) => {
                     <p>{message}</p>
                 </div>
                 <div className="modal-footer flex flex-end pt-1">
-                    <button
-                        className="py-1 px-2 ml-1 fs-16 btn-primary"
+                    <Button
                         onClick={() => {
                             onConfirm();
                         }}
+                        primary
                     >
                         Confirm
-                    </button>
-                    <button
-                        className="py-1 px-2 ml-1 fs-16 btn-outline-default"
+                    </Button>
+                    <Button
                         onClick={() => {
                             onClose();
                         }}
+                        secondary
                     >
                         Cancel
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>
