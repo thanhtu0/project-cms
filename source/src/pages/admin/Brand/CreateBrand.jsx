@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BrandForm } from '~/common/Form';
 import Title from '~/common/Title';
-import { API_BASE_URL, BRANDS_URL } from '~/utils/apiURL';
+import { BRANDS_URL } from '~/utils/apiURL';
 
 const CreateBrand = () => {
     const [validationErrors, setValidationErrors] = useState({});

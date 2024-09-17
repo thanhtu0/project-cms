@@ -1,6 +1,6 @@
 import { Pagination } from '~/common';
 import { ListHeader, ListTable, ListTitle } from '~/common/List';
-import { ConfirmModal } from '~/common/Modal';
+import { Confirm } from '~/common/Modal';
 import { useDeleteModal, usePaginatedData } from '~/hooks';
 import { SUBCATEGORIES_URL } from '~/utils/apiURL';
 
@@ -53,7 +53,7 @@ const SubCategoryList = () => {
             {totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             )}
-            <ConfirmModal
+            <Confirm
                 show={showModal}
                 onClose={handleCloseModal}
                 onConfirm={handleConfirmDelete}

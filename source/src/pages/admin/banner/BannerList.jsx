@@ -5,7 +5,7 @@ import useFetch from '~/hooks/useFetch';
 import { BANNER_IMAGES, BANNERS_URL, CATEGORIES_URL } from '~/utils/apiURL';
 import { getCategoryName } from '~/utils/helpers';
 import { useDeleteModal, usePaginatedData } from '~/hooks';
-import { ConfirmModal } from '~/common/Modal';
+import { Confirm } from '~/common/Modal';
 
 const BannerList = () => {
     const {
@@ -64,7 +64,7 @@ const BannerList = () => {
             {totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             )}
-            <ConfirmModal
+            <Confirm
                 show={showModal}
                 onClose={handleCloseModal}
                 onConfirm={handleConfirmDelete}

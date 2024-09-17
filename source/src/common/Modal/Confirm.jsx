@@ -1,7 +1,7 @@
 import Button from '../../components/Button';
 import './Modal.scss';
 
-const Modal = ({ show, onClose, onConfirm, title, message }) => {
+const Confirm = ({ show, onClose, onConfirm, title, message }) => {
     if (!show) return null;
 
     return (
@@ -16,7 +16,7 @@ const Modal = ({ show, onClose, onConfirm, title, message }) => {
                         &times;
                     </button>
                 </div>
-                <div className="modal-body fs-18 text-center text-black-1 fw-5 my-2">
+                <div className="modal-body fs-18 text-center text-black-1 fw-4 my-2">
                     <p>{message}</p>
                 </div>
                 <div className="modal-footer flex flex-end pt-1">
@@ -42,4 +42,4 @@ const Modal = ({ show, onClose, onConfirm, title, message }) => {
     );
 };
 
-export default Modal;
+export default Confirm;

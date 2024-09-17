@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { BrandForm } from '~/common/Form';
 import Title from '~/common/Title';
 import useFetchItem from '~/hooks/useFetchItem';
-import { API_BASE_URL, BRANDS_URL } from '~/utils/apiURL';
+import { BRANDS_URL } from '~/utils/apiURL';
 
 const EditBrand = () => {
     const { id } = useParams();

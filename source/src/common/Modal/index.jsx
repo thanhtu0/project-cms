@@ -1,2 +1,2 @@
-export { default as ConfirmModal } from './ConfirmModal';
-export { default as SubscribeModal } from './SubscribeModal';
+export { default as Confirm } from './Confirm';
+export { default as Subscribe } from './Subscribe';

@@ -41,7 +41,7 @@ const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading
                     </div>
                     <div className="col-75">
                         {categories.map((category) => (
-                            <div key={category.id} className="col-25">
+                            <div key={category.id} className="col-25 mt-12">
                                 <input
                                     type="radio"
                                     name="categoryId"

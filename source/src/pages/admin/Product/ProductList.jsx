@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Pagination } from '~/common';
 import { ListHeader, ListTitle } from '~/common/List';
 import SelectFilter from '~/common/SelectFilter';
+import Button from '~/components/Button';
 import { API_BASE_URL, BRANDS_URL, CATEGORIES_URL, SUBCATEGORIES_URL } from '~/utils/apiURL';
 
 const ProductList = () => {
@@ -171,15 +172,13 @@ const ProductList = () => {
                                             whiteSpace: 'nowrap',
                                         }}
                                     >
-                                        <Link
-                                            className="btn btn-primary btn-icon"
-                                            to={'/admin/products/edit/' + product.id}
-                                        >
+                                        <Button to={'/admin/products/edit/' + product.id} edit>
                                             <ion-icon name="create-outline"></ion-icon>
-                                        </Link>
-                                        <button type="button" className="btn btn-danger btn-icon">
+                                        </Button>
+
+                                        <Button type="button" del>
                                             <ion-icon name="trash-outline"></ion-icon>
-                                        </button>
+                                        </Button>
                                     </td>
                                 </tr>
                             ))}

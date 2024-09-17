@@ -1,4 +1,4 @@
-import Modal from '~/common/Modal/SubscribeModal';
+import Modal from '~/common/Modal/Subscribe';
 import './Subscribe.scss';
 import Search from '~/components/Search';
 import { useState } from 'react';

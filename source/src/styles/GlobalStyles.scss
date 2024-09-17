@@ -65,6 +65,7 @@ select {
 
 input[type='text'],
 input[type='image'],
+input[type='file'],
 select,
 textarea {
     width: 100%;
@@ -73,6 +74,10 @@ textarea {
     border: 1px solid $clr-black-2;
     border-radius: 5px;
     resize: vertical;
+}
+
+input[type='file'] {
+    border: none;
 }
 
 input[type='radio'] {
@@ -95,19 +100,20 @@ label {
 .col-25 {
     float: left;
     width: 25%;
-    margin-top: 6px;
 }
 
 .col-50 {
     float: left;
     width: 50%;
-    margin-top: 6px;
 }
 
 .col-75 {
     float: left;
     width: 75%;
-    margin-top: 6px;
+}
+
+.row {
+    margin-top: 10px;
 }
 
 .row::after {
