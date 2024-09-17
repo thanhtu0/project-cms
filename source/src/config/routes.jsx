@@ -14,8 +14,6 @@ const routes = {
     admin_error: '/admin/*',
 
     contact: '/admin/contact',
-    create_contact: '/admin/contact/create',
-    update_contact: '/admin/contact/edit/:id',
 
     brands: '/admin/brands',
     create_brand: '/admin/brand/create',

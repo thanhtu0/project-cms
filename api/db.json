@@ -117,22 +117,6 @@
       "subtitle": "LasTest Skateboard",
       "categoryId": 2,
       "imageUrl": "default_ferMale.png"
-    },
-    {
-      "id": 3,
-      "season": "Skateboard Men",
-      "title": "New Day New Like",
-      "subtitle": "New Like New Day",
-      "categoryId": 1,
-      "imageUrl": "skate_male.png"
-    },
-    {
-      "id": 4,
-      "season": "Skateboard Women",
-      "title": "Banner 5",
-      "subtitle": "Banner 5",
-      "categoryId": 2,
-      "imageUrl": "skate_ferMale.png"
     }
   ],
   "subcategories": [
@@ -237,18 +221,6 @@
       "id": 6,
       "name": "Santa Cruz",
       "imageFilename": "santa_cruz.png"
-    },
-    {
-      "type": "brand",
-      "name": "Obey",
-      "imageFilename": "obey.png",
-      "id": 7
-    },
-    {
-      "type": "brand",
-      "name": "Dc",
-      "imageFilename": "dc.png",
-      "id": 8
     }
   ],
   "products": [

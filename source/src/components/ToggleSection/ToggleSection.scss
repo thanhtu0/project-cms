@@ -1,0 +1,58 @@
+@import '../../styles/GlobalStyles.scss';
+
+.about-table,
+.payment-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    .table-header {
+        display: contents;
+        margin-bottom: 0.5rem;
+    }
+
+    .header-item {
+        padding: 0.5rem;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .table-row {
+        display: contents;
+    }
+
+    .table-cell {
+        padding: 0.5rem;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.social-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.social-table th,
+.social-table td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+}
+
+.social-table th {
+    background-color: $clr-white-fc;
+}
+
+.social-table td {
+    vertical-align: middle;
+}
+
+.social-table th:nth-child(2) {
+    width: 50%;
+}
+
+.social-table td:nth-child(1) {
+    text-transform: capitalize;
+}
+
+button:hover {
+    box-shadow: 2px 4px 8px rgba(25, 25, 25, 0.3);
+}

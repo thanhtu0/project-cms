@@ -3,14 +3,14 @@ import { AdminHome } from '~/pages/admin';
 import { Authentication, ForgotPassword } from '~/pages/auth';
 import { AdminLayout, ProductDetail } from '~/layouts';
 import { ProductList, CreateProduct, EditProduct } from '~/pages/admin/Product';
-import { CreateContact, EditContact, ContactList } from '~/pages/admin/Contact';
 import { CategoryList, CreateCategory, EditCategory } from '~/pages/admin/Category';
 import { CreateSubCategory, EditSubCategory, SubCategoryList } from '~/pages/admin/SubCategory';
 import { CreateEmployee, EditEmployee, EmployeeList } from '~/pages/admin/Employee';
 import { BrandList, CreateBrand, EditBrand } from '~/pages/admin/Brand';
-import NotFound from '~/pages/error/NotFound';
 import { BannerList, CreateBanner, EditBanner } from '~/pages/admin/Banner';
+import NotFound from '~/pages/error/NotFound';
 import config from '~/config';
+import ContactList from '~/pages/admin/Contact/ContactList';
 
 // Public routes
 const publicRoutes = [
@@ -36,8 +36,6 @@ const privateRoutes = [
     { path: config.routes.update_product, component: EditProduct, layout: AdminLayout },
 
     { path: config.routes.contact, component: ContactList, layout: AdminLayout },
-    { path: config.routes.create_contact, component: CreateContact, layout: AdminLayout },
-    { path: config.routes.update_contact, component: EditContact, layout: AdminLayout },
 
     { path: config.routes.brands, component: BrandList, layout: AdminLayout },
     { path: config.routes.create_brand, component: CreateBrand, layout: AdminLayout },
