@@ -1,3 +1,4 @@
+import GoToTopButton from '~/components/GoToTopButton';
 import { Banner, Brand, Footer, Header } from '../components';
 import Subscribe from '../components/Subscribe';
 import './UserLayout.scss';
@@ -15,6 +16,7 @@ const UserLayout = ({ children }) => {
             </div>
             <Subscribe />
             <Footer />
+            <GoToTopButton />
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import GoToTopButton from '~/components/GoToTopButton';
 import { Footer, Header, NavMenu } from '../components';
 
 const ProductDetail = ({ children }) => {
@@ -9,6 +10,7 @@ const ProductDetail = ({ children }) => {
                 <div className="content">{children}</div>
             </div>
             <Footer />
+            <GoToTopButton />
         </div>
     );
 };

@@ -2,6 +2,7 @@ import './AdminLayout.scss';
 import useToggleNavigation from '~/hooks/useToggleNavigation ';
 import { Main, Navigation } from '../components';
 import FooterAdmin from '../components/FooterAdmin';
+import GoToTopButton from '~/components/GoToTopButton';
 
 const AdminLayout = ({ children }) => {
     useToggleNavigation();
@@ -15,6 +16,7 @@ const AdminLayout = ({ children }) => {
             <div className="content mh-100">
                 {children}
                 <FooterAdmin />
+                <GoToTopButton />
             </div>
         </div>
     );

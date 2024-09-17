@@ -1,0 +1,18 @@
+@import '../../styles/GlobalStyles.scss';
+
+.go-to-top {
+    right: 50px;
+    bottom: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.go-to-top:hover {
+    background-color: $clr-auth-hover;
+}
+
+.go-to-top svg {
+    width: 20px;
+    height: 20px;
+}
