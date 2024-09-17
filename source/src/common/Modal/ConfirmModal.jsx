@@ -1,5 +1,5 @@
-import '../../styles/_modal.scss';
 import Button from '../../components/Button';
+import './Modal.scss';
 
 const Modal = ({ show, onClose, onConfirm, title, message }) => {
     if (!show) return null;

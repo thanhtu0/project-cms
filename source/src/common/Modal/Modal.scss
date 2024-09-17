@@ -1,7 +1,6 @@
-@import 'variables';
-
+@import '../../styles/GlobalStyles.scss';
 .modal-overlay {
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 
     .modal-content {
         border-radius: 8px;
@@ -22,6 +21,10 @@
                     background-color: $clr-danger;
                 }
             }
+        }
+
+        .modal-close-button:hover {
+            background-color: $clr-primary-light;
         }
 
         .modal-footer {

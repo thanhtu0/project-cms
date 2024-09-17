@@ -1,6 +1,6 @@
 import { FaRegUser } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartFlatbed, faChevronDown, faHeart, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCartFlatbed, faChevronDown, faHeart } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
 import Search from '~/components/Search';
 
