@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BannerForm } from '~/common/Form';
 import Title from '~/common/Title';
-import { BASE_URL } from '~/utils/apiURL';
+import { BANNERS_URL, CATEGORIES_URL } from '~/utils/apiURL';
 
 const EditBanner = () => {
     const [validationErrors, setValidationErrors] = useState({});
@@ -16,7 +16,7 @@ const EditBanner = () => {
     useEffect(() => {
         async function fetchBanner() {
             try {
-                const response = await fetch(`${BASE_URL}/banners/${id}`);
+                const response = await fetch(`${BANNERS_URL}/${id}`);
                 const data = await response.json();
 
                 const banner = data.banner;
@@ -34,7 +34,7 @@ const EditBanner = () => {
 
         async function fetchCategories() {
             try {
-                const response = await fetch(`${BASE_URL}/categories`);
+                const response = await fetch(`${CATEGORIES_URL}`);
                 const data = await response.json();
                 setCategories(data);
             } catch (error) {
@@ -68,7 +68,7 @@ const EditBanner = () => {
         }
 
         try {
-            const response = await fetch(`${BASE_URL}/banners/${id}`, {
+            const response = await fetch(`${BANNERS_URL}/${id}`, {
                 method: 'PATCH',
                 body: formData,
             });

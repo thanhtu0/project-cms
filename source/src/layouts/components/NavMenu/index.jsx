@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './NavMenu.scss';
 import useFetch from '~/hooks/useFetch';
-import { BASE_URL } from '~/utils/apiURL';
+import { SUBCATEGORIES_URL } from '~/utils/apiURL';
 import Button from '~/components/Button';
 
 const NavMenu = () => {
-    const { data: subcategories, loading, error } = useFetch(`${BASE_URL}/subcategories`);
+    const { data: subcategories, loading, error } = useFetch(`${SUBCATEGORIES_URL}`);
     const [showAll, setShowAll] = useState(false);
 
     if (loading) return <div>Loading...</div>;

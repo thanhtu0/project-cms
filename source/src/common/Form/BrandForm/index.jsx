@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Button from '~/components/Button';
 import useImagePreview from '~/hooks/useImagePreview';
-import { BASE_URL } from '~/utils/apiURL';
+import { BRAND_IMAGES } from '~/utils/apiURL';
 
 const BrandForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading }) => {
     const { imagePreview, handleImageChange } = useImagePreview('');
@@ -9,7 +9,7 @@ const BrandForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading 
 
     useEffect(() => {
         if (initialData.imageFilename) {
-            setImageOlder(`${BASE_URL}/images/brands/${initialData.imageFilename}`);
+            setImageOlder(`${BRAND_IMAGES}/${initialData.imageFilename}`);
         }
     }, [initialData]);
 

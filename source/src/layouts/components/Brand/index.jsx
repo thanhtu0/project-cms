@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Brand.scss';
 import useFetch from '~/hooks/useFetch';
-import { BASE_URL } from '~/utils/apiURL';
+import { API_BASE_URL, BRAND_IMAGES, BRANDS_URL } from '~/utils/apiURL';
 import { createSlug } from '~/utils/helpers';
 import { Error, Loading } from '~/common';
 
 const Brand = () => {
-    const { data: brands, loading, error } = useFetch(`${BASE_URL}/brands`);
+    const { data: brands, loading, error } = useFetch(`${BRANDS_URL}`);
     const [showAll, setShowAll] = useState(false);
     const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ const Brand = () => {
                 {displayedBrands.map((brand) => (
                     <img
                         key={brand.id}
-                        src={`${BASE_URL}/images/brands/${brand.imageFilename}`}
+                        src={`${BRAND_IMAGES}/${brand.imageFilename}`}
                         alt={`${brand.name}-logo`}
                         onClick={() => handleBrandClick(brand.name)}
                         className="brand-logo__image"

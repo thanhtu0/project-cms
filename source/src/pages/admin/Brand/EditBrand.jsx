@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { BrandForm } from '~/common/Form';
 import Title from '~/common/Title';
 import useFetchItem from '~/hooks/useFetchItem';
-import { BASE_URL } from '~/utils/apiURL';
+import { API_BASE_URL, BRANDS_URL } from '~/utils/apiURL';
 
 const EditBrand = () => {
     const { id } = useParams();
@@ -30,7 +30,7 @@ const EditBrand = () => {
         }
 
         try {
-            const response = await fetch(`${BASE_URL}/brands/${id}`, {
+            const response = await fetch(`${BRANDS_URL}/${id}`, {
                 method: 'PATCH',
                 body: formData,
             });

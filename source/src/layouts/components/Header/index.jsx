@@ -1,4 +1,4 @@
-import { BASE_URL } from '~/utils/apiURL';
+import { CATEGORIES_URL } from '~/utils/apiURL';
 import { NavMenu } from '..';
 import useContactData from '~/hooks/useContactData';
 import useFetch from '~/hooks/useFetch';
@@ -9,7 +9,7 @@ import { faLocationDot, faPhoneVolume } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
     const { data: contactData, loading: contactLoading, error: contactError } = useContactData();
-    const { data: categories, loading: categoriesLoading, error: categoriesError } = useFetch(`${BASE_URL}/categories`);
+    const { data: categories, loading: categoriesLoading, error: categoriesError } = useFetch(`${CATEGORIES_URL}`);
 
     return (
         <header className="header mw-144 flex-column">

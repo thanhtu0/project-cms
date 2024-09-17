@@ -2,7 +2,7 @@ import { Pagination } from '~/common';
 import { ListHeader, ListTitle } from '~/common/List';
 import Button from '~/components/Button';
 import { usePaginatedData } from '~/hooks';
-import { BASE_URL } from '~/utils/apiURL';
+import { API_BASE_URL } from '~/utils/apiURL';
 
 const EmployeeList = () => {
     const itemsPerPage = 9;
@@ -14,7 +14,7 @@ const EmployeeList = () => {
         totalItems,
         handlePageChange,
         handleRefresh,
-    } = usePaginatedData(`${BASE_URL}/employees`, itemsPerPage);
+    } = usePaginatedData(`${API_BASE_URL}/employees`, itemsPerPage);
 
     return (
         <>
@@ -69,7 +69,7 @@ const EmployeeList = () => {
                                 <div className="body mt-1 px-15 grid">
                                     <div className="left-info">
                                         <img
-                                            src={`${BASE_URL}/images/employees/${employee.imageFilename}`}
+                                            src={`${API_BASE_URL}/images/employees/${employee.imageFilename}`}
                                             className="img-fluid profile-user-img"
                                             alt={employee.fullName}
                                         />

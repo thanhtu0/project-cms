@@ -1,7 +1,7 @@
 // hooks/useFormHandler.js
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from '../utils/apiURL';
+import { API_BASE_URL } from '../utils/apiURL';
 import { toast } from 'react-toastify';
 
 const useFormHandler = (endpoint, id = null, redirectPath, title) => {
@@ -24,7 +24,7 @@ const useFormHandler = (endpoint, id = null, redirectPath, title) => {
         }
 
         try {
-            const response = await fetch(`${BASE_URL}/${endpoint}${id ? `/${id}` : ''}`, {
+            const response = await fetch(`${API_BASE_URL}/${endpoint}${id ? `/${id}` : ''}`, {
                 method: id ? 'PATCH' : 'POST',
                 body: formData,
             });

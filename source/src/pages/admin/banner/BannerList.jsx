@@ -2,7 +2,7 @@ import { ListHeader, ListTable, ListTitle } from '~/common/List';
 
 import { Pagination } from '~/common';
 import useFetch from '~/hooks/useFetch';
-import { BASE_URL } from '~/utils/apiURL';
+import { BANNER_IMAGES, BANNERS_URL, CATEGORIES_URL } from '~/utils/apiURL';
 import { getCategoryName } from '~/utils/helpers';
 import { useDeleteModal, usePaginatedData } from '~/hooks';
 import { ConfirmModal } from '~/common/Modal';
@@ -15,7 +15,7 @@ const BannerList = () => {
         totalItems,
         handlePageChange,
         handleRefresh,
-    } = usePaginatedData(`${BASE_URL}/banners`);
+    } = usePaginatedData(`${BANNERS_URL}`);
 
     const {
         showModal,
@@ -23,14 +23,9 @@ const BannerList = () => {
         handleShowModal,
         handleCloseModal,
         handleConfirmDelete,
-    } = useDeleteModal(
-        `${BASE_URL}/banners`,
-        handleRefresh,
-        'Banner deleted successfully!',
-        'Unable to delete the Banner!',
-    );
+    } = useDeleteModal(`${BANNERS_URL}`, handleRefresh, 'Banner deleted successfully!', 'Unable to delete the Banner!');
 
-    const { data: categories } = useFetch(`${BASE_URL}/categories`);
+    const { data: categories } = useFetch(`${CATEGORIES_URL}`);
 
     return (
         <div className="list">
@@ -52,7 +47,7 @@ const BannerList = () => {
                         <td style={{ width: '10px' }}>{banner.id}</td>
                         <td style={{ width: '100px', height: 'auto' }}>
                             <img
-                                src={`${BASE_URL}/images/banners/${getCategoryName(banner.categoryId, categories)}/${
+                                src={`${BANNER_IMAGES}/${getCategoryName(banner.categoryId, categories)}/${
                                     banner.imageUrl
                                 }`}
                                 className="img-fluid img-cover"

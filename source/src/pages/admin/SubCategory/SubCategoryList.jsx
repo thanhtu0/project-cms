@@ -2,7 +2,7 @@ import { Pagination } from '~/common';
 import { ListHeader, ListTable, ListTitle } from '~/common/List';
 import { ConfirmModal } from '~/common/Modal';
 import { useDeleteModal, usePaginatedData } from '~/hooks';
-import { BASE_URL } from '~/utils/apiURL';
+import { SUBCATEGORIES_URL } from '~/utils/apiURL';
 
 const SubCategoryList = () => {
     const {
@@ -12,7 +12,7 @@ const SubCategoryList = () => {
         totalItems,
         handlePageChange,
         handleRefresh,
-    } = usePaginatedData(`${BASE_URL}/subcategories`);
+    } = usePaginatedData(`${SUBCATEGORIES_URL}`);
 
     const {
         showModal,
@@ -21,7 +21,7 @@ const SubCategoryList = () => {
         handleCloseModal,
         handleConfirmDelete,
     } = useDeleteModal(
-        `${BASE_URL}/subcategories`,
+        `${SUBCATEGORIES_URL}`,
         handleRefresh,
         'SubCategory deleted successfully!',
         'Unable to delete the subcategory!',

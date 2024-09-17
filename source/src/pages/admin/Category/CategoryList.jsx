@@ -3,7 +3,7 @@ import { ListHeader, ListTable, ListTitle } from '~/common/List';
 import { ConfirmModal } from '~/common/Modal';
 import { Pagination } from '~/common';
 import { useDeleteModal, usePaginatedData } from '~/hooks';
-import { BASE_URL } from '~/utils/apiURL';
+import { CATEGORIES_URL } from '~/utils/apiURL';
 
 const CategoryList = () => {
     const {
@@ -13,7 +13,7 @@ const CategoryList = () => {
         totalItems,
         handlePageChange,
         handleRefresh,
-    } = usePaginatedData(`${BASE_URL}/categories`);
+    } = usePaginatedData(`${CATEGORIES_URL}`);
 
     const {
         showModal,
@@ -22,7 +22,7 @@ const CategoryList = () => {
         handleCloseModal,
         handleConfirmDelete,
     } = useDeleteModal(
-        `${BASE_URL}/categories`,
+        `${CATEGORIES_URL}`,
         handleRefresh,
         'Category deleted successfully!',
         'Unable to delete the category!',

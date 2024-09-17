@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BrandForm } from '~/common/Form';
 import Title from '~/common/Title';
-import { BASE_URL } from '~/utils/apiURL';
+import { API_BASE_URL, BRANDS_URL } from '~/utils/apiURL';
 
 const CreateBrand = () => {
     const [validationErrors, setValidationErrors] = useState({});
@@ -15,7 +15,7 @@ const CreateBrand = () => {
         setLoading(true);
 
         const formData = new FormData(event.target);
-        
+
         const brand = Object.fromEntries(formData.entries());
         if (!brand.name) {
             setValidationErrors({
@@ -26,7 +26,7 @@ const CreateBrand = () => {
         }
 
         try {
-            const response = await fetch(`${BASE_URL}/brands`, {
+            const response = await fetch(`${BRANDS_URL}`, {
                 method: 'POST',
                 body: formData,
             });

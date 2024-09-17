@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Button from '~/components/Button';
 import useImagePreview from '~/hooks/useImagePreview';
-import { BASE_URL } from '~/utils/apiURL';
+import { BANNER_IMAGES } from '~/utils/apiURL';
 
 const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading, categories = [] }) => {
     const { imagePreview, handleImageChange } = useImagePreview('');
@@ -10,7 +10,7 @@ const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading
 
     useEffect(() => {
         if (initialData.imageUrl) {
-            setImageOlder(`${BASE_URL}/images/banners/${initialData.categoryName}/${initialData.imageUrl}`);
+            setImageOlder(`${BANNER_IMAGES}/${initialData.categoryName}/${initialData.imageUrl}`);
         }
     }, [initialData]);
 

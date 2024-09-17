@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BASE_URL } from '../utils/apiURL';
+import { API_BASE_URL } from '../utils/apiURL';
 
 const useContactData = () => {
     const [data, setData] = useState(null);
@@ -9,7 +9,7 @@ const useContactData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${BASE_URL}/contact`);
+                const response = await fetch(`${API_BASE_URL}/contact`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

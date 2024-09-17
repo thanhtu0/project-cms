@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BannerForm } from '~/common/Form';
 import Title from '~/common/Title';
-import { BASE_URL } from '~/utils/apiURL';
+import { BANNERS_URL, CATEGORIES_URL } from '~/utils/apiURL';
 
 const CreateBanner = () => {
     const [validationErrors, setValidationErrors] = useState({});
@@ -14,7 +14,7 @@ const CreateBanner = () => {
     useEffect(() => {
         async function fetchCategories() {
             try {
-                const response = await fetch(`${BASE_URL}/categories`);
+                const response = await fetch(`${CATEGORIES_URL}`);
                 const data = await response.json();
                 setCategories(data);
             } catch (error) {
@@ -46,7 +46,7 @@ const CreateBanner = () => {
         }
 
         try {
-            const response = await fetch(`${BASE_URL}/banners`, {
+            const response = await fetch(`${BANNERS_URL}`, {
                 method: 'POST',
                 body: formData,
             });
