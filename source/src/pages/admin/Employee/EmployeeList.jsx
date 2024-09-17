@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Pagination } from '~/common';
 import { ListHeader, ListTitle } from '~/common/List';
 import Button from '~/components/Button';
@@ -39,21 +38,24 @@ const EmployeeList = () => {
                                     <div className="right_title flex flex-end">
                                         <Button
                                             to={'/admin/employees/edit/' + employee.id}
-                                            className="btn-primary w-3 h-3 flex flex-center"
+                                            className="w-3 h-3"
                                             iconSize="1.6rem"
+                                            primary
                                         >
                                             <ion-icon className="fs-16" name="create-outline"></ion-icon>
                                         </Button>
                                         <Button
                                             to={'/admin/employees/reset-password/' + employee.id}
-                                            className="btn-warning w-3 h-3 flex flex-center"
+                                            className="w-3 h-3"
                                             iconSize="1.6rem"
+                                            warning
                                         >
                                             <ion-icon className="fs-16" name="key-outline"></ion-icon>
                                         </Button>
                                         <Button
                                             type="button"
-                                            className="btn-danger flex flex-center w-3 h-3"
+                                            className="w-3 h-3"
+                                            danger
                                             iconSize="1.6rem"
                                             onClick={() => {}}
                                         >

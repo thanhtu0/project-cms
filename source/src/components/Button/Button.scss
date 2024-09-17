@@ -150,6 +150,17 @@
     }
 }
 
+.info {
+    color: $clr-info-dark;
+    border-color: $clr-info;
+
+    &:hover {
+        color: $clr-white;
+        background-color: $clr-info-dark;
+        border-color: $clr-info-deep;
+    }
+}
+
 .secondary {
     color: $clr-outline-default-deep;
     background-color: transparent;
@@ -163,8 +174,7 @@
 }
 
 .warning {
-    color: $clr-white;
-    background-color: $clr-warning-light;
+    color: $clr-warning-dark;
     border-color: $clr-warning;
 
     &:hover {
