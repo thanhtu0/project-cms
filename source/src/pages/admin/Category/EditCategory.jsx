@@ -1,5 +1,5 @@
 import { CategoryForm } from '~/common/Form';
-import EditItem from '~/components/EditItem';
+import EditItem from '~/common/EditItem';
 
 const EditCategory = () => {
     return (

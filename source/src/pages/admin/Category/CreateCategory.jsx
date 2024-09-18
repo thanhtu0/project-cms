@@ -1,5 +1,5 @@
 import { CategoryForm } from '~/common/Form';
-import CreateItem from '~/components/CreateItem';
+import CreateItem from '~/common/CreateItem';
 
 const CreateCategory = () => {
     return (

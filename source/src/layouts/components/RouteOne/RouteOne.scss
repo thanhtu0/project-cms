@@ -5,7 +5,7 @@
 
     &__content {
         max-width: 50%;
-        .new-season {
+        .label {
             margin-bottom: 16px;
 
             &::after {
@@ -22,9 +22,8 @@
 
         .description {
             width: 280px;
-            height: 54px;
             margin-top: 24px;
-            margin-bottom: 82px;
+            margin-bottom: 64px;
         }
     }
 

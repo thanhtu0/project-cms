@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import PlayVideo from '~/common/Modal/PlayVideo';
 import { skateboard_video } from '~/utils/videos';
+import { Description, Label, TitleSubtitle } from '~/components';
 
 const BannerSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,17 +21,25 @@ const BannerSection = () => {
     return (
         <div className="banner_section grid">
             <div className="banner_section__section top-left px-10 py-8">
-                <p className="new-season text-white position-relative">New Season</p>
-                <p className="title fs-52 fw-6 lh-65 text-white mt-8">Welcome</p>
-                <p className="sub-title fs-52 fw-6 lh-65 text-white ml-10 mt-8">Hoddies</p>
+                <Label text="New Season" className="text-white position-relative" />
+                <TitleSubtitle
+                    title="Welcome"
+                    subtitle="Hoodies"
+                    titleClassName="text-white mt-8"
+                    subtitleClassName="text-white mt-8 ml-10"
+                />
                 <Button to={'clothing'} className="text-black bg-white mt-56" fill>
                     Discover
                 </Button>
             </div>
             <div className="banner_section__section top-right px-10 py-8">
-                <p className="latest text-white position-relative">Latest</p>
-                <p className="title fs-52 fw-6 lh-65 text-white mt-8">Santa</p>
-                <p className="sub-title fs-52 fw-6 lh-65 text-white ml-10 mt-8">Cruz</p>
+                <Label text="Latest" className="text-white position-relative" />
+                <TitleSubtitle
+                    title="Santa"
+                    subtitle="Cruz"
+                    titleClassName="text-white mt-8"
+                    subtitleClassName="text-white ml-10 mt-8"
+                />
                 <Button to={'santa-cruz'} className="mt-56 text-black bg-white" fill>
                     Discover
                 </Button>
@@ -41,13 +50,15 @@ const BannerSection = () => {
                 </Button>
             </div>
             <div className="banner_section__section bottom-right px-10 py-4">
-                <p className="title fs-52 fw-6 lh-65">Cookie</p>
-                <p className="sub-title fs-52 fw-6 lh-65">'Light of Mine'</p>
-                <p className="description lh-18 text-justify mt-24">
-                    Remember when Chris 'Cookie' Colbourn mixed amazing Cobra Man cameos in his Heatwave part? You ought
-                    to, it was only seven months ago! Well, he's back again (sans Cobra Man sadly) and this time the
-                    "gimmick" is it's all filmed...
-                </p>
+                <TitleSubtitle
+                    title="Cookie"
+                    subtitle="'Light of Mine'"
+                    titleClassName="text-black"
+                    subtitleClassName="text-black"
+                />
+                <Description
+                    text="Remember when Chris 'Cookie' Colbourn mixed amazing Cobra Man cameos in his Heatwave part? You ought to, it was only seven months ago! Well, he's back again (sans Cobra Man sadly) and this time the 'gimmick' is it's all filmed..."
+                />
                 <Button className="mt-56" fill>
                     Discover
                 </Button>

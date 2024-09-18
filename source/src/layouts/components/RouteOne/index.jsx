@@ -1,6 +1,7 @@
 import Button from '~/components/Button';
 import './RouteOne.scss';
 import { route_1, route_2, route_3, route_4, route_5 } from '~/utils/images';
+import { Description, Label, TitleSubtitle } from '~/components';
 
 const images = [
     { src: route_1, alt: 'Skateboard 1', className: 'img-1', left: 484 },
@@ -14,13 +15,17 @@ const RouteOne = () => {
     return (
         <div className="route_one flex flex-between position-relative mw-144 my-180 px-13">
             <div className="route_one__content">
-                <p className="new-season position-relative">New Season</p>
-                <p className="h-6 fs-48 fw-6 lh-6">Route One O.B.</p>
-                <p className="h-6 fs-48 fw-6 lh-6">Latest Graphics</p>
-                <p className="fs-14 fw-4 lh-18 description">
-                    Route One O.B. is our in-house brand; helping our favorite finds to become your most loved wardrobe
-                    staples.
-                </p>
+                <Label text="New Season" className="text-black position-relative label" />
+                <TitleSubtitle
+                    title="Route One O.B."
+                    subtitle="Latest Graphics"
+                    titleClassName="text-black"
+                    subtitleClassName="text-black mt-8"
+                />
+                <Description
+                    text="Route One O.B. is our in-house brand; helping our favorite finds to become your most loved wardrobe
+                    staples."
+                />
                 <Button to={'route-one'} fill>
                     Discover
                 </Button>
