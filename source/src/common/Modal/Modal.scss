@@ -1,6 +1,6 @@
 @import '../../styles/GlobalStyles.scss';
 .modal-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
 
     .modal-content {
         border-radius: 8px;
@@ -29,6 +29,27 @@
 
         .modal-footer {
             border-top: 1px solid $clr-gray-9a;
+        }
+    }
+
+    .modal-video {
+        width: 80%;
+        max-width: 900px;
+        border-radius: 10px;
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        .close-button {
+            right: 5px;
+
+            .icon {
+                &:hover {
+                    color: $clr-black-2;
+                }
+            }
         }
     }
 }
