@@ -87,7 +87,7 @@ function Button({
                     {leftIcon}
                 </span>
             )}
-            <span className={cx('title')}>{children}</span>
+            <span className={cx('title_button')}>{children}</span>
             {rightIcon && (
                 <span className={cx('icon')} style={{ fontSize: iconSize, marginRight: iconMargin }}>
                     {rightIcon}

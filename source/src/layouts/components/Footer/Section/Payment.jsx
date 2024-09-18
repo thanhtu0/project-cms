@@ -15,7 +15,7 @@ const PaymentSection = () => {
 
     const handleBrandClick = (name) => {
         const slug = createSlug(name);
-        navigate(`/about/${slug}`);
+        navigate(`/payment/${slug}`);
     };
 
     if (data && Array.isArray(data) && data.length > 0) {
@@ -34,7 +34,7 @@ const PaymentSection = () => {
                                     aria-label={`Payment ${name}`}
                                     className="payment-link text-white"
                                     leftIcon={<FontAwesomeIcon icon={faCreditCard} />}
-                                    iconSize="2rem"
+                                    iconSize="1.6rem"
                                     text
                                 >
                                     {name}

@@ -31,7 +31,7 @@
 // Rounded, Fill, Outline, Reverse Button
 .rounded {
     border-radius: 999px;
-    font-weight: var(--font-bold);
+    font-weight: 600;
     min-width: 130px;
     padding: 5px 0;
     height: 26px;
@@ -39,17 +39,23 @@
 }
 
 .fill {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: $clr-black;
+    width: 121px;
+    border-radius: 0;
+    padding: 10px 32px;
+    color: $clr-white;
 
     span {
         height: 18px;
+        font-style: 14px;
+        font-weight: 400;
+        line-height: 18px;
     }
 
     &:hover {
-        background-color: var(--white);
-        color: var(--black);
-        border: 1px solid var(--black);
+        background-color: $clr-white;
+        color: $clr-black;
+        border: 1px solid $clr-black;
     }
 }
 
@@ -70,13 +76,13 @@
 
 .reverse {
     border-color: transparent;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: $clr-black;
+    color: $clr-white;
 
     &:hover {
-        background-color: var(--white);
-        color: var(--black);
-        border-color: var(--black);
+        background-color: $clr-white;
+        color: $clr-black;
+        border-color: $clr-black;
     }
 }
 
@@ -100,13 +106,13 @@
     padding: 16px;
     font-size: 0.8rem;
     cursor: pointer;
-    color: var(--black);
-    background-color: var(--white);
+    color: $clr-black;
+    background-color: $clr-white;
     border-color: var(--gray);
 
     &:hover {
-        color: var(--white);
-        background-color: var(--black);
+        color: $clr-white;
+        background-color: $clr-black;
         border: none;
     }
 }
@@ -116,9 +122,9 @@
     width: 32px;
     height: 32px;
     padding: 7px 12px;
-    color: var(--black);
-    background-color: var(--white);
-    border-color: var(--black);
+    color: $clr-black;
+    background-color: $clr-white;
+    border-color: $clr-black;
 
     &.disabled {
         color: var(--gray);
