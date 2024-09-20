@@ -40,12 +40,12 @@ const BrandForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading 
                         />
                         <span className="text-danger">{validationErrors.image}</span>
                         {imagePreview && (
-                            <div className="image-preview logo">
+                            <div className="image-preview">
                                 <img src={imagePreview} alt="Preview" />
                             </div>
                         )}
                         {!imagePreview && imageOlder && (
-                            <div className="image-preview logo">
+                            <div className="image-preview">
                                 <img src={imageOlder} width="150" alt="Existing" />
                             </div>
                         )}
