@@ -8,7 +8,7 @@ import { Button, Label } from '~/components';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PlayVideo from '~/common/Modal/PlayVideo';
-import { skateboard_video } from '~/utils/videos';
+import { skateboard_banner } from '~/utils/videos';
 
 const Banner = ({ activeTab }) => {
     const { data: banners, loading: bannersLoading, error: bannersError } = useFetch(BANNERS_URL);
@@ -61,7 +61,7 @@ const Banner = ({ activeTab }) => {
                             </Button>
                             <Button
                                 reverse
-                                leftIcon={<FontAwesomeIcon icon={faCirclePlay} iconSize="1.6rem" />}
+                                leftIcon={<FontAwesomeIcon icon={faCirclePlay} />}
                                 onClick={handlePlayVideo}
                             >
                                 Watch Video
@@ -88,7 +88,7 @@ const Banner = ({ activeTab }) => {
                     </div>
                     <PlayVideo isOpen={isModalOpen} onClose={handleCloseModal}>
                         <video width="100%" controls autoPlay loop>
-                            <source src={skateboard_video} type="video/mp4" />
+                            <source src={skateboard_banner} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                     </PlayVideo>
