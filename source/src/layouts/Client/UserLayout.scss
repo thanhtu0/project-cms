@@ -1,13 +1,4 @@
 .user_wrapper {
     display: flex;
     flex-direction: column;
-
-    &__container {
-        min-height: 5591px;
-    }
-
-    &__content {
-        flex: 1;
-        min-height: 5355px;
-    }
 }

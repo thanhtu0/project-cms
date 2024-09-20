@@ -28,15 +28,7 @@
     font-size: 2.8rem;
 }
 
-// Rounded, Fill, Outline, Reverse Button
-.rounded {
-    border-radius: 999px;
-    font-weight: 600;
-    min-width: 130px;
-    padding: 5px 0;
-    height: 26px;
-    background-color: transparent;
-}
+//  Fill, Outline, Reverse Button
 
 .fill {
     background-color: $clr-black;
@@ -76,14 +68,8 @@
 
 .reverse {
     border-color: transparent;
-    background-color: $clr-black;
-    color: $clr-white;
-
-    &:hover {
-        background-color: $clr-white;
-        color: $clr-black;
-        border-color: $clr-black;
-    }
+    background-color: transparent;
+    color: $clr-black;
 }
 
 // Text Button
@@ -93,6 +79,7 @@
     font-weight: 400;
     height: 1.8rem;
     padding: 0;
+    
     &:hover {
         text-decoration: underline;
     }

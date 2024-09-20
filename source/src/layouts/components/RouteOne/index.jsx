@@ -13,7 +13,7 @@ const images = [
 
 const RouteOne = () => {
     return (
-        <div className="route_one flex flex-between position-relative mw-144 my-180 px-13">
+        <div className="route_one flex flex-between position-relative mw-144 px-13">
             <div className="route_one__content">
                 <Label text="New Season" className="text-black position-relative label" />
                 <TitleSubtitle

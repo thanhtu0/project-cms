@@ -87,7 +87,7 @@
     &-100 {
         z-index: 100;
     }
-    &-1000 {
+    &-999 {
         z-index: 999;
     }
     &-1000 {
@@ -364,6 +364,9 @@
     &-56 {
         font-size: 5.6rem;
     }
+    &-58 {
+        font-size: 5.8rem;
+    }
     &-180 {
         font-size: 18rem;
     }
@@ -401,6 +404,9 @@
 .lh-65 {
     line-height: 6.5rem;
 }
+.lh-72 {
+    line-height: 7.25rem;
+}
 .lh-75 {
     line-height: 7.5rem;
 }
@@ -427,6 +433,9 @@
 .mt-8 {
     margin-top: 0.8rem;
 }
+.mt-16 {
+    margin-top: 1.6rem;
+}
 .mt-2 {
     margin-top: 2rem;
 }
@@ -441,6 +450,9 @@
 }
 .mt-56 {
     margin-top: 5.6rem;
+}
+.mt-88 {
+    margin-top: 8.8rem;
 }
 .mt-1 {
     margin-top: 1rem;
