@@ -1,1 +1,92 @@
 @import '../../../styles/GlobalStyles.scss';
+
+.banner {
+    height: 598px;
+
+    &.odd {
+        background-color: #cdddf0;
+    }
+
+    &.even {
+        background-color: #d2d9f2;
+    }
+}
+
+.banner-content {
+    width: 660px;
+    height: 426px;
+    margin-top: 34px;
+
+    .label {
+        &::after {
+            content: '';
+            position: absolute;
+            margin-left: 8px;
+            top: 80%;
+            transform: translateY(-20%);
+            width: 40px;
+            height: 0;
+            border-top: 1px solid $clr-black;
+        }
+    }
+
+    .sub-title {
+        width: 583px;
+        z-index: 1;
+    }
+
+    .banner-slide {
+        margin-top: 105px;
+        display: flex;
+        gap: 8px;
+
+        .slide-line {
+            width: 40px;
+            height: 2px;
+            cursor: pointer;
+
+            &.first-line {
+                background-color: $clr-white;
+            }
+
+            &.second-line,
+            &.third-line {
+                background-color: #b3c4d7;
+            }
+        }
+    }
+}
+
+.banner-image {
+    width: 680px;
+    height: 460px;
+    right: 130px;
+
+    .banner-img {
+        position: absolute;
+        object-fit: cover;
+        right: -1px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    strong {
+        right: 16px;
+    }
+
+    &.odd {
+        background-color: #d4f5ff;
+
+        strong {
+            bottom: 18px;
+        }
+    }
+
+    &.even {
+        background-color: #e8f1ff;
+
+        strong {
+            top: 18px;
+        }
+    }
+}

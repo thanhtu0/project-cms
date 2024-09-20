@@ -3,8 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartFlatbed, faChevronDown, faHeart } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
 import Search from '~/components/Search';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Error, Loading } from '~/common';
 
-const InfoNavigation = ({ companyName, categories, categoriesLoading, categoriesError }) => {
+const InfoNavigation = ({ companyName, categories, categoriesLoading, categoriesError, activeTab, setActiveTab }) => {
+    const location = useLocation();
+
+    useEffect(() => {
+        const path = location.pathname.split('/')[1].toLowerCase();
+        const activeCategory = categories.find((category) => category.name.toLowerCase() === path);
+
+        if (activeCategory) {
+            setActiveTab(activeCategory.name);
+        }
+    }, [location.pathname, categories, setActiveTab]);
+
     return (
         <div className="info-navigation flex flex-between px-13 py-1">
             <Button to="/" className="logo-text fs-43" text>
@@ -13,17 +27,24 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
             <nav>
                 <ul className="flex flex-around">
                     {categoriesLoading ? (
-                        <li>Loading categories...</li>
+                        <li>
+                            <Loading />
+                        </li>
                     ) : categoriesError ? (
-                        <li>Error loading categories</li>
+                        <li>
+                            <Error message={categoriesError.message} />
+                        </li>
                     ) : (
-                        categories.map((category) => (
-                            <li key={category.id}>
-                                <Button to={`/${category.name.toLowerCase()}`} text>
-                                    {category.name}
-                                </Button>
-                            </li>
-                        ))
+                        categories.map((category) => {
+                            const isActive = category.name.toLowerCase() === activeTab.toLowerCase();
+                            return (
+                                <li key={category.id} className={isActive ? 'active' : ''}>
+                                    <Button to={`/${category.name.toLowerCase()}`} text>
+                                        {category.name}
+                                    </Button>
+                                </li>
+                            );
+                        })
                     )}
                 </ul>
             </nav>

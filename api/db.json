@@ -104,17 +104,17 @@
   "banners": [
     {
       "id": 1,
-      "season": "New Season",
-      "title": "Route One O.B.",
+      "season": "New Season ",
+      "title": "Route One O.B. ",
       "subtitle": "LasTest Skateboard",
       "categoryId": 1,
       "imageUrl": "default_male.png"
     },
     {
       "id": 2,
-      "season": "New Season",
-      "title": "Route One O.B.",
-      "subtitle": "LasTest Skateboard",
+      "season": "New Season ",
+      "title": "Route One O.B. ",
+      "subtitle": "LasTest Skateboard ",
       "categoryId": 2,
       "imageUrl": "default_ferMale.png"
     }
