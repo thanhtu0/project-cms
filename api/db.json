@@ -58,33 +58,33 @@
       "social": [
         {
           "id": 1,
-          "href": "https://www.facebook.com/ThanhTu03012002",
-          "name": "facebook"
+          "name": "facebook",
+          "href": "https://www.facebook.com/ThanhTu03012002"
         },
         {
           "id": 2,
-          "href": "https://www.instagram.com/",
-          "name": "instagram"
+          "name": "instagram",
+          "href": "https://www.instagram.com/"
         },
         {
           "id": 3,
-          "href": "https://github.com/thanhtu0",
-          "name": "github"
+          "name": "github",
+          "href": "https://github.com/thanhtu0"
         },
         {
           "id": 4,
-          "href": "https://x.com/home",
-          "name": "twitter"
+          "name": "twitter",
+          "href": "https://x.com/home"
         },
         {
           "id": 5,
-          "href": "https://www.snapchat.com/",
-          "name": "snapchat"
+          "name": "snapchat",
+          "href": "https://www.snapchat.com/"
         },
         {
           "id": 6,
-          "href": "https://www.linkedin.com/",
-          "name": "linkedin"
+          "name": "linkedin",
+          "href": "https://www.linkedin.com/"
         }
       ]
     }
@@ -117,6 +117,38 @@
       "subtitle": "LasTest Skateboard ",
       "categoryId": 2,
       "imageUrl": "default_ferMale.png"
+    },
+    {
+      "id": 3,
+      "season": "New Spring",
+      "title": "Clothing O.B",
+      "subtitle": "LastTest Clothing",
+      "categoryId": 1,
+      "imageUrl": "clothing_male.png"
+    },
+    {
+      "id": 4,
+      "season": "New Spring",
+      "title": "Clothing O.B",
+      "subtitle": "LastTest Clothing",
+      "categoryId": 2,
+      "imageUrl": "clothing_ferMale.png"
+    },
+    {
+      "id": 5,
+      "season": "Accessories",
+      "title": "Accessories O.B",
+      "subtitle": "LastTest Accessories",
+      "categoryId": 1,
+      "imageUrl": "accessories_male.png"
+    },
+    {
+      "id": 6,
+      "season": "Accessories",
+      "title": "Accessories O.B",
+      "subtitle": "LastTest Accessories",
+      "categoryId": 2,
+      "imageUrl": "accessories_ferMale.png"
     }
   ],
   "subcategories": [
@@ -221,6 +253,12 @@
       "id": 6,
       "name": "Santa Cruz",
       "imageFilename": "santa_cruz.png"
+    },
+    {
+      "type": "brand",
+      "name": "Dc",
+      "imageFilename": "dc.png",
+      "id": 7
     }
   ],
   "products": [

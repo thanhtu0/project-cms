@@ -1,14 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IoIosStar } from 'react-icons/io';
+import { Error, Loading } from '~/common';
 
 const InfoHeader = ({ infoItems, loading, error }) => {
     return (
         <div className="info-header text-white bg-black flex flex-between px-13">
             <div className="left-info flex">
                 {loading ? (
-                    <p>Loading contact info...</p>
+                    <Loading />
                 ) : error ? (
-                    <p>Error loading contact info</p>
+                    <Error message={error} />
                 ) : (
                     infoItems.map((item, index) => (
                         <div key={index} className={item.className}>

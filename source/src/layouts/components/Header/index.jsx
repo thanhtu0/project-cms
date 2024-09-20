@@ -6,6 +6,7 @@ import './Header.scss';
 import InfoHeader from './InfoHeader';
 import InfoNavigation from './InfoNavigation';
 import { faLocationDot, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
+import { Error, Loading } from '~/common';
 
 const Header = ({ activeTab, setActiveTab }) => {
     const { data: contactData, loading: contactLoading, error: contactError } = useContactData();
@@ -32,10 +33,10 @@ const Header = ({ activeTab, setActiveTab }) => {
                         error={contactError}
                     />
                 ) : (
-                    <p>No contact data available</p>
+                    <Error message={contactError.message} />
                 )
             ) : (
-                <p>Loading contact data...</p>
+                <Loading />
             )}
 
             <InfoNavigation

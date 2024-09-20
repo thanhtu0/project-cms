@@ -16,6 +16,7 @@ const Banner = ({ activeTab }) => {
     const { data: categories, loading: categoriesLoading, error: categoriesError } = useFetch(CATEGORIES_URL);
     const [categoryMap, setCategoryMap] = useState({});
     const { isModalOpen, handleOpenModal, handleCloseModal } = usePlayVideo();
+    const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
     useEffect(() => {
         if (categories) {
@@ -27,27 +28,45 @@ const Banner = ({ activeTab }) => {
         }
     }, [categories]);
 
+    const filteredBanners = (banners || []).filter((banner) => {
+        return categoryMap[activeTab] === banner.categoryId;
+    });
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentBannerIndex((prevIndex) => (prevIndex + 1) % filteredBanners.length);
+        }, 5000);
+
+        return () => clearInterval(interval); // Dọn dẹp interval khi component unmount
+    }, [filteredBanners.length]);
+
+    const handleLineClick = (index) => {
+        setCurrentBannerIndex(index);
+    };
+
     if (bannersLoading || categoriesLoading) return <Loading />;
     if (bannersError) return <Error message={bannersError.message} />;
     if (categoriesError) return <Error message={categoriesError.message} />;
 
-    const filteredBanners = banners.filter((banner) => {
-        return categoryMap[activeTab] === banner.categoryId;
-    });
-
     return (
         <>
-            {filteredBanners.map((banner, index) => (
+            {filteredBanners.length > 0 && (
                 <div
-                    key={banner.id}
                     className={`banner position-relative mw-144 flex flex-between px-13 ${
-                        banner.categoryId % 2 === 0 ? 'even' : 'odd'
+                        filteredBanners[currentBannerIndex].categoryId % 2 === 0 ? 'even' : 'odd'
                     }`}
                 >
                     <div className="banner-content">
-                        <Label text={banner.season} className="text-black position-relative label" />
-                        <p className="title fs-58 mt-16 fw-6 position-relative lh-72">{banner.title}</p>
-                        <p className="sub-title fs-58 mt-16 fw-6 position-relative lh-72 ml-10">{banner.subtitle}</p>
+                        <Label
+                            text={filteredBanners[currentBannerIndex].season}
+                            className="text-black position-relative label"
+                        />
+                        <p className="title fs-58 mt-16 fw-6 position-relative lh-72">
+                            {filteredBanners[currentBannerIndex].title}
+                        </p>
+                        <p className="sub-title fs-58 mt-16 fw-6 position-relative lh-72 ml-10">
+                            {filteredBanners[currentBannerIndex].subtitle}
+                        </p>
                         <div className="banner-btn flex mt-88">
                             <Button fill to="skateboard">
                                 Discover
@@ -61,18 +80,30 @@ const Banner = ({ activeTab }) => {
                             </Button>
                         </div>
 
-                        <div className="banner-slide">
-                            <div className="slide-line first-line"></div>
-                            <div className="slide-line second-line"></div>
-                            <div className="slide-line third-line"></div>
+                        <div
+                            className="banner-slide"
+                            style={{ display: 'flex', justifyContent: 'start', marginTop: '105px' }}
+                        >
+                            {filteredBanners.map((_, index) => (
+                                <div
+                                    key={index}
+                                    className={`slide-line ${index === currentBannerIndex ? 'active' : 'inactive'}`}
+                                    onClick={() => handleLineClick(index)}
+                                ></div>
+                            ))}
                         </div>
                     </div>
-                    <div className={`banner-image position-absolute ${banner.categoryId % 2 === 0 ? 'even' : 'odd'}`}>
+                    <div
+                        className={`banner-image position-absolute ${
+                            filteredBanners[currentBannerIndex].categoryId % 2 === 0 ? 'even' : 'odd'
+                        }`}
+                    >
                         <img
-                            src={`${BANNER_IMAGES}/${getCategoryName(banner.categoryId, categories)}/${
-                                banner.imageUrl
-                            }`}
-                            alt={`${banner.title} Banner`}
+                            src={`${BANNER_IMAGES}/${getCategoryName(
+                                filteredBanners[currentBannerIndex].categoryId,
+                                categories,
+                            )}/${filteredBanners[currentBannerIndex].imageUrl}`}
+                            alt={`${filteredBanners[currentBannerIndex].title} Banner`}
                             className="banner-img"
                         />
                         <strong className="position-absolute text-end text-black">
@@ -86,7 +117,7 @@ const Banner = ({ activeTab }) => {
                         </video>
                     </PlayVideo>
                 </div>
-            ))}
+            )}
         </>
     );
 };

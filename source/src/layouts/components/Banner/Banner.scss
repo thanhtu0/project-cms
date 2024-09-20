@@ -30,29 +30,24 @@
         }
     }
 
+    .title,
     .sub-title {
-        width: 583px;
+        width: 700px;
         z-index: 1;
     }
 
-    .banner-slide {
-        margin-top: 105px;
-        display: flex;
-        gap: 8px;
+    .slide-line {
+        width: 40px;
+        height: 2px;
+        margin: 0 5px;
+        cursor: pointer;
 
-        .slide-line {
-            width: 40px;
-            height: 2px;
-            cursor: pointer;
+        &.active {
+            background-color: $clr-white;
+        }
 
-            &.first-line {
-                background-color: $clr-white;
-            }
-
-            &.second-line,
-            &.third-line {
-                background-color: #b3c4d7;
-            }
+        &.inactive {
+            background-color: #b3c4d7;
         }
     }
 }
@@ -64,8 +59,7 @@
 
     .banner-img {
         position: absolute;
-        object-fit: cover;
-        right: -1px;
+        right: 15%;
         top: 50%;
         transform: translateY(-50%);
     }

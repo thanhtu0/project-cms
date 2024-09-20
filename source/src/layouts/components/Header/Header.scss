@@ -27,28 +27,20 @@
     }
 
     .info-navigation {
-        height: 12rem;
-
         .logo-text {
             font-family: $fnt-logo;
-            width: 12rem;
-            height: 5rem;
-            line-height: 5rem;
+            &:hover {
+                text-decoration: none;
+            }
         }
 
         nav {
             ul {
-                width: 17rem;
-                height: 12rem;
-                background-color: $clr-white-fc;
-                margin-right: 62px;
-
                 li {
                     position: relative;
                     height: 2rem;
 
                     a {
-                        color: inherit;
                         &:hover {
                             font-weight: 600;
                             text-decoration: none;
@@ -87,7 +79,7 @@
                 .down {
                     cursor: pointer;
                     p {
-                        margin-right: 6px;
+                        margin-right: 3px;
                     }
 
                     .icon {
