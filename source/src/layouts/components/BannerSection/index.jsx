@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Button from '~/components/Button';
 import './BannerSection.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,17 +5,10 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import PlayVideo from '~/common/Modal/PlayVideo';
 import { skateboard_video } from '~/utils/videos';
 import { Description, Label, TitleSubtitle } from '~/components';
+import usePlayVideo from '~/hooks/usePlayVideo';
 
 const BannerSection = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const handlePlayVideo = () => {
-        setIsModalOpen(true);
-    };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
+    const { isModalOpen, handleOpenModal, handleCloseModal } = usePlayVideo();
 
     return (
         <div className="banner_section grid">
@@ -45,7 +37,7 @@ const BannerSection = () => {
                 </Button>
             </div>
             <div className="banner_section__section bottom-left flex flex-center">
-                <Button className="play-button w-10 h-10" onClick={handlePlayVideo}>
+                <Button className="play-button w-10 h-10" onClick={handleOpenModal}>
                     <FontAwesomeIcon className="fs-30 text-white" icon={faPlay} />
                 </Button>
             </div>
@@ -56,9 +48,7 @@ const BannerSection = () => {
                     titleClassName="text-black"
                     subtitleClassName="text-black"
                 />
-                <Description
-                    text="Remember when Chris 'Cookie' Colbourn mixed amazing Cobra Man cameos in his Heatwave part? You ought to, it was only seven months ago! Well, he's back again (sans Cobra Man sadly) and this time the 'gimmick' is it's all filmed..."
-                />
+                <Description text="Remember when Chris 'Cookie' Colbourn mixed amazing Cobra Man cameos in his Heatwave part? You ought to, it was only seven months ago! Well, he's back again (sans Cobra Man sadly) and this time the 'gimmick' is it's all filmed..." />
                 <Button className="mt-56" fill>
                     Discover
                 </Button>

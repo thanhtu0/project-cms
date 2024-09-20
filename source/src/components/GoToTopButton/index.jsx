@@ -23,7 +23,7 @@ const GoToTopButton = () => {
     return (
         showGoToTop && (
             <button
-                className="go-to-top position-fixed p-1 bg-gray-9a text-white-fc"
+                className="go-to-top position-fixed p-1 bg-black text-white"
                 onClick={handleGoToTop}
                 aria-label="Go to top"
             >

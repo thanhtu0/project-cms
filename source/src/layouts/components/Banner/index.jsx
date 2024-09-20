@@ -9,12 +9,13 @@ import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PlayVideo from '~/common/Modal/PlayVideo';
 import { skateboard_banner } from '~/utils/videos';
+import usePlayVideo from '~/hooks/usePlayVideo';
 
 const Banner = ({ activeTab }) => {
     const { data: banners, loading: bannersLoading, error: bannersError } = useFetch(BANNERS_URL);
     const { data: categories, loading: categoriesLoading, error: categoriesError } = useFetch(CATEGORIES_URL);
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [categoryMap, setCategoryMap] = useState({});
+    const { isModalOpen, handleOpenModal, handleCloseModal } = usePlayVideo();
 
     useEffect(() => {
         if (categories) {
@@ -33,14 +34,6 @@ const Banner = ({ activeTab }) => {
     const filteredBanners = banners.filter((banner) => {
         return categoryMap[activeTab] === banner.categoryId;
     });
-
-    const handlePlayVideo = () => {
-        setIsModalOpen(true);
-    };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
 
     return (
         <>
@@ -62,7 +55,7 @@ const Banner = ({ activeTab }) => {
                             <Button
                                 reverse
                                 leftIcon={<FontAwesomeIcon icon={faCirclePlay} />}
-                                onClick={handlePlayVideo}
+                                onClick={handleOpenModal}
                             >
                                 Watch Video
                             </Button>
