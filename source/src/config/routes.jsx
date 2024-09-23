@@ -13,7 +13,7 @@ const routes = {
     admin: '/admin',
     admin_error: '/admin/*',
 
-    contact: '/admin/contact',
+    information: '/admin/information',
 
     brands: '/admin/brands',
     create_brand: '/admin/brand/create',

@@ -21,7 +21,7 @@ const Navigation = () => {
                     { to: '/admin/categories', icon: 'albums-outline', title: 'Categories' },
                     { to: '/admin/subcategories', icon: 'grid-outline', title: 'SubCategories' },
                     { to: '/admin/products', icon: 'shirt-outline', title: 'Products' },
-                    { to: '/admin/contact', icon: 'information-circle-outline', title: 'Contact Store' },
+                    { to: '/admin/information', icon: 'information-circle-outline', title: 'Information Store' },
                     { to: '/admin/messages', icon: 'chatbubble-outline', title: 'Messages' },
                     { to: '/admin/settings', icon: 'settings-outline', title: 'Settings' },
                     { to: '/admin/password', icon: 'lock-closed-outline', title: 'Password' },

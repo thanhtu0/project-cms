@@ -10,7 +10,7 @@ import { BrandList, CreateBrand, EditBrand } from '~/pages/admin/Brand';
 import { BannerList, CreateBanner, EditBanner } from '~/pages/admin/Banner';
 import NotFound from '~/pages/error/NotFound';
 import config from '~/config';
-import ContactList from '~/pages/admin/Contact/ContactList';
+import Information from '~/pages/admin/Infomation';
 
 // Public routes
 const publicRoutes = [
@@ -35,7 +35,7 @@ const privateRoutes = [
     { path: config.routes.create_product, component: CreateProduct, layout: AdminLayout },
     { path: config.routes.update_product, component: EditProduct, layout: AdminLayout },
 
-    { path: config.routes.contact, component: ContactList, layout: AdminLayout },
+    { path: config.routes.information, component: Information, layout: AdminLayout },
 
     { path: config.routes.brands, component: BrandList, layout: AdminLayout },
     { path: config.routes.create_brand, component: CreateBrand, layout: AdminLayout },

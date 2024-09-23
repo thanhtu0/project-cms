@@ -4,7 +4,7 @@ import ToggleSection from '~/components/ToggleSection';
 import { AboutSection, ContactSection, PaymentSection, SocialSection } from './Section';
 import { toggleVisibility } from '~/utils/helpers';
 
-const ContactList = () => {
+const Information = () => {
     const [visible, setVisible] = useState({
         about: false,
         contact: true,
@@ -53,4 +53,4 @@ const ContactList = () => {
     );
 };
 
-export default ContactList;
+export default Information;
