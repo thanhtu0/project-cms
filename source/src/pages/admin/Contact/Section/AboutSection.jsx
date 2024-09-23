@@ -1,8 +1,6 @@
 import Button from '~/components/Button';
 
 const AboutSection = ({ aboutData }) => {
-    console.log('About Data:', aboutData);
-
     return (
         <div className="about-table">
             <div className="table-header fw-7 text-center">

@@ -1,7 +1,6 @@
 import Button from '~/components/Button';
 
 const SocialSection = ({ socialData }) => {
-    console.log('Social Data:', socialData);
     return (
         <table className="social-table">
             <thead>

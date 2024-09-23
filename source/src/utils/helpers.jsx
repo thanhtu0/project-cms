@@ -16,3 +16,16 @@ export const getCategoryName = (categoryId, categories) => {
     const category = categories.find((cat) => cat.id === parsedCategoryId);
     return category ? category.name : 'Unknown';
 };
+
+// toggleVisibility Helper
+export const toggleVisibility = (prevState, section) => ({
+    ...prevState,
+    [section]: !prevState[section],
+});
+
+// splitAboutLinks Helper
+export const splitAboutLinks = (aboutLinks, splitPoint = 5) => {
+    const leftLinks = aboutLinks.slice(0, splitPoint);
+    const rightLinks = aboutLinks.length > splitPoint ? aboutLinks.slice(splitPoint) : [];
+    return { left: leftLinks, right: rightLinks };
+};

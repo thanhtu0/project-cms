@@ -1,7 +1,6 @@
 import Button from '~/components/Button';
 
 const PaymentSection = ({ paymentData }) => {
-    console.log('Payment Data:', paymentData);
     return (
         <div className="payment-table">
             <div className="table-header fw-7 text-center">
