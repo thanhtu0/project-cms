@@ -1,6 +1,14 @@
+import { Error, Loading } from '~/common';
 import Button from '~/components/Button';
+import useFetch from '~/hooks/useFetch';
+import { API_BASE_URL } from '~/utils/apiURL';
 
-const PaymentSection = ({ paymentData }) => {
+const PaymentSection = () => {
+    const { data: payment, loading: paymentLoading, error: paymentError } = useFetch(`${API_BASE_URL}/payment`);
+
+    if (paymentLoading) return <Loading />;
+    if (paymentError) return <Error message={paymentError.message} />;
+
     return (
         <div className="payment-table">
             <div className="table-header fw-7 text-center">
@@ -9,8 +17,8 @@ const PaymentSection = ({ paymentData }) => {
                     <Button primary>Add</Button>
                 </div>
             </div>
-            {paymentData.length > 0 ? (
-                paymentData.map((item) => (
+            {payment.length > 0 ? (
+                payment.map((item) => (
                     <div className="table-row" key={item.id}>
                         <div className="table-cell text-center">{item.name || 'No Name'}</div>
                         <div className="table-cell text-center">

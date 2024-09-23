@@ -1,6 +1,14 @@
+import { Error, Loading } from '~/common';
 import Button from '~/components/Button';
+import useFetch from '~/hooks/useFetch';
+import { API_BASE_URL } from '~/utils/apiURL';
 
-const AboutSection = ({ aboutData }) => {
+const AboutSection = () => {
+    const { data: about, loading: aboutLoading, error: aboutError } = useFetch(`${API_BASE_URL}/about`);
+
+    if (aboutLoading) return <Loading />;
+    if (aboutError) return <Error message={aboutError.message} />;
+
     return (
         <div className="about-table">
             <div className="table-header fw-7 text-center">
@@ -9,8 +17,8 @@ const AboutSection = ({ aboutData }) => {
                     <Button primary>Add</Button>
                 </div>
             </div>
-            {aboutData.length > 0 ? (
-                aboutData.map((item) => (
+            {about.length > 0 ? (
+                about.map((item) => (
                     <div className="table-row" key={item.id}>
                         <div className="table-cell text-center">{item.name || 'No Name'}</div>
                         <div className="table-cell text-center">

@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
-import { About, Payment, Social, Store } from './Section';
-import useContactData from '~/hooks/useContactData';
 import './Footer.scss';
 import { Error, Loading } from '~/common';
+import useFetch from '~/hooks/useFetch';
+import { CONTACT_URL } from '~/utils/apiURL';
+import { About, Payment, Social, Store } from './Section';
 
 const Footer = () => {
-    const { data, loading, error } = useContactData();
+    const { data, loading, error } = useFetch(`${CONTACT_URL}`);
 
     if (loading) return <Loading />;
     if (error) return <Error message={error.message} />;
 
-    const companyName = data?.[0]?.store?.companyName || 'Default Company Name';
+    const companyName = data?.[0]?.companyName || 'Default Company Name';
 
     return (
         <footer className="footer mw-144">

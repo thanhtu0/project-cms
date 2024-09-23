@@ -1,27 +1,25 @@
 import { Error, Loading } from '~/common';
-import useContactData from '~/hooks/useContactData';
+import useFetch from '~/hooks/useFetch';
+import { CONTACT_URL } from '~/utils/apiURL';
 
 const StoreSection = () => {
-    const { data, loading, error } = useContactData();
+    const { data: contact, loading: contactLoading, error: contactError } = useFetch(`${CONTACT_URL}`);
 
-    if (loading) return <Loading />;
-    if (error) return <Error message={error.message} />;
+    if (contactLoading) return <Loading />;
+    if (contactError) return <Error message={contactError.message} />;
 
-    if (data && Array.isArray(data) && data.length > 0) {
-        const contact = data[0];
-        const store = contact.store;
+    if (contact && contact.length > 0) {
+        const store = contact[0];
 
-        if (store) {
-            return (
-                <div className="footer-section">
-                    <h3 className="fs-16 text-white">Store</h3>
-                    <p className="text-white fs-14 fw-4">Company name: {store.companyName || 'N/A'}</p>
-                    <p className="text-white fs-14 fw-4">Tel: {store.telephone || 'N/A'}</p>
-                    <p className="text-white fs-14 fw-4">Email: {store.email || 'N/A'}</p>
-                    <p className="text-white fs-14 fw-4">Address: {store.address || 'N/A'}</p>
-                </div>
-            );
-        }
+        return (
+            <div className="footer-section">
+                <h3 className="fs-16 text-white">Store</h3>
+                <p className="text-white fs-14 fw-4">Company name: {store.companyName || 'N/A'}</p>
+                <p className="text-white fs-14 fw-4">Tel: {store.telephone || 'N/A'}</p>
+                <p className="text-white fs-14 fw-4">Email: {store.email || 'N/A'}</p>
+                <p className="text-white fs-14 fw-4">Address: {store.address || 'N/A'}</p>
+            </div>
+        );
     }
 
     return (

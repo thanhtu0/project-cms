@@ -25,15 +25,10 @@
 	"contact": [
 		{
 			"id": 1,
-			"store": {
-				"companyName": "cordes.",
-				"telephone": "(239) 555-0108",
-				"email": "ex@mail.com",
-				"address": "3891 Ranch view Dr.Richardson, California"
-			},
-			"aboutId": [1, 2, 3, 4, 5, 6, 7, 8, 9],
-			"paymentId": [1, 2],
-			"socialId": [1, 2, 3, 4, 5, 6]
+			"companyName": "cordes.",
+			"telephone": "(239) 555-0108",
+			"email": "ex@mail.com",
+			"address": "3891 Ranch view Dr.Richardson, California"
 		}
 	],
 	"categories": [

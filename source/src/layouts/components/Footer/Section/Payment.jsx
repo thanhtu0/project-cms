@@ -1,56 +1,49 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
-import useContactData from '~/hooks/useContactData';
 import { Error, Loading } from '~/common';
 import { useNavigate } from 'react-router-dom';
 import { createSlug } from '~/utils/helpers';
 import Button from '~/components/Button';
+import useFetch from '~/hooks/useFetch';
+import { API_BASE_URL } from '~/utils/apiURL';
 
 const PaymentSection = () => {
-    const { data, loading, error } = useContactData();
+    const { data: payments, loading: paymentsLoading, error: paymentsError } = useFetch(`${API_BASE_URL}/payment`);
     const navigate = useNavigate();
 
-    if (loading) return <Loading />;
-    if (error) return <Error message={error.message} />;
+    if (paymentsLoading) return <Loading />;
+    if (paymentsError) return <Error message={paymentsError.message} />;
+
+    const paymentMethods = payments || [];
 
     const handleBrandClick = (name) => {
         const slug = createSlug(name);
         navigate(`/payment/${slug}`);
     };
 
-    if (data && Array.isArray(data) && data.length > 0) {
-        const contact = data[0];
-        const paymentMethods = contact.payment;
-
-        if (paymentMethods && paymentMethods.length > 0) {
-            return (
-                <div className="footer-section">
-                    <h3 className="fs-16 text-white">We accept</h3>
-                    <ul className="payment-methods">
-                        {paymentMethods.map(({ id, name, icon }) => (
-                            <li className="text-white fs-14 lh-18" key={id}>
-                                <Button
-                                    onClick={() => handleBrandClick(name)}
-                                    aria-label={`Payment ${name}`}
-                                    className="payment-link text-white"
-                                    leftIcon={<FontAwesomeIcon icon={faCreditCard} />}
-                                    iconSize="1.6rem"
-                                    text
-                                >
-                                    {name}
-                                </Button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            );
-        }
-    }
-
     return (
         <div className="footer-section">
             <h3 className="fs-16 text-white">We accept</h3>
-            <p className="text-white fs-14 lh-18">No payment methods available.</p>
+            {paymentMethods.length > 0 ? (
+                <ul className="payment-methods">
+                    {paymentMethods.map(({ id, name }) => (
+                        <li className="text-white fs-14 lh-18" key={id}>
+                            <Button
+                                onClick={() => handleBrandClick(name)}
+                                aria-label={`Payment ${name}`}
+                                className="payment-link text-white"
+                                leftIcon={<FontAwesomeIcon icon={faCreditCard} />}
+                                iconSize="1.6rem"
+                                text
+                            >
+                                {name}
+                            </Button>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p className="text-white fs-14 lh-18">No payment methods available.</p>
+            )}
         </div>
     );
 };

@@ -1,6 +1,13 @@
+import { Error, Loading } from '~/common';
 import Button from '~/components/Button';
+import useFetch from '~/hooks/useFetch';
+import { API_BASE_URL } from '~/utils/apiURL';
 
-const SocialSection = ({ socialData }) => {
+const SocialSection = () => {
+    const { data: social, loading: socialLoading, error: socialError } = useFetch(`${API_BASE_URL}/social`);
+
+    if (socialLoading) return <Loading />;
+    if (socialError) return <Error message={socialError.message} />;
     return (
         <table className="social-table">
             <thead>
@@ -13,8 +20,8 @@ const SocialSection = ({ socialData }) => {
                 </tr>
             </thead>
             <tbody>
-                {socialData.length > 0 ? (
-                    socialData.map((item) => (
+                {social.length > 0 ? (
+                    social.map((item) => (
                         <tr className="text-center" key={item.id}>
                             <td>{item.name || 'No Name'}</td>
                             <td className="text-justify">
