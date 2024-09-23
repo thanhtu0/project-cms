@@ -1,6 +1,8 @@
 import Button from '~/components/Button';
 
 const AboutSection = ({ aboutData }) => {
+    console.log('About Data:', aboutData);
+
     return (
         <div className="about-table">
             <div className="table-header fw-7 text-center">
@@ -9,15 +11,23 @@ const AboutSection = ({ aboutData }) => {
                     <Button primary>Add</Button>
                 </div>
             </div>
-            {aboutData.map((item) => (
-                <div className="table-row" key={item.id}>
-                    <div className="table-cell text-center">{item.name}</div>
-                    <div className="table-cell text-center">
-                        <Button info>Update</Button>
-                        <Button danger>Delete</Button>
+            {aboutData.length > 0 ? (
+                aboutData.map((item) => (
+                    <div className="table-row" key={item.id}>
+                        <div className="table-cell text-center">{item.name || 'No Name'}</div>
+                        <div className="table-cell text-center">
+                            <Button info>Update</Button>
+                            <Button danger>Delete</Button>
+                        </div>
+                    </div>
+                ))
+            ) : (
+                <div className="table-row">
+                    <div className="table-cell text-center error" colSpan={2}>
+                        No Contact data available
                     </div>
                 </div>
-            ))}
+            )}
         </div>
     );
 };
