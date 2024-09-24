@@ -12,7 +12,7 @@ const About = ({ isOpen, onClose, onSubmit, initialData }) => {
             setName('');
         }
     }, [initialData, isOpen]);
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({ name });
