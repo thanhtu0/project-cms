@@ -3,7 +3,7 @@ import './Footer.scss';
 import { Error, Loading } from '~/common';
 import useFetch from '~/hooks/useFetch';
 import { CONTACT_URL } from '~/utils/apiURL';
-import { About, Payment, Social, Store } from './Section';
+import { About, Payment, Social, Contact } from './Section';
 
 const Footer = () => {
     const { data, loading, error } = useFetch(`${CONTACT_URL}`);
@@ -20,7 +20,7 @@ const Footer = () => {
             </Link>
             <div className="footer-container">
                 <About />
-                <Store />
+                <Contact />
                 <Payment />
                 <Social />
             </div>
