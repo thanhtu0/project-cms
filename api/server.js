@@ -7,9 +7,7 @@ const {
 	validateSubCategory,
 	validateBrand,
 	validateBanner,
-	validateAbout,
 	validateContact,
-	validatePayment,
 } = require('./validation');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
@@ -120,10 +118,6 @@ server.patch('/subcategories/:id', validateSubCategory);
 server.post('/brands', validateBrand);
 server.patch('/brands/:id', validateBrand);
 
-// Validation middleware for '/about'
-server.post('/abouts', validateAbout);
-server.patch('/abouts', validateAbout);
-
 // Validation middleware for '/contact'
 server.patch('/contacts/:id', validateContact, (req, res) => {
 	try {
@@ -162,10 +156,6 @@ server.patch('/contacts/:id', validateContact, (req, res) => {
 		res.status(500).json({ message: 'Internal server error' });
 	}
 });
-
-// Validation middleware for '/payment'
-server.post('/payment', validatePayment);
-server.patch('/payment', validatePayment);
 
 // Validation middleware for get '/categories/:id/banners'
 server.get('/banners/:id', (req, res) => {

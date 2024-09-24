@@ -1,13 +1,13 @@
-import RouteOne from '~/layouts/components/RouteOne';
-import BannerSection from '~/layouts/components/BannerSection';
+import { BannerSection, RouteOne } from '~/layouts/components';
+import { FashionContainer, ReleaseContainer, SeasonContainer } from '~/layouts/components/Product';
 
 const Home = () => {
     return (
         <>
-            <div>Fashion Trending</div>
-            <div>Fashion Trending</div>
+            <FashionContainer />
+            <SeasonContainer />
             <RouteOne />
-            <div>Fashion Trending</div>
+            <ReleaseContainer />
             <BannerSection />
         </>
     );

@@ -1,10 +1,49 @@
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { Error, Loading } from '~/common';
+import Social from '~/common/Modal/Social';
 import Button from '~/components/Button';
 import useFetch from '~/hooks/useFetch';
-import { API_BASE_URL } from '~/utils/apiURL';
+import { SOCIAL_URL } from '~/utils/apiURL';
 
 const SocialSection = () => {
-    const { data: social, loading: socialLoading, error: socialError } = useFetch(`${API_BASE_URL}/social`);
+    const { data: social, loading: socialLoading, error: socialError, refetch } = useFetch(`${SOCIAL_URL}`);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentSocial, setCurrentSocial] = useState(null);
+
+    const handleAddOrEdit = async (social) => {
+        if (!currentSocial) return;
+
+        try {
+            const response = await fetch(`${SOCIAL_URL}/${currentSocial.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(social),
+            });
+
+            const responseData = await response.json();
+
+            if (!response.ok) {
+                throw new Error(responseData.message || 'Failed to edit the social item');
+            }
+
+            setIsModalOpen(false);
+            setCurrentSocial(null);
+            refetch();
+
+            toast.success('Update successfully!');
+        } catch (error) {
+            toast.error('There was an issue updating the social item. Please try again.');
+        }
+    };
+
+    const handleEdit = (item) => {
+        setCurrentSocial(item);
+        setIsModalOpen(true);
+    };
 
     if (socialLoading) return <Loading />;
     if (socialError) return <Error message={socialError.message} />;
@@ -14,9 +53,7 @@ const SocialSection = () => {
                 <tr>
                     <th>Social Name</th>
                     <th>Social Link</th>
-                    <th>
-                        <Button primary>Add</Button>
-                    </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -29,9 +66,10 @@ const SocialSection = () => {
                                     {item.href || 'No Links'}
                                 </a>
                             </td>
-                            <td>
-                                <Button info>Update</Button>
-                                <Button danger>Delete</Button>
+                            <td style={{ width: '25rem' }}>
+                                <Button info onClick={() => handleEdit(item)}>
+                                    Update
+                                </Button>
                             </td>
                         </tr>
                     ))
@@ -42,6 +80,15 @@ const SocialSection = () => {
                         </div>
                     </div>
                 )}
+                <Social
+                    isOpen={isModalOpen}
+                    onClose={() => {
+                        setIsModalOpen(false);
+                        setCurrentSocial(null);
+                    }}
+                    onSubmit={handleAddOrEdit}
+                    initialData={currentSocial}
+                />
             </tbody>
         </table>
     );

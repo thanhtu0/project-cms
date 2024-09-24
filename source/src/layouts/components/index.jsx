@@ -11,3 +11,5 @@ export { default as Main } from './Main';
 export { default as Card } from './Card';
 export { default as NewCustomer } from './NewCustomer';
 export { default as OrderDetailList } from './OrderDetailList';
+export { default as BannerSection } from './BannerSection';
+export { default as RouteOne } from './RouteOne';
