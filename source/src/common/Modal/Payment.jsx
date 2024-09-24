@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './Modal.scss';
 import Button from '~/components/Button';
 
-const About = ({ isOpen, onClose, onSubmit, initialData }) => {
+const Payment = ({ isOpen, onClose, onSubmit, initialData }) => {
     const [name, setName] = useState('');
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const About = ({ isOpen, onClose, onSubmit, initialData }) => {
             setName('');
         }
     }, [initialData, isOpen]);
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({ name });
@@ -26,7 +26,7 @@ const About = ({ isOpen, onClose, onSubmit, initialData }) => {
         <div className="modal-overlay w-100 h-100 flex flex-center position-absolute top-0 left-0 right-0 bottom-0  z-1000">
             <div className="modal-content position-relative bg-white p-2">
                 <div className="modal-header flex flex-between">
-                    <h2>{initialData ? 'Edit About' : 'Add About'}</h2>
+                    <h2>{initialData ? 'Edit Payment' : 'Add Payment'}</h2>
                     <button className="close-button fs-24" onClick={onClose}>
                         &times;
                     </button>
@@ -38,7 +38,7 @@ const About = ({ isOpen, onClose, onSubmit, initialData }) => {
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            placeholder="About Name"
+                            placeholder="Payment Name"
                             required
                         />
                         <div className="modal-btn flex flex-end mt-2">
@@ -56,4 +56,4 @@ const About = ({ isOpen, onClose, onSubmit, initialData }) => {
     );
 };
 
-export default About;
+export default Payment;

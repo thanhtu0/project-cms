@@ -1,5 +1,4 @@
 const errors = require('./error');
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const validateCategory = (req, res, next) => {
 	const { name, description } = req.body;
@@ -88,22 +87,6 @@ const validateBanner = (categories) => (req, res, next) => {
 	next();
 };
 
-const validateAbout = (req, res, next) => {
-	const { name } = req.body;
-	let hasErrors = false;
-	let errorMessages = {};
-
-	if (!name || name.trim().length < 2) {
-		hasErrors = true;
-		errorMessages.name = errors.about.name;
-	}
-
-	if (hasErrors) {
-		return res.status(400).json(errorMessages);
-	}
-	next();
-};
-
 const validateContact = (req, res, next) => {
 	const { name, telephone, email, address } = req.body;
 	let hasErrors = false;
@@ -132,28 +115,10 @@ const validateContact = (req, res, next) => {
 	next();
 };
 
-const validatePayment = (req, res, next) => {
-	const { name } = req.body;
-	let hasErrors = false;
-	let errorMessages = {};
-
-	if (!name || name.trim().length < 2) {
-		hasErrors = true;
-		errorMessages.name = errors.payment.name;
-	}
-
-	if (hasErrors) {
-		return res.status(400).json(errorMessages);
-	}
-	next();
-};
-
 module.exports = {
 	validateCategory,
 	validateSubCategory,
 	validateBrand,
 	validateBanner,
-	validateAbout,
 	validateContact,
-	validatePayment,
 };
