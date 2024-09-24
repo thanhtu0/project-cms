@@ -2,7 +2,15 @@ const jsonServer = require('json-server');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const { validateCategory, validateSubCategory, validateBrand, validateBanner } = require('./validation');
+const {
+	validateCategory,
+	validateSubCategory,
+	validateBrand,
+	validateBanner,
+	validateAbout,
+	validateContact,
+	validatePayment,
+} = require('./validation');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
@@ -112,8 +120,56 @@ server.patch('/subcategories/:id', validateSubCategory);
 server.post('/brands', validateBrand);
 server.patch('/brands/:id', validateBrand);
 
+// Validation middleware for '/about'
+server.post('/abouts', validateAbout);
+server.patch('/abouts', validateAbout);
+
+// Validation middleware for '/contact'
+server.patch('/contacts/:id', validateContact, (req, res) => {
+	try {
+		const contactId = parseInt(req.params.id, 10);
+		if (isNaN(contactId)) {
+			return res.status(400).json({ message: 'Invalid contact ID' });
+		}
+
+		const contact = router.db.get('contacts').find({ id: contactId }).value();
+		if (!contact) {
+			return res.status(404).json({ message: 'Contact not found' });
+		}
+
+		const { name, telephone, email, address } = req.body;
+
+		if (!name || !telephone || !email || !address) {
+			return res.status(400).json({ message: 'All fields are required' });
+		}
+
+		const updatedContact = {
+			...contact,
+			name: name || contact.name,
+			telephone: telephone || contact.telephone,
+			email: email || contact.email,
+			address: address || contact.address,
+		};
+
+		router.db.get('contacts').find({ id: contactId }).assign(updatedContact).write();
+
+		res.status(200).json({
+			message: 'Contact updated successfully',
+			contact: updatedContact,
+		});
+	} catch (error) {
+		console.error('Error updating contact:', error);
+		res.status(500).json({ message: 'Internal server error' });
+	}
+});
+
+// Validation middleware for '/payment'
+server.post('/payment', validatePayment);
+server.patch('/payment', validatePayment);
+
 // Validation middleware for get '/categories/:id/banners'
 server.get('/banners/:id', (req, res) => {
+	val;
 	const bannerId = parseInt(req.params.id, 10);
 	const banner = router.db.get('banners').find({ id: bannerId }).value();
 
