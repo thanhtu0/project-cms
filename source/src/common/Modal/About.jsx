@@ -12,7 +12,7 @@ const About = ({ isOpen, onClose, onSubmit, initialData }) => {
             setName('');
         }
     }, [initialData, isOpen]);
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({ name });
@@ -34,14 +34,22 @@ const About = ({ isOpen, onClose, onSubmit, initialData }) => {
 
                 <div className="modal-body fs-18 text-center text-black-1 fw-4 my-2">
                     <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="About Name"
-                            required
-                        />
-                        <div className="modal-btn flex flex-end mt-2">
+                        <div className="row">
+                            <div className="col-30">
+                                <label>About name:</label>
+                            </div>
+                            <div className="col-70">
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    placeholder="About Name"
+                                    autoFocus
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="row flex flex-end">
                             <Button primary type="submit">
                                 {initialData ? 'Update' : 'Add'}
                             </Button>

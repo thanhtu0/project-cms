@@ -47,6 +47,7 @@ const Social = ({ isOpen, onClose, onSubmit, initialData }) => {
                                     value={href}
                                     onChange={(e) => setHref(e.target.value)}
                                     placeholder="Social href"
+                                    autoFocus
                                     required
                                 />
                             </div>
