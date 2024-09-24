@@ -12,6 +12,13 @@ const Information = () => {
         social: false,
     });
 
+    const sections = [
+        { key: 'about', title: 'About Store', component: <AboutSection /> },
+        { key: 'contact', title: 'Contact Store', component: <ContactSection /> },
+        { key: 'payment', title: 'Payment Store', component: <PaymentSection /> },
+        { key: 'social', title: 'Social Store', component: <SocialSection /> },
+    ];
+
     const handleToggleVisibility = (section) => {
         setVisible((prevState) => toggleVisibility(prevState, section));
     };
@@ -22,33 +29,16 @@ const Information = () => {
                 <Title text="Information Store" />
             </div>
 
-            <ToggleSection title="About Store" visible={visible.about} onToggle={() => handleToggleVisibility('about')}>
-                <AboutSection />
-            </ToggleSection>
-
-            <ToggleSection
-                title="Contact Store"
-                visible={visible.contact}
-                onToggle={() => handleToggleVisibility('contact')}
-            >
-                <ContactSection />
-            </ToggleSection>
-
-            <ToggleSection
-                title="Payment Store"
-                visible={visible.payment}
-                onToggle={() => handleToggleVisibility('payment')}
-            >
-                <PaymentSection />
-            </ToggleSection>
-
-            <ToggleSection
-                title="Social Store"
-                visible={visible.social}
-                onToggle={() => handleToggleVisibility('social')}
-            >
-                <SocialSection />
-            </ToggleSection>
+            {sections.map(({ key, title, component }) => (
+                <ToggleSection
+                    key={key}
+                    title={title}
+                    visible={visible[key]}
+                    onToggle={() => handleToggleVisibility(key)}
+                >
+                    {component}
+                </ToggleSection>
+            ))}
         </div>
     );
 };
