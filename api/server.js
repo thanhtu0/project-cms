@@ -115,8 +115,47 @@ server.post('/subcategories', validateSubCategory);
 server.patch('/subcategories/:id', validateSubCategory);
 
 // Validation middleware for '/brands' and for PATCH on '/brands/:id'
-server.post('/brands', validateBrand);
-server.patch('/brands/:id', validateBrand);
+server.post('/brands', validateBrand, (req, res) => {
+	const brands = router.db.get('brands').value();
+	const newId = brands.length ? Math.max(...brands.map((b) => b.id)) + 1 : 1;
+
+	const newBrands = {
+		id: newId,
+		name: req.body.name,
+		imageUrl: req.body.imageFilename || '',
+	};
+
+	router.db.get('brands').push(newBrands).write();
+
+	res.status(201).json({
+		message: 'Brands updated successfully',
+		brand: newBrands,
+	});
+});
+server.patch('/brands/:id', validateBrand, (req, res) => {
+	const brandId = parseInt(req.params.id, 10);
+	const { name } = req.body;
+	const imageFilename = req.file ? req.file.filename : req.body.imageFilename;
+
+	const brand = router.db.get('brands').find({ id: brandId }).value();
+
+	if (!brand) {
+		return res.status(404).json({ message: 'Banner not found' });
+	}
+
+	const updateBrand = {
+		...brand,
+		name: name || brand.name,
+		imageUrl: imageFilename || brand.imageUrl,
+	};
+
+	router.db.get('brands').find({ id: brandId }).assign(updateBrand).write();
+
+	res.status(200).json({
+		message: 'Brand updates successfully',
+		brand: updateBrand,
+	});
+});
 
 // Validation middleware for '/contact'
 server.patch('/contacts/:id', validateContact, (req, res) => {

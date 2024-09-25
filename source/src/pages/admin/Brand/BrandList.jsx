@@ -43,7 +43,7 @@ const BrandList = () => {
                         <td style={{ width: '20px' }}>{brand.id}</td>
                         <td style={{ width: '150px', height: 'auto' }}>
                             <img
-                                src={`${BRAND_IMAGES}/${brand.imageFilename}`}
+                                src={`${BRAND_IMAGES}/${brand.imageUrl}`}
                                 className="img-fluid img-cover w-100"
                                 alt={`Brand ${brand.name}`}
                             />

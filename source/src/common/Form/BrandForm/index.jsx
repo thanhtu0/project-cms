@@ -8,14 +8,14 @@ const BrandForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading 
     const [imageOlder, setImageOlder] = useState('');
 
     useEffect(() => {
-        if (initialData.imageFilename) {
-            setImageOlder(`${BRAND_IMAGES}/${initialData.imageFilename}`);
+        if (initialData.imageUrl) {
+            setImageOlder(`${BRAND_IMAGES}/${initialData.imageUrl}`);
         }
     }, [initialData]);
 
     return (
         <div className="list__form">
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} encType="multipart/form-data">
                 <input type="hidden" name="type" value="brand" />
                 <div className="row">
                     <div className="col-25">
