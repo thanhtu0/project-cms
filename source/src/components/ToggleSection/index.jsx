@@ -7,7 +7,7 @@ const ToggleSection = ({ title, visible, onToggle, children }) => (
             <Title text={title} />
             <button
                 type="button"
-                className="w-4 h-4 flex flex-center fs-24 btn-primary text-gray-9a"
+                className="w-4 h-4 flex flex-center fs-24 btn-primary text-black-2"
                 onClick={onToggle}
             >
                 <ion-icon name={visible ? 'remove-outline' : 'add-outline'}></ion-icon>

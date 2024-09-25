@@ -6,23 +6,15 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 
-    .table-header {
-        display: contents;
-        margin-bottom: 0.5rem;
-    }
-
-    .header-item {
-        padding: 0.5rem;
-        border-bottom: 2px solid #ddd;
-    }
-
+    .table-header,
     .table-row {
         display: contents;
     }
 
+    .header-item,
     .table-cell {
         padding: 0.5rem;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 2px solid #ddd;
     }
 }
 
@@ -34,15 +26,7 @@
 .social-table th,
 .social-table td {
     padding: 0.5rem;
-    border: 1px solid #ddd;
-}
-
-.social-table th {
-    background-color: $clr-white-fc;
-}
-
-.social-table td {
-    vertical-align: middle;
+    border: 1px solid $clr-black-2;
 }
 
 .social-table th:nth-child(2) {
@@ -53,6 +37,13 @@
     text-transform: capitalize;
 }
 
-button:hover {
-    box-shadow: 2px 4px 8px rgba(25, 25, 25, 0.3);
+button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+        background-color: $clr-black-2;
+        color: $clr-white;
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
 }
