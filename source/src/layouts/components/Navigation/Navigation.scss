@@ -7,7 +7,6 @@
 
     ul {
         li {
-            list-style: none;
             border-top-left-radius: 30px;
             border-bottom-left-radius: 30px;
 
@@ -22,12 +21,6 @@
             }
 
             a {
-                position: relative;
-                display: flex;
-                width: 100%;
-                text-decoration: none;
-                color: $clr-white;
-
                 .icon {
                     min-width: 60px;
 
