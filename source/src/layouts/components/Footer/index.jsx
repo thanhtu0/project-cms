@@ -15,7 +15,7 @@ const Footer = () => {
 
     return (
         <footer className="footer mw-144">
-            <Link to="/" className="footer-logo">
+            <Link to="/" className="footer-logo h-5">
                 <h2 className="fs-43 fw-4 text-white">{companyName}</h2>
             </Link>
             <div className="footer-container">

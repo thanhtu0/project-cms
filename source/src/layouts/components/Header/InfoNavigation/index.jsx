@@ -66,7 +66,7 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
                             Log in
                         </Button>{' '}
                         /
-                        <Button to="/register" className="fs-8" text>
+                        <Button to="/signin" className="fs-8" text>
                             Sign up
                         </Button>
                     </div>

@@ -54,10 +54,10 @@ const BannerList = () => {
                                 alt={`Banner ${banner.season}`}
                             />
                         </td>
-                        <td>{getCategoryName(banner.categoryId, categories)}</td>
-                        <td>{banner.season}</td>
-                        <td>{banner.title}</td>
-                        <td>{banner.subtitle}</td>
+                        <td className="text-center">{getCategoryName(banner.categoryId, categories)}</td>
+                        <td className="text-center">{banner.season}</td>
+                        <td className="text-center">{banner.title}</td>
+                        <td className="text-center">{banner.subtitle}</td>
                     </>
                 )}
             />
@@ -69,7 +69,7 @@ const BannerList = () => {
                 onClose={handleCloseModal}
                 onConfirm={handleConfirmDelete}
                 title="Confirm Deletion"
-                message={`Are you sure you want to delete Banner ${selectedBanner?.name}?`}
+                message={`Are you sure you want to delete ${selectedBanner?.title} Banner?`}
             />
         </div>
     );

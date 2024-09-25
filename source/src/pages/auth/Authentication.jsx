@@ -1,37 +1,37 @@
 import { useEffect, useState } from 'react';
 import './Authentication.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { login, register } from '~/utils/images';
+import { login, signIn } from '~/utils/images';
 
 const Authentication = () => {
-    const [isregisterMode, setIsregisterMode] = useState(false);
+    const [isSignInMode, setIsSignInMode] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (location.pathname === '/register') {
-            setIsregisterMode(true);
+        if (location.pathname === '/signin') {
+            setIsSignInMode(true);
         } else {
-            setIsregisterMode(false);
+            setIsSignInMode(false);
         }
     }, [location]);
 
-    const handleregisterClick = () => {
-        setIsregisterMode(true);
-        navigate('/register');
+    const handleSignInClick = () => {
+        setIsSignInMode(true);
+        navigate('/signin');
     };
 
-    const handleloginClick = () => {
-        setIsregisterMode(false);
+    const handleLoginClick = () => {
+        setIsSignInMode(false);
         navigate('/login');
     };
 
     return (
-        <div className={`auth ${isregisterMode ? 'sign-up-mode' : ''}`}>
-            <div className="auth-form">
-                <div className="login-register w-100 h-100 position-absolute top-0 left-0 flex flex-around z-5">
-                    <form action="" className={`sign-in-form ${isregisterMode ? 'hidden' : ''}`}>
-                        <h2 className="title-auth">Sign in</h2>
+        <div className={`auth flex flex-center ${isSignInMode ? 'sign-up-mode' : ''}`}>
+            <div className="auth-form bg-white">
+                <div className="login-signIn">
+                    <form action="" className={`log-in-form ${isSignInMode ? 'hidden' : ''}`}>
+                        <h2 className="title-auth fs-35 text-auth-primary">Login</h2>
                         <div className="input-field">
                             <ion-icon name="person"></ion-icon>
                             <input type="text" placeholder="Username" />
@@ -42,32 +42,41 @@ const Authentication = () => {
                             <input type="password" placeholder="Password" />
                         </div>
 
-                        <input type="submit" value="Login" className="btn-auth" />
-                        <p className="social-text">Or Sign in with social platform</p>
-                        <div className="social-media">
-                            <a href="*" className="social-icon">
+                        <input
+                            type="submit"
+                            value="Login"
+                            className="btn-auth w-15 h-5 bg-auth-primary text-white fw-6 my-1"
+                        />
+                        <p className="social-text my-1 fs-16">Or Login with social platform</p>
+                        <div className="social-media flex">
+                            <a href="*" className="social-icon w-45 h-45 flex flex-center text-gray-9a facebook">
                                 <ion-icon name="logo-facebook"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon">
+                            <a href="*" className="social-icon w-45 h-45 flex flex-center text-gray-9a twitter">
                                 <ion-icon name="logo-twitter"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon">
+                            <a href="*" className="social-icon w-45 h-45 flex flex-center text-gray-9a google">
                                 <ion-icon name="logo-google"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon">
+                            <a href="*" className="social-icon w-45 h-45 flex flex-center text-gray-9a linkedin">
                                 <ion-icon name="logo-linkedin"></ion-icon>
                             </a>
                         </div>
-                        <p className="account-text">
+                        <p className="account-text fs-16 text-gray-9a">
                             Don't have an account?
-                            <Link to="#" id="sign-up-btn2" onClick={handleregisterClick}>
-                                Sign up
+                            <Link
+                                className="text-auth-primary fw-7"
+                                to="/signin"
+                                id="sign-up-btn2"
+                                onClick={handleSignInClick}
+                            >
+                                signIn
                             </Link>
                         </p>
                     </form>
 
-                    <form action="" className={`sign-up-form ${isregisterMode ? '' : 'hidden'}`}>
-                        <h2 className="title-auth">Sign up</h2>
+                    <form action="" className={`sign-up-form ${isSignInMode ? '' : 'hidden'}`}>
+                        <h2 className="title-auth fs-35 text-auth-primary">signIn</h2>
                         <div className="input-field">
                             <ion-icon name="person"></ion-icon>
                             <input type="text" placeholder="Username" />
@@ -83,57 +92,72 @@ const Authentication = () => {
                             <input type="password" placeholder="Password" />
                         </div>
 
-                        <input type="submit" value="Sign up" className="btn-auth" />
-                        <p className="social-text">Or Sign in with social platform</p>
-                        <div className="social-media">
-                            <a href="*" className="social-icon facebook">
+                        <input
+                            type="submit"
+                            value="signIn"
+                            className="btn-auth w-15 h-5 bg-auth-primary text-white fw-6 my-1"
+                        />
+                        <p className="social-text my-1 fs-16">Or signIn with social platform</p>
+                        <div className="social-media flex">
+                            <a href="*" className="social-icon w-45 h-45 flex flex-center text-gray-9a facebook">
                                 <ion-icon name="logo-facebook"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon twitter">
+                            <a href="*" className="social-icon w-45 h-45 flex flex-center text-gray-9a twitter">
                                 <ion-icon name="logo-twitter"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon google">
+                            <a href="*" className="social-icon w-45 h-45 flex flex-center text-gray-9a google">
                                 <ion-icon name="logo-google"></ion-icon>
                             </a>
-                            <a href="*" className="social-icon linkedin">
+                            <a href="*" className="social-icon w-45 h-45 flex flex-center text-gray-9a linkedin">
                                 <ion-icon name="logo-linkedin"></ion-icon>
                             </a>
                         </div>
-                        <p className="account-text">
+                        <p className="account-text fs-16 text-gray-9a">
                             Already have an account?
-                            <Link to="#" id="sign-in-btn2" onClick={handleloginClick}>
-                                Sign in
+                            <Link
+                                className="text-auth-primary fw-7"
+                                to="/login"
+                                id="log-in-btn2"
+                                onClick={handleLoginClick}
+                            >
+                                Login
                             </Link>
                         </p>
                     </form>
                 </div>
-                <div className="panels-container w-100 h-100 position-absolute top-0 left-0 flex flex-around">
-                    <div className="panel left-panel">
-                        <div className="panel-content">
-                            <h3>Member of Brands?</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia magnam incidunt excepturi
+                <div className="panels-container">
+                    <div className="panel left-panel text-center px-1 flex flex-around">
+                        <div className="panel-content text-white">
+                            <h3 className="fs-24 fw-6">Member of Brands?</h3>
+                            <p className="fs-15 py-1">
+                                Welcome back! We are excited to see you again. Log in now to explore exclusive member
+                                offers and experience the best services we have to offer.
                             </p>
-                            <button className="btn-auth" onClick={handleloginClick}>
-                                Sign in
+                            <button
+                                className="btn-auth w-15 h-5 bg-auth-primary text-white fw-6 my-1"
+                                onClick={handleLoginClick}
+                            >
+                                login
                             </button>
                         </div>
                         <img src={login} alt="" className="image" />
                     </div>
 
-                    <div className="panel right-panel">
-                        <div className="panel-content">
-                            <h3>New to Brands?</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia magnam incidunt excepturi
-                                explicabo expedita sit in at ullam reprehenderit perferendis aperiam placeat provident
-                                deserunt quos animi totam, amet voluptatem nobis.
+                    <div className="panel right-panel text-center px-1 flex flex-around">
+                        <div className="panel-content text-white">
+                            <h3 className="fs-24 fw-6">New to Brands?</h3>
+                            <p className="fs-15 py-1">
+                                We’re thrilled to have you! signIn today to explore a world of diverse products and
+                                receive exclusive offers available only to members. Don’t miss out on the opportunity!
                             </p>
-                            <button className="btn-auth" onClick={handleregisterClick}>
-                                Sign up
+                            <button
+                                className="btn-auth w-15 h-5 bg-auth-primary text-white fw-6 my-1"
+                                onClick={handleSignInClick}
+                            >
+                                signIn
                             </button>
                         </div>
-                        <img src={register} alt="" className="image" />
+                        <img src={signIn} alt="" className="image" />
                     </div>
                 </div>
             </div>

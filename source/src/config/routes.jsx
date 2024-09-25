@@ -5,7 +5,7 @@ const routes = {
     women: '/women',
     product_detail: '/product:{id}',
     login: '/login',
-    register: '/register',
+    signin: '/signin',
     forgotPassword: '/password_reset',
     error: '*',
 

@@ -1,5 +1,5 @@
 import login from '~/assets/images/login.png';
-import register from '~/assets/images/register.png';
+import signIn from '~/assets/images/signIn.png';
 import error from '~/assets/images/error-404.png';
 import user_logo from '~/assets/images/user_logo.jpg';
 
@@ -17,7 +17,7 @@ import skateboard_banner from '~/assets/images/skateboard_banner.png';
 
 export {
     login,
-    register,
+    signIn,
     user_logo,
     error,
     route_1,

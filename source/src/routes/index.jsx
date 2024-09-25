@@ -19,7 +19,7 @@ const publicRoutes = [
     { path: config.routes.women, component: Home },
     { path: config.routes.product_detail, component: Home, layout: ProductDetail },
     { path: config.routes.login, component: Authentication, layout: null },
-    { path: config.routes.register, component: Authentication, layout: null },
+    { path: config.routes.signin, component: Authentication, layout: null },
     { path: config.routes.forgotPassword, component: ForgotPassword },
 
     // Not found

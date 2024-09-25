@@ -25,7 +25,7 @@ const PaymentSection = () => {
         <div className="footer-section">
             <h3 className="fs-16 text-white">We accept</h3>
             {paymentMethods.length > 0 ? (
-                <ul className="payment-methods">
+                <ul className="payment-methods w-15">
                     {paymentMethods.map(({ id, name }) => (
                         <li className="text-white fs-14 lh-18" key={id}>
                             <Button

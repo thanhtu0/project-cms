@@ -40,15 +40,15 @@ const BrandList = () => {
                 onDelete={handleShowModal}
                 renderRow={(brand) => (
                     <>
-                        <td style={{ width: '10px' }}>{brand.id}</td>
-                        <td style={{ width: '100px', height: 'auto' }}>
+                        <td style={{ width: '20px' }}>{brand.id}</td>
+                        <td style={{ width: '150px', height: 'auto' }}>
                             <img
                                 src={`${BRAND_IMAGES}/${brand.imageFilename}`}
-                                className="img-fluid img-cover"
+                                className="img-fluid img-cover w-100"
                                 alt={`Brand ${brand.name}`}
                             />
                         </td>
-                        <td>{brand.name}</td>
+                        <td className="text-center">{brand.name}</td>
                     </>
                 )}
             />

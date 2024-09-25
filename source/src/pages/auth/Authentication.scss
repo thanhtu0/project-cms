@@ -1,9 +1,6 @@
 @import '../../styles/GlobalStyles.scss';
 
 .auth {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
     background: linear-gradient(in oklab, $clr-auth-secondary, $clr-auth-primary);
     transition: transform 1s ease-in-out;
@@ -21,7 +18,7 @@
             transform: translateX(0);
         }
 
-        form.sign-in-form {
+        form.log-in-form {
             opacity: 0;
             pointer-events: none;
             z-index: 0;
@@ -39,7 +36,6 @@
     position: relative;
     width: 70vw;
     height: 80vh;
-    background: $clr-white;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -59,7 +55,19 @@
     }
 }
 
-.login-register {
+.login-signIn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 5;
+
     form {
         display: flex;
         align-items: center;
@@ -68,11 +76,6 @@
         width: 40%;
         min-height: 238px;
         padding: 0 10px;
-
-        .title-auth {
-            font-size: 35px;
-            color: $clr-auth-primary;
-        }
 
         .input-field {
             width: 100%;
@@ -105,14 +108,8 @@
         }
 
         .btn-auth {
-            width: 150px;
-            height: 50px;
             border: none;
             border-radius: 50px;
-            background: $clr-auth-primary;
-            color: $clr-white;
-            font-weight: 600;
-            margin: 10px 0;
             text-transform: uppercase;
             cursor: pointer;
 
@@ -121,22 +118,8 @@
             }
         }
 
-        .social-text {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-
         .social-media {
-            display: flex;
-            justify-content: center;
-
             .social-icon {
-                width: 45px;
-                height: 45px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: $clr-gray-9a;
                 border: 1px solid $clr-gray-9a;
                 border-radius: 50px;
                 margin: 0 5px;
@@ -152,41 +135,29 @@
 }
 
 .panels-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
     .panel {
         flex-direction: column;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         width: 35%;
         min-width: 238px;
-        padding: 0 10px;
-        text-align: center;
         z-index: 6;
 
         .panel-content {
-            color: $clr-white;
             transition: 1.1s ease-in-out;
             transition-delay: 0.5s;
 
-            h3 {
-                font-size: 24px;
-                font-weight: 600;
-            }
-
-            p {
-                font-size: 15px;
-                padding: 10px 0;
-            }
-
             .btn-auth {
-                width: 150px;
-                height: 50px;
-                border: none;
                 border-radius: 50px;
-                background: $clr-auth-primary;
-                color: $clr-white;
-                font-weight: 600;
-                margin: 10px 0;
                 text-transform: uppercase;
                 cursor: pointer;
 
@@ -215,13 +186,8 @@
 
 .account-text {
     display: none;
-    font-size: 16px;
-    color: $clr-gray-9a;
 
     a {
-        color: $clr-auth-primary;
-        font-weight: bold;
-
         &:hover {
             color: $clr-primary;
             text-decoration: underline;
@@ -240,7 +206,7 @@
         height: 90vh;
     }
 
-    .login-register form {
+    .login-signIn form {
         width: 80%;
     }
 
@@ -269,7 +235,7 @@
         opacity: 1;
     }
 
-    .auth.sign-up-mode form.sign-in-form {
+    .auth.sign-up-mode form.log-in-form {
         display: none;
     }
 
