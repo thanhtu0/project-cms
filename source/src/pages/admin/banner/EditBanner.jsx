@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Loading } from '~/common';
 import { BannerForm } from '~/common/Form';
 import Title from '~/common/Title';
 import { BANNERS_URL, CATEGORIES_URL } from '~/utils/apiURL';
@@ -94,9 +95,7 @@ const EditBanner = () => {
         }
     }
 
-    if (!bannerData) {
-        return <div>Loading...</div>;
-    }
+    if (!bannerData) return <Loading />;
 
     return (
         <div className="list">

@@ -159,7 +159,6 @@ server.patch('/contacts/:id', validateContact, (req, res) => {
 
 // Validation middleware for get '/categories/:id/banners'
 server.get('/banners/:id', (req, res) => {
-	val;
 	const bannerId = parseInt(req.params.id, 10);
 	const banner = router.db.get('banners').find({ id: bannerId }).value();
 
