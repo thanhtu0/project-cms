@@ -15,7 +15,23 @@ const EditBanner = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        async function fetchCategories() {
+            try {
+                const response = await fetch(`${CATEGORIES_URL}`);
+                const data = await response.json();
+                setCategories(data);
+            } catch (error) {
+                console.error('Failed to fetch categories:', error);
+            }
+        }
+
+        fetchCategories();
+    }, []);
+
+    useEffect(() => {
         async function fetchBanner() {
+            if (categories.length === 0) return;
+
             try {
                 const response = await fetch(`${BANNERS_URL}/${id}`);
                 const data = await response.json();
@@ -33,18 +49,7 @@ const EditBanner = () => {
             }
         }
 
-        async function fetchCategories() {
-            try {
-                const response = await fetch(`${CATEGORIES_URL}`);
-                const data = await response.json();
-                setCategories(data);
-            } catch (error) {
-                console.error('Failed to fetch categories:', error);
-            }
-        }
-
         fetchBanner();
-        fetchCategories();
     }, [id, categories]);
 
     async function handleSubmit(event) {

@@ -107,7 +107,7 @@ const Banner = ({ activeTab }) => {
                             className="banner-img"
                         />
                         <strong className="position-absolute text-end text-black">
-                            cordes.<p className="text-black-2">Skateboard</p>
+                            cordes.<p className="text-black-2">{filteredBanners[currentBannerIndex].title}</p>
                         </strong>
                     </div>
                     <PlayVideo isOpen={isModalOpen} onClose={handleCloseModal}>

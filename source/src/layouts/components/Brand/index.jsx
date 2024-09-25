@@ -27,7 +27,7 @@ const Brand = () => {
                 {displayedBrands.map((brand) => (
                     <img
                         key={brand.id}
-                        src={`${BRAND_IMAGES}/${brand.imageFilename}`}
+                        src={`${BRAND_IMAGES}/${brand.imageUrl}`}
                         alt={`${brand.name}-logo`}
                         onClick={() => handleBrandClick(brand.name)}
                         className="brand-logo__image"
