@@ -14,10 +14,12 @@ const Header = ({ activeTab, setActiveTab }) => {
     if (contactLoading) return <Loading />;
     if (contactError) return <Error message={contactError.message} />;
 
+    const contactInfo = contact && contact.length > 0 ? contact[0] : null;
+
     return (
         <header className="header mw-144 flex-column">
             {!contactLoading ? (
-                contact ? (
+                contactInfo ? (
                     <InfoHeader
                         infoItems={[
                             {
@@ -35,14 +37,14 @@ const Header = ({ activeTab, setActiveTab }) => {
                         error={contactError}
                     />
                 ) : (
-                    <Error message={contactError.message} />
+                    <Error message="No contact information" />
                 )
             ) : (
                 <Loading />
             )}
 
             <InfoNavigation
-                companyName={contact?.[0].companyName || 'Company Name'}
+                companyName={contactInfo?.companyName || 'Company Name'}
                 categories={categories || []}
                 categoriesLoading={categoriesLoading}
                 categoriesError={categoriesError}

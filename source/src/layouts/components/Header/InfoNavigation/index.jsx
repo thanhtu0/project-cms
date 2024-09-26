@@ -22,7 +22,7 @@ const InfoNavigation = ({ companyName, categories, categoriesLoading, categories
     return (
         <div className="info-navigation h-12 flex flex-between px-13 py-1">
             <Button to="/" className="logo-text w-12 h-5 lh-5 fs-43" text>
-                {categoriesLoading ? 'Loading company name...' : companyName || ''}
+                {categoriesLoading ? <Loading /> : companyName || ''}
             </Button>
             <nav>
                 <ul className="flex flex-around w-17 h-12 bg-white-fc">
