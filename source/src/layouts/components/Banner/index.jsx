@@ -1,7 +1,7 @@
 import { BANNER_IMAGES, BANNERS_URL, CATEGORIES_URL } from '~/utils/apiURL';
 import './Banner.scss';
 import useFetch from '~/hooks/useFetch';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Error, Loading } from '~/common';
 import { getCategoryName } from '~/utils/helpers';
 import { Button, Label } from '~/components';
@@ -28,16 +28,29 @@ const Banner = ({ activeTab }) => {
         }
     }, [categories]);
 
-    const filteredBanners = (banners || []).filter((banner) => {
-        return categoryMap[activeTab] === banner.categoryId;
-    });
+    // Memoized filtered banners
+    const filteredBanners = useMemo(() => {
+        return (banners || []).filter((banner) => {
+            return categoryMap[activeTab] === banner.categoryId;
+        });
+    }, [banners, activeTab, categoryMap]);
+
+    // Memoized banner image URL
+    const bannerImageUrl = useMemo(() => {
+        if (filteredBanners.length === 0) return ''; // Fallback if don't have banner
+        return `${BANNER_IMAGES}/${getCategoryName(filteredBanners[currentBannerIndex].categoryId, categories)}/${
+            filteredBanners[currentBannerIndex].imageUrl
+        }`;
+    }, [filteredBanners, currentBannerIndex, categories]);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentBannerIndex((prevIndex) => (prevIndex + 1) % filteredBanners.length);
-        }, 5000);
+        if (filteredBanners.length > 0) {
+            const interval = setInterval(() => {
+                setCurrentBannerIndex((prevIndex) => (prevIndex + 1) % filteredBanners.length);
+            }, 5000);
 
-        return () => clearInterval(interval); // Dọn dẹp interval khi component unmount
+            return () => clearInterval(interval);
+        }
     }, [filteredBanners.length]);
 
     const handleLineClick = (index) => {
@@ -99,10 +112,8 @@ const Banner = ({ activeTab }) => {
                         }`}
                     >
                         <img
-                            src={`${BANNER_IMAGES}/${getCategoryName(
-                                filteredBanners[currentBannerIndex].categoryId,
-                                categories,
-                            )}/${filteredBanners[currentBannerIndex].imageUrl}`}
+                            loading="lazy"
+                            src={bannerImageUrl}
                             alt={`${filteredBanners[currentBannerIndex].title} Banner`}
                             className="banner-img"
                         />
