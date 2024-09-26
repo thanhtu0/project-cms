@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Error, Loading } from '~/common';
 import Button from '~/components/Button';
@@ -38,7 +38,7 @@ const AboutSection = () => {
                                 <li key={id}>
                                     <Button
                                         onClick={() => handleBrandClick(name)}
-                                        aria-label={`About ${name}`}
+                                        aria-label={`Learn more about ${name}`}
                                         className="text-white"
                                         text
                                     >
@@ -53,7 +53,7 @@ const AboutSection = () => {
                                     <li key={id}>
                                         <Button
                                             onClick={() => handleBrandClick(name)}
-                                            aria-label={`About ${name}`}
+                                            aria-label={`Learn more about ${name}`}
                                             className="text-white text-end"
                                             text
                                         >
@@ -72,4 +72,4 @@ const AboutSection = () => {
     );
 };
 
-export default AboutSection;
+export default memo(AboutSection);

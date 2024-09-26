@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Error, Loading } from '~/common';
 import useFetch from '~/hooks/useFetch';
 import { CONTACT_URL } from '~/utils/apiURL';
@@ -14,16 +15,16 @@ const ContactSection = () => {
         return (
             <div className="footer-section">
                 <h3 className="fs-16 text-white">Store</h3>
-                <p className="text-white fs-14 fw-4">
+                <p className="text-white fs-14 fw-4" aria-label="Company name">
                     <strong>Company name:</strong> {store.companyName || 'N/A'}
                 </p>
-                <p className="text-white fs-14 fw-4">
+                <p className="text-white fs-14 fw-4" aria-label="Telephone number">
                     <strong>Tel:</strong> {store.telephone || 'N/A'}
                 </p>
-                <p className="text-white fs-14 fw-4">
+                <p className="text-white fs-14 fw-4" aria-label="Email address">
                     <strong>Email:</strong> {store.email || 'N/A'}
                 </p>
-                <p className="text-white fs-14 fw-4">
+                <p className="text-white fs-14 fw-4" aria-label="Store address">
                     <strong>Address:</strong> {store.address || 'N/A'}
                 </p>
             </div>
@@ -38,4 +39,4 @@ const ContactSection = () => {
     );
 };
 
-export default ContactSection;
+export default memo(ContactSection);

@@ -6,6 +6,7 @@ import { createSlug } from '~/utils/helpers';
 import Button from '~/components/Button';
 import useFetch from '~/hooks/useFetch';
 import { API_BASE_URL } from '~/utils/apiURL';
+import { memo } from 'react';
 
 const PaymentSection = () => {
     const { data: payments, loading: paymentsLoading, error: paymentsError } = useFetch(`${API_BASE_URL}/payment`);
@@ -30,7 +31,7 @@ const PaymentSection = () => {
                         <li className="text-white fs-14 lh-18" key={id}>
                             <Button
                                 onClick={() => handleBrandClick(name)}
-                                aria-label={`Payment ${name}`}
+                                aria-label={`Payment method ${name}`}
                                 className="payment-link text-white"
                                 leftIcon={<FontAwesomeIcon icon={faCreditCard} />}
                                 iconSize="1.6rem"
@@ -48,4 +49,4 @@ const PaymentSection = () => {
     );
 };
 
-export default PaymentSection;
+export default memo(PaymentSection);

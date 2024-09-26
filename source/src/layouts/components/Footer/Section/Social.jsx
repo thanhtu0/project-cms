@@ -11,6 +11,7 @@ import { Error, Loading } from '~/common';
 import Button from '~/components/Button';
 import useFetch from '~/hooks/useFetch';
 import { API_BASE_URL } from '~/utils/apiURL';
+import { memo } from 'react';
 
 const iconMap = {
     facebook: faFacebook,
@@ -36,7 +37,14 @@ const SocialSection = () => {
                 <ul className="social-icons">
                     {socialLinks.map(({ id, href, icon, name }) => (
                         <li key={id} className="mr-1 text-white">
-                            <Button href={href} icon className={name} target="_blank" rel="noopener noreferrer">
+                            <Button
+                                href={href}
+                                icon
+                                className={name}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Visit our ${name} page`}
+                            >
                                 <FontAwesomeIcon icon={iconMap[name]} style={{ fontSize: '1.6rem' }} />
                             </Button>
                         </li>
@@ -52,4 +60,4 @@ const SocialSection = () => {
     );
 };
 
-export default SocialSection;
+export default memo(SocialSection);
