@@ -14,6 +14,8 @@ const Brand = () => {
     if (loading) return <Loading />;
     if (error) return <Error message={error.message} />;
 
+    if (!brands.length) return <div>No brands available.</div>;
+
     const displayedBrands = showAll ? brands : brands.slice(0, 6);
 
     const handleBrandClick = (name) => {
@@ -35,12 +37,12 @@ const Brand = () => {
                 ))}
             </div>
             {brands.length > 6 && !showAll && (
-                <button onClick={() => setShowAll(true)} className="fs-14 fw-6 brand__show-more">
+                <button onClick={() => setShowAll(true)} type="button" className="fs-14 fw-6 brand__show-more">
                     Explore Brands
                 </button>
             )}
             {showAll && (
-                <button onClick={() => setShowAll(false)} className="fs-14 fw-6 brand__show-less">
+                <button onClick={() => setShowAll(false)} type="button" className="fs-14 fw-6 brand__show-less">
                     Show Less
                 </button>
             )}

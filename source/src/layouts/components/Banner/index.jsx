@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PlayVideo from '~/common/Modal/PlayVideo';
 import { skateboard_banner } from '~/utils/videos';
 import usePlayVideo from '~/hooks/usePlayVideo';
+import { error } from '~/utils/images';
 
 const Banner = ({ activeTab }) => {
     const { data: banners, loading: bannersLoading, error: bannersError } = useFetch(BANNERS_URL);
@@ -63,7 +64,7 @@ const Banner = ({ activeTab }) => {
 
     return (
         <>
-            {filteredBanners.length > 0 && (
+            {filteredBanners.length > 0 ? (
                 <div
                     className={`banner position-relative mw-144 flex flex-between px-13 ${
                         filteredBanners[currentBannerIndex].categoryId % 2 === 0 ? 'even' : 'odd'
@@ -112,7 +113,6 @@ const Banner = ({ activeTab }) => {
                         }`}
                     >
                         <img
-                            loading="lazy"
                             src={bannerImageUrl}
                             alt={`${filteredBanners[currentBannerIndex].title} Banner`}
                             className="banner-img"
@@ -127,6 +127,11 @@ const Banner = ({ activeTab }) => {
                             Your browser does not support the video tag.
                         </video>
                     </PlayVideo>
+                </div>
+            ) : (
+                <div className="fallback-message flex flex-around">
+                    <img src={error} alt="No Banners" />
+                    <p className="text-danger">No banners available at the moment. Please check back later!</p>
                 </div>
             )}
         </>
