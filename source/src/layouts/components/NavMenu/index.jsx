@@ -11,12 +11,16 @@ const NavMenu = () => {
 
     if (loading) return <Loading />;
     if (error) return <Error message={error.message} />;
+    if (!subcategories || subcategories.length === 0) {
+        return <Error message="No subcategories..." />;
+    }
+
+    const limitedSubcategories = subcategories.slice(0, 9);
+    const displayedSubcategories = showAll ? subcategories : limitedSubcategories;
 
     const handleShowMore = () => {
         setShowAll(!showAll);
     };
-
-    const displayedSubcategories = showAll ? subcategories : subcategories.slice(0, 9);
 
     return (
         <div className="wrapper-nav flex flex-center w-100 h-5">
@@ -29,13 +33,17 @@ const NavMenu = () => {
                                 text
                                 className="text-black text-center"
                                 aria-label={subcategory.name}
+                                role="button"
                             >
                                 {subcategory.name}
                             </Button>
                         </li>
                     ))}
                     {subcategories.length > 9 && (
-                        <li className="more-subcategory h-34 fs-14 flex flex-center fw-6 position-relative mx-1" onClick={handleShowMore}>
+                        <li
+                            className="more-subcategory h-34 fs-14 flex flex-center fw-6 position-relative mx-1"
+                            onClick={handleShowMore}
+                        >
                             {showAll ? 'Show Less' : 'Show More'}
                             <div className="tooltip bg-gray-9a text-white text-center position-absolute z-1 left-50">
                                 {showAll ? 'Click to show less' : 'Click to show more categories'}
