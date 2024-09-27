@@ -9,9 +9,11 @@ const ListHeader = ({ title, refreshHandler, refreshLabel = 'Refresh', createLin
                 <Button onClick={refreshHandler} success>
                     {refreshLabel}
                 </Button>
-                <Button to={createLink} primary>
-                    {createLabel}
-                </Button>
+                {createLink && (
+                    <Button to={createLink} primary>
+                        {createLabel}
+                    </Button>
+                )}
             </div>
         </div>
     );

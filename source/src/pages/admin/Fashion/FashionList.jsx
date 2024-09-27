@@ -34,13 +34,7 @@ const FashionList = () => {
 
     return (
         <div className="list">
-            <ListHeader
-                title="Fashion List"
-                refreshHandler={handleRefresh}
-                createLink="/admin/fashion/create"
-                refreshLabel="Refresh Fashion"
-                createLabel="Create Fashion"
-            />
+            <ListHeader title="Fashion List" refreshHandler={handleRefresh} refreshLabel="Refresh Fashion" />
             <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
             <ListTable
                 headers={['ID', 'Image', 'Category Name', 'Label', 'Title', 'Subtitle', 'Description']}
