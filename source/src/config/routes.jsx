@@ -35,6 +35,10 @@ const routes = {
     create_product: '/admin/product/create',
     update_product: '/admin/product/edit/:id',
 
+    fashions: '/admin/fashions',
+    create_fashion: '/admin/fashion/create',
+    update_fashion: '/admin/fashion/edit/:id',
+
     employees: '/admin/employees',
     create_employee: '/admin/employee/create',
     update_employee: '/admin/employee/edit/:id',

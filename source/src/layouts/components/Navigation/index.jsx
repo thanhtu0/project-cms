@@ -20,6 +20,7 @@ const Navigation = () => {
                     { to: '/admin/brands', icon: 'basket-outline', title: 'Brands' },
                     { to: '/admin/banners', icon: 'extension-puzzle-outline', title: 'Banners' },
                     { to: '/admin/products', icon: 'shirt-outline', title: 'Products' },
+                    { to: '/admin/fashions', icon: 'shirt-outline', title: 'Fashions' },
                     { to: '/admin/information', icon: 'information-circle-outline', title: 'Information Store' },
                     // { to: '/admin/messages', icon: 'chatbubble-outline', title: 'Messages' },
                     // { to: '/admin/settings', icon: 'settings-outline', title: 'Settings' },
