@@ -45,12 +45,12 @@ const BannerList = () => {
                 renderRow={(banner) => (
                     <>
                         <td style={{ width: '10px' }}>{banner.id}</td>
-                        <td style={{ width: '100px', height: 'auto' }}>
+                        <td style={{ width: '150px', height: 'auto' }}>
                             <img
                                 src={`${BANNER_IMAGES}/${getCategoryName(banner.categoryId, categories)}/${
                                     banner.imageUrl
                                 }`}
-                                className="img-fluid img-cover"
+                                className="img-fluid"
                                 alt={`Banner ${banner.season}`}
                             />
                         </td>

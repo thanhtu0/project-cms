@@ -78,6 +78,12 @@
     &-1 {
         z-index: 1;
     }
+    &-2 {
+        z-index: 2;
+    }
+    &-3 {
+        z-index: 3;
+    }
     &-5 {
         z-index: 5;
     }
@@ -394,6 +400,9 @@
     &-58 {
         font-size: 5.8rem;
     }
+    &-110 {
+        font-size: 11rem;
+    }
     &-180 {
         font-size: 18rem;
     }
@@ -437,6 +446,12 @@
 .lh-75 {
     line-height: 7.5rem;
 }
+.lh-125 {
+    line-height: 12.5rem;
+}
+.lh-145 {
+    line-height: 14.5rem;
+}
 /* margin and padding */
 .mx-auto {
     margin-right: auto;
@@ -450,6 +465,16 @@
 .my-180 {
     margin-top: 18rem;
     margin-bottom: 18rem;
+}
+
+.my-120 {
+    margin-top: 12rem;
+    margin-bottom: 12rem;
+}
+
+.mx-130 {
+    margin-left: 13rem;
+    margin-right: 13rem;
 }
 
 .my-1 {

@@ -2,6 +2,7 @@ import { Home } from '~/pages/client';
 import { AdminHome } from '~/pages/admin';
 import { Authentication, ForgotPassword } from '~/pages/auth';
 import { AdminLayout, ProductDetail } from '~/layouts';
+import { FashionList } from '~/pages/admin/Fashion';
 import { ProductList, CreateProduct, EditProduct } from '~/pages/admin/Product';
 import { CategoryList, CreateCategory, EditCategory } from '~/pages/admin/Category';
 import { CreateSubCategory, EditSubCategory, SubCategoryList } from '~/pages/admin/SubCategory';
@@ -10,7 +11,7 @@ import { BrandList, CreateBrand, EditBrand } from '~/pages/admin/Brand';
 import { BannerList, CreateBanner, EditBanner } from '~/pages/admin/Banner';
 import NotFound from '~/pages/error/NotFound';
 import config from '~/config';
-import Information from '~/pages/admin/Infomation';
+import Information from '~/pages/admin/Information';
 
 // Public routes
 const publicRoutes = [
@@ -30,6 +31,10 @@ const publicRoutes = [
 const privateRoutes = [
     { path: config.routes.admin, component: AdminHome, layout: AdminLayout },
     { path: config.routes.admin_error, component: NotFound, layout: AdminLayout },
+
+    { path: config.routes.fashions, component: FashionList, layout: AdminLayout },
+    // { path: config.routes.create_fashion, component: CreateFashion, layout: AdminLayout },
+    // { path: config.routes.update_fashion, component: EditFashion, layout: AdminLayout },
 
     { path: config.routes.products, component: ProductList, layout: AdminLayout },
     { path: config.routes.create_product, component: CreateProduct, layout: AdminLayout },

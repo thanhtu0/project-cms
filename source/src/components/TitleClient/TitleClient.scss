@@ -1,0 +1,13 @@
+@import '../../styles/GlobalStyles.scss';
+.title-client {
+    &::after {
+        content: '';
+        position: absolute;
+        margin-left: 16px;
+        top: 84%;
+        transform: translateY(-16%);
+        width: 60px;
+        height: 2px;
+        border-top: 2px solid $clr-black;
+    }
+}
