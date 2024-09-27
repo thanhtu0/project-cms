@@ -22,6 +22,13 @@ const errors = {
 		title: 'Title is required and must be at least 5 characters',
 		subtitle: 'Subtitle is required and must be at least 5 characters',
 	},
+	fashion: {
+		categoryId: 'Invalid categoryId',
+		label: 'Season is required and must be at least 2 characters',
+		title: 'Title is required and must be at least 5 characters',
+		subtitle: 'Subtitle is required and must be at least 5 characters',
+		description: 'The description must be at least 10 characters long',
+	},
 };
 
 module.exports = errors;

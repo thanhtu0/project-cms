@@ -115,10 +115,46 @@ const validateContact = (req, res, next) => {
 	next();
 };
 
+const validateFashion = (categories) => (req, res, next) => {
+	let { season, title, subtitle, description, categoryId } = req.body;
+	const parsedCategoryId = parseInt(categoryId, 10);
+	const isValidCategoryId = categories.some((category) => category.id === parsedCategoryId);
+
+	let hasErrors = false;
+	let errorMessages = {};
+
+	if (!isValidCategoryId) {
+		hasErrors = true;
+		errorMessages.categoryId = errors.fashion.categoryId;
+	}
+	if (!season || season.trim().length < 2) {
+		hasErrors = true;
+		errorMessages.season = errors.fashion.season;
+	}
+	if (!title || title.trim().length < 5) {
+		hasErrors = true;
+		errorMessages.title = errors.fashion.title;
+	}
+	if (!subtitle || subtitle.trim().length < 5) {
+		hasErrors = true;
+		errorMessages.subtitle = errors.fashion.subtitle;
+	}
+	if (!description || description.trim().length < 10) {
+		hasErrors = true;
+		errorMessages.description = errors.fashion.description;
+	}
+
+	if (hasErrors) {
+		return res.status(400).json(errorMessages);
+	}
+	next();
+};
+
 module.exports = {
 	validateCategory,
 	validateSubCategory,
 	validateBrand,
 	validateBanner,
 	validateContact,
+	validateFashion,
 };

@@ -35,10 +35,6 @@
 		{
 			"id": 9,
 			"name": "Help"
-		},
-		{
-			"name": "Help Settings",
-			"id": 10
 		}
 	],
 	"payment": [
@@ -107,49 +103,49 @@
 	"banners": [
 		{
 			"id": 1,
-			"season": "New Season ",
-			"title": "Route One O.B. ",
-			"subtitle": "LasTest Skateboard",
+			"season": "New Season",
+			"title": "Route One O.B.",
 			"categoryId": 1,
+			"subtitle": "LasTest Skateboard",
 			"imageUrl": "default_male.png"
 		},
 		{
 			"id": 2,
-			"season": "New Season ",
-			"title": "Route One O.B. ",
+			"season": "New Season",
+			"title": "Route One O.B.",
 			"subtitle": "LasTest Skateboard ",
 			"categoryId": 2,
 			"imageUrl": "default_ferMale.png"
 		},
 		{
 			"id": 3,
-			"season": "New Spring",
-			"title": "Clothing O.B",
-			"subtitle": "LastTest Clothing",
+			"season": "Fall Collection",
+			"title": "Urban Wear Essentials",
+			"subtitle": "Latest Fashion",
 			"categoryId": 1,
 			"imageUrl": "clothing_male.png"
 		},
 		{
 			"id": 4,
-			"season": "New Spring",
-			"title": "Clothing O.B",
-			"subtitle": "LastTest Clothing",
+			"season": "Fall Collection",
+			"title": "Urban Wear Essentials",
+			"subtitle": "Latest  Fashion",
 			"categoryId": 2,
-			"imageUrl": "routeOne_ferMale.png"
+			"imageUrl": "clothing_ferMale.png"
 		},
 		{
 			"id": 5,
-			"season": "Accessories",
-			"title": "Accessories O.B",
-			"subtitle": "LastTest Accessories",
+			"season": "Winter Collection",
+			"title": "Chic Winter Accessories",
+			"subtitle": "Trending  Accessories",
 			"categoryId": 1,
 			"imageUrl": "accessories_male.png"
 		},
 		{
 			"id": 6,
-			"season": "Accessories",
-			"title": "Accessories O.B",
-			"subtitle": "LastTest Accessories",
+			"season": "Winter Collection",
+			"title": "Chic Street Styles",
+			"subtitle": "Trending Accessories",
 			"categoryId": 2,
 			"imageUrl": "accessories_ferMale.png"
 		}
@@ -283,51 +279,31 @@
 			"imageUrl": "kavu.png"
 		}
 	],
-	"productSeason": [
+	"fashions": [
 		{
 			"id": 1,
-			"title": "Converse 'White Widow' Pack",
-			"name": "CTAS Pro Hi Skate Shoes",
-			"price": 64.99,
-			"imageUrl": "shoes.png",
-			"imageBackgroundUrl": "shoes_cart.png",
-			"categoryId": 1,
-			"brandId": 8
+			"label": "Fashion Trending",
+			"title": "Drive or",
+			"subtitle": "be Driven",
+			"description": "Drive or be Driven, the new trending from BoBaj and Jackson Davies...",
+			"imageUrl": "hoodie.png",
+			"categoryId": 1
 		},
 		{
 			"id": 2,
-			"title": "Obey Favourites",
-			"name": "Womens Russett Pullover Hoodie",
-			"price": 79.99,
-			"imageUrl": "shoes.png",
-			"imageBackgroundUrl": "shoes_cart.png",
-			"categoryId": 1,
-			"brandId": 8
+			"label": "Fashion Trending",
+			"title": "Drive or",
+			"subtitle": "be Driven",
+			"description": "Drive or be Driven, the new trending from BoBaj and Jackson Davies...",
+			"imageUrl": "hoodie.png",
+			"categoryId": 2
 		}
 	],
-	"productTrending": [
-		{
-			"id": 1,
-			"label": "Fashion Trending",
-			"title": "Drive or",
-			"subtitle": "be Driven",
-			"description": "Drive or be Driven, the new trending from BoBaj and Jackson Davies...",
-			"imageFirstUrl": "hoodie.png",
-			"imageSecondUrl": "hat.png",
-			"imageThirdUrl": "shoes.png",
-			"categoryId": 1
-		},
-		{
-			"id": 2,
-			"label": "Fashion Trending",
-			"title": "Drive or",
-			"subtitle": "be Driven",
-			"description": "Drive or be Driven, the new trending from BoBaj and Jackson Davies...",
-			"imageFirstUrl": "hoodie.png",
-			"imageSecondUrl": "hat.png",
-			"imageThirdUrl": "shoes.png",
-			"categoryId": 1
-		}
+	"fashionPhotos": [
+		{ "id": 1, "fashionId": 1, "imageUrl": "hat.png", "name": "Hat" },
+		{ "id": 2, "fashionId": 1, "imageUrl": "shoes.png", "name": "Shoes" },
+		{ "id": 3, "fashionId": 2, "imageUrl": "hat.png", "name": "Hat" },
+		{ "id": 4, "fashionId": 2, "imageUrl": "shoes.png", "name": "Shoes" }
 	],
 	"products": [
 		{
