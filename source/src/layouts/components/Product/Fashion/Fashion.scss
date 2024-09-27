@@ -1,0 +1,53 @@
+@import '../../../../styles/GlobalStyles.scss';
+
+.fashion-container {
+    margin: 120px 130px;
+    width: 1180px;
+    height: 654px;
+    .img {
+        width: 380px;
+        height: 504px;
+        background-color: #e5cded;
+
+        img {
+            width: 380px;
+            height: 504px;
+        }
+    }
+
+    .fashion-text {
+        width: 778px;
+        height: 448px;
+        left: 300px;
+
+        .subtitle {
+            width: 578px;
+            z-index: 3;
+            -webkit-text-stroke: 2px $clr-black;
+            text-shadow: 1px 1px 0px transparent, -1px -1px 0px transparent;
+            letter-spacing: 5px;
+            color: transparent;
+        }
+
+        .description {
+            width: 280px;
+            margin: 147px 0 0 200px;
+        }
+
+        Button {
+            margin: 102px 0 0 200px;
+        }
+    }
+    .img-title {
+        width: 227.5px;
+        height: 295px;
+        right: 100px;
+        background-color: #c7d1eb;
+    }
+    .img-subtitle {
+        top: 150px;
+        width: 200px;
+        height: 252.5px;
+        background-color: #c5e5e9;
+    }
+}

@@ -1,83 +1,26 @@
 {
 	"about": [
-		{
-			"id": 1,
-			"name": "About us"
-		},
-		{
-			"id": 2,
-			"name": "We're hiring"
-		},
-		{
-			"id": 3,
-			"name": "Support"
-		},
-		{
-			"id": 4,
-			"name": "Find store"
-		},
-		{
-			"id": 5,
-			"name": "Shipment"
-		},
-		{
-			"id": 6,
-			"name": "Payment"
-		},
-		{
-			"id": 7,
-			"name": "Gift card"
-		},
-		{
-			"id": 8,
-			"name": "Return"
-		},
-		{
-			"id": 9,
-			"name": "Help"
-		}
+		{ "id": 1, "name": "About us" },
+		{ "id": 2, "name": "We're hiring" },
+		{ "id": 3, "name": "Support" },
+		{ "id": 4, "name": "Find store" },
+		{ "id": 5, "name": "Shipment" },
+		{ "id": 6, "name": "Payment" },
+		{ "id": 7, "name": "Gift card" },
+		{ "id": 8, "name": "Return" },
+		{ "id": 9, "name": "Help" }
 	],
 	"payment": [
-		{
-			"id": 1,
-			"name": "Amex"
-		},
-		{
-			"id": 2,
-			"name": "Credit card"
-		}
+		{ "id": 1, "name": "Amex" },
+		{ "id": 2, "name": "Credit card" }
 	],
 	"social": [
-		{
-			"id": 1,
-			"name": "facebook",
-			"href": "https://www.facebook.com/ThanhTu03012002"
-		},
-		{
-			"id": 2,
-			"name": "instagram",
-			"href": "https://www.instagram.com"
-		},
-		{
-			"id": 3,
-			"name": "github",
-			"href": "https://github.com/thanhtu0"
-		},
-		{
-			"id": 4,
-			"name": "twitter",
-			"href": "https://x.com/home"
-		},
-		{
-			"id": 5,
-			"name": "snapchat",
-			"href": "https://www.snapchat.com"
-		},
-		{
-			"id": 6,
-			"name": "linkedin",
-			"href": "https://www.linkedin.com"
-		}
+		{ "id": 1, "name": "facebook", "href": "https://www.facebook.com/ThanhTu03012002" },
+		{ "id": 2, "name": "instagram", "href": "https://www.instagram.com" },
+		{ "id": 3, "name": "github", "href": "https://github.com/thanhtu0" },
+		{ "id": 4, "name": "twitter", "href": "https://x.com/home" },
+		{ "id": 5, "name": "snapchat", "href": "https://www.snapchat.com" },
+		{ "id": 6, "name": "linkedin", "href": "https://www.linkedin.com" }
 	],
 	"contact": [
 		{
@@ -89,16 +32,8 @@
 		}
 	],
 	"categories": [
-		{
-			"id": 1,
-			"name": "Men",
-			"description": "Clothing and accessories for men"
-		},
-		{
-			"id": 2,
-			"name": "Women",
-			"description": "Clothing and accessories for women"
-		}
+		{ "id": 1, "name": "Men", "description": "Clothing and accessories for men" },
+		{ "id": 2, "name": "Women", "description": "Clothing and accessories for women" }
 	],
 	"banners": [
 		{
@@ -151,133 +86,33 @@
 		}
 	],
 	"subcategories": [
-		{
-			"id": 1,
-			"name": "New in",
-			"description": ""
-		},
-		{
-			"id": 2,
-			"name": "Clothing",
-			"description": "Apparel including shirts, pants, jackets, and more."
-		},
-		{
-			"id": 3,
-			"name": "Shoes",
-			"description": "Footwear including sneakers, skate shoes, boots, and more."
-		},
-		{
-			"id": 4,
-			"name": "Accessories",
-			"description": "Accessories like hats, belts, bags, and more."
-		},
-		{
-			"id": 5,
-			"name": "Skateboard",
-			"description": "Skateboards, decks, wheels, trucks, and skateboarding gear."
-		},
-		{
-			"id": 6,
-			"name": "Route One",
-			"description": "Exclusive Route One products and collaborations."
-		},
-		{
-			"id": 7,
-			"name": "Brand",
-			"description": "Branded products from various well-known manufacturers."
-		},
-		{
-			"id": 8,
-			"name": "Launches",
-			"description": "Latest product releases and limited-edition items."
-		},
-		{
-			"id": 9,
-			"name": "Sale",
-			"description": "Discounted items and clearance products."
-		},
-		{
-			"id": 10,
-			"name": "Dress",
-			"description": "Dresses and formal wear for various occasions."
-		},
-		{
-			"id": 11,
-			"name": "Children",
-			"description": "Children's products: clothing and accessories."
-		},
-		{
-			"id": 12,
-			"name": "Other",
-			"description": "Miscellaneous items that do not fall into other categories."
-		},
-		{
-			"id": 13,
-			"name": "Socks",
-			"description": "Different styles of socks for casual, sports, and formal wear."
-		},
-		{
-			"id": 14,
-			"name": "Bags",
-			"description": "Backpacks, handbags, and other types of bags."
-		}
+		{ "id": 1, "name": "New in", "description": "" },
+		{ "id": 2, "name": "Clothing", "description": "Apparel including shirts, pants, jackets, and more." },
+		{ "id": 3, "name": "Shoes", "description": "Footwear including sneakers, skate shoes, boots, and more." },
+		{ "id": 4, "name": "Accessories", "description": "Accessories like hats, belts, bags, and more." },
+		{ "id": 5, "name": "Skateboard", "description": "Skateboards, decks, wheels, trucks, and skateboarding gear." },
+		{ "id": 6, "name": "Route One", "description": "Exclusive Route One products and collaborations." },
+		{ "id": 7, "name": "Brand", "description": "Branded products from various well-known manufacturers." },
+		{ "id": 8, "name": "Launches", "description": "Latest product releases and limited-edition items." },
+		{ "id": 9, "name": "Sale", "description": "Discounted items and clearance products." },
+		{ "id": 10, "name": "Dress", "description": "Dresses and formal wear for various occasions." },
+		{ "id": 11, "name": "Children", "description": "Children's products: clothing and accessories." },
+		{ "id": 12, "name": "Other", "description": "Miscellaneous items that do not fall into other categories." },
+		{ "id": 13, "name": "Socks", "description": "Different styles of socks for casual, sports, and formal wear." },
+		{ "id": 14, "name": "Bags", "description": "Backpacks, handbags, and other types of bags." }
 	],
 	"brands": [
-		{
-			"id": 1,
-			"name": "Nike",
-			"imageUrl": "nike.png"
-		},
-		{
-			"id": 2,
-			"name": "Adidas",
-			"imageUrl": "adidas.png"
-		},
-		{
-			"id": 3,
-			"name": "Route One",
-			"imageUrl": "route_one.png"
-		},
-		{
-			"id": 4,
-			"name": "Vans",
-			"imageUrl": "vans.png"
-		},
-		{
-			"id": 5,
-			"name": "Carhartt",
-			"imageUrl": "carhartt.png"
-		},
-		{
-			"id": 6,
-			"name": "Santa Cruz",
-			"imageUrl": "santa_cruz.png"
-		},
-		{
-			"id": 7,
-			"name": "Dc",
-			"imageUrl": "dc.png"
-		},
-		{
-			"id": 8,
-			"name": "Obey",
-			"imageUrl": "obey.png"
-		},
-		{
-			"id": 9,
-			"name": "Converse",
-			"imageUrl": "converse.png"
-		},
-		{
-			"id": 10,
-			"name": "Butter",
-			"imageUrl": "Butter.png"
-		},
-		{
-			"id": 11,
-			"name": "Kavu",
-			"imageUrl": "kavu.png"
-		}
+		{ "id": 1, "name": "Nike", "imageUrl": "nike.png" },
+		{ "id": 2, "name": "Adidas", "imageUrl": "adidas.png" },
+		{ "id": 3, "name": "Route One", "imageUrl": "route_one.png" },
+		{ "id": 4, "name": "Vans", "imageUrl": "vans.png" },
+		{ "id": 5, "name": "Carhartt", "imageUrl": "carhartt.png" },
+		{ "id": 6, "name": "Santa Cruz", "imageUrl": "santa_cruz.png" },
+		{ "id": 7, "name": "Dc", "imageUrl": "dc.png" },
+		{ "id": 8, "name": "Obey", "imageUrl": "obey.png" },
+		{ "id": 9, "name": "Converse", "imageUrl": "converse.png" },
+		{ "id": 10, "name": "Butter", "imageUrl": "Butter.png" },
+		{ "id": 11, "name": "Kavu", "imageUrl": "kavu.png" }
 	],
 	"fashions": [
 		{
@@ -522,31 +357,11 @@
 		}
 	],
 	"productPhotos": [
-		{
-			"id": 1,
-			"productId": 1,
-			"imageFilename": "skate_shoes_1.png"
-		},
-		{
-			"id": 2,
-			"productId": 1,
-			"imageFilename": "skate_shoes_2.png"
-		},
-		{
-			"id": 3,
-			"productId": 1,
-			"imageFilename": "skate_shoes_3.png"
-		},
-		{
-			"id": 4,
-			"productId": 1,
-			"imageFilename": "skate_shoes_4.png"
-		},
-		{
-			"id": 5,
-			"productId": 1,
-			"imageFilename": "skate_shoes_5.png"
-		}
+		{ "id": 1, "productId": 1, "imageFilename": "skate_shoes_1.png" },
+		{ "id": 2, "productId": 1, "imageFilename": "skate_shoes_2.png" },
+		{ "id": 3, "productId": 1, "imageFilename": "skate_shoes_3.png" },
+		{ "id": 4, "productId": 1, "imageFilename": "skate_shoes_4.png" },
+		{ "id": 5, "productId": 1, "imageFilename": "skate_shoes_5.png" }
 	],
 	"employees": [
 		{

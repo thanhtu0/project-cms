@@ -1,10 +1,10 @@
 import { BannerSection, RouteOne } from '~/layouts/components';
-import { FashionContainer, ReleaseContainer, SeasonContainer } from '~/layouts/components/Product';
+import { Fashion, ReleaseContainer, SeasonContainer } from '~/layouts/components/Product';
 
-const Home = () => {
+const Home = ({ activeTab }) => {
     return (
         <>
-            <FashionContainer />
+            <Fashion activeTab={activeTab} />
             <SeasonContainer />
             <RouteOne />
             <ReleaseContainer />
