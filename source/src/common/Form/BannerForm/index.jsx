@@ -39,20 +39,22 @@ const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading
                     <div className="col-25">
                         <label>Category:</label>
                     </div>
-                    <div className="col-75">
-                        {categories.map((category) => (
-                            <div key={category.id} className="col-25 mt-12">
-                                <input
-                                    type="radio"
-                                    name="categoryId"
-                                    value={category.id}
-                                    checked={selectedCategory === category.id.toString()}
-                                    onChange={handleCategoryChange}
-                                    className="custom-radio"
-                                />
-                                {category.name}
-                            </div>
-                        ))}
+                    <div className="col-75 grid">
+                        <div className="check-box">
+                            {categories.map((category) => (
+                                <div key={category.id} className="col-25 mt-12">
+                                    <input
+                                        type="radio"
+                                        name="categoryId"
+                                        value={category.id}
+                                        checked={selectedCategory === category.id.toString()}
+                                        onChange={handleCategoryChange}
+                                        className="custom-radio"
+                                    />
+                                    {category.name}
+                                </div>
+                            ))}
+                        </div>
                         <span className="text-danger">{validationErrors.categoryId}</span>
                     </div>
                 </div>

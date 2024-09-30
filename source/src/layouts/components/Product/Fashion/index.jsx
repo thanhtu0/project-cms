@@ -66,7 +66,7 @@ const Fashion = ({ activeTab }) => {
 
                         {imagesForFashion.length > 0 && (
                             <>
-                                {imagesForFashion.length > 1 && (
+                                {imagesForFashion.length > 1 && !imagesForFashion[0].hidden && (
                                     <div className="img-subtitle position-absolute right-0 flex flex-center">
                                         <img
                                             src={`${FASHION_IMAGES}/${getCategoryName(
@@ -77,15 +77,17 @@ const Fashion = ({ activeTab }) => {
                                         />
                                     </div>
                                 )}
-                                <div className="img-title position-absolute right-0 bottom-0 z-2 flex flex-center">
-                                    <img
-                                        src={`${FASHION_IMAGES}/${getCategoryName(
-                                            fashionItem.categoryId,
-                                            categories,
-                                        )}/${imagesForFashion[1].imageUrl}`}
-                                        alt={imagesForFashion[1].name}
-                                    />
-                                </div>
+                                {!imagesForFashion[1].hidden && (
+                                    <div className="img-title position-absolute right-0 bottom-0 z-2 flex flex-center">
+                                        <img
+                                            src={`${FASHION_IMAGES}/${getCategoryName(
+                                                fashionItem.categoryId,
+                                                categories,
+                                            )}/${imagesForFashion[1].imageUrl}`}
+                                            alt={imagesForFashion[1].name}
+                                        />
+                                    </div>
+                                )}
                             </>
                         )}
                     </div>

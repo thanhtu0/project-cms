@@ -306,6 +306,30 @@ server.patch('/fashions/:id', validateFashion(categories), (req, res) => {
 	});
 });
 
+// Validation middleware for PATCH on '/fashions/:id/photo'
+server.patch('/fashions/:id/photo', upload, (req, res) => {
+	const fashionId = parseInt(req.params.id, 10);
+	const fashion = router.db.get('fashions').find({ id: fashionId }).value();
+
+	if (!fashion) {
+		return res.status(404).json({ message: 'Fashion not found' });
+	}
+
+	const imageFilename = req.file ? req.file.filename : fashion.imageUrl;
+
+	const updatedFashion = {
+		...fashion,
+		imageUrl: imageFilename,
+	};
+
+	router.db.get('fashions').find({ id: fashionId }).assign(updatedFashion).write();
+
+	res.status(200).json({
+		message: 'Fashion photo updated successfully',
+		fashion: updatedFashion,
+	});
+});
+
 // Error handling middleware
 server.use((err, req, res, next) => {
 	if (err instanceof multer.MulterError) {
