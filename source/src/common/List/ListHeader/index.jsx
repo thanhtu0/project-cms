@@ -6,9 +6,11 @@ const ListHeader = ({ title, refreshHandler, refreshLabel = 'Refresh', createLin
         <div className="list__header flex flex-between">
             <Title text={title} />
             <div className="list__btn-group mr-2">
-                <Button onClick={refreshHandler} success>
-                    {refreshLabel}
-                </Button>
+                {refreshHandler && (
+                    <Button onClick={refreshHandler} success>
+                        {refreshLabel}
+                    </Button>
+                )}
                 {createLink && (
                     <Button to={createLink} primary>
                         {createLabel}

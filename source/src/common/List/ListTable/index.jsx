@@ -1,6 +1,6 @@
 import Button from '~/components/Button';
 
-const ListTable = ({ headers, data, onEdit, onDelete, renderRow }) => {
+const ListTable = ({ headers, data, onEdit, onDelete, renderRow, showDelete = true }) => {
     return (
         <div className="list__table">
             <table className="ml-2">
@@ -20,11 +20,13 @@ const ListTable = ({ headers, data, onEdit, onDelete, renderRow }) => {
                             {renderRow(item)}
                             <td style={{ width: '10px', whiteSpace: 'nowrap' }}>
                                 <Button to={onEdit(item)} edit>
-                                    <ion-icon name="create-outline"></ion-icon>
+                                    {showDelete ? <ion-icon name="create-outline"></ion-icon> : 'Update'}
                                 </Button>
-                                <Button onClick={() => onDelete(item)} del>
-                                    <ion-icon name="trash-outline"></ion-icon>
-                                </Button>
+                                {showDelete && (
+                                    <Button onClick={() => onDelete(item)} del>
+                                        <ion-icon name="trash-outline"></ion-icon>
+                                    </Button>
+                                )}
                             </td>
                         </tr>
                     ))}
