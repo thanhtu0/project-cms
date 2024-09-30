@@ -1,4 +1,5 @@
 const jsonServer = require('json-server');
+const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -12,6 +13,7 @@ const {
 } = require('./validation');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
+server.use(cors());
 const middlewares = jsonServer.defaults();
 
 // Set default middlewares (logger, static, cors and no-cache)
@@ -275,7 +277,6 @@ server.get('/fashions/:id', (req, res) => {
 // Validation middleware for PATCH on '/fashions/:id'
 server.patch('/fashions/:id', validateFashion(categories), (req, res) => {
 	const fashionId = parseInt(req.params.id, 10);
-	console.log('Request body:', req.body);
 	const { label, title, subtitle, description, categoryId } = req.body;
 	const imageFilename = req.file ? req.file.filename : req.body.imageFilename;
 
@@ -296,9 +297,6 @@ server.patch('/fashions/:id', validateFashion(categories), (req, res) => {
 	};
 
 	router.db.get('fashions').find({ id: fashionId }).assign(updatedFashion).write();
-
-	const updatedRecord = router.db.get('fashions').find({ id: fashionId }).value();
-	console.log('Updated fashion record:', updatedRecord);
 
 	res.status(200).json({
 		message: 'Fashion updated successfully',

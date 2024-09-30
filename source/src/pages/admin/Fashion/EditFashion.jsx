@@ -3,14 +3,17 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Loading } from '~/common';
 import { FashionForm } from '~/common/Form';
+import { ListTable } from '~/common/List';
 import Title from '~/common/Title';
-import { CATEGORIES_URL, FASHIONS_URL } from '~/utils/apiURL';
+import { CATEGORIES_URL, FASHION_IMAGES, FASHION_PHOTOS_URL, FASHIONS_URL } from '~/utils/apiURL';
+import { getCategoryName } from '~/utils/helpers';
 
 const EditFashion = () => {
     const [validationErrors, setValidationErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [fashionData, setFashionData] = useState(null);
     const [categories, setCategories] = useState([]);
+    const [fashionPhotos, setFashionPhotos] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -53,6 +56,23 @@ const EditFashion = () => {
 
         fetchFashion();
     }, [id, categories]);
+
+    useEffect(() => {
+        async function fetchFashionPhotos() {
+            if (!fashionData) return;
+
+            try {
+                const response = await fetch(`${FASHION_PHOTOS_URL}?fashionId=${fashionData.id}`);
+                const data = await response.json();
+                setFashionPhotos(data);
+            } catch (error) {
+                console.error('Failed to fetch fashion photos:', error);
+                toast.error('Failed to load fashion photos!');
+            }
+        }
+
+        fetchFashionPhotos();
+    }, [fashionData]);
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -107,18 +127,49 @@ const EditFashion = () => {
     if (!fashionData) return <Loading />;
 
     return (
-        <div className="list">
-            <div className="list__header">
-                <Title text="Edit Fashion" />
+        <>
+            <div className="list">
+                <div className="list__header">
+                    <Title text="Edit Fashion" />
+                </div>
+                <FashionForm
+                    onSubmit={handleSubmit}
+                    initialData={fashionData}
+                    validationErrors={validationErrors}
+                    loading={loading}
+                    categories={categories}
+                />
             </div>
-            <FashionForm
-                onSubmit={handleSubmit}
-                initialData={fashionData}
-                validationErrors={validationErrors}
-                loading={loading}
-                categories={categories}
-            />
-        </div>
+
+            <div className="list">
+                <div className="list_header">
+                    <Title text="Fashion Photo" />
+                    <ListTable
+                        headers={['Image', 'Name', 'Hidden']}
+                        data={fashionPhotos}
+                        onEdit={(photo) => `/admin/fashionPhoto/edit/${photo.id}`}
+                        renderRow={(photo) => (
+                            <>
+                                <td style={{ width: '150px', height: 'auto' }}>
+                                    <img
+                                        src={`${FASHION_IMAGES}/${getCategoryName(photo.fashionId, categories)}/${
+                                            photo.imageUrl
+                                        }`}
+                                        className="img-fluid"
+                                        alt={`Fashion ${photo.name}`}
+                                    />
+                                </td>
+                                <td className="text-center">{photo.name}</td>
+                                <td className="text-center">
+                                    {photo.hidden === false ? 'Show Photo' : 'Do not Show Photo'}
+                                </td>
+                            </>
+                        )}
+                        showDelete={false}
+                    />
+                </div>
+            </div>
+        </>
     );
 };
 
