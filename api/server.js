@@ -8,6 +8,7 @@ const {
 	validateBrand,
 	validateBanner,
 	validateContact,
+	validateFashion,
 } = require('./validation');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
@@ -53,17 +54,18 @@ const storage = multer.diskStorage({
 					uploadPath += `banners/${sanitizeCategoryName(category.name)}/`;
 				}
 				break;
-			case 'employee':
-				uploadPath += 'employees/';
+			case 'fashion':
+				if (category) {
+					uploadPath += `fashions/${sanitizeCategoryName(category.name)}/`;
+				}
 				break;
 			case 'product':
-				if (req.body.category === 'men') {
-					uploadPath += 'products/men/';
-				} else if (req.body.category === 'women') {
-					uploadPath += 'products/women/';
-				} else {
-					return cb(new Error('Invalid product category'));
+				if (category) {
+					uploadPath += `products/${sanitizeCategoryName(category.name)}/`;
 				}
+				break;
+			case 'employee':
+				uploadPath += 'employees/';
 				break;
 			case 'customer':
 				uploadPath += 'customers/';
@@ -96,9 +98,9 @@ const upload = multer({
 		const mimetype = fileTypes.test(file.mimetype);
 
 		if (mimetype && extname) {
-			return cb(null, true);
+			cb(null, true);
 		} else {
-			cb('Error: Only image files are allowed!');
+			cb(new Error('Only image files (jpeg, jpg, png) are allowed.'));
 		}
 	},
 }).single('image');
@@ -140,7 +142,7 @@ server.patch('/brands/:id', validateBrand, (req, res) => {
 	const brand = router.db.get('brands').find({ id: brandId }).value();
 
 	if (!brand) {
-		return res.status(404).json({ message: 'Banner not found' });
+		return res.status(404).json({ message: 'Brand not found' });
 	}
 
 	const updateBrand = {
@@ -208,8 +210,8 @@ server.get('/banners/:id', (req, res) => {
 	res.status(200).json({ banner });
 });
 
-// Validation middleware for '/banners' and PATCH on '/banners/:id'
 const categories = router.db.get('categories').value();
+// Validation middleware for '/banners' and PATCH on '/banners/:id'
 server.post('/banners', validateBanner(categories), (req, res) => {
 	const banners = router.db.get('banners').value();
 	const newId = banners.length ? Math.max(...banners.map((b) => b.id)) + 1 : 1;
@@ -255,6 +257,52 @@ server.patch('/banners/:id', validateBanner(categories), (req, res) => {
 	res.status(200).json({
 		message: 'Banner updated successfully',
 		banner: updatedBanner,
+	});
+});
+
+// Validation middleware for get '/categories/:id/fashions'
+server.get('/fashions/:id', (req, res) => {
+	const fashionId = parseInt(req.params.id, 10);
+	const fashion = router.db.get('fashions').find({ id: fashionId }).value();
+
+	if (!fashion) {
+		return res.status(404).json({ message: 'Fashion not found' });
+	}
+
+	res.status(200).json({ fashion });
+});
+
+// Validation middleware for PATCH on '/fashions/:id'
+server.patch('/fashions/:id', validateFashion(categories), (req, res) => {
+	const fashionId = parseInt(req.params.id, 10);
+	console.log('Request body:', req.body);
+	const { label, title, subtitle, description, categoryId } = req.body;
+	const imageFilename = req.file ? req.file.filename : req.body.imageFilename;
+
+	const fashion = router.db.get('fashions').find({ id: fashionId }).value();
+
+	if (!fashion) {
+		return res.status(404).json({ message: 'Fashion not found' });
+	}
+
+	const updatedFashion = {
+		...fashion,
+		label: label || fashion.label,
+		title: title || fashion.title,
+		subtitle: subtitle || fashion.subtitle,
+		description: description || fashion.description,
+		categoryId: parseInt(categoryId, 10) || fashion.categoryId,
+		imageUrl: req.file ? imageFilename : fashion.imageUrl,
+	};
+
+	router.db.get('fashions').find({ id: fashionId }).assign(updatedFashion).write();
+
+	const updatedRecord = router.db.get('fashions').find({ id: fashionId }).value();
+	console.log('Updated fashion record:', updatedRecord);
+
+	res.status(200).json({
+		message: 'Fashion updated successfully',
+		fashion: updatedFashion,
 	});
 });
 

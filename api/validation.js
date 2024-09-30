@@ -116,7 +116,7 @@ const validateContact = (req, res, next) => {
 };
 
 const validateFashion = (categories) => (req, res, next) => {
-	let { season, title, subtitle, description, categoryId } = req.body;
+	let { label, title, subtitle, description, categoryId } = req.body;
 	const parsedCategoryId = parseInt(categoryId, 10);
 	const isValidCategoryId = categories.some((category) => category.id === parsedCategoryId);
 
@@ -127,9 +127,9 @@ const validateFashion = (categories) => (req, res, next) => {
 		hasErrors = true;
 		errorMessages.categoryId = errors.fashion.categoryId;
 	}
-	if (!season || season.trim().length < 2) {
+	if (!label || label.trim().length < 2) {
 		hasErrors = true;
-		errorMessages.season = errors.fashion.season;
+		errorMessages.label = errors.fashion.label;
 	}
 	if (!title || title.trim().length < 5) {
 		hasErrors = true;
