@@ -4,8 +4,7 @@ import { Pagination } from '~/common';
 import useFetch from '~/hooks/useFetch';
 import { FASHION_IMAGES, FASHIONS_URL, CATEGORIES_URL } from '~/utils/apiURL';
 import { getCategoryName } from '~/utils/helpers';
-import { useDeleteModal, usePaginatedData } from '~/hooks';
-import { Confirm } from '~/common/Modal';
+import { usePaginatedData } from '~/hooks';
 
 const FashionList = () => {
     const {
@@ -17,19 +16,6 @@ const FashionList = () => {
         handleRefresh,
     } = usePaginatedData(`${FASHIONS_URL}`);
 
-    const {
-        showModal,
-        selectedItem: selectedFashion,
-        handleShowModal,
-        handleCloseModal,
-        handleConfirmDelete,
-    } = useDeleteModal(
-        `${FASHIONS_URL}`,
-        handleRefresh,
-        'Fashion deleted successfully!',
-        'Unable to delete the Fashion!',
-    );
-
     const { data: categories } = useFetch(`${CATEGORIES_URL}`);
 
     return (
@@ -40,7 +26,6 @@ const FashionList = () => {
                 headers={['ID', 'Image', 'Category Name', 'Label', 'Title', 'Subtitle', 'Description']}
                 data={fashions}
                 onEdit={(fashion) => `/admin/fashion/edit/${fashion.id}`}
-                onDelete={handleShowModal}
                 renderRow={(fashion) => (
                     <>
                         <td style={{ width: '10px' }}>{fashion.id}</td>
@@ -62,17 +47,11 @@ const FashionList = () => {
                         </td>
                     </>
                 )}
+                showDelete={false}
             />
             {totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             )}
-            <Confirm
-                show={showModal}
-                onClose={handleCloseModal}
-                onConfirm={handleConfirmDelete}
-                title="Confirm Deletion"
-                message={`Are you sure you want to delete ${selectedFashion?.title} Fashion?`}
-            />
         </div>
     );
 };
