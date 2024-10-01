@@ -9,7 +9,7 @@ const CategoryForm = ({ onSubmit, initialData = {}, validationErrors = {} }) => 
                         <label>Category Name:</label>
                     </div>
                     <div className="col-75">
-                        <input type="text" name="name" defaultValue={initialData.name || ''} />
+                        <input type="text" name="name" defaultValue={initialData.name || ''} autoFocus />
                         <span className="text-danger">{validationErrors.name}</span>
                     </div>
                 </div>

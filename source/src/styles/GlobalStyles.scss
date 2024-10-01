@@ -70,7 +70,7 @@ textarea {
     width: 100%;
     padding: 1.5rem;
     font-size: 1.6rem;
-    border: 1px solid $clr-black-2;
+    border: 1px solid $clr-gray-9a;
     border-radius: 5px;
     resize: vertical;
 }
@@ -81,14 +81,7 @@ input[type='file'] {
 
 input[type='radio'] {
     margin-right: 10px;
-}
-
-.custom-radio {
-    height: 1.5rem;
-    width: 1.5rem;
-    border: 2px solid $clr-black-2;
-    border-radius: 50%;
-    background-color: $clr-white;
+    accent-color: $clr-black;
 }
 
 label {
@@ -133,22 +126,12 @@ label {
 
 @media screen and (max-width: 600px) {
     .col-25,
+    .col-30,
+    .col-50,
+    .col-70,
     .col-75,
     input[type='submit'] {
         width: 100%;
         margin-top: 0;
     }
-}
-
-.form-control-plaintext {
-    display: block;
-    width: 100%;
-    padding: 0.375rem 0.75rem;
-    margin-bottom: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: transparent;
-    border: 0;
-    border-radius: 0.25rem;
 }

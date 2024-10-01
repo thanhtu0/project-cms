@@ -31,7 +31,7 @@ const FashionForm = ({ onSubmit, initialData = {}, validationErrors = {}, loadin
                         <label>Fashion Label:</label>
                     </div>
                     <div className="col-75">
-                        <input type="text" name="label" defaultValue={initialData.label || ''} />
+                        <input type="text" name="label" defaultValue={initialData.label || ''} autoFocus />
                         <span className="text-danger">{validationErrors.label}</span>
                     </div>
                 </div>

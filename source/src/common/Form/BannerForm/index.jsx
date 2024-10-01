@@ -31,7 +31,7 @@ const BannerForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading
                         <label>Banner Season:</label>
                     </div>
                     <div className="col-75">
-                        <input type="text" name="season" defaultValue={initialData.season || ''} />
+                        <input type="text" name="season" defaultValue={initialData.season || ''} autoFocus />
                         <span className="text-danger">{validationErrors.season}</span>
                     </div>
                 </div>
