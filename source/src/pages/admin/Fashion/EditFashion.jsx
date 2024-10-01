@@ -5,8 +5,7 @@ import { Loading } from '~/common';
 import { FashionForm } from '~/common/Form';
 import { ListTable } from '~/common/List';
 import Title from '~/common/Title';
-import { CATEGORIES_URL, FASHION_IMAGES, FASHION_PHOTOS_URL, FASHIONS_URL } from '~/utils/apiURL';
-import { getCategoryName } from '~/utils/helpers';
+import { CATEGORIES_URL, FASHION_PHOTOS_IMAGE, FASHION_PHOTOS_URL, FASHIONS_URL } from '~/utils/apiURL';
 
 const EditFashion = () => {
     const [validationErrors, setValidationErrors] = useState({});
@@ -151,9 +150,7 @@ const EditFashion = () => {
                             <>
                                 <td style={{ width: '150px', height: 'auto' }}>
                                     <img
-                                        src={`${FASHION_IMAGES}/${getCategoryName(photo.fashionId, categories)}/${
-                                            photo.imageUrl
-                                        }`}
+                                        src={`${FASHION_PHOTOS_IMAGE}/${photo.imageUrl}`}
                                         className="img-fluid"
                                         alt={`Fashion ${photo.name}`}
                                     />

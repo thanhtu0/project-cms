@@ -142,7 +142,8 @@ const ProductList = () => {
                 <div className="list__table">
                     <table className="ml-2 mt-1">
                         <thead className="bg-black-1 text-white">
-                            <tr>
+                            <tr className="text-center">
+                                <td>Id</td>
                                 <td>Image</td>
                                 <td>Product Name</td>
                                 <td>Product Title</td>
@@ -155,6 +156,7 @@ const ProductList = () => {
                         <tbody>
                             {products.map((product) => (
                                 <tr key={product.id}>
+                                    <td>{product.id}</td>
                                     <td style={{ width: '150px', height: 'auto' }}>
                                         <img
                                             src={`${API_BASE_URL}/images/products/${product.imageFilename}`}

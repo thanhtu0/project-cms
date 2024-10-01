@@ -39,7 +39,7 @@ function Button({
         ...passProps,
     };
 
-    // Remove event listerner when btn is disabled
+    // Remove event listener when btn is disabled
     if (disabledButton) {
         Object.keys(props).forEach((key) => {
             if (key.startsWith('on') && typeof props[key] === 'function') {

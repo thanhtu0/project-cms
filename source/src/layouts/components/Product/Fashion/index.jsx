@@ -1,6 +1,6 @@
 import { Button, TitleClient } from '~/components';
 import './Fashion.scss';
-import { CATEGORIES_URL, FASHION_IMAGES, FASHION_PHOTOS_URL, FASHIONS_URL } from '~/utils/apiURL';
+import { CATEGORIES_URL, FASHION_IMAGES, FASHION_PHOTOS_IMAGE, FASHION_PHOTOS_URL, FASHIONS_URL } from '~/utils/apiURL';
 import { useEffect, useMemo, useState } from 'react';
 import { Error, Loading } from '~/common';
 import useFetch from '~/hooks/useFetch';
@@ -61,30 +61,30 @@ const Fashion = ({ activeTab }) => {
                                 {fashionItem.subtitle}
                             </p>
                             <p className="description fs-14 fw-3 lh-18">{fashionItem.description}</p>
-                            <Button fill>Shop Now</Button>
+                            <Button fill onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                                Shop Now
+                            </Button>
                         </div>
 
                         {imagesForFashion.length > 0 && (
                             <>
                                 {imagesForFashion.length > 1 && !imagesForFashion[0].hidden && (
-                                    <div className="img-subtitle position-absolute right-0 flex flex-center">
+                                    <div className="position-absolute right-0 flex flex-center img-subtitle">
                                         <img
-                                            src={`${FASHION_IMAGES}/${getCategoryName(
-                                                fashionItem.categoryId,
-                                                categories,
-                                            )}/${imagesForFashion[0].imageUrl}`}
+                                            src={`${FASHION_PHOTOS_IMAGE}/${imagesForFashion[0].imageUrl}`}
                                             alt={imagesForFashion[0].name}
+                                            className="img-cover"
+                                            style={{ width: 200, maxHeight: 218 }}
                                         />
                                     </div>
                                 )}
                                 {!imagesForFashion[1].hidden && (
-                                    <div className="img-title position-absolute right-0 bottom-0 z-2 flex flex-center">
+                                    <div className="position-absolute right-0 flex flex-center bottom-0 z-2 img-title">
                                         <img
-                                            src={`${FASHION_IMAGES}/${getCategoryName(
-                                                fashionItem.categoryId,
-                                                categories,
-                                            )}/${imagesForFashion[1].imageUrl}`}
+                                            src={`${FASHION_PHOTOS_IMAGE}/${imagesForFashion[1].imageUrl}`}
+                                            className="img-cover"
                                             alt={imagesForFashion[1].name}
+                                            style={{ width: 330, maxHeight: 212 }}
                                         />
                                     </div>
                                 )}

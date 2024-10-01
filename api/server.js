@@ -13,7 +13,12 @@ const {
 } = require('./validation');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
-server.use(cors());
+const corsOptions = {
+	origin: '*',
+	methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+	allowedHeaders: ['Content-Type', 'Authorization'],
+};
+server.use(cors(corsOptions));
 const middlewares = jsonServer.defaults();
 
 // Set default middlewares (logger, static, cors and no-cache)
@@ -29,12 +34,12 @@ const storage = multer.diskStorage({
 			return cb(new Error('Type is required'));
 		}
 
-		if (type !== 'brand' && !req.body.categoryId) {
+		if (type !== 'brand' && type !== 'fashionPhoto' && !req.body.categoryId) {
 			return cb(new Error('CategoryId is missing'));
 		}
 
 		let category;
-		if (type !== 'brand') {
+		if (type !== 'brand' && type !== 'fashionPhoto') {
 			const categories = router.db.get('categories').value();
 			category = categories.find((cate) => cate.id === parseInt(req.body.categoryId));
 
@@ -60,6 +65,9 @@ const storage = multer.diskStorage({
 				if (category) {
 					uploadPath += `fashions/${sanitizeCategoryName(category.name)}/`;
 				}
+				break;
+			case 'fashionPhoto':
+				uploadPath += `fashionPhotos/`;
 				break;
 			case 'product':
 				if (category) {

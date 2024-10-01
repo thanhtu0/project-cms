@@ -1,37 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Button } from '~/components';
 import useImagePreview from '~/hooks/useImagePreview';
-import { FASHION_IMAGES } from '~/utils/apiURL';
+import { FASHION_PHOTOS_IMAGE } from '~/utils/apiURL';
 
-const FashionPhotoForm = ({
-    onSubmit,
-    initialData = {},
-    validationErrors = {},
-    loading,
-    fashions,
-    fashionId,
-    categories,
-}) => {
+const FashionPhotoForm = ({ onSubmit, initialData = {}, validationErrors = {}, loading, fashionId }) => {
     const { imagePreview, handleImageChange } = useImagePreview('');
     const [imageOlder, setImageOlder] = useState('');
     const [hidden, setHidden] = useState(initialData.hidden || false);
 
-    const getCategoryName = (fashionId) => {
-        const fashion = fashions.find((f) => f.id === fashionId);
-        if (fashion) {
-            const category = categories.find((c) => c.id === fashion.categoryId);
-            return category ? category.name : 'Unknown Category';
-        }
-        return 'Unknown Fashion';
-    };
-
-    const categoryName = getCategoryName(initialData.fashionId);
-
     useEffect(() => {
         if (initialData.imageUrl) {
-            setImageOlder(`${FASHION_IMAGES}/${categoryName}/${initialData.imageUrl}`);
+            setImageOlder(`${FASHION_PHOTOS_IMAGE}/${initialData.imageUrl}`);
         }
-    }, [initialData, categoryName]);
+    }, [initialData]);
 
     const handleHiddenChange = (e) => {
         setHidden(e.target.value === 'true');
@@ -40,6 +21,7 @@ const FashionPhotoForm = ({
     return (
         <div className="list__form">
             <form onSubmit={onSubmit} encType="multipart/form-data">
+                <input type="hidden" name="type" value="fashionPhoto" />
                 <div className="row">
                     <div className="col-25">
                         <label>Photo Name:</label>

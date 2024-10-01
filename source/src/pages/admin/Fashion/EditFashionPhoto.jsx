@@ -4,31 +4,42 @@ import { toast } from 'react-toastify';
 import { Loading } from '~/common';
 import { FashionPhotoForm } from '~/common/Form';
 import Title from '~/common/Title';
-import { FASHION_PHOTOS_URL } from '~/utils/apiURL';
+import { CATEGORIES_URL, FASHION_PHOTOS_URL, FASHIONS_URL } from '~/utils/apiURL';
 
 const EditFashionPhoto = () => {
     const [validationErrors, setValidationErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [fashionPhotoData, setFashionPhotoData] = useState(null);
+    const [fashions, setFashions] = useState([]);
+    const [categories, setCategories] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        async function fetchFashionPhoto() {
+        async function fetchData() {
             try {
-                const response = await fetch(`${FASHION_PHOTOS_URL}/${id}`);
-                const data = await response.json();
-                if (!data) {
+                const fashionPhotoResponse = await fetch(`${FASHION_PHOTOS_URL}/${id}`);
+                const fashionPhotoData = await fashionPhotoResponse.json();
+
+                if (!fashionPhotoData) {
                     throw new Error('Fashion Photo not found');
                 }
-                setFashionPhotoData(data);
+                setFashionPhotoData(fashionPhotoData);
+
+                const fashionsResponse = await fetch(`${FASHIONS_URL}`);
+                const fashionsData = await fashionsResponse.json();
+                setFashions(fashionsData);
+
+                const categoriesResponse = await fetch(`${CATEGORIES_URL}`);
+                const categoriesData = await categoriesResponse.json();
+                setCategories(categoriesData);
             } catch (error) {
-                console.error('Failed to fetch fashion photo:', error);
-                toast.error('Failed to load fashion photo!');
+                console.error('Failed to fetch data:', error);
+                toast.error('Failed to load data!');
             }
         }
 
-        fetchFashionPhoto();
+        fetchData();
     }, [id]);
 
     async function handleSubmit(event) {
@@ -36,8 +47,10 @@ const EditFashionPhoto = () => {
         setLoading(true);
 
         const formData = new FormData(event.target);
+
         const hidden = formData.get('hidden') === 'true';
 
+        formData.set('hidden', hidden);
         const fashionPhoto = {
             ...Object.fromEntries(formData.entries()),
             hidden,
@@ -59,7 +72,10 @@ const EditFashionPhoto = () => {
             });
 
             if (response.ok) {
-                navigate('/admin/fashionPhotos');
+                const fashionId = fashionPhotoData.fashionId;
+                const data = await response.json();
+                console.log(data);
+                navigate(`/admin/fashion/edit/${fashionId}`);
                 toast.success('Fashion photo updated successfully!');
             } else if (response.status === 400) {
                 const data = await response.json();
@@ -91,6 +107,7 @@ const EditFashionPhoto = () => {
                     initialData={fashionPhotoData}
                     validationErrors={validationErrors}
                     loading={loading}
+                    fashionId={fashionPhotoData.fashionId}
                 />
             </div>
         </>

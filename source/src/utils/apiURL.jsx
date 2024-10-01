@@ -18,3 +18,4 @@ export const BRAND_IMAGES = `${API_BASE_URL}/images/brands`;
 export const FASHIONS_URL = `${API_BASE_URL}/fashions`;
 export const FASHION_IMAGES = `${API_BASE_URL}/images/fashions`;
 export const FASHION_PHOTOS_URL = `${API_BASE_URL}/fashionPhotos`;
+export const FASHION_PHOTOS_IMAGE = `${API_BASE_URL}/images/fashionPhotos`;
