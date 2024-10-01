@@ -2,7 +2,7 @@ import { Home } from '~/pages/client';
 import { AdminHome } from '~/pages/admin';
 import { Authentication, ForgotPassword } from '~/pages/auth';
 import { AdminLayout, ProductDetail } from '~/layouts';
-import { EditFashion, FashionList } from '~/pages/admin/Fashion';
+import { EditFashion, EditFashionPhoto, FashionList } from '~/pages/admin/Fashion';
 import { ProductList, CreateProduct, EditProduct } from '~/pages/admin/Product';
 import { CategoryList, CreateCategory, EditCategory } from '~/pages/admin/Category';
 import { CreateSubCategory, EditSubCategory, SubCategoryList } from '~/pages/admin/SubCategory';
@@ -34,6 +34,7 @@ const privateRoutes = [
 
     { path: config.routes.fashions, component: FashionList, layout: AdminLayout },
     { path: config.routes.update_fashion, component: EditFashion, layout: AdminLayout },
+    { path: config.routes.update_fashion_photo, component: EditFashionPhoto, layout: AdminLayout },
 
     { path: config.routes.products, component: ProductList, layout: AdminLayout },
     { path: config.routes.create_product, component: CreateProduct, layout: AdminLayout },

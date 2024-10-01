@@ -1,6 +1,6 @@
 const errors = {
 	contact: {
-		name: 'Contact name must be at least 2 characters long.',
+		name: 'CompanyName must be at least 2 characters long.',
 		telephone: 'Telephone number must be at least 10 digits long and contain only numbers.',
 		email: 'Email must be a valid email address (e.g., user@example.com).',
 		address: 'Address must be at least 5 characters long and cannot be empty.',

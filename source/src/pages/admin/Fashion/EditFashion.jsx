@@ -76,7 +76,6 @@ const EditFashion = () => {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log('Submit button clicked');
         setLoading(true);
 
         const formData = new FormData(event.target);
@@ -147,7 +146,7 @@ const EditFashion = () => {
                     <ListTable
                         headers={['Image', 'Name', 'Hidden']}
                         data={fashionPhotos}
-                        onEdit={(photo) => `/admin/fashionPhoto/edit/${photo.id}`}
+                        onEdit={(photo) => `/admin/fashion-photos/edit/${photo.id}`}
                         renderRow={(photo) => (
                             <>
                                 <td style={{ width: '150px', height: 'auto' }}>

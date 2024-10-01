@@ -94,6 +94,7 @@ module.exports = multer({ storage });
 // Define multer with file filter for images only
 const upload = multer({
 	storage: storage,
+	limits: { fileSize: 2 * 1024 * 1024 },
 	fileFilter: (req, file, cb) => {
 		const fileTypes = /jpeg|jpg|png/;
 		const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
@@ -304,27 +305,30 @@ server.patch('/fashions/:id', validateFashion(categories), (req, res) => {
 	});
 });
 
-// Validation middleware for PATCH on '/fashions/:id/photo'
-server.patch('/fashions/:id/photo', upload, (req, res) => {
-	const fashionId = parseInt(req.params.id, 10);
-	const fashion = router.db.get('fashions').find({ id: fashionId }).value();
+// Validation middleware for PATCH on '/fashionPhotos/:id'
+server.patch('/fashionPhotos/:id', (req, res) => {
+	const fashionPhotoId = parseInt(req.params.id, 10);
+	const { name, hidden } = req.body;
+	const imageFilename = req.file ? req.file.filename : req.body.imageFilename;
 
-	if (!fashion) {
-		return res.status(404).json({ message: 'Fashion not found' });
+	const fashionPhoto = router.db.get('fashionPhotos').find({ id: fashionPhotoId }).value();
+
+	if (!fashionPhoto) {
+		return res.status(404).json({ message: 'Fashion photo not found' });
 	}
 
-	const imageFilename = req.file ? req.file.filename : fashion.imageUrl;
-
-	const updatedFashion = {
-		...fashion,
-		imageUrl: imageFilename,
+	const updatedFashionPhoto = {
+		...fashionPhoto,
+		name: name || fashionPhoto.name,
+		hidden: hidden !== undefined ? hidden === 'true' : fashionPhoto.hidden,
+		imageUrl: req.file ? imageFilename : fashionPhoto.imageUrl,
 	};
 
-	router.db.get('fashions').find({ id: fashionId }).assign(updatedFashion).write();
+	router.db.get('fashionPhotos').find({ id: fashionPhotoId }).assign(updatedFashionPhoto).write();
 
 	res.status(200).json({
 		message: 'Fashion photo updated successfully',
-		fashion: updatedFashion,
+		fashionPhoto: updatedFashionPhoto,
 	});
 });
 
