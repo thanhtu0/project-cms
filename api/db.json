@@ -32,8 +32,16 @@
 		}
 	],
 	"categories": [
-		{ "id": 1, "name": "Men", "description": "Clothing and accessories for men" },
-		{ "id": 2, "name": "Women", "description": "Clothing and accessories for women" }
+		{
+			"id": 1,
+			"name": "Men",
+			"description": "Clothing, Shoes, Accessories, Skateboard, Route One, Launches, Sale, Dress, Other, Socks, Bags for Men"
+		},
+		{
+			"id": 2,
+			"name": "Women",
+			"description": "Clothing, Shoes, Accessories, Skateboard, Route One, Launches, Sale, Dress, Other, Socks, Bags for Women"
+		}
 	],
 	"banners": [
 		{
@@ -140,6 +148,9 @@
 		{ "id": 3, "fashionId": 2, "imageUrl": "Women_Hat.png", "name": "Hat", "hidden": false },
 		{ "id": 4, "fashionId": 2, "imageUrl": "Women_Shoes.png", "name": "Shoes", "hidden": false }
 	],
+	"fashionSeason": [{
+    
+  }],
 	"products": [
 		{
 			"id": 1,
