@@ -4,14 +4,12 @@ import { toast } from 'react-toastify';
 import { Loading } from '~/common';
 import { FashionPhotoForm } from '~/common/Form';
 import Title from '~/common/Title';
-import { CATEGORIES_URL, FASHION_PHOTOS_URL, FASHIONS_URL } from '~/utils/apiURL';
+import { FASHION_PHOTOS_URL } from '~/utils/apiURL';
 
 const EditFashionPhoto = () => {
     const [validationErrors, setValidationErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [fashionPhotoData, setFashionPhotoData] = useState(null);
-    const [fashions, setFashions] = useState([]);
-    const [categories, setCategories] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -25,14 +23,6 @@ const EditFashionPhoto = () => {
                     throw new Error('Fashion Photo not found');
                 }
                 setFashionPhotoData(fashionPhotoData);
-
-                const fashionsResponse = await fetch(`${FASHIONS_URL}`);
-                const fashionsData = await fashionsResponse.json();
-                setFashions(fashionsData);
-
-                const categoriesResponse = await fetch(`${CATEGORIES_URL}`);
-                const categoriesData = await categoriesResponse.json();
-                setCategories(categoriesData);
             } catch (error) {
                 console.error('Failed to fetch data:', error);
                 toast.error('Failed to load data!');
