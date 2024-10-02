@@ -17,6 +17,17 @@ export const getCategoryName = (categoryId, categories) => {
     return category ? category.name : 'Unknown';
 };
 
+// getCategoryName Helper
+export const getBrandName = (brandId, brands) => {
+    if (!Array.isArray(brands)) return 'Unknown';
+
+    const parsedBrandId = parseInt(brandId, 10);
+    if (isNaN(parsedBrandId)) return 'Unknown';
+
+    const brand = brands.find((b) => b.id === parsedBrandId);
+    return brand ? brand.name : 'Unknown';
+};
+
 // toggleVisibility Helper
 export const toggleVisibility = (prevState, section) => ({
     ...prevState,

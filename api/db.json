@@ -356,11 +356,24 @@
 			"categoryId": 2,
 			"subcategoryId": 2,
 			"brandId": 8
+		},
+		{
+			"id": 19,
+			"liked": false,
+			"name": "Santa Cruz Alien Creep Socks - Black",
+			"title": "Santa Cruz Alien Creep Socks - Black",
+			"price": "9.95",
+			"sold": "0",
+			"imageUrl": "19-santaCruz-sock.png",
+			"categoryId": 1,
+			"subcategoryId": 13,
+			"brandId": 6
 		}
 	],
-	"fashionSeason": [
-		{ "id": 1, "name": "'White Widow' Pack", "imgUrl": "shoes.png", "categoryId": 1, "productId": 17 },
-		{ "id": 2, "name": "Favorites", "imgUrl": "clothes.png", "categoryId": 2, "productId": 17 }
+	"fashionSeasons": [
+		{ "id": 1, "name": "'White Widow' Pack", "imgUrl": "converse-shoes.png", "categoryId": 1, "productId": 17 },
+		{ "id": 2, "name": "Favorites", "imgUrl": "obey-clothes.png", "categoryId": 2, "productId": 18 },
+		{ "id": 3, "name": "'Black Shadow' Sock", "imgUrl": "santaCruz-sock.png", "categoryId": 1, "productId": 19 }
 	],
 	"productAttributes": [
 		{
