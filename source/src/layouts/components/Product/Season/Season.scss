@@ -10,7 +10,8 @@
 
         .img-season {
             width: 580px;
-            height: 436px;
+            display: flex;
+            justify-content: center;
             background-color: #bacbf9;
         }
 
@@ -24,13 +25,12 @@
                 height: 2px;
                 cursor: pointer;
 
-                &.first-line {
-                    background-color: $clr-black-2;
+                &.active {
+                    background-color: #b3c4d7;
                 }
 
-                &.second-line,
-                &.third-line {
-                    background-color: red;
+                &.inactive {
+                    background-color: $clr-white;
                 }
             }
         }
@@ -39,35 +39,17 @@
             width: 532px;
             height: 361px;
             margin-top: 36px;
-            margin-left: -196px;
+            margin-left: -148px;
             background-color: #ffb7b7;
 
             .season-img {
-                width: 100%;
                 height: 300px;
-                background-color: #ffb7b7;
                 display: flex;
-                align-items: center;
+                justify-content: center;
             }
 
             .season-text {
-                background-color: $clr-white;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
                 padding: 21px 60px;
-
-                span {
-                    line-height: 18px;
-
-                    b {
-                        font-weight: 700;
-                    }
-                }
-
-                strong {
-                    font-size: 1.7rem;
-                }
             }
         }
 
@@ -84,18 +66,29 @@
                 height: 60px;
                 border-radius: 50%;
                 cursor: pointer;
+                border: 0.5px solid $clr-gray-9a;
+                background-color: $clr-white;
+                transition: transform 0.5s ease;
 
                 .icon {
                     font-size: 2.4rem;
                     color: $clr-gray-9a;
                 }
 
-                &:hover {
-                    border: 0.5px solid $clr-gray-9a;
+                &:first-child:hover,
+                &:last-child:hover {
+                    background-color: $clr-black-2;
                     box-shadow: 5px;
                     .icon {
-                        color: $clr-gray-9a;
+                        color: $clr-white;
                     }
+                }
+                &:first-child:hover {
+                    transform: translateX(-10px);
+                }
+
+                &:last-child:hover {
+                    transform: translateX(10px);
                 }
             }
 
@@ -103,5 +96,27 @@
                 margin-top: 36px;
             }
         }
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(-20px);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 0;
     }
 }
