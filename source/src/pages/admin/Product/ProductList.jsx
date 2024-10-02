@@ -165,7 +165,7 @@ const ProductList = () => {
                                         />
                                     </td>
                                     <td>{product.name}</td>
-                                    <td className="text-center">{product.title}</td>
+                                    <td>{product.title}</td>
                                     <td className="text-center">$ {product.price}</td>
                                     <td className="text-center">{product.sold}</td>
                                     <td
@@ -187,11 +187,10 @@ const ProductList = () => {
                         </tbody>
                     </table>
                 </div>
-
-                {totalPages > 1 && (
-                    <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-                )}
             </div>
+            {totalPages > 1 && (
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+            )}
         </>
     );
 };

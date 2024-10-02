@@ -29,28 +29,30 @@ const CategoryList = () => {
     );
 
     return (
-        <div className="list">
-            <ListHeader
-                title="Categories List"
-                refreshHandler={handleRefresh}
-                createLink="/admin/category/create"
-                refreshLabel="Refresh Category"
-                createLabel="Create Category"
-            />
-            <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
-            <ListTable
-                headers={['ID', 'Category Name', 'Category Description']}
-                data={categories}
-                onEdit={(category) => `/admin/category/edit/${category.id}`}
-                onDelete={handleShowModal}
-                renderRow={(category) => (
-                    <>
-                        <td>{category.id}</td>
-                        <td>{category.name}</td>
-                        <td>{category.description}</td>
-                    </>
-                )}
-            />
+        <>
+            <div className="list">
+                <ListHeader
+                    title="Categories List"
+                    refreshHandler={handleRefresh}
+                    createLink="/admin/category/create"
+                    refreshLabel="Refresh Category"
+                    createLabel="Create Category"
+                />
+                <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
+                <ListTable
+                    headers={['ID', 'Category Name', 'Category Description']}
+                    data={categories}
+                    onEdit={(category) => `/admin/category/edit/${category.id}`}
+                    onDelete={handleShowModal}
+                    renderRow={(category) => (
+                        <>
+                            <td>{category.id}</td>
+                            <td>{category.name}</td>
+                            <td>{category.description}</td>
+                        </>
+                    )}
+                />
+            </div>
             {totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             )}
@@ -61,7 +63,7 @@ const CategoryList = () => {
                 title="Confirm Deletion"
                 message={`Are you sure you want to delete category ${selectedCategory?.name}?`}
             />
-        </div>
+        </>
     );
 };
 

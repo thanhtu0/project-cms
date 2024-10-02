@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const usePaginatedData = (url, itemsPerPage = 10) => {
+const usePaginatedData = (url, itemsPerPage = 7) => {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -37,7 +37,7 @@ const usePaginatedData = (url, itemsPerPage = 10) => {
 
     useEffect(() => {
         const query = new URLSearchParams(location.search);
-        const pageFromUrl = parseInt(query.get('page'), 10);
+        const pageFromUrl = parseInt(query.get('page'), 7);
 
         if (pageFromUrl && pageFromUrl > 0) {
             setCurrentPage(pageFromUrl);

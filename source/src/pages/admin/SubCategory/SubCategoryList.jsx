@@ -28,28 +28,30 @@ const SubCategoryList = () => {
     );
 
     return (
-        <div className="list">
-            <ListHeader
-                title="SubCategories List"
-                refreshHandler={handleRefresh}
-                createLink="/admin/subcategory/create"
-                refreshLabel="Refresh SubCategory"
-                createLabel="Create SubCategory"
-            />
-            <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
-            <ListTable
-                headers={['ID', 'SubCategory Name', 'SubCategory Description']}
-                data={subcategories}
-                onEdit={(subcategory) => `/admin/subcategory/edit/${subcategory.id}`}
-                onDelete={handleShowModal}
-                renderRow={(subcategory) => (
-                    <>
-                        <td>{subcategory.id}</td>
-                        <td>{subcategory.name}</td>
-                        <td>{subcategory.description}</td>
-                    </>
-                )}
-            />
+        <>
+            <div className="list">
+                <ListHeader
+                    title="SubCategories List"
+                    refreshHandler={handleRefresh}
+                    createLink="/admin/subcategory/create"
+                    refreshLabel="Refresh SubCategory"
+                    createLabel="Create SubCategory"
+                />
+                <ListTitle totalItems={totalItems} currentPage={currentPage} totalPages={totalPages} />
+                <ListTable
+                    headers={['ID', 'SubCategory Name', 'SubCategory Description']}
+                    data={subcategories}
+                    onEdit={(subcategory) => `/admin/subcategory/edit/${subcategory.id}`}
+                    onDelete={handleShowModal}
+                    renderRow={(subcategory) => (
+                        <>
+                            <td>{subcategory.id}</td>
+                            <td>{subcategory.name}</td>
+                            <td>{subcategory.description}</td>
+                        </>
+                    )}
+                />
+            </div>
             {totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             )}
@@ -60,7 +62,7 @@ const SubCategoryList = () => {
                 title="Confirm Deletion"
                 message={`Are you sure you want to delete subcategory ${selectedSubCategory?.name}?`}
             />
-        </div>
+        </>
     );
 };
 

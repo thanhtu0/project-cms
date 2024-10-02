@@ -151,7 +151,7 @@ const EditFashion = () => {
                                 <td style={{ width: '150px', height: 'auto' }}>
                                     <img
                                         src={`${FASHION_PHOTOS_IMAGE}/${photo.imageUrl}`}
-                                        className="img-fluid"
+                                        className="img-fluid img-cover w-100"
                                         alt={`Fashion ${photo.name}`}
                                     />
                                 </td>

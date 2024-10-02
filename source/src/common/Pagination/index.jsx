@@ -2,7 +2,7 @@ import Button from '../../components/Button';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     return (
-        <div className="list__pagination flex flex-center mt-2 fs-14">
+        <div className="list__pagination flex flex-center mt-2 mb-2 fs-14">
             <Button onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1}>
                 Previous
             </Button>

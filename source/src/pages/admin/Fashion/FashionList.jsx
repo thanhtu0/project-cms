@@ -29,12 +29,12 @@ const FashionList = () => {
                 renderRow={(fashion) => (
                     <>
                         <td style={{ width: '10px' }}>{fashion.id}</td>
-                        <td style={{ width: '150px', height: 'auto' }}>
+                        <td style={{ width: '100px', height: 'auto' }}>
                             <img
                                 src={`${FASHION_IMAGES}/${getCategoryName(fashion.categoryId, categories)}/${
                                     fashion.imageUrl
                                 }`}
-                                className="img-fluid"
+                                className="img-fluid img-cover w-100"
                                 alt={`Fashion ${fashion.season}`}
                             />
                         </td>
