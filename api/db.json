@@ -32,16 +32,8 @@
 		}
 	],
 	"categories": [
-		{
-			"id": 1,
-			"name": "Men",
-			"description": "Clothing, Shoes, Accessories, Skateboard, Route One, Launches, Sale, Dress, Other, Socks, Bags for Men"
-		},
-		{
-			"id": 2,
-			"name": "Women",
-			"description": "Clothing, Shoes, Accessories, Skateboard, Route One, Launches, Sale, Dress, Other, Socks, Bags for Women"
-		}
+		{ "id": 1, "name": "Men", "description": "Clothing, Shoes, Accessories, Skateboard, ... for Men" },
+		{ "id": 2, "name": "Women", "description": "Clothing, Shoes, Accessories, Skateboard, ... for Women" }
 	],
 	"banners": [
 		{
@@ -148,9 +140,6 @@
 		{ "id": 3, "fashionId": 2, "imageUrl": "Women_Hat.png", "name": "Hat", "hidden": false },
 		{ "id": 4, "fashionId": 2, "imageUrl": "Women_Shoes.png", "name": "Shoes", "hidden": false }
 	],
-	"fashionSeason": [{
-    
-  }],
 	"products": [
 		{
 			"id": 1,
@@ -158,8 +147,8 @@
 			"name": "Globe Sabre Skate Shoes - Black...",
 			"title": "Globe Sabre Skate Shoes - Black...",
 			"price": "84.99",
-			"sold": "1114 sold",
-			"imageFilename": "men/product_1.png",
+			"sold": "1114",
+			"imageUrl": "1-nike-shoes.png",
 			"categoryId": 1,
 			"subcategoryId": 2,
 			"brandId": 1
@@ -167,13 +156,13 @@
 		{
 			"id": 2,
 			"liked": false,
-			"name": "'Birdhouse Armanto Favorites...",
-			"title": "'Birdhouse Armanto Favorites...",
+			"name": "'Birdhouse Armando Favorites...",
+			"title": "'Birdhouse Armando Favorites...",
 			"price": "79.95",
-			"sold": "123 sold",
-			"imageFilename": "men/product_2.png",
+			"sold": "123",
+			"imageUrl": "2-routeOne-skateboard.png",
 			"categoryId": 1,
-			"subcategoryId": 4,
+			"subcategoryId": 5,
 			"brandId": 3
 		},
 		{
@@ -182,11 +171,11 @@
 			"name": "Thrasher Flame Logo Snapback",
 			"title": "Thrasher Flame Logo Snapback",
 			"price": "64.99",
-			"sold": "1233 sold",
-			"imageFilename": "men/product_3.png",
+			"sold": "1233",
+			"imageUrl": "3-carhartt-cap.png",
 			"categoryId": 1,
-			"subcategoryId": 3,
-			"brandId": 2
+			"subcategoryId": 4,
+			"brandId": 5
 		},
 		{
 			"id": 4,
@@ -194,11 +183,11 @@
 			"name": "Pull On Chino Short - Coconut Milk",
 			"title": "Pull On Chino Short - Coconut Milk",
 			"price": "47.99",
-			"sold": "1214 sold",
-			"imageFilename": "men/product_4.png",
+			"sold": "1214",
+			"imageUrl": "4-dc-clothes.png",
 			"categoryId": 1,
-			"subcategoryId": 1,
-			"brandId": 4
+			"subcategoryId": 2,
+			"brandId": 7
 		},
 		{
 			"id": 5,
@@ -206,11 +195,11 @@
 			"name": "Stage 3 Complete Skateboard",
 			"title": "Stage 3 Complete Skateboard",
 			"price": "59.99",
-			"sold": "764 sold",
-			"imageFilename": "men/product_5.png",
+			"sold": "764",
+			"imageUrl": "5-routeOne-skateboard.png",
 			"categoryId": 1,
-			"subcategoryId": 4,
-			"brandId": 5
+			"subcategoryId": 5,
+			"brandId": 3
 		},
 		{
 			"id": 6,
@@ -218,23 +207,23 @@
 			"name": "Herschel Supply Co. Settlement...",
 			"title": "Herschel Supply Co. Settlement...",
 			"price": "59.99",
-			"sold": "1573 sold",
-			"imageFilename": "men/product_6.png",
+			"sold": "1573",
+			"imageUrl": "6-kavu-bag.png",
 			"categoryId": 1,
-			"subcategoryId": 3,
-			"brandId": 6
+			"subcategoryId": 4,
+			"brandId": 11
 		},
 		{
 			"id": 7,
 			"liked": false,
-			"name": "REKD Elite 2.0 Helmet - Blue",
-			"title": "REKD Elite 2.0 Helmet - Blue",
+			"name": "Polar Elite 2.0 Helmet - Blue",
+			"title": "Polar Elite 2.0 Helmet - Blue",
 			"price": "34.95",
-			"sold": "364 sold",
-			"imageFilename": "men/product_7.png",
+			"sold": "364",
+			"imageUrl": "7-butter-sportCap.png",
 			"categoryId": 1,
-			"subcategoryId": 3,
-			"brandId": 1
+			"subcategoryId": 4,
+			"brandId": 10
 		},
 		{
 			"id": 8,
@@ -242,11 +231,11 @@
 			"name": "Element Cookie Skateboard...",
 			"title": "Element Cookie Skateboard...",
 			"price": "64.99",
-			"sold": "245 sold",
-			"imageFilename": "men/product_8.png",
+			"sold": "245",
+			"imageUrl": "8-routeOne-skateboard.png",
 			"categoryId": 1,
-			"subcategoryId": 4,
-			"brandId": 2
+			"subcategoryId": 5,
+			"brandId": 3
 		},
 		{
 			"id": 9,
@@ -254,23 +243,23 @@
 			"name": "Thrasher Flame Logo Snapback",
 			"title": "Thrasher Flame Logo Snapback",
 			"price": "64.99",
-			"sold": "1233 sold",
-			"imageFilename": "women/product_1.png",
+			"sold": "1233",
+			"imageUrl": "9-kavu-bag.png",
 			"categoryId": 2,
-			"subcategoryId": 1,
-			"brandId": 3
+			"subcategoryId": 4,
+			"brandId": 11
 		},
 		{
 			"id": 10,
 			"liked": true,
-			"name": "Birdhouse Armanto Favorites...",
-			"title": "Birdhouse Armanto Favorites...",
+			"name": "Birdhouse Armando Favorites...",
+			"title": "Birdhouse Armando Favorites...",
 			"price": "79.95",
-			"sold": "123 sold",
-			"imageFilename": "women/product_2.png",
+			"sold": "123",
+			"imageUrl": "10-routeOne-skateboard.png",
 			"categoryId": 2,
-			"subcategoryId": 4,
-			"brandId": 4
+			"subcategoryId": 5,
+			"brandId": 3
 		},
 		{
 			"id": 11,
@@ -278,11 +267,11 @@
 			"name": "Globe Surplus Skate Shoes",
 			"title": "Globe Surplus Skate Shoes",
 			"price": "54.99",
-			"sold": "1114 sold",
-			"imageFilename": "women/product_3.png",
+			"sold": "1114",
+			"imageUrl": "11-dc-clothes.png",
 			"categoryId": 2,
-			"subcategoryId": 1,
-			"brandId": 5
+			"subcategoryId": 2,
+			"brandId": 7
 		},
 		{
 			"id": 12,
@@ -290,11 +279,11 @@
 			"name": "Pull On Chino Short - Coconut Milk",
 			"title": "Pull On Chino Short - Coconut Milk",
 			"price": "47.99",
-			"sold": "1214 sold",
-			"imageFilename": "women/product_4.png",
+			"sold": "1214",
+			"imageUrl": "12-routeOne-wallet.png",
 			"categoryId": 2,
-			"subcategoryId": 3,
-			"brandId": 6
+			"subcategoryId": 4,
+			"brandId": 3
 		},
 		{
 			"id": 13,
@@ -302,11 +291,11 @@
 			"name": "Stage 3 Complete Skateboard",
 			"title": "Stage 3 Complete Skateboard",
 			"price": "59.99",
-			"sold": "764 sold",
-			"imageFilename": "women/product_5.png",
+			"sold": "764",
+			"imageUrl": "13-adidas-skateboard.png",
 			"categoryId": 2,
-			"subcategoryId": 4,
-			"brandId": 3
+			"subcategoryId": 5,
+			"brandId": 2
 		},
 		{
 			"id": 14,
@@ -314,23 +303,23 @@
 			"name": "Herschel Supply Co. Settlement...",
 			"title": "Herschel Supply Co. Settlement...",
 			"price": "59.99",
-			"sold": "1573 sold",
-			"imageFilename": "women/product_6.png",
+			"sold": "1573",
+			"imageUrl": "14-butter-bag.png",
 			"categoryId": 2,
-			"subcategoryId": 3,
-			"brandId": 1
+			"subcategoryId": 4,
+			"brandId": 10
 		},
 		{
 			"id": 15,
 			"liked": true,
-			"name": "REKD Elite 2.0 Helmet - Blue",
-			"title": "REKD Elite 2.0 Helmet - Blue",
+			"name": "Polar Elite 2.0 Helmet - Blue",
+			"title": "Polar Elite 2.0 Helmet - Blue",
 			"price": "34.95",
-			"sold": "364 sold",
-			"imageFilename": "women/product_7.png",
+			"sold": "364",
+			"imageUrl": "15-santaCruz-bag.png",
 			"categoryId": 2,
-			"subcategoryId": 3,
-			"brandId": 3
+			"subcategoryId": 4,
+			"brandId": 6
 		},
 		{
 			"id": 16,
@@ -338,12 +327,40 @@
 			"name": "Element Cookie Skateboard...",
 			"title": "Element Cookie Skateboard...",
 			"price": "64.99",
-			"sold": "245 sold",
-			"imageFilename": "women/product_8.png",
+			"sold": "245",
+			"imageUrl": "16-carhartt-clothes.png",
 			"categoryId": 2,
-			"subcategoryId": 1,
-			"brandId": 2
+			"subcategoryId": 2,
+			"brandId": 5
+		},
+		{
+			"id": 17,
+			"liked": false,
+			"name": "CTAS Pro Hi Skate Shoes",
+			"title": "CTAS Pro Hi Skate Shoes",
+			"price": "64.99",
+			"sold": "0",
+			"imageUrl": "17-converse-shoes.png",
+			"categoryId": 1,
+			"subcategoryId": 3,
+			"brandId": 9
+		},
+		{
+			"id": 18,
+			"liked": false,
+			"name": "Women Russet Pullover Hoodie",
+			"title": "Women Russet Pullover Hoodie",
+			"price": "64.99",
+			"sold": "0",
+			"imageUrl": "18-obey-clothes.png",
+			"categoryId": 2,
+			"subcategoryId": 2,
+			"brandId": 8
 		}
+	],
+	"fashionSeason": [
+		{ "id": 1, "name": "'White Widow' Pack", "imgUrl": "shoes.png", "categoryId": 1, "productId": 17 },
+		{ "id": 2, "name": "Favorites", "imgUrl": "clothes.png", "categoryId": 2, "productId": 17 }
 	],
 	"productAttributes": [
 		{
@@ -371,27 +388,27 @@
 		{
 			"id": 1,
 			"productId": 1,
-			"imageFilename": "skate_shoes_1.png"
+			"imageUrl": "skate_shoes_1.png"
 		},
 		{
 			"id": 2,
 			"productId": 1,
-			"imageFilename": "skate_shoes_2.png"
+			"imageUrl": "skate_shoes_2.png"
 		},
 		{
 			"id": 3,
 			"productId": 1,
-			"imageFilename": "skate_shoes_3.png"
+			"imageUrl": "skate_shoes_3.png"
 		},
 		{
 			"id": 4,
 			"productId": 1,
-			"imageFilename": "skate_shoes_4.png"
+			"imageUrl": "skate_shoes_4.png"
 		},
 		{
 			"id": 5,
 			"productId": 1,
-			"imageFilename": "skate_shoes_5.png"
+			"imageUrl": "skate_shoes_5.png"
 		}
 	],
 	"employees": [
@@ -404,7 +421,7 @@
 			"phone": "093 254 7683",
 			"email": "thanhtu@example.com",
 			"password": "123456",
-			"imageFilename": "marvel_captain.jpg",
+			"imageUrl": "marvel_captain.jpg",
 			"isWorking": true
 		},
 		{
@@ -416,7 +433,7 @@
 			"phone": "0932547816",
 			"email": "khoa@example.com",
 			"password": "123456",
-			"imageFilename": "marvel_thor.jpg",
+			"imageUrl": "marvel_thor.jpg",
 			"isWorking": true
 		},
 		{
@@ -428,7 +445,7 @@
 			"phone": "093 254 442",
 			"email": "minh@example.com",
 			"password": "123456",
-			"imageFilename": "marvel_hawkeye.jpg",
+			"imageUrl": "marvel_hawkeye.jpg",
 			"isWorking": false
 		},
 		{
@@ -440,7 +457,7 @@
 			"phone": "123 456 789",
 			"email": "man_united@example.com",
 			"password": "123456",
-			"imageFilename": "mu_bruno_fernandes.png",
+			"imageUrl": "mu_bruno_fernandes.png",
 			"isWorking": true
 		},
 		{
@@ -452,7 +469,7 @@
 			"phone": "123 456 789",
 			"email": "man_united@example.com",
 			"password": "123456",
-			"imageFilename": "mu_marcus_rashford.png",
+			"imageUrl": "mu_marcus_rashford.png",
 			"isWorking": true
 		},
 		{
@@ -464,7 +481,7 @@
 			"phone": "123 456 789",
 			"email": "man_united@example.com",
 			"password": "123456",
-			"imageFilename": "mu_antony.png",
+			"imageUrl": "mu_antony.png",
 			"isWorking": true
 		},
 		{
@@ -476,7 +493,7 @@
 			"phone": "987654321",
 			"email": "the_spurs@example.com",
 			"password": "123456",
-			"imageFilename": "tot_micky_van_de_ven.png",
+			"imageUrl": "tot_micky_van_de_ven.png",
 			"isWorking": true
 		},
 		{
@@ -488,7 +505,7 @@
 			"phone": "987 654 321",
 			"email": "the_spurs@example.com",
 			"password": "123456",
-			"imageFilename": "tot_son_heung_min.png",
+			"imageUrl": "tot_son_heung_min.png",
 			"isWorking": true
 		},
 		{
@@ -500,7 +517,7 @@
 			"phone": "987 654 321",
 			"email": "the_spurs@example.com",
 			"password": "123456",
-			"imageFilename": "tot_yves_bissouma.png",
+			"imageUrl": "tot_yves_bissouma.png",
 			"isWorking": true
 		},
 		{
@@ -512,7 +529,7 @@
 			"phone": "123 789 456",
 			"email": "@example.com",
 			"password": "123456",
-			"imageFilename": "crystal_liu_1.jpg",
+			"imageUrl": "crystal_liu_1.jpg",
 			"isWorking": true
 		},
 		{
@@ -524,7 +541,7 @@
 			"phone": "123 789 456",
 			"email": "@example.com",
 			"password": "123456",
-			"imageFilename": "crystal_liu_2.jpg",
+			"imageUrl": "crystal_liu_2.jpg",
 			"isWorking": true
 		},
 		{
@@ -536,7 +553,7 @@
 			"phone": "123 789 456",
 			"email": "@example.com",
 			"password": "123456",
-			"imageFilename": "crystal_liu_3.jpg",
+			"imageUrl": "crystal_liu_3.jpg",
 			"isWorking": true
 		}
 	]
