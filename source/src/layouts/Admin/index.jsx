@@ -13,7 +13,7 @@ const AdminLayout = ({ children }) => {
                 <Navigation />
                 <Main />
             </div>
-            <div className="content mh-100">
+            <div className="content position-absolute left-30 bg-white mh-100">
                 {children}
                 <FooterAdmin />
                 <GoToTopButton />

@@ -11,7 +11,7 @@ const BannerSection = () => {
     const { isModalOpen, handleOpenModal, handleCloseModal } = usePlayVideo();
 
     return (
-        <div className="banner_section grid">
+        <div className="banner_section grid mx-130 my-180">
             <div className="banner_section__section top-left px-10 py-8">
                 <Label text="New Season" className="text-white position-relative" />
                 <TitleSubtitle

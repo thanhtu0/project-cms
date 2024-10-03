@@ -55,7 +55,7 @@ const Fashion = ({ activeTab }) => {
                                 alt={fashionItem.title}
                             />
                         </div>
-                        <div className="fashion-text position-absolute bottom-0">
+                        <div className="fashion-text position-absolute left-30 bottom-0">
                             <p className="title fs-110 lh-125 fw-6">{fashionItem.title}</p>
                             <p className="subtitle position-absolute right-0 fs-110 lh-145 fw-6">
                                 {fashionItem.subtitle}

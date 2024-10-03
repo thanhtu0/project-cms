@@ -17,7 +17,7 @@ const Banner = ({ activeTab }) => {
     const { data: categories, loading: categoriesLoading, error: categoriesError } = useFetch(CATEGORIES_URL);
     const [categoryMap, setCategoryMap] = useState({});
     const { isModalOpen, handleOpenModal, handleCloseModal } = usePlayVideo();
-    const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         if (categories) {
@@ -37,15 +37,15 @@ const Banner = ({ activeTab }) => {
     
     const bannerImageUrl = useMemo(() => {
         if (filteredBanners.length === 0) return '';
-        return `${BANNER_IMAGES}/${getCategoryName(filteredBanners[currentBannerIndex].categoryId, categories)}/${
-            filteredBanners[currentBannerIndex].imageUrl
+        return `${BANNER_IMAGES}/${getCategoryName(filteredBanners[currentIndex].categoryId, categories)}/${
+            filteredBanners[currentIndex].imageUrl
         }`;
-    }, [filteredBanners, currentBannerIndex, categories]);
+    }, [filteredBanners, currentIndex, categories]);
 
     useEffect(() => {
         if (filteredBanners.length > 0) {
             const interval = setInterval(() => {
-                setCurrentBannerIndex((prevIndex) => (prevIndex + 1) % filteredBanners.length);
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % filteredBanners.length);
             }, 5000);
 
             return () => clearInterval(interval);
@@ -53,7 +53,7 @@ const Banner = ({ activeTab }) => {
     }, [filteredBanners.length]);
 
     const handleLineClick = (index) => {
-        setCurrentBannerIndex(index);
+        setCurrentIndex(index);
     };
 
     if (bannersLoading || categoriesLoading) return <Loading />;
@@ -65,19 +65,19 @@ const Banner = ({ activeTab }) => {
             {filteredBanners.length > 0 ? (
                 <div
                     className={`banner position-relative mw-144 flex flex-between px-13 ${
-                        filteredBanners[currentBannerIndex].categoryId % 2 === 0 ? 'even' : 'odd'
+                        filteredBanners[currentIndex].categoryId % 2 === 0 ? 'even' : 'odd'
                     }`}
                 >
                     <div className="banner-content">
                         <Label
-                            text={filteredBanners[currentBannerIndex].season}
+                            text={filteredBanners[currentIndex].season}
                             className="text-black position-relative label"
                         />
                         <p className="title fs-58 mt-16 fw-6 position-relative lh-72">
-                            {filteredBanners[currentBannerIndex].title}
+                            {filteredBanners[currentIndex].title}
                         </p>
                         <p className="sub-title fs-58 mt-16 fw-6 position-relative lh-72 ml-10">
-                            {filteredBanners[currentBannerIndex].subtitle}
+                            {filteredBanners[currentIndex].subtitle}
                         </p>
                         <div className="banner-btn flex mt-88">
                             <Button fill to="skateboard">
@@ -99,7 +99,7 @@ const Banner = ({ activeTab }) => {
                             {filteredBanners.map((_, index) => (
                                 <div
                                     key={index}
-                                    className={`slide-line ${index === currentBannerIndex ? 'active' : 'inactive'}`}
+                                    className={`slide-line ${index === currentIndex ? 'active' : 'inactive'}`}
                                     onClick={() => handleLineClick(index)}
                                 ></div>
                             ))}
@@ -107,16 +107,16 @@ const Banner = ({ activeTab }) => {
                     </div>
                     <div
                         className={`banner-image position-absolute ${
-                            filteredBanners[currentBannerIndex].categoryId % 2 === 0 ? 'even' : 'odd'
+                            filteredBanners[currentIndex].categoryId % 2 === 0 ? 'even' : 'odd'
                         }`}
                     >
                         <img
                             src={bannerImageUrl}
-                            alt={`${filteredBanners[currentBannerIndex].title} Banner`}
+                            alt={`${filteredBanners[currentIndex].title} Banner`}
                             className="banner-img"
                         />
                         <strong className="position-absolute text-end text-black">
-                            cordes.<p className="text-black-2">{filteredBanners[currentBannerIndex].title}</p>
+                            cordes.<p className="text-black-2">{filteredBanners[currentIndex].title}</p>
                         </strong>
                     </div>
                     <PlayVideo isOpen={isModalOpen} onClose={handleCloseModal}>

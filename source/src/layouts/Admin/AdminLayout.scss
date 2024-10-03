@@ -6,11 +6,8 @@
 }
 
 .content {
-    position: absolute;
     width: calc(100% - 300px);
     top: 60px;
-    left: 300px;
-    background: $clr-white;
     transition: 0.5s;
 
     &.active {
