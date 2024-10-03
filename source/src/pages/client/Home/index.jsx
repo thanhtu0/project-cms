@@ -1,5 +1,5 @@
 import { BannerSection, RouteOne } from '~/layouts/components';
-import { Fashion, ReleaseContainer, Season } from '~/layouts/components/Product';
+import { Fashion, Release, Season } from '~/layouts/components/Product';
 
 const Home = ({ activeTab }) => {
     return (
@@ -7,7 +7,7 @@ const Home = ({ activeTab }) => {
             <Fashion activeTab={activeTab} />
             <Season activeTab={activeTab} />
             <RouteOne />
-            <ReleaseContainer />
+            <Release activeTab={activeTab} />
             <BannerSection />
         </>
     );
