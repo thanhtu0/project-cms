@@ -102,7 +102,7 @@
     cursor: pointer;
     color: $clr-black;
     background-color: $clr-white;
-    border-color: $clr-black-9a;
+    border-color: $clr-gray-9a;
 
     &:hover {
         color: $clr-white;
@@ -121,8 +121,8 @@
     border-color: $clr-black;
 
     &.disabled {
-        color: $clr-black-9a;
-        border-color: $clr-black-9a;
+        color: $clr-gray-9a;
+        border-color: $clr-gray-9a;
         cursor: not-allowed;
         position: relative;
 

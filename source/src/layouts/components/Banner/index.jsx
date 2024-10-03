@@ -29,16 +29,14 @@ const Banner = ({ activeTab }) => {
         }
     }, [categories]);
 
-    // Memoized filtered banners
     const filteredBanners = useMemo(() => {
         return (banners || []).filter((banner) => {
             return categoryMap[activeTab] === banner.categoryId;
         });
     }, [banners, activeTab, categoryMap]);
-
-    // Memoized banner image URL
+    
     const bannerImageUrl = useMemo(() => {
-        if (filteredBanners.length === 0) return ''; // Fallback if don't have banner
+        if (filteredBanners.length === 0) return '';
         return `${BANNER_IMAGES}/${getCategoryName(filteredBanners[currentBannerIndex].categoryId, categories)}/${
             filteredBanners[currentBannerIndex].imageUrl
         }`;
