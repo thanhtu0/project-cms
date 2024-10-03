@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { Error, Loading } from '~/common';
+import { formatPhoneNumber } from '~/helpers/formatHelpers';
 import useFetch from '~/hooks/useFetch';
 import { CONTACT_URL } from '~/utils/apiURL';
 
@@ -19,7 +20,7 @@ const ContactSection = () => {
                     <strong>Company name:</strong> {store.companyName || 'N/A'}
                 </p>
                 <p className="text-white fs-14 fw-4" aria-label="Telephone number">
-                    <strong>Tel:</strong> {store.telephone || 'N/A'}
+                    <strong>Tel:</strong> {formatPhoneNumber(store.telephone)}
                 </p>
                 <p className="text-white fs-14 fw-4" aria-label="Email address">
                     <strong>Email:</strong> {store.email || 'N/A'}

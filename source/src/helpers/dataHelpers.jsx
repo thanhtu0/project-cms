@@ -1,11 +1,3 @@
-// slug Helper
-export const createSlug = (name) => {
-    return name
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '');
-};
-
 // getCategoryName Helper
 export const getCategoryName = (categoryId, categories) => {
     if (!Array.isArray(categories)) return 'Unknown';
@@ -17,7 +9,7 @@ export const getCategoryName = (categoryId, categories) => {
     return category ? category.name : 'Unknown';
 };
 
-// getCategoryName Helper
+// getBrandName Helper
 export const getBrandName = (brandId, brands) => {
     if (!Array.isArray(brands)) return 'Unknown';
 
@@ -28,11 +20,16 @@ export const getBrandName = (brandId, brands) => {
     return brand ? brand.name : 'Unknown';
 };
 
-// toggleVisibility Helper
-export const toggleVisibility = (prevState, section) => ({
-    ...prevState,
-    [section]: !prevState[section],
-});
+// getProductName Helper
+export const getProductName = (productId, products) => {
+    if (!Array.isArray(products)) return 'Unknown';
+
+    const parsedProductId = parseInt(productId, 10);
+    if (isNaN(parsedProductId)) return 'Unknown';
+
+    const product = products.find((p) => p.id === parsedProductId);
+    return product ? product.name : 'Unknown';
+};
 
 // splitAboutLinks Helper
 export const splitAboutLinks = (aboutLinks, splitPoint = 5) => {

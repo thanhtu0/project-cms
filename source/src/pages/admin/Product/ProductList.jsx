@@ -1,10 +1,10 @@
 import { Pagination } from '~/common';
 import { ListHeader, ListTable, ListTitle } from '~/common/List';
 import { Confirm } from '~/common/Modal';
+import { getCategoryName } from '~/helpers/dataHelpers';
 import { useDeleteModal, usePaginatedData } from '~/hooks';
 import useFetch from '~/hooks/useFetch';
 import { CATEGORIES_URL, PRODUCT_IMAGES, PRODUCTS_URL } from '~/utils/apiURL';
-import { getCategoryName } from '~/utils/helpers';
 
 const ProductList = () => {
     const {

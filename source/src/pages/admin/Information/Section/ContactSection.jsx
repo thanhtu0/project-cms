@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { Error, Loading } from '~/common';
 import Button from '~/components/Button';
+import { formatPhoneNumber } from '~/helpers/formatHelpers';
 import useFetch from '~/hooks/useFetch';
 import { CONTACT_URL } from '~/utils/apiURL';
 
@@ -67,7 +68,12 @@ const ContactSection = () => {
                     <label>Telephone:</label>
                 </div>
                 <div className="col-75">
-                    <input type="text" name="telephone" value={formData.telephone} onChange={handleChange} />
+                    <input
+                        type="text"
+                        name="telephone"
+                        value={formatPhoneNumber(formData.telephone)}
+                        onChange={handleChange}
+                    />
                 </div>
             </div>
             <div className="row">

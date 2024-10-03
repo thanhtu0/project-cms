@@ -3,9 +3,9 @@ import { ListHeader, ListTable, ListTitle } from '~/common/List';
 import { Pagination } from '~/common';
 import useFetch from '~/hooks/useFetch';
 import { BANNER_IMAGES, BANNERS_URL, CATEGORIES_URL } from '~/utils/apiURL';
-import { getCategoryName } from '~/utils/helpers';
 import { useDeleteModal, usePaginatedData } from '~/hooks';
 import { Confirm } from '~/common/Modal';
+import { getCategoryName } from '~/helpers/dataHelpers';
 
 const BannerList = () => {
     const {

@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Brand.scss';
 import useFetch from '~/hooks/useFetch';
 import { BRAND_IMAGES, BRANDS_URL } from '~/utils/apiURL';
-import { createSlug } from '~/utils/helpers';
 import { Error, Loading } from '~/common';
+import { createSlug } from '~/helpers/stringHelpers';
 
 const Brand = () => {
     const { data: brands, loading, error } = useFetch(`${BRANDS_URL}`);

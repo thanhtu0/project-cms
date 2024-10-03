@@ -14,7 +14,7 @@ import useFetch from '~/hooks/useFetch';
 import { useEffect, useMemo, useState } from 'react';
 import { Error, Loading } from '~/common';
 import { error } from '~/utils/images';
-import { getBrandName, getCategoryName } from '~/utils/helpers';
+import { getBrandName, getCategoryName } from '~/helpers/dataHelpers';
 
 const Season = ({ activeTab }) => {
     const { data: seasons, loading: seasonsLoading, error: seasonsError } = useFetch(FASHION_SEASON_URL);
@@ -93,7 +93,7 @@ const Season = ({ activeTab }) => {
                         <div className="img-season h-100">
                             <img
                                 style={{ maxHeight: '410px', maxWidth: '580px' }}
-                                src={`${FASHION_SEASON_IMAGES}/${filteredSeasons[currentIndex]?.imgUrl}`}
+                                src={`${FASHION_SEASON_IMAGES}/${filteredSeasons[currentIndex]?.imageUrl}`}
                                 alt={filteredSeasons[currentIndex]?.name}
                             />
                         </div>

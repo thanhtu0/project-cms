@@ -2,11 +2,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { Error, Loading } from '~/common';
 import { useNavigate } from 'react-router-dom';
-import { createSlug } from '~/utils/helpers';
 import Button from '~/components/Button';
 import useFetch from '~/hooks/useFetch';
 import { API_BASE_URL } from '~/utils/apiURL';
 import { memo } from 'react';
+import { createSlug } from '~/helpers/stringHelpers';
 
 const PaymentSection = () => {
     const { data: payments, loading: paymentsLoading, error: paymentsError } = useFetch(`${API_BASE_URL}/payment`);

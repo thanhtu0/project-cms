@@ -2,9 +2,9 @@ import { useState, useEffect, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Error, Loading } from '~/common';
 import Button from '~/components/Button';
+import { createSlug } from '~/helpers/stringHelpers';
 import useFetch from '~/hooks/useFetch';
 import { API_BASE_URL } from '~/utils/apiURL';
-import { createSlug } from '~/utils/helpers';
 
 const AboutSection = () => {
     const { data: about, loading: aboutLoading, error: aboutError } = useFetch(`${API_BASE_URL}/about`);

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Title } from '~/common';
 import ToggleSection from '~/components/ToggleSection';
 import { AboutSection, ContactSection, PaymentSection, SocialSection } from './Section';
-import { toggleVisibility } from '~/utils/helpers';
+import { toggleVisibility } from '~/helpers/uiHelpers';
 
 const Information = () => {
     const [visible, setVisible] = useState({

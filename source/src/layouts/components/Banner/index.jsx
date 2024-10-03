@@ -3,7 +3,6 @@ import './Banner.scss';
 import useFetch from '~/hooks/useFetch';
 import { useEffect, useState, useMemo } from 'react';
 import { Error, Loading } from '~/common';
-import { getCategoryName } from '~/utils/helpers';
 import { Button, Label } from '~/components';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +10,7 @@ import PlayVideo from '~/common/Modal/PlayVideo';
 import { skateboard_banner } from '~/utils/videos';
 import usePlayVideo from '~/hooks/usePlayVideo';
 import { error } from '~/utils/images';
+import { getCategoryName } from '~/helpers/dataHelpers';
 
 const Banner = ({ activeTab }) => {
     const { data: banners, loading: bannersLoading, error: bannersError } = useFetch(BANNERS_URL);

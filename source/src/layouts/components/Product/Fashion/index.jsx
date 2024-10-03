@@ -4,7 +4,7 @@ import { CATEGORIES_URL, FASHION_IMAGES, FASHION_PHOTOS_IMAGE, FASHION_PHOTOS_UR
 import { useEffect, useMemo, useState } from 'react';
 import { Error, Loading } from '~/common';
 import useFetch from '~/hooks/useFetch';
-import { getCategoryName } from '~/utils/helpers';
+import { getCategoryName } from '~/helpers/dataHelpers';
 
 const Fashion = ({ activeTab }) => {
     const { data: fashion, loading: fashionLoading, error: fashionError } = useFetch(FASHIONS_URL);
